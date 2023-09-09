@@ -1,9 +1,9 @@
 # three.ez
 
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=agargaro_three.ez&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=agargaro_three.ez)
-[![DeepScan grade](https://deepscan.io/api/teams/21196/projects/24621/branches/760420/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=21196&pid=24621&bid=760420)
-[![CodeFactor](https://www.codefactor.io/repository/github/agargaro/three.ez/badge/master)](https://www.codefactor.io/repository/github/agargaro/three.ez/overview/master)
-[![BundlePhobia](https://badgen.net/bundlephobia/min/@three.ez/main)](https://bundlephobia.com/package/@three.ez/main@2.4.13)
+[![DeepScan grade](https://deepscan.io/api/teams/21196/projects/25445/branches/796375/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=21196&pid=25445&bid=796375)
+[![CodeFactor](https://www.codefactor.io/repository/github/agargaro/three.ez/badge)](https://www.codefactor.io/repository/github/agargaro/three.ez)
+[![BundlePhobia](https://badgen.net/bundlephobia/min/@three.ez/main)](https://bundlephobia.com/package/@three.ez/main)
 
 **three.ez** is a library designed to simplify the development of a `three.js` application, allowing the easy creation of reusable and maintainable components and providing a host of other features.
 
