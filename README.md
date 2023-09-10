@@ -1,5 +1,6 @@
 # three.ez
 
+[![npm version](https://badge.fury.io/js/@three.ez%2Fmain.svg)](https://badge.fury.io/js/@three.ez%2Fmain)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=agargaro_three.ez&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=agargaro_three.ez)
 [![DeepScan grade](https://deepscan.io/api/teams/21196/projects/25445/branches/796375/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=21196&pid=25445&bid=796375)
 [![CodeFactor](https://www.codefactor.io/repository/github/agargaro/three.ez/badge)](https://www.codefactor.io/repository/github/agargaro/three.ez)
@@ -15,7 +16,10 @@ Automatically resizes `Renderer`, `Camera`, `EffectComposer`. Using `rendererRes
 
 ### Smart Rendering
 
-The smart rendering mode can be activated to render a frame only when necessary, optimizing performance and reducing unnecessary computational overhead.
+Smart rendering allows a frame to render only when it is needed, which is particularly useful when using mostly static scenes, optimizing performance and reducing unnecessary computational overhead.
+
+It is based on a `Scene` property called `needsRender`, which is changed automatically when there is a change in position, scale, rotation, visiblity, focus, removal or addition of object3D.
+It is also possible to change it manually, in cases where changes are not automatically identified.
 
 ### Simplified Multiple Rendering
 
@@ -70,6 +74,7 @@ import { Scene, Mesh, BoxGeometry, MeshNormalMaterial } from 'three';
 import { Main, PerspectiveCameraAuto } from '@three.ez/main';
 
 const box = new Mesh(new BoxGeometry(0.2, 0.2, 0.2), new MeshNormalMaterial());
+box.draggable = true;
 box.on('animate', (e) => box.rotateX(e.delta).rotateY(e.delta * 2));
 const scene = new Scene().add(box);
 const main = new Main();
@@ -82,9 +87,10 @@ Extended version (recommended):
 import { Scene as SceneBase, Mesh, BoxGeometry, MeshNormalMaterial } from 'three';
 import { Main as MainBase, PerspectiveCameraAuto } from '@three.ez/main';
 
-class Box extends Mesh {
+class DraggableBox extends Mesh {
   constructor() {
     super(new BoxGeometry(0.2, 0.2, 0.2), new MeshNormalMaterial());
+    this.draggable = true;
     this.on('animate', (e) => this.rotateX(e.delta).rotateY(e.delta * 2));
   }
 }
@@ -92,7 +98,7 @@ class Box extends Mesh {
 class Scene extends SceneBase {
   constructor() {
     super();
-    this.add(new Box());
+    this.add(new DraggableBox());
   }
 }
 
@@ -106,9 +112,9 @@ class Main extends MainBase {
 const main = new Main();
 ```
 
-## Override Typescript Definition
+## Override Typescript Type Definition
 
-To extend the definitions of three, go into `ts.config` and add this path:
+To extend the definitions of `three`, go into `ts.config` and add this path:
 
 ```javascript
 "compilerOptions": {
@@ -118,9 +124,44 @@ To extend the definitions of three, go into `ts.config` and add this path:
 }
 ```
 
-## Examples
+## Live Examples
 
-Work in progress...
+These examples use `vite` and some mobile devices may go out of memory. 
+There is one example without vite.
+
+[Collection](https://stackblitz.com/@agargaro/collections/three-ez)
+
+[Template](https://stackblitz.com/edit/three-ez-template?file=src%2Fmain.ts)
+
+[Template Small](https://stackblitz.com/edit/three-ez-template-small?file=src%2Fmain.ts)
+
+[Template No Vite](https://stackblitz.com/edit/three-ez-template-no-vite?file=index.ts)
+
+[Smart Rendering](https://stackblitz.com/edit/three-ez-smart-rendering?file=src%2Fmain.ts)
+
+[Multiple Views](https://stackblitz.com/edit/three-ez-multiple-views?file=src%2Fmain.ts)
+
+[Binding](https://stackblitz.com/edit/vitejs-vite-j2uyxi?file=src%2Fmain.ts)
+
+[Events](https://stackblitz.com/edit/vitejs-vite-ipfagt?file=src%2Fmain.ts)
+
+[Focus and blur with outline effect](https://stackblitz.com/edit/vitejs-vite-san61c?file=src%2Fmain.ts)
+
+[Drag and drop]()
+
+[Tweening]()
+
+[Hitbox]()
+
+[InstancedMeshEntity stars](https://stackblitz.com/edit/vitejs-vite-qxsxdf?file=src%2Fmain.ts)
+
+[InstancedMeshEntity performance](https://stackblitz.com/edit/vitejs-vite-fvhrfv?file=src%2Fmain.ts)
+
+[Click on scene to add box](https://stackblitz.com/edit/vitejs-vite-13esvn?file=src%2Fmain.ts)
+
+[LOD draggable](https://stackblitz.com/edit/vitejs-vite-za5n6a?file=src%2Fmain.ts)
+
+[Draggable box and OrbitControls](https://stackblitz.com/edit/vitejs-vite-dvbzgt?file=src%2Fmain.ts)
 
 ## Documentation
 
