@@ -23,4 +23,4 @@ class Main extends MainBase {
   }
 }
 
-const main = new Main();
+new Main();
