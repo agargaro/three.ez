@@ -1,4 +1,4 @@
-import { Mesh, Object3D, Scene } from "three";
+import { Camera, Group, Mesh, Object3D, Scene, WebGLRenderer } from "three";
 import { BufferGeometry, InstancedMesh as InstancedMeshBase, Material } from "three/index";
 import { Cursor, Events, InteractionEvents, Object3DExtPrototype, Tween } from "../index";
 
@@ -37,4 +37,13 @@ export class InstancedMesh<
     tween(): Tween<InstancedMesh>;
     override parent: Object3D;
     override children: Object3D[];
+    override traverse(callback: (object: Object3D) => any): void;
+    override traverseAncestors(callback: (object: Object3D) => any): void;
+    override traverseVisible(callback: (object: Object3D) => any): void;
+    override getObjectById(id: number): Object3D;
+    override getObjectByName(name: string): Object3D;
+    override getObjectByProperty(name: string, value: any): Object3D;
+    override getObjectsByProperty(name: string, value: any): Object3D[];
+    override onBeforeRender: (renderer: WebGLRenderer, scene: Scene, camera: Camera, geometry: BufferGeometry, material: Material, group: Group) => void;
+    override onAfterRender: (renderer: WebGLRenderer, scene: Scene, camera: Camera, geometry: BufferGeometry, material: Material, group: Group) => void;
 }

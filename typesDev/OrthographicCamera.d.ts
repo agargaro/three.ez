@@ -1,4 +1,4 @@
-import { Mesh, Object3D, Scene } from "three";
+import { BufferGeometry, Material, Mesh, Object3D, Scene, WebGLRenderer } from "three";
 import { OrthographicCamera as OrthographicCameraBase } from "three/index";
 import { BindingCallback, Cursor, Events, EventsDispatcher, InteractionEvents, Object3DExtPrototypeInternal, Tween } from "../src/index";
 
@@ -46,4 +46,13 @@ export class OrthographicCamera extends OrthographicCameraBase implements Object
     tween(): Tween<OrthographicCamera>;
     override parent: Object3D;
     override children: Object3D[];
+    override traverse(callback: (object: Object3D) => any): void;
+    override traverseAncestors(callback: (object: Object3D) => any): void;
+    override traverseVisible(callback: (object: Object3D) => any): void;
+    override getObjectById(id: number): Object3D;
+    override getObjectByName(name: string): Object3D;
+    override getObjectByProperty(name: string, value: any): Object3D;
+    override getObjectsByProperty(name: string, value: any): Object3D[];
+    override onBeforeRender: (renderer: WebGLRenderer, scene: any, camera: any, geometry: BufferGeometry, material: Material, group: any) => void;
+    override onAfterRender: (renderer: WebGLRenderer, scene: any, camera: any, geometry: BufferGeometry, material: Material, group: any) => void;
 }

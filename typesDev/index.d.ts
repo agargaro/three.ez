@@ -1,4 +1,5 @@
 export * from "./Camera";
+export * from "./Group";
 export * from "./InstancedMesh";
 export * from "./LOD";
 export * from "./Mesh";
