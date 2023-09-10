@@ -1,8 +1,8 @@
 import { BufferGeometry, Material, Mesh, Object3D, Scene, WebGLRenderer } from "three";
-import { Camera as CameraBase } from "three/index";
+import { Group as GroupBase } from "three/index";
 import { BindingCallback, Cursor, Events, EventsDispatcher, InteractionEvents, Object3DExtPrototypeInternal, Tween } from "../src/index";
 
-export class Camera extends CameraBase implements Object3DExtPrototypeInternal {
+export class Group extends GroupBase implements Object3DExtPrototypeInternal {
     __baseVisibleDescriptor: PropertyDescriptor;
     __isDropTarget: boolean;
     __boundCallbacks: BindingCallback[];
@@ -43,7 +43,7 @@ export class Camera extends CameraBase implements Object3DExtPrototypeInternal {
     detectChanges(recursive?: boolean): void;
     bindProperty<T extends keyof this>(property: T, getCallback: () => this[T], renderOnChange?: boolean): this;
     unbindProperty<T extends keyof this>(property: T): this;
-    tween(): Tween<Camera>;
+    tween(): Tween<Mesh>;
     override parent: Object3D;
     override children: Object3D[];
     override traverse(callback: (object: Object3D) => any): void;

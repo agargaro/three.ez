@@ -18,5 +18,8 @@
 	},
 	"include": [
 		"src/**/*.ts"
+	],
+	"exclude": [
+		"src/types"
 	]
 }
