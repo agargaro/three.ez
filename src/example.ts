@@ -1,11 +1,11 @@
 import { Scene as SceneBase, Mesh, BoxGeometry, MeshNormalMaterial } from 'three';
 import { Main as MainBase, PerspectiveCameraAuto } from './index';
 
+// This file is excluded from the ts.config file. In order to work with this example, remove this line. 
+
 class DraggableBox extends Mesh {
   constructor() {
     super(new BoxGeometry(0.2, 0.2, 0.2), new MeshNormalMaterial());
-    this.draggable = true;
-    this.on('animate', (e) => this.rotateX(e.delta).rotateY(e.delta * 2));
   }
 }
 
@@ -23,4 +23,4 @@ class Main extends MainBase {
   }
 }
 
-new Main();
+(window as any).main = new Main();
