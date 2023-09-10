@@ -4,10 +4,7 @@ import { applyWebGLRendererPatch } from "../patch/WebGLRenderer";
 import { DistinctTargetArray } from "../utils/DistinctTargetArray";
 import { RenderView, ViewParameters } from "./RenderView";
 
-/**
- * @internal
- * The RenderManager class manages the rendering of views and provides methods for manipulating views and their parameters.
- */
+/** @internal */
 export class RenderManager {
   public renderer: WebGLRenderer;
   public views: RenderView[] = [];
@@ -20,6 +17,7 @@ export class RenderManager {
   private _backgroundAlpha: number;
 
   public get activeScene(): Scene { return this.activeView?.scene }
+  public get hoveredScene(): Scene { return this.hoveredView?.scene }
 
   public get fullscreen(): boolean { return this._fullscreen }
   public set fullscreen(value: boolean) {
