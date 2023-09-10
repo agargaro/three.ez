@@ -46,9 +46,6 @@ export class Object3D extends Object3DBase implements Object3DExtPrototypeIntern
     tween(): Tween<Object3D>;
     override parent: Object3D;
     override children: Object3D[];
-    override add(...object: Object3D[]): this;
-    override remove(...object: Object3D[]): this;
-    override attach(object: Object3D): this;
     override traverse(callback: (object: Object3D) => any): void;
     override traverseAncestors(callback: (object: Object3D) => any): void;
     override traverseVisible(callback: (object: Object3D) => any): void;
