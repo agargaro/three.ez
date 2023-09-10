@@ -1,3 +1,10 @@
+
+/**
+ * This is the doc comment for CursorManager.ts
+ *
+ * @module my-module2
+ */
+
 import { Object3D } from "three";
 import { InstancedMesh2 } from "../instancedMesh/InstancedMesh2";
 
