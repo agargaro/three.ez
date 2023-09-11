@@ -1,7 +1,7 @@
 {
   "name": "@three.ez/main",
   "version": "0.0.4",
-  "description": "Simplifying three.js development",
+  "description": "Simplify three.js development, including events, drag & drop, binding, focus management, smart rendering and more.",
   "author": "agargaro",
   "license": "MIT",
   "main": "bundle.js",
@@ -14,7 +14,7 @@
     "events",
     "drag & drop",
     "smart rendering",
-    "multiple rendering",
+    "multiple views",
     "tweening",
     "focus & blur",
     "binding"

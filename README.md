@@ -6,7 +6,70 @@
 [![CodeFactor](https://www.codefactor.io/repository/github/agargaro/three.ez/badge)](https://www.codefactor.io/repository/github/agargaro/three.ez)
 [![BundlePhobia](https://badgen.net/bundlephobia/min/@three.ez/main)](https://bundlephobia.com/package/@three.ez/main)
 
-**three.ez** is a library designed to simplify the development of a `three.js` application, allowing the easy creation of reusable and maintainable components and providing a host of other features.
+**three.ez** is a library designed to simplify the development of a `three.js` application, enabling the easy creation of reusable and maintainable components and providing a range of other functionalities.
+It offers high performance on desktops and mobile devices.
+
+## How It Works
+
+The `Main` class handles rendering, resizing, events and all other functionality. <br>
+In addition, methods and properties have been added to the `Object3D` and `Scene` classes.
+
+<details>
+  <summary>Show Object3D properties and methods added</summary>
+
+  ```typescript
+  interface Object3DExtPrototype {
+    enabled: boolean;
+    interceptByRaycaster: boolean;
+    hitboxes: Mesh[];
+    focusable: boolean;
+    draggable: boolean;
+    findDropTarget: boolean;
+    scene: Scene;
+    cursor: Cursor;
+    cursorDrag: Cursor;
+    cursorDrop: Cursor;
+    needsRender: boolean;
+    get hovered(): boolean;
+    get focused(): boolean;
+    get clicking(): boolean;
+    get dragging(): boolean;
+    get enabledState(): boolean;
+    get firstFocusable(): Object3D;
+    applyFocus(): void;
+    applyBlur(): void;
+    on(type: string | string[], listener: (args?: any) => void): (args?: any) => void;
+    hasEvent(type: string, listener: (args?: any) => void): boolean;
+    off(type: string, listener: (args?: any) => void): void;
+    trigger(type: string, args?: any): void;
+    triggerAncestor(type: string, args?: any): void;
+    setManualDetectionMode(): void;
+    detectChanges(recursive?: boolean): void;
+    bindProperty(property: string, getCallback: () => any, renderOnChange?: boolean): this;
+    unbindProperty(property: string): this;
+    tween(): Tween<Object3D>;
+  }
+  ```
+</details>
+
+<details>
+  <summary>Show Scene properties and methods added</summary>
+
+  ```typescript
+  interface SceneExtPrototype {
+    continousRaycasting: boolean;
+    continousRaycastingDropTarget: boolean;
+    intersections: IntersectionExt[];
+    intersectionsDropTarget: IntersectionExt[];
+    focusedObject: Object3D;
+    blurOnClickOut: boolean;
+    timeScale: number;
+    totalTime: number;
+    activeSmartRendering(): this;
+    focus(target?: Object3D): void;
+  }
+  ```
+</details>
 
 ## Features
 
@@ -16,34 +79,108 @@ Automatically resizes `Renderer`, `Camera`, `EffectComposer`. Using `rendererRes
 
 ### Smart Rendering
 
-Smart rendering allows a frame to render only when it is needed, which is particularly useful when using mostly static scenes, optimizing performance and reducing unnecessary computational overhead.
-
-It is based on a `Scene` property called `needsRender`, which is changed automatically when there is a change in position, scale, rotation, visiblity, focus, removal or addition of object3D.
+Smart rendering allows a frame to render only when it is needed, which is particularly useful when using mostly static scenes, optimizing performance and reducing unnecessary computational overhead. <br>
+It is based on a `Scene` property called `needsRender`, which is changed automatically when there is a change in position, scale, rotation, visiblity, focus, removal or addition of `Object3D``.
 It is also possible to change it manually, in cases where changes are not automatically identified.
 
-### Simplified Multiple Rendering
+### Simplified Rendering
 
-It simplifies the handling of multiple renderings of different scenes or viewports on the same canvas.
+The rendering of viewports is handled by the `Main` class, using the `createView` method, which returns an instance of `RenderView`. <br>
+By modifying the various properties of this instance, various parameters can be changed, including: the size, position, background, interaction state, and visibility. 
+It is also possible to specify an `EffectComposer` for each RenderView to handle post-processing effects.
 
 ### Object3D Property Binding
 
-Bind the properties of `Object3D` to simplify management.
+It is possible to bind to a property of an `Object3D` the result of a callback, using the `bindProperty` method. <br>
+The bindings are computed automatically during each animate cycle.
+To manually compute the various bindings using the `setManualDetectionMode` and `detectChanges` methods.
 
 ### Event Programming
 
-Facilitates interaction with `Object3D` by adding a series of programmable events. The interaction events are dom-like, so they have the same propagation mechanics.
+It facilitates interaction with `Object3D` by adding a series of programmable events. <br>
+Interaction events work similarly to those in the DOM, having the same method of propagation.
+
+<details>
+  <summary>Show events list</summary>
+  <table>
+    <tr>
+      <th colspan="9" width="1000">Interaction Events</th>
+    </tr>
+    <tr>
+      <td>pointerover</td>
+      <td>pointerenter</td>
+      <td>pointerout</td>
+      <td>pointerleave</td>
+      <td>pointermove</td>
+      <td>pointerdown</td>
+      <td>pointerup</td>
+      <td>click</td>
+      <td>dblclick</td>
+    </tr>
+    <tr>
+      <td>pointerintersection</td>
+      <td>wheel</td>
+      <td>focusin</td>
+      <td>focusout</td>
+      <td>focus</td>
+      <td>blur</td>
+      <td>keydown</td>
+      <td>keyup</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>drag</td>
+      <td>dragstart</td>
+      <td>dragend</td>
+      <td>dragcancel</td>
+      <td>dragenter</td>
+      <td>dragover</td>
+      <td>dragleave</td>
+      <td>drop</td>
+      <td></td>
+    </tr>
+  </table>
+
+  <table>
+    <tr>
+      <th colspan="5" width="1000">Update Events</th>
+    </tr>
+    <tr>
+      <td>positionchange</td>
+      <td>scalechange</td>
+      <td>rotationchange</td>
+      <td>enabledchange</td>
+      <td>visiblechange</td>
+    </tr>
+  </table>
+
+  <table>
+    <tr>
+      <th colspan="4" width="1000">Misc Events</th>
+    </tr>
+    <tr>
+      <td>rendererresize</td>
+      <td>beforeanimate</td>
+      <td>animate</td>
+      <td>afteranimate</td>
+    </tr>
+  </table>
+</details>
 
 ### Focus and Blur
 
-Implement focus and blur interactions to enhance user experience and interactivity.
+Implements focus handling and related events to handle certain interactions more easily. <br>
+By setting the value of the `focusable` property of an `Object3D` you can determine whether it can receive focus.
 
 ### Drag and Drop
 
-Integrate drag and drop functionality.
+Implements drag and drop handling and related events by adding two properties to each `Object3D`:
+- **draggable**: makes an object draggable.
+- **findDropTarget**: determines whether intersections with drop targets will be checked during dragging.
 
 ### Tweening
 
-Implement smooth animations effortlessly with integrated tweening functionality.
+Implements smooth animations effortlessly with integrated tweening functionality.
 
 ### Raycasting Options
 
@@ -67,9 +204,9 @@ npm install @three.ez/main
 
 ## Usage
 
-Smaller version:
+### Small example of a simple animated and draggable box:
 
-```javascript
+```typescript
 import { Scene, Mesh, BoxGeometry, MeshNormalMaterial } from 'three';
 import { Main, PerspectiveCameraAuto } from '@three.ez/main';
 
@@ -81,9 +218,9 @@ const main = new Main();
 main.createView({ scene, camera: new PerspectiveCameraAuto(70).translateZ(1) });
 ```
 
-Extended version (recommended):
+### Extended example of a simple animated and draggable box:
 
-```javascript
+```typescript
 import { Scene as SceneBase, Mesh, BoxGeometry, MeshNormalMaterial } from 'three';
 import { Main as MainBase, PerspectiveCameraAuto } from '@three.ez/main';
 
@@ -129,39 +266,26 @@ To extend the definitions of `three`, go into `ts.config` and add this path:
 These examples use `vite` and some mobile devices may go out of memory. 
 There is one example without vite.
 
-[Collection](https://stackblitz.com/@agargaro/collections/three-ez)
-
-[Template](https://stackblitz.com/edit/three-ez-template?file=src%2Fmain.ts)
-
-[Template Small](https://stackblitz.com/edit/three-ez-template-small?file=src%2Fmain.ts)
-
-[Template No Vite](https://stackblitz.com/edit/three-ez-template-no-vite?file=index.ts)
-
-[Smart Rendering](https://stackblitz.com/edit/three-ez-smart-rendering?file=src%2Fmain.ts)
-
-[Multiple Views](https://stackblitz.com/edit/three-ez-multiple-views?file=src%2Fmain.ts)
-
-[Binding](https://stackblitz.com/edit/vitejs-vite-j2uyxi?file=src%2Fmain.ts)
-
-[Events](https://stackblitz.com/edit/vitejs-vite-ipfagt?file=src%2Fmain.ts)
-
-[Focus and blur with outline effect](https://stackblitz.com/edit/vitejs-vite-san61c?file=src%2Fmain.ts)
-
-[Drag and drop]()
-
-[Tweening]()
-
-[Hitbox]()
-
-[InstancedMeshEntity stars](https://stackblitz.com/edit/vitejs-vite-qxsxdf?file=src%2Fmain.ts)
-
-[InstancedMeshEntity performance](https://stackblitz.com/edit/vitejs-vite-fvhrfv?file=src%2Fmain.ts)
-
-[Click on scene to add box](https://stackblitz.com/edit/vitejs-vite-13esvn?file=src%2Fmain.ts)
-
-[LOD draggable](https://stackblitz.com/edit/vitejs-vite-za5n6a?file=src%2Fmain.ts)
-
-[Draggable box and OrbitControls](https://stackblitz.com/edit/vitejs-vite-dvbzgt?file=src%2Fmain.ts)
+- [Collection](https://stackblitz.com/@agargaro/collections/three-ez)
+- [Template](https://stackblitz.com/edit/three-ez-template?file=src%2Fmain.ts)
+— [Template Small](https://stackblitz.com/edit/three-ez-template-small?file=src%2Fmain.ts)
+— [Template No Vite](https://stackblitz.com/edit/three-ez-template-no-vite?file=index.ts)
+- [Smart Rendering](https://stackblitz.com/edit/three-ez-smart-rendering?file=src%2Fmain.ts)
+- [Multiple Views](https://stackblitz.com/edit/three-ez-multiple-views?file=src%2Fmain.ts)
+— [Multiple Views Wireframe](https://stackblitz.com/edit/three-ez-multiple-views-wireframe?file=src%2Fmain.ts)
+- [Binding](https://stackblitz.com/edit/three-ez-binding?file=src%2Fmain.ts)
+— [Binding Collisions](https://stackblitz.com/edit/three-ez-binding-collisions?file=src%2Fmain.ts)
+- [Events](https://stackblitz.com/edit/three-ez-events?file=src%2Fmain.ts)
+— [Click On Scene To Add Box](https://stackblitz.com/edit/three-ez-click-on-scene-to-add-box?file=src%2Fmain.ts)
+- [Focus]()
+— [Focus With Outline Post-Processing]()
+- [Drag & Drop]()
+— [LOD Draggable]()
+- [Tweening]()
+- [Hitbox]()
+- [InstancedMeshEntity]()
+— [InstancedMeshEntity Performance]()
+- [Draggable Box OrbitControls]()
 
 ## Documentation
 
@@ -173,4 +297,4 @@ Any help is highly appreciated. If you would like to contribute to this package 
 
 ## Questions?
 
-If you have questions or need assistance, you can open an issue in the package's repository.
+If you have questions or need assistance, you can open a post in the discussion section.
