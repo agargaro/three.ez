@@ -142,20 +142,22 @@ By setting the value of the `focusable` property of an `Object3D` you can determ
 ### Drag and Drop
 
 Implements drag and drop handling and related events by adding two properties to each `Object3D`:
-- **draggable**: makes an object draggable.
-- **findDropTarget**: determines whether intersections with drop targets will be checked during dragging.
+- `draggable`: makes an object draggable.
+- `findDropTarget`: determines whether intersections with drop targets will be checked during dragging.
 
-### Tweening
+The drag can be cancelled by pressing 'Esc'.
 
-Implements smooth animations effortlessly with integrated tweening functionality.
+### Hitbox Functionality
+
+Hitboxes can be used to handle a different intersection area or to simplify intersection calculations. 
 
 ### Raycasting Options
 
 Choose between continuous raycasting or raycasting only during mouse movement, providing flexibility in optimizing raycasting operations based on your application's requirements. In addition, there is the possibility to choose which objects can be intersected.
 
-### Hitbox Functionality
+### Tweening
 
-Hitboxes can be used to handle a different intersection area or to simplify intersection calculations. 
+Implements smooth animations effortlessly with integrated tweening functionality.
 
 ### Simplified InstancedMesh
 
@@ -574,15 +576,19 @@ There is one example without vite.
 — [Binding Collisions](https://stackblitz.com/edit/three-ez-binding-collisions?file=src%2Fmain.ts)
 - [Events](https://stackblitz.com/edit/three-ez-events?file=src%2Fmain.ts)
 — [Click On Scene To Add Box](https://stackblitz.com/edit/three-ez-click-on-scene-to-add-box?file=src%2Fmain.ts)
-- [Focus]()
-— [Focus With Outline Post-Processing]()
-- [Drag & Drop]()
-— [LOD Draggable]()
-- [Tweening]()
+- [Focus](https://stackblitz.com/edit/three-ez-focus?file=src%2Fmain.ts)
+— [Focus Outline (post-processing)](https://stackblitz.com/edit/three-ez-focus-outline?file=src%2Fmain.ts)
+- [Drag & Drop](https://stackblitz.com/edit/three-ez-drag-drop?file=src%2Fmain.ts)
+— [LOD Draggable](https://stackblitz.com/edit/three-ez-lod-draggable?file=src%2Fmain.ts)
+— [Drag Limits](https://stackblitz.com/edit/three-ez-drag-limits?file=src%2Fmain.ts)
+- [Continuous Raycasting]()
 - [Hitbox]()
+- [Tweening]()
 - [InstancedMeshEntity]()
+— [InstancedMeshEntity Drag]()
 — [InstancedMeshEntity Performance]()
 - [Draggable Box OrbitControls]()
+- [Textbox]()
 
 ## Documentation
 
