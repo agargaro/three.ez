@@ -36,6 +36,7 @@ module.exports = {
     new CopyPlugin({
       patterns: [
         { from: "README.md", to: "README.md" },
+        { from: "LICENSE", to: "LICENSE", toType: "file" },
         { from: "src/types", to: "types" },
       ]
     })
