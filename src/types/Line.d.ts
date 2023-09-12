@@ -1,5 +1,5 @@
 import { BufferGeometry, Material, Mesh, Object3D, Scene, WebGLRenderer } from "three";
-import { Line as LineBase } from "three/index";
+import { Line as LineBase, Object3D as Object3DBase } from "three/index";
 import { Cursor, Events, InteractionEvents, Object3DExtPrototype, Tween } from "../index";
 
 export class Line<
@@ -37,6 +37,9 @@ export class Line<
     tween(): Tween<Line>;
     override parent: Object3D;
     override children: Object3D[];
+    override add(...object: (Object3DBase | Object3D)[]): this;
+    override remove(...object: (Object3DBase | Object3D)[]): this;
+    override attach(object: Object3DBase | Object3D): this;
     override traverse(callback: (object: Object3D) => any): void;
     override traverseAncestors(callback: (object: Object3D) => any): void;
     override traverseVisible(callback: (object: Object3D) => any): void;
