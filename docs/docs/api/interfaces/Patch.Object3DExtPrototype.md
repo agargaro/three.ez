@@ -19,7 +19,7 @@ Cursor style when interacting with the object.
 
 #### Defined in
 
-[src/patch/Object3D.ts:53](https://github.com/agargaro/three.ez/blob/3bc2c12/src/patch/Object3D.ts#L53)
+[src/patch/Object3D.ts:53](https://github.com/agargaro/three.ez/blob/2012bca/src/patch/Object3D.ts#L53)
 
 ___
 
@@ -31,7 +31,7 @@ Cursor style when dragging the object.
 
 #### Defined in
 
-[src/patch/Object3D.ts:55](https://github.com/agargaro/three.ez/blob/3bc2c12/src/patch/Object3D.ts#L55)
+[src/patch/Object3D.ts:55](https://github.com/agargaro/three.ez/blob/2012bca/src/patch/Object3D.ts#L55)
 
 ___
 
@@ -43,7 +43,7 @@ Cursor style when dropping an object onto this one.
 
 #### Defined in
 
-[src/patch/Object3D.ts:57](https://github.com/agargaro/three.ez/blob/3bc2c12/src/patch/Object3D.ts#L57)
+[src/patch/Object3D.ts:57](https://github.com/agargaro/three.ez/blob/2012bca/src/patch/Object3D.ts#L57)
 
 ___
 
@@ -55,7 +55,7 @@ Indicates whether the object is draggable (default: false).
 
 #### Defined in
 
-[src/patch/Object3D.ts:47](https://github.com/agargaro/three.ez/blob/3bc2c12/src/patch/Object3D.ts#L47)
+[src/patch/Object3D.ts:47](https://github.com/agargaro/three.ez/blob/2012bca/src/patch/Object3D.ts#L47)
 
 ___
 
@@ -68,7 +68,7 @@ If set to true, it allows triggering all InteractionEvents; otherwise, events ar
 
 #### Defined in
 
-[src/patch/Object3D.ts:39](https://github.com/agargaro/three.ez/blob/3bc2c12/src/patch/Object3D.ts#L39)
+[src/patch/Object3D.ts:39](https://github.com/agargaro/three.ez/blob/2012bca/src/patch/Object3D.ts#L39)
 
 ___
 
@@ -80,7 +80,7 @@ Determines when the object is dragged, whether it will have to search for any dr
 
 #### Defined in
 
-[src/patch/Object3D.ts:49](https://github.com/agargaro/three.ez/blob/3bc2c12/src/patch/Object3D.ts#L49)
+[src/patch/Object3D.ts:49](https://github.com/agargaro/three.ez/blob/2012bca/src/patch/Object3D.ts#L49)
 
 ___
 
@@ -92,7 +92,7 @@ Indicates whether the object can receive focus (default: true).
 
 #### Defined in
 
-[src/patch/Object3D.ts:45](https://github.com/agargaro/three.ez/blob/3bc2c12/src/patch/Object3D.ts#L45)
+[src/patch/Object3D.ts:45](https://github.com/agargaro/three.ez/blob/2012bca/src/patch/Object3D.ts#L45)
 
 ___
 
@@ -104,7 +104,7 @@ Array of hitboxes for collision detection.
 
 #### Defined in
 
-[src/patch/Object3D.ts:43](https://github.com/agargaro/three.ez/blob/3bc2c12/src/patch/Object3D.ts#L43)
+[src/patch/Object3D.ts:43](https://github.com/agargaro/three.ez/blob/2012bca/src/patch/Object3D.ts#L43)
 
 ___
 
@@ -116,7 +116,7 @@ Determines if the object can be intercepted by a raycaster (default: true).
 
 #### Defined in
 
-[src/patch/Object3D.ts:41](https://github.com/agargaro/three.ez/blob/3bc2c12/src/patch/Object3D.ts#L41)
+[src/patch/Object3D.ts:41](https://github.com/agargaro/three.ez/blob/2012bca/src/patch/Object3D.ts#L41)
 
 ___
 
@@ -128,7 +128,7 @@ Indicates whether the scene needs rendering.
 
 #### Defined in
 
-[src/patch/Object3D.ts:59](https://github.com/agargaro/three.ez/blob/3bc2c12/src/patch/Object3D.ts#L59)
+[src/patch/Object3D.ts:59](https://github.com/agargaro/three.ez/blob/2012bca/src/patch/Object3D.ts#L59)
 
 ___
 
@@ -140,7 +140,7 @@ Reference to the scene the object belongs to.
 
 #### Defined in
 
-[src/patch/Object3D.ts:51](https://github.com/agargaro/three.ez/blob/3bc2c12/src/patch/Object3D.ts#L51)
+[src/patch/Object3D.ts:51](https://github.com/agargaro/three.ez/blob/2012bca/src/patch/Object3D.ts#L51)
 
 ## Accessors
 
@@ -156,7 +156,7 @@ Indicates if the object is currently being clicked.
 
 #### Defined in
 
-[src/patch/Object3D.ts:65](https://github.com/agargaro/three.ez/blob/3bc2c12/src/patch/Object3D.ts#L65)
+[src/patch/Object3D.ts:65](https://github.com/agargaro/three.ez/blob/2012bca/src/patch/Object3D.ts#L65)
 
 ___
 
@@ -172,7 +172,7 @@ Indicates if the object is currently being dragged.
 
 #### Defined in
 
-[src/patch/Object3D.ts:67](https://github.com/agargaro/three.ez/blob/3bc2c12/src/patch/Object3D.ts#L67)
+[src/patch/Object3D.ts:67](https://github.com/agargaro/three.ez/blob/2012bca/src/patch/Object3D.ts#L67)
 
 ___
 
@@ -188,7 +188,7 @@ Retrieves the combined enabled state considering parent objects.
 
 #### Defined in
 
-[src/patch/Object3D.ts:69](https://github.com/agargaro/three.ez/blob/3bc2c12/src/patch/Object3D.ts#L69)
+[src/patch/Object3D.ts:69](https://github.com/agargaro/three.ez/blob/2012bca/src/patch/Object3D.ts#L69)
 
 ___
 
@@ -204,7 +204,7 @@ Retrieves the first possibile focusable object.
 
 #### Defined in
 
-[src/patch/Object3D.ts:71](https://github.com/agargaro/three.ez/blob/3bc2c12/src/patch/Object3D.ts#L71)
+[src/patch/Object3D.ts:71](https://github.com/agargaro/three.ez/blob/2012bca/src/patch/Object3D.ts#L71)
 
 ___
 
@@ -220,7 +220,7 @@ Indicates if the object is currently focused.
 
 #### Defined in
 
-[src/patch/Object3D.ts:63](https://github.com/agargaro/three.ez/blob/3bc2c12/src/patch/Object3D.ts#L63)
+[src/patch/Object3D.ts:63](https://github.com/agargaro/three.ez/blob/2012bca/src/patch/Object3D.ts#L63)
 
 ___
 
@@ -236,7 +236,7 @@ Indicates if the primary pointer is over this object.
 
 #### Defined in
 
-[src/patch/Object3D.ts:61](https://github.com/agargaro/three.ez/blob/3bc2c12/src/patch/Object3D.ts#L61)
+[src/patch/Object3D.ts:61](https://github.com/agargaro/three.ez/blob/2012bca/src/patch/Object3D.ts#L61)
 
 ## Methods
 
@@ -252,7 +252,7 @@ Applies blur (removes focus) from the object.
 
 #### Defined in
 
-[src/patch/Object3D.ts:79](https://github.com/agargaro/three.ez/blob/3bc2c12/src/patch/Object3D.ts#L79)
+[src/patch/Object3D.ts:79](https://github.com/agargaro/three.ez/blob/2012bca/src/patch/Object3D.ts#L79)
 
 ___
 
@@ -268,7 +268,7 @@ Applies focus to the object.
 
 #### Defined in
 
-[src/patch/Object3D.ts:75](https://github.com/agargaro/three.ez/blob/3bc2c12/src/patch/Object3D.ts#L75)
+[src/patch/Object3D.ts:75](https://github.com/agargaro/three.ez/blob/2012bca/src/patch/Object3D.ts#L75)
 
 ___
 
@@ -300,7 +300,7 @@ The instance of the object with the binding applied.
 
 #### Defined in
 
-[src/patch/Object3D.ts:131](https://github.com/agargaro/three.ez/blob/3bc2c12/src/patch/Object3D.ts#L131)
+[src/patch/Object3D.ts:131](https://github.com/agargaro/three.ez/blob/2012bca/src/patch/Object3D.ts#L131)
 
 ___
 
@@ -323,7 +323,7 @@ If 'recursive' is set to true, it will also calculate bindings for all children.
 
 #### Defined in
 
-[src/patch/Object3D.ts:123](https://github.com/agargaro/three.ez/blob/3bc2c12/src/patch/Object3D.ts#L123)
+[src/patch/Object3D.ts:123](https://github.com/agargaro/three.ez/blob/2012bca/src/patch/Object3D.ts#L123)
 
 ___
 
@@ -354,7 +354,7 @@ Checks if the object has a specific event listener.
 
 #### Defined in
 
-[src/patch/Object3D.ts:93](https://github.com/agargaro/three.ez/blob/3bc2c12/src/patch/Object3D.ts#L93)
+[src/patch/Object3D.ts:93](https://github.com/agargaro/three.ez/blob/2012bca/src/patch/Object3D.ts#L93)
 
 ___
 
@@ -383,7 +383,7 @@ Removes an event listener from the object.
 
 #### Defined in
 
-[src/patch/Object3D.ts:99](https://github.com/agargaro/three.ez/blob/3bc2c12/src/patch/Object3D.ts#L99)
+[src/patch/Object3D.ts:99](https://github.com/agargaro/three.ez/blob/2012bca/src/patch/Object3D.ts#L99)
 
 ___
 
@@ -430,7 +430,7 @@ A function to remove the event listener.
 
 #### Defined in
 
-[src/patch/Object3D.ts:86](https://github.com/agargaro/three.ez/blob/3bc2c12/src/patch/Object3D.ts#L86)
+[src/patch/Object3D.ts:86](https://github.com/agargaro/three.ez/blob/2012bca/src/patch/Object3D.ts#L86)
 
 ___
 
@@ -448,7 +448,7 @@ Instead, they must be manually computed using the 'detectChanges' function.
 
 #### Defined in
 
-[src/patch/Object3D.ts:117](https://github.com/agargaro/three.ez/blob/3bc2c12/src/patch/Object3D.ts#L117)
+[src/patch/Object3D.ts:117](https://github.com/agargaro/three.ez/blob/2012bca/src/patch/Object3D.ts#L117)
 
 ___
 
@@ -477,7 +477,7 @@ Triggers a specific event on the object.
 
 #### Defined in
 
-[src/patch/Object3D.ts:105](https://github.com/agargaro/three.ez/blob/3bc2c12/src/patch/Object3D.ts#L105)
+[src/patch/Object3D.ts:105](https://github.com/agargaro/three.ez/blob/2012bca/src/patch/Object3D.ts#L105)
 
 ___
 
@@ -506,7 +506,7 @@ Triggers a specific event on the object and all its ancestors.
 
 #### Defined in
 
-[src/patch/Object3D.ts:111](https://github.com/agargaro/three.ez/blob/3bc2c12/src/patch/Object3D.ts#L111)
+[src/patch/Object3D.ts:111](https://github.com/agargaro/three.ez/blob/2012bca/src/patch/Object3D.ts#L111)
 
 ___
 
@@ -524,7 +524,7 @@ A Tween instance for further configuration.
 
 #### Defined in
 
-[src/patch/Object3D.ts:142](https://github.com/agargaro/three.ez/blob/3bc2c12/src/patch/Object3D.ts#L142)
+[src/patch/Object3D.ts:142](https://github.com/agargaro/three.ez/blob/2012bca/src/patch/Object3D.ts#L142)
 
 ___
 
@@ -554,4 +554,4 @@ The instance of the object with the binding removed.
 
 #### Defined in
 
-[src/patch/Object3D.ts:137](https://github.com/agargaro/three.ez/blob/3bc2c12/src/patch/Object3D.ts#L137)
+[src/patch/Object3D.ts:137](https://github.com/agargaro/three.ez/blob/2012bca/src/patch/Object3D.ts#L137)

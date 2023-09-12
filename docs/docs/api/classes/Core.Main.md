@@ -24,7 +24,7 @@ It provides configuration options and methods for setting up and controlling the
 
 #### Defined in
 
-[src/core/Main.ts:152](https://github.com/agargaro/three.ez/blob/3bc2c12/src/core/Main.ts#L152)
+[src/core/Main.ts:152](https://github.com/agargaro/three.ez/blob/2012bca/src/core/Main.ts#L152)
 
 ## Properties
 
@@ -36,7 +36,7 @@ A static counter representing the number of animation frames elapsed.
 
 #### Defined in
 
-[src/core/Main.ts:54](https://github.com/agargaro/three.ez/blob/3bc2c12/src/core/Main.ts#L54)
+[src/core/Main.ts:54](https://github.com/agargaro/three.ez/blob/2012bca/src/core/Main.ts#L54)
 
 ## Accessors
 
@@ -52,7 +52,7 @@ The Camera associated with the currently active RenderView.
 
 #### Defined in
 
-[src/core/Main.ts:86](https://github.com/agargaro/three.ez/blob/3bc2c12/src/core/Main.ts#L86)
+[src/core/Main.ts:86](https://github.com/agargaro/three.ez/blob/2012bca/src/core/Main.ts#L86)
 
 ___
 
@@ -68,7 +68,7 @@ The EffectComposer (used for post-processing) associated with the currently acti
 
 #### Defined in
 
-[src/core/Main.ts:91](https://github.com/agargaro/three.ez/blob/3bc2c12/src/core/Main.ts#L91)
+[src/core/Main.ts:91](https://github.com/agargaro/three.ez/blob/2012bca/src/core/Main.ts#L91)
 
 ___
 
@@ -84,7 +84,7 @@ The Scene associated with the currently active RenderView.
 
 #### Defined in
 
-[src/core/Main.ts:81](https://github.com/agargaro/three.ez/blob/3bc2c12/src/core/Main.ts#L81)
+[src/core/Main.ts:81](https://github.com/agargaro/three.ez/blob/2012bca/src/core/Main.ts#L81)
 
 ___
 
@@ -100,7 +100,7 @@ The currently active RenderView (activated by mouse position).
 
 #### Defined in
 
-[src/core/Main.ts:76](https://github.com/agargaro/three.ez/blob/3bc2c12/src/core/Main.ts#L76)
+[src/core/Main.ts:76](https://github.com/agargaro/three.ez/blob/2012bca/src/core/Main.ts#L76)
 
 ___
 
@@ -116,7 +116,7 @@ The default alpha (transparency) value for the background.
 
 #### Defined in
 
-[src/core/Main.ts:140](https://github.com/agargaro/three.ez/blob/3bc2c12/src/core/Main.ts#L140)
+[src/core/Main.ts:140](https://github.com/agargaro/three.ez/blob/2012bca/src/core/Main.ts#L140)
 
 ___
 
@@ -132,7 +132,7 @@ The default background color used in the application.
 
 #### Defined in
 
-[src/core/Main.ts:134](https://github.com/agargaro/three.ez/blob/3bc2c12/src/core/Main.ts#L134)
+[src/core/Main.ts:134](https://github.com/agargaro/three.ez/blob/2012bca/src/core/Main.ts#L134)
 
 ___
 
@@ -148,7 +148,7 @@ A boolean flag indicating whether to enable cursor handling in the application.
 
 #### Defined in
 
-[src/core/Main.ts:117](https://github.com/agargaro/three.ez/blob/3bc2c12/src/core/Main.ts#L117)
+[src/core/Main.ts:117](https://github.com/agargaro/three.ez/blob/2012bca/src/core/Main.ts#L117)
 
 ___
 
@@ -165,7 +165,7 @@ Provides the x and y coordinates of the mouse pointer within the application.
 
 #### Defined in
 
-[src/core/Main.ts:147](https://github.com/agargaro/three.ez/blob/3bc2c12/src/core/Main.ts#L147)
+[src/core/Main.ts:147](https://github.com/agargaro/three.ez/blob/2012bca/src/core/Main.ts#L147)
 
 ___
 
@@ -181,7 +181,7 @@ A boolean flag indicating whether to enable multitouch interactions.
 
 #### Defined in
 
-[src/core/Main.ts:111](https://github.com/agargaro/three.ez/blob/3bc2c12/src/core/Main.ts#L111)
+[src/core/Main.ts:111](https://github.com/agargaro/three.ez/blob/2012bca/src/core/Main.ts#L111)
 
 ___
 
@@ -197,7 +197,7 @@ A Raycaster instance responsible for handling raycasting operations in the appli
 
 #### Defined in
 
-[src/core/Main.ts:129](https://github.com/agargaro/three.ez/blob/3bc2c12/src/core/Main.ts#L129)
+[src/core/Main.ts:129](https://github.com/agargaro/three.ez/blob/2012bca/src/core/Main.ts#L129)
 
 ___
 
@@ -213,7 +213,7 @@ A custom sorting comparer function used to order intersections when performing r
 
 #### Defined in
 
-[src/core/Main.ts:123](https://github.com/agargaro/three.ez/blob/3bc2c12/src/core/Main.ts#L123)
+[src/core/Main.ts:123](https://github.com/agargaro/three.ez/blob/2012bca/src/core/Main.ts#L123)
 
 ___
 
@@ -229,7 +229,7 @@ The WebGLRenderer instance used for rendering the 3D scene.
 
 #### Defined in
 
-[src/core/Main.ts:65](https://github.com/agargaro/three.ez/blob/3bc2c12/src/core/Main.ts#L65)
+[src/core/Main.ts:65](https://github.com/agargaro/three.ez/blob/2012bca/src/core/Main.ts#L65)
 
 ___
 
@@ -246,7 +246,7 @@ If set to true, statistics will be shown; otherwise, they will be hidden.
 
 #### Defined in
 
-[src/core/Main.ts:97](https://github.com/agargaro/three.ez/blob/3bc2c12/src/core/Main.ts#L97)
+[src/core/Main.ts:97](https://github.com/agargaro/three.ez/blob/2012bca/src/core/Main.ts#L97)
 
 ___
 
@@ -263,7 +263,7 @@ Lists all views created and managed by the application, each representing a sepa
 
 #### Defined in
 
-[src/core/Main.ts:71](https://github.com/agargaro/three.ez/blob/3bc2c12/src/core/Main.ts#L71)
+[src/core/Main.ts:71](https://github.com/agargaro/three.ez/blob/2012bca/src/core/Main.ts#L71)
 
 ## Methods
 
@@ -285,7 +285,7 @@ Adds a RenderView to the RenderManager.
 
 #### Defined in
 
-[src/core/Main.ts:224](https://github.com/agargaro/three.ez/blob/3bc2c12/src/core/Main.ts#L224)
+[src/core/Main.ts:224](https://github.com/agargaro/three.ez/blob/2012bca/src/core/Main.ts#L224)
 
 ___
 
@@ -301,7 +301,7 @@ Clears all RenderViews from the RenderManager.
 
 #### Defined in
 
-[src/core/Main.ts:256](https://github.com/agargaro/three.ez/blob/3bc2c12/src/core/Main.ts#L256)
+[src/core/Main.ts:256](https://github.com/agargaro/three.ez/blob/2012bca/src/core/Main.ts#L256)
 
 ___
 
@@ -325,7 +325,7 @@ The created RenderView instance.
 
 #### Defined in
 
-[src/core/Main.ts:216](https://github.com/agargaro/three.ez/blob/3bc2c12/src/core/Main.ts#L216)
+[src/core/Main.ts:216](https://github.com/agargaro/three.ez/blob/2012bca/src/core/Main.ts#L216)
 
 ___
 
@@ -347,7 +347,7 @@ Retrieves a RenderView by mouse position.
 
 #### Defined in
 
-[src/core/Main.ts:264](https://github.com/agargaro/three.ez/blob/3bc2c12/src/core/Main.ts#L264)
+[src/core/Main.ts:264](https://github.com/agargaro/three.ez/blob/2012bca/src/core/Main.ts#L264)
 
 ___
 
@@ -371,7 +371,7 @@ The RenderView with the specified tag, if found, otherwise, undefined.
 
 #### Defined in
 
-[src/core/Main.ts:233](https://github.com/agargaro/three.ez/blob/3bc2c12/src/core/Main.ts#L233)
+[src/core/Main.ts:233](https://github.com/agargaro/three.ez/blob/2012bca/src/core/Main.ts#L233)
 
 ___
 
@@ -393,7 +393,7 @@ Removes a RenderView from the RenderManager.
 
 #### Defined in
 
-[src/core/Main.ts:241](https://github.com/agargaro/three.ez/blob/3bc2c12/src/core/Main.ts#L241)
+[src/core/Main.ts:241](https://github.com/agargaro/three.ez/blob/2012bca/src/core/Main.ts#L241)
 
 ___
 
@@ -415,7 +415,7 @@ Removes a RenderView from the RenderManager by its tag.
 
 #### Defined in
 
-[src/core/Main.ts:249](https://github.com/agargaro/three.ez/blob/3bc2c12/src/core/Main.ts#L249)
+[src/core/Main.ts:249](https://github.com/agargaro/three.ez/blob/2012bca/src/core/Main.ts#L249)
 
 ___
 
@@ -437,4 +437,4 @@ Sets active RenderViews by tag.
 
 #### Defined in
 
-[src/core/Main.ts:272](https://github.com/agargaro/three.ez/blob/3bc2c12/src/core/Main.ts#L272)
+[src/core/Main.ts:272](https://github.com/agargaro/three.ez/blob/2012bca/src/core/Main.ts#L272)

@@ -19,7 +19,7 @@ A callback function executed for each frame.
 
 #### Defined in
 
-[src/core/Main.ts:39](https://github.com/agargaro/three.ez/blob/3bc2c12/src/core/Main.ts#L39)
+[src/core/Main.ts:39](https://github.com/agargaro/three.ez/blob/2012bca/src/core/Main.ts#L39)
 
 ___
 
@@ -31,7 +31,7 @@ The default alpha (transparency) value for the background (default: 1).
 
 #### Defined in
 
-[src/core/Main.ts:37](https://github.com/agargaro/three.ez/blob/3bc2c12/src/core/Main.ts#L37)
+[src/core/Main.ts:37](https://github.com/agargaro/three.ez/blob/2012bca/src/core/Main.ts#L37)
 
 ___
 
@@ -43,7 +43,7 @@ The default background color (default: black).
 
 #### Defined in
 
-[src/core/Main.ts:35](https://github.com/agargaro/three.ez/blob/3bc2c12/src/core/Main.ts#L35)
+[src/core/Main.ts:35](https://github.com/agargaro/three.ez/blob/2012bca/src/core/Main.ts#L35)
 
 ___
 
@@ -55,7 +55,7 @@ A boolean flag indicating whether to disable the context menu on right-click (de
 
 #### Defined in
 
-[src/core/Main.ts:33](https://github.com/agargaro/three.ez/blob/3bc2c12/src/core/Main.ts#L33)
+[src/core/Main.ts:33](https://github.com/agargaro/three.ez/blob/2012bca/src/core/Main.ts#L33)
 
 ___
 
@@ -67,7 +67,7 @@ A boolean flag indicating whether to enable cursor handling in the application (
 
 #### Defined in
 
-[src/core/Main.ts:43](https://github.com/agargaro/three.ez/blob/3bc2c12/src/core/Main.ts#L43)
+[src/core/Main.ts:43](https://github.com/agargaro/three.ez/blob/2012bca/src/core/Main.ts#L43)
 
 ___
 
@@ -79,7 +79,7 @@ A Boolean flag indicating whether to enable full-screen mode and perform automat
 
 #### Defined in
 
-[src/core/Main.ts:29](https://github.com/agargaro/three.ez/blob/3bc2c12/src/core/Main.ts#L29)
+[src/core/Main.ts:29](https://github.com/agargaro/three.ez/blob/2012bca/src/core/Main.ts#L29)
 
 ___
 
@@ -91,7 +91,7 @@ A boolean flag indicating whether to enable multitouch interactions (default: fa
 
 #### Defined in
 
-[src/core/Main.ts:45](https://github.com/agargaro/three.ez/blob/3bc2c12/src/core/Main.ts#L45)
+[src/core/Main.ts:45](https://github.com/agargaro/three.ez/blob/2012bca/src/core/Main.ts#L45)
 
 ___
 
@@ -103,7 +103,7 @@ Configuration parameters for the WebGLRenderer.
 
 #### Defined in
 
-[src/core/Main.ts:41](https://github.com/agargaro/three.ez/blob/3bc2c12/src/core/Main.ts#L41)
+[src/core/Main.ts:41](https://github.com/agargaro/three.ez/blob/2012bca/src/core/Main.ts#L41)
 
 ___
 
@@ -115,4 +115,4 @@ A boolean flag indicating whether to display performance statistics (default: tr
 
 #### Defined in
 
-[src/core/Main.ts:31](https://github.com/agargaro/three.ez/blob/3bc2c12/src/core/Main.ts#L31)
+[src/core/Main.ts:31](https://github.com/agargaro/three.ez/blob/2012bca/src/core/Main.ts#L31)

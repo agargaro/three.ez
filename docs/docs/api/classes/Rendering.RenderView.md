@@ -31,7 +31,7 @@ Don't instance this manually.
 
 #### Defined in
 
-[src/rendering/RenderView.ts:76](https://github.com/agargaro/three.ez/blob/3bc2c12/src/rendering/RenderView.ts#L76)
+[src/rendering/RenderView.ts:76](https://github.com/agargaro/three.ez/blob/2012bca/src/rendering/RenderView.ts#L76)
 
 ## Properties
 
@@ -53,7 +53,7 @@ The viewport defining the dimensions and position of the view.
 
 #### Defined in
 
-[src/rendering/RenderView.ts:55](https://github.com/agargaro/three.ez/blob/3bc2c12/src/rendering/RenderView.ts#L55)
+[src/rendering/RenderView.ts:55](https://github.com/agargaro/three.ez/blob/2012bca/src/rendering/RenderView.ts#L55)
 
 ## Methods
 
@@ -69,4 +69,4 @@ Updates the dimensions of the viewport based on the renderer size.
 
 #### Defined in
 
-[src/rendering/RenderView.ts:97](https://github.com/agargaro/three.ez/blob/3bc2c12/src/rendering/RenderView.ts#L97)
+[src/rendering/RenderView.ts:97](https://github.com/agargaro/three.ez/blob/2012bca/src/rendering/RenderView.ts#L97)
