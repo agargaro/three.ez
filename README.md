@@ -153,15 +153,16 @@ Hitboxes can be used to handle a different intersection area or to simplify inte
 
 ### Raycasting Options
 
-Choose between continuous raycasting or raycasting only during mouse movement, providing flexibility in optimizing raycasting operations based on your application's requirements. In addition, there is the possibility to choose which objects can be intersected.
+It is possible to choose between continuous raycasting (every frame) or raycasting only during mouse movement, providing the flexibility to optimise raycasting operations according to application requirements. <br>
+In addition, it is possible to choose which objects can be intersected, setting `interceptByRaycaster` property.
 
 ### Tweening
 
-Implements smooth animations effortlessly with integrated tweening functionality.
+Implements smooth animations effortlessly with built-in tweening functionality. `Vector3`, `Euler`, `Quaternion`, `Color` are supported.
 
 ### Simplified InstancedMesh
 
-Simplify the use of `InstancedMesh` by managing it as if each entity were an `Object3D`. This approach simplifies the creation and manipulation of InstancedMesh instances, providing a more intuitive and easy-to-develop workflow.
+With the class `InstancedMesh2` it is possible to handle each sub-entity of an `InstancedMesh` as if it were an `Object3D`. This makes development much simpler and more intuitive.
 
 ## How It Works
 
@@ -203,12 +204,6 @@ In addition, methods and properties have been added to the `Object3D` and `Scene
   export declare class Main {
     /** A static counter representing the number of animation frames elapsed. */
     static ticks: number;
-    private _renderManager;
-    private _interactionManager;
-    private _stats;
-    private _animate;
-    private _clock;
-    private _showStats;
     /**
      * The WebGLRenderer instance used for rendering the 3D scene.
      */
@@ -278,9 +273,6 @@ In addition, methods and properties have been added to the `Object3D` and `Scene
      * @param parameters Represents the configuration parameters for initializing the Main class.
      */
     constructor(parameters?: MainParameters);
-    private handleContextMenu;
-    private setAnimationLoop;
-    private animate;
     /**
      * Creates a new RenderView and adds it to the RenderManager.
      * @param view The parameters for the new RenderView.
@@ -502,21 +494,7 @@ npm install @three.ez/main
 
 ## Usage
 
-### Small example of a simple animated and draggable box:
-
-```typescript
-import { Scene, Mesh, BoxGeometry, MeshNormalMaterial } from 'three';
-import { Main, PerspectiveCameraAuto } from '@three.ez/main';
-
-const box = new Mesh(new BoxGeometry(0.2, 0.2, 0.2), new MeshNormalMaterial());
-box.draggable = true;
-box.on('animate', (e) => box.rotateX(e.delta).rotateY(e.delta * 2));
-const scene = new Scene().add(box);
-const main = new Main();
-main.createView({ scene, camera: new PerspectiveCameraAuto(70).translateZ(1) });
-```
-
-### Extended (recommended) example of a simple animated and draggable box:
+Example of a simple animated and draggable box:
 
 ```typescript
 import { Scene as SceneBase, Mesh, BoxGeometry, MeshNormalMaterial } from 'three';
@@ -546,6 +524,22 @@ class Main extends MainBase {
 
 const main = new Main();
 ```
+
+<details>
+  <summary>Show smaller version</summary>
+
+  ```typescript
+  import { Scene, Mesh, BoxGeometry, MeshNormalMaterial } from 'three';
+  import { Main, PerspectiveCameraAuto } from '@three.ez/main';
+
+  const box = new Mesh(new BoxGeometry(0.2, 0.2, 0.2), new MeshNormalMaterial());
+  box.draggable = true;
+  box.on('animate', (e) => box.rotateX(e.delta).rotateY(e.delta * 2));
+  const scene = new Scene().add(box);
+  const main = new Main();
+  main.createView({ scene, camera: new PerspectiveCameraAuto(70).translateZ(1) });
+  ```
+</details>
 
 ## Override Typescript Type Definition
 
@@ -581,18 +575,20 @@ There is one example without vite.
 - [Drag & Drop](https://stackblitz.com/edit/three-ez-drag-drop?file=src%2Fmain.ts)
 — [LOD Draggable](https://stackblitz.com/edit/three-ez-lod-draggable?file=src%2Fmain.ts)
 — [Drag Limits](https://stackblitz.com/edit/three-ez-drag-limits?file=src%2Fmain.ts)
-- [Continuous Raycasting]()
-- [Hitbox]()
-- [Tweening]()
-- [InstancedMeshEntity]()
-— [InstancedMeshEntity Drag]()
-— [InstancedMeshEntity Performance]()
-- [Draggable Box OrbitControls]()
-- [Textbox]()
+- [Continuous Raycasting](https://stackblitz.com/edit/three-ez-continuous-raycasting?file=src%2Fmain.ts)
+- [Hitbox](https://stackblitz.com/edit/three-ez-hitbox?file=src%2Fmain.ts)
+- [Tweening](https://stackblitz.com/edit/three-ez-tweening?file=src%2Fmain.ts)
+- [Tweening Custom Progress](https://stackblitz.com/edit/three-ez-tweening-custom-progress?file=src%2Fmain.ts)
+- [InstancedMeshEntity](https://stackblitz.com/edit/three-ez-instancedmeshentity?file=src%2Fmain.ts)
+— [InstancedMeshEntity Performance](https://stackblitz.com/edit/three-ez-instancedmeshentity-performance?file=src%2Fmain.ts)
+- [Draggable Box OrbitControls](https://stackblitz.com/edit/three-ez-draggable-box-orbitcontrols?file=src%2Fmain.ts)
+- [Textbox (troika-three-text)](https://stackblitz.com/edit/three-ez-textbox?file=src%2Fmain.ts)
+- Rolling & Jumping Ball
 
 ## Documentation
 
-Work in progress...
+The API documentation is available [here](). <br>
+If there is demand, comprehensive, guided tutorials will be written for each functionality.
 
 ## Contributing
 
@@ -600,4 +596,4 @@ Any help is highly appreciated. If you would like to contribute to this package 
 
 ## Questions?
 
-If you have questions or need assistance, you can create a post in the discussions section.
+If you have questions or need assistance, you can create a discussion in the appropriate section.
