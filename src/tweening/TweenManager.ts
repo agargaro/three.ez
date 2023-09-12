@@ -20,6 +20,7 @@ export class TweenManager {
     public static createChildren<T>(target: T, tween: Tween<T>, root: RunningTween<T>): RunningTween<T> {
         const runningTween = new RunningTween(target, tween);
         runningTween.root = root;
+        runningTween.timeScale = root.timeScale;
         runningTween.getBlock();
         this._runningChildren.push(runningTween);
         return runningTween;
@@ -77,7 +78,7 @@ export class TweenManager {
             }
         }
 
-        if (!runningTween.execute(Infinity)) {
+        if (runningTween.tween.infiniteLoop || !runningTween.execute(Infinity)) {
             this._running.splice(index, 1);
             runningTween._finished = true;
         }

@@ -192,6 +192,7 @@ export class RunningTween<T = any> {
         const ret: RunningTween<T>[] = [];
         for (const runningTween of runningTweens) {
             const runningCloned = new RunningTween(runningTween.target, runningTween.tween);
+            runningCloned.timeScale = runningTween.timeScale;
             runningCloned.root = runningTween.root;
             runningCloned.history = runningTween.history;
             runningCloned.actionIndex = !runningTween.reversed ? runningTween.history.length : -1;

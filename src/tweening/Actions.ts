@@ -81,7 +81,13 @@ export class ActionYoyo<T> implements IAction<T> {
 export class ActionTween<T> implements IAction<T> {
     public hasActions = true;
     public isTween = true;
-    constructor(public tweens: Tween<T>[]) { }
+    public tweens: Tween<T>[] = [];
+
+    constructor(...tweens: Tween<T>[]) {
+        for (const tween of tweens) {
+            this.tweens.push(tween.clone());
+        }
+    }
 }
 
 /** @internal */
