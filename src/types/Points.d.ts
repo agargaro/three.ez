@@ -1,5 +1,5 @@
 import { BufferGeometry, Material, Mesh, Object3D, Scene, WebGLRenderer } from "three";
-import { Points as PointsBase } from "three/index";
+import { Points as PointsBase, Object3D as Object3DBase } from "three/index";
 import { Cursor, Events, InteractionEvents, Object3DExtPrototype, Tween } from "../index";
 
 export class Points extends PointsBase implements Object3DExtPrototype {
@@ -34,6 +34,9 @@ export class Points extends PointsBase implements Object3DExtPrototype {
     tween(): Tween<Points>;
     override parent: Object3D;
     override children: Object3D[];
+    override add(...object: (Object3DBase | Object3D)[]): this;
+    override remove(...object: (Object3DBase | Object3D)[]): this;
+    override attach(object: Object3DBase | Object3D): this;
     override traverse(callback: (object: Object3D) => any): void;
     override traverseAncestors(callback: (object: Object3D) => any): void;
     override traverseVisible(callback: (object: Object3D) => any): void;

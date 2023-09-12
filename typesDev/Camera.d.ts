@@ -1,5 +1,5 @@
 import { BufferGeometry, Material, Mesh, Object3D, Scene, WebGLRenderer } from "three";
-import { Camera as CameraBase } from "three/index";
+import { Camera as CameraBase, Object3D as Object3DBase } from "three/index";
 import { BindingCallback, Cursor, Events, EventsDispatcher, InteractionEvents, Object3DExtPrototypeInternal, Tween } from "../src/index";
 
 export class Camera extends CameraBase implements Object3DExtPrototypeInternal {
@@ -46,6 +46,9 @@ export class Camera extends CameraBase implements Object3DExtPrototypeInternal {
     tween(): Tween<Camera>;
     override parent: Object3D;
     override children: Object3D[];
+    override add(...object: (Object3DBase | Object3D)[]): this;
+    override remove(...object: (Object3DBase | Object3D)[]): this;
+    override attach(object: Object3DBase | Object3D): this;
     override traverse(callback: (object: Object3D) => any): void;
     override traverseAncestors(callback: (object: Object3D) => any): void;
     override traverseVisible(callback: (object: Object3D) => any): void;

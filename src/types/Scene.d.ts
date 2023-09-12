@@ -1,5 +1,5 @@
 import { BufferGeometry, Material, Mesh, Object3D, WebGLRenderer } from "three";
-import { Scene as SceneBase } from "three/index";
+import { Scene as SceneBase, Object3D as Object3DBase } from "three/index";
 import { Cursor, Events, InteractionEvents, IntersectionExt, Object3DExtPrototype, SceneExtPrototype, Tween } from "../index";
 
 export class Scene extends SceneBase implements Object3DExtPrototype, SceneExtPrototype {
@@ -44,6 +44,9 @@ export class Scene extends SceneBase implements Object3DExtPrototype, SceneExtPr
     tween(): Tween<Scene>;
     override parent: Object3D;
     override children: Object3D[];
+    override add(...object: (Object3DBase | Object3D)[]): this;
+    override remove(...object: (Object3DBase | Object3D)[]): this;
+    override attach(object: Object3DBase | Object3D): this;
     override traverse(callback: (object: Object3D) => any): void;
     override traverseAncestors(callback: (object: Object3D) => any): void;
     override traverseVisible(callback: (object: Object3D) => any): void;
