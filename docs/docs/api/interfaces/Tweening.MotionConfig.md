@@ -26,7 +26,7 @@ The easing function to control the animation's progression.
 
 #### Defined in
 
-[src/tweening/Actions.ts:21](https://github.com/agargaro/three.ez/blob/e7ff09c/src/tweening/Actions.ts#L21)
+[src/tweening/Actions.ts:21](https://github.com/agargaro/three.ez/blob/ee63373/src/tweening/Actions.ts#L21)
 
 ___
 
@@ -52,7 +52,7 @@ A callback function to execute when the animation completes.
 
 #### Defined in
 
-[src/tweening/Actions.ts:26](https://github.com/agargaro/three.ez/blob/e7ff09c/src/tweening/Actions.ts#L26)
+[src/tweening/Actions.ts:26](https://github.com/agargaro/three.ez/blob/ee63373/src/tweening/Actions.ts#L26)
 
 ___
 
@@ -84,7 +84,7 @@ If `false` will not assign new value to property.
 
 #### Defined in
 
-[src/tweening/Actions.ts:46](https://github.com/agargaro/three.ez/blob/e7ff09c/src/tweening/Actions.ts#L46)
+[src/tweening/Actions.ts:46](https://github.com/agargaro/three.ez/blob/ee63373/src/tweening/Actions.ts#L46)
 
 ___
 
@@ -110,7 +110,7 @@ A callback function to execute when the animation starts.
 
 #### Defined in
 
-[src/tweening/Actions.ts:31](https://github.com/agargaro/three.ez/blob/e7ff09c/src/tweening/Actions.ts#L31)
+[src/tweening/Actions.ts:31](https://github.com/agargaro/three.ez/blob/ee63373/src/tweening/Actions.ts#L31)
 
 ___
 
@@ -136,4 +136,4 @@ A callback function to be executed after each property has been updated.
 
 #### Defined in
 
-[src/tweening/Actions.ts:36](https://github.com/agargaro/three.ez/blob/e7ff09c/src/tweening/Actions.ts#L36)
+[src/tweening/Actions.ts:36](https://github.com/agargaro/three.ez/blob/ee63373/src/tweening/Actions.ts#L36)

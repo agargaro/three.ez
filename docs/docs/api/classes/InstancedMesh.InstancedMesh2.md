@@ -38,7 +38,7 @@ InstancedMesh.constructor
 
 #### Defined in
 
-[src/instancedMesh/InstancedMesh2.ts:65](https://github.com/agargaro/three.ez/blob/e7ff09c/src/instancedMesh/InstancedMesh2.ts#L65)
+[src/instancedMesh/InstancedMesh2.ts:65](https://github.com/agargaro/three.ez/blob/ee63373/src/instancedMesh/InstancedMesh2.ts#L65)
 
 ## Properties
 
@@ -51,7 +51,7 @@ Each element represents a separate instance that can be managed individually.
 
 #### Defined in
 
-[src/instancedMesh/InstancedMesh2.ts:25](https://github.com/agargaro/three.ez/blob/e7ff09c/src/instancedMesh/InstancedMesh2.ts#L25)
+[src/instancedMesh/InstancedMesh2.ts:25](https://github.com/agargaro/three.ez/blob/ee63373/src/instancedMesh/InstancedMesh2.ts#L25)
 
 ___
 
@@ -63,7 +63,7 @@ A flag indicating that this is an instance of InstancedMesh2.
 
 #### Defined in
 
-[src/instancedMesh/InstancedMesh2.ts:20](https://github.com/agargaro/three.ez/blob/e7ff09c/src/instancedMesh/InstancedMesh2.ts#L20)
+[src/instancedMesh/InstancedMesh2.ts:20](https://github.com/agargaro/three.ez/blob/ee63373/src/instancedMesh/InstancedMesh2.ts#L20)
 
 ## Accessors
 
@@ -79,7 +79,7 @@ Gets the currently clicking instance.
 
 #### Defined in
 
-[src/instancedMesh/InstancedMesh2.ts:50](https://github.com/agargaro/three.ez/blob/e7ff09c/src/instancedMesh/InstancedMesh2.ts#L50)
+[src/instancedMesh/InstancedMesh2.ts:50](https://github.com/agargaro/three.ez/blob/ee63373/src/instancedMesh/InstancedMesh2.ts#L50)
 
 ___
 
@@ -95,7 +95,7 @@ Gets the currently dragging instance.
 
 #### Defined in
 
-[src/instancedMesh/InstancedMesh2.ts:55](https://github.com/agargaro/three.ez/blob/e7ff09c/src/instancedMesh/InstancedMesh2.ts#L55)
+[src/instancedMesh/InstancedMesh2.ts:55](https://github.com/agargaro/three.ez/blob/ee63373/src/instancedMesh/InstancedMesh2.ts#L55)
 
 ___
 
@@ -111,7 +111,7 @@ Gets the currently focused instance.
 
 #### Defined in
 
-[src/instancedMesh/InstancedMesh2.ts:45](https://github.com/agargaro/three.ez/blob/e7ff09c/src/instancedMesh/InstancedMesh2.ts#L45)
+[src/instancedMesh/InstancedMesh2.ts:45](https://github.com/agargaro/three.ez/blob/ee63373/src/instancedMesh/InstancedMesh2.ts#L45)
 
 ___
 
@@ -127,7 +127,7 @@ Gets the currently hovered instance.
 
 #### Defined in
 
-[src/instancedMesh/InstancedMesh2.ts:40](https://github.com/agargaro/three.ez/blob/e7ff09c/src/instancedMesh/InstancedMesh2.ts#L40)
+[src/instancedMesh/InstancedMesh2.ts:40](https://github.com/agargaro/three.ez/blob/ee63373/src/instancedMesh/InstancedMesh2.ts#L40)
 
 ## Methods
 
@@ -149,4 +149,4 @@ Set the focus to the specified instance, if focus is enabled for the InstancedMe
 
 #### Defined in
 
-[src/instancedMesh/InstancedMesh2.ts:100](https://github.com/agargaro/three.ez/blob/e7ff09c/src/instancedMesh/InstancedMesh2.ts#L100)
+[src/instancedMesh/InstancedMesh2.ts:100](https://github.com/agargaro/three.ez/blob/ee63373/src/instancedMesh/InstancedMesh2.ts#L100)

@@ -6,8 +6,6 @@ sidebar_position: 0
 custom_edit_url: null
 ---
 
-this is binding modules
-
 ## Classes
 
 - [Main](../classes/Core.Main.md)

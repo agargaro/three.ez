@@ -1,3 +1,6 @@
+/**
+ * @module Tweening-Module
+ */
 export * from './Actions';
 export * from './Easings';
 export * from './Tween';

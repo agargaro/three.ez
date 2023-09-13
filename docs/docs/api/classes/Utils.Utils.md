@@ -33,4 +33,4 @@ The intersection point.
 
 #### Defined in
 
-[src/utils/Utils.ts:17](https://github.com/agargaro/three.ez/blob/e7ff09c/src/utils/Utils.ts#L17)
+[src/utils/Utils.ts:17](https://github.com/agargaro/three.ez/blob/ee63373/src/utils/Utils.ts#L17)

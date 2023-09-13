@@ -1,5 +1,6 @@
-
-/** @internal */
+/**
+ * @module Patch-Module
+ */
 export * from './Euler';
 export * from './Matrix4';
 export * from './Object3D';
