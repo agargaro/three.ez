@@ -1,3 +1,11 @@
+---
+id: "index"
+title: "@three.ez/main"
+sidebar_label: "Readme"
+sidebar_position: 0
+custom_edit_url: null
+---
+
 # three.ez
 
 [![npm version](https://badge.fury.io/js/@three.ez%2Fmain.svg)](https://badge.fury.io/js/@three.ez%2Fmain)
