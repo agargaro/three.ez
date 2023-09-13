@@ -1,4 +1,4 @@
-import { Mesh, Scene } from "three";
+import { BufferGeometry, Material, Mesh, Scene, WebGLRenderer } from "three";
 import { Object3D as Object3DBase } from "three/index";
 import { Cursor, Events, InteractionEvents, Object3DExtPrototype, Tween } from "../index";
 
@@ -34,4 +34,16 @@ export class Object3D extends Object3DBase implements Object3DExtPrototype {
     tween(): Tween<Object3D>;
     override parent: Object3D;
     override children: Object3D[];
+    override add(...object: (Object3DBase | Object3D)[]): this;
+    override remove(...object: (Object3DBase | Object3D)[]): this;
+    override attach(object: Object3DBase | Object3D): this;
+    override traverse(callback: (object: Object3D) => any): void;
+    override traverseAncestors(callback: (object: Object3D) => any): void;
+    override traverseVisible(callback: (object: Object3D) => any): void;
+    override getObjectById(id: number): Object3D;
+    override getObjectByName(name: string): Object3D;
+    override getObjectByProperty(name: string, value: any): Object3D;
+    override getObjectsByProperty(name: string, value: any): Object3D[];
+    override onBeforeRender: (renderer: WebGLRenderer, scene: any, camera: any, geometry: BufferGeometry, material: Material, group: any) => void;
+    override onAfterRender: (renderer: WebGLRenderer, scene: any, camera: any, geometry: BufferGeometry, material: Material, group: any) => void;
 }

@@ -192,6 +192,7 @@ export class RunningTween<T = any> {
         const ret: RunningTween<T>[] = [];
         for (const runningTween of runningTweens) {
             const runningCloned = new RunningTween(runningTween.target, runningTween.tween);
+            runningCloned.timeScale = runningTween.timeScale;
             runningCloned.root = runningTween.root;
             runningCloned.history = runningTween.history;
             runningCloned.actionIndex = !runningTween.reversed ? runningTween.history.length : -1;
@@ -275,7 +276,7 @@ export class RunningTween<T = any> {
         if (block.actions) {
             for (const action of block.actions) {
                 const alpha = block.reversed ? 1 - Math.min(1, block.elapsedTime / action.time) : Math.min(1, block.elapsedTime / action.time);
-                const easedAlpha = action.easing(alpha);
+                const easedAlpha = action.easing?.call(this, alpha) ?? alpha;
                 const applyValue = block.config?.onProgress?.call(this.target, this.target, action.key, action.start, action.end, easedAlpha);
                 if (applyValue !== false) {
                     action.callback(action.start, action.end, easedAlpha);

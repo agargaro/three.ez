@@ -9,6 +9,7 @@ import { TweenManager } from "./TweenManager";
 export class Tween<T = any> {
     /** @internal */ public actions: IAction<T>[] = [];
     /** @internal */ public blockHistory = false;
+    /** @internal */ public infiniteLoop = false;
     /** The object to apply the tween to. */
     public target: T;
     /** Tags used for filtering and management. */
@@ -93,6 +94,7 @@ export class Tween<T = any> {
     public repeat(times = 1): this {
         if (times === Infinity) {
             this.blockHistory = true;
+            this.infiniteLoop = true;
         }
         if (this.actions[this.actions.length - 1].isRepeat) {
             this.actions[this.actions.length - 1].times += times;
@@ -116,6 +118,9 @@ export class Tween<T = any> {
      * @returns The updated Tween instance.
      */
     public yoyo(times = 1): this {
+        if (times === Infinity) {
+            this.infiniteLoop = true;
+        }
         if (this.actions[this.actions.length - 1].isYoyo) {
             this.actions[this.actions.length - 1].times += times;
         } else {
@@ -138,7 +143,8 @@ export class Tween<T = any> {
      * @returns The updated Tween instance.
      */
     public then(tween: Tween<T>): this {
-        this.actions.push(new ActionTween([tween]));
+        this.actions.push(new ActionTween(tween));
+        this.infiniteLoop ||= tween.infiniteLoop;
         return this;
     }
 
@@ -148,7 +154,8 @@ export class Tween<T = any> {
      * @returns The updated Tween instance.
      */
     public parallel(...tweens: Tween<T>[]): this {
-        this.actions.push(new ActionTween(tweens));
+        this.actions.push(new ActionTween(...tweens));
+        this.infiniteLoop ||= tweens.some((x) => x.infiniteLoop);
         return this;
     }
 
@@ -159,7 +166,8 @@ export class Tween<T = any> {
      */
     public sequence(...tweens: Tween<T>[]): this {
         for (const tween of tweens) {
-            this.actions.push(new ActionTween([tween]));
+            this.actions.push(new ActionTween(tween));
+            this.infiniteLoop ||= tween.infiniteLoop;
         }
         return this;
     }
@@ -171,6 +179,7 @@ export class Tween<T = any> {
      */
     public chain(tween: Tween<T>): this {
         this.actions.push(...tween.actions);
+        this.infiniteLoop ||= tween.infiniteLoop;
         return this;
     }
 
@@ -182,6 +191,7 @@ export class Tween<T = any> {
         const tween = new Tween(this.target);
         tween.actions = [...this.actions];
         tween.tags = [...this.tags];
+        tween.infiniteLoop = this.infiniteLoop;
         return tween;
     }
 

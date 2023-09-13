@@ -1,22 +1,10 @@
-import { BufferGeometry, Material, Mesh, Object3D, WebGLRenderer } from "three";
-import { Scene as SceneBase, Object3D as Object3DBase } from "three/index";
-import { BindingCallback, Cursor, DistinctTargetArray, Events, EventsDispatcher, InteractionEvents, IntersectionExt, Object3DExtPrototypeInternal, SceneExtPrototypeInternal, Tween } from "../src/index";
+import { BufferGeometry, Material, Mesh, Object3D, Scene, WebGLRenderer } from "three";
+import { Group as GroupBase, Object3D as Object3DBase } from "three/index";
+import { BindingCallback, Cursor, Events, EventsDispatcher, InteractionEvents, Object3DExtPrototypeInternal, Tween } from "../src/index";
 
-export class Scene extends SceneBase implements Object3DExtPrototypeInternal, SceneExtPrototypeInternal {
+export class Group extends GroupBase implements Object3DExtPrototypeInternal {
     __baseVisibleDescriptor: PropertyDescriptor;
     __isDropTarget: boolean;
-    __boundObjects: DistinctTargetArray;
-    __smartRendering: boolean;
-    continousRaycasting: boolean;
-    continousRaycastingDropTarget: boolean;
-    intersections: IntersectionExt[];
-    intersectionsDropTarget: IntersectionExt[];
-    focusedObject: Object3D;
-    blurOnClickOut: boolean;
-    timeScale: number;
-    totalTime: number;
-    activeSmartRendering(): this;
-    focus(target?: Object3D): void;
     __boundCallbacks: BindingCallback[];
     __manualDetection: boolean;
     __eventsDispatcher: EventsDispatcher;
@@ -55,7 +43,7 @@ export class Scene extends SceneBase implements Object3DExtPrototypeInternal, Sc
     detectChanges(recursive?: boolean): void;
     bindProperty<T extends keyof this>(property: T, getCallback: () => this[T], renderOnChange?: boolean): this;
     unbindProperty<T extends keyof this>(property: T): this;
-    tween(): Tween<Scene>;
+    tween(): Tween<Mesh>;
     override parent: Object3D;
     override children: Object3D[];
     override add(...object: (Object3DBase | Object3D)[]): this;
