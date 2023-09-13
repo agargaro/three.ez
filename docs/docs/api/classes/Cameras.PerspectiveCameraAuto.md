@@ -35,4 +35,4 @@ PerspectiveCamera.constructor
 
 #### Defined in
 
-[src/cameras/PerspectiveCameraAuto.ts:13](https://github.com/agargaro/three.ez/blob/74f01c4/src/cameras/PerspectiveCameraAuto.ts#L13)
+[src/cameras/PerspectiveCameraAuto.ts:13](https://github.com/agargaro/three.ez/blob/46fae0a/src/cameras/PerspectiveCameraAuto.ts#L13)
