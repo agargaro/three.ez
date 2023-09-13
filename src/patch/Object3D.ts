@@ -151,6 +151,7 @@ Object3D.prototype.hovered = false;
 Object3D.prototype.interceptByRaycaster = true;
 Object3D.prototype.findDropTarget = false;
 Object3D.prototype.__manualDetection = false;
+Object3D.prototype.__boundCallbacks = [];
 
 Object3D.prototype.__visible = true;
 Object.defineProperty(Object3D.prototype, "visible", {
