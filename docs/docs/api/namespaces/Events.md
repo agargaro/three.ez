@@ -45,7 +45,7 @@ Indicates a cursor by a list or by url.
 
 #### Defined in
 
-[src/events/CursorManager.ts:25](https://github.com/agargaro/three.ez/blob/2012bca/src/events/CursorManager.ts#L25)
+[src/events/CursorManager.ts:18](https://github.com/agargaro/three.ez/blob/e7ff09c/src/events/CursorManager.ts#L18)
 
 ___
 
@@ -57,7 +57,7 @@ https://developer.mozilla.org/en-US/docs/Web/CSS/cursor
 
 #### Defined in
 
-[src/events/CursorManager.ts:12](https://github.com/agargaro/three.ez/blob/2012bca/src/events/CursorManager.ts#L12)
+[src/events/CursorManager.ts:5](https://github.com/agargaro/three.ez/blob/e7ff09c/src/events/CursorManager.ts#L5)
 
 ___
 
@@ -86,4 +86,4 @@ A negative number if `a` should come before `b`, a positive number if `b` should
 
 #### Defined in
 
-[src/events/RaycasterManager.ts:11](https://github.com/agargaro/three.ez/blob/2012bca/src/events/RaycasterManager.ts#L11)
+[src/events/RaycasterManager.ts:11](https://github.com/agargaro/three.ez/blob/e7ff09c/src/events/RaycasterManager.ts#L11)

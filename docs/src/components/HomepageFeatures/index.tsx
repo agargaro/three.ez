@@ -10,68 +10,108 @@ type FeatureItem = {
 
 const FeatureList: FeatureItem[] = [
   {
-    title: 'Events',
-    // TODO: aggiungiamo delle imagini?? (così non devono essere perfette solo per dare colore fiditi)
-    // Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default, 
+    title: 'Automatic Resize Handling',
     description: (
       <>
-        Introduces a comprehensive event system designed to enhance interactivity within your 3D scenes. This includes a
-        range of events inspired by DOM-like interactions, making it intuitive for developers familiar with web
-        development. Additionally, Three-Keko offers a variety of specialized events tailored for 3D environments,
-        providing the tools needed to create captivating user experiences.
+        Automatically resizes `Renderer`, `Camera`, `EffectComposer`. Using `rendererResize` event is also possibile to set resolution for custom shaders.
       </>
-    ),
-  },
-  {
-    title: 'Binding',
-    description: (
-      <>
-        Simplify your code structure with the powerful binding capabilities of Three-Keko. Bind properties of different
-        objects together, ensuring they stay synchronized without the need for manual updates. This feature is
-        particularly useful for creating dynamic relationships between different elements in your scene.
-      </>
-    ),
-  },
-  {
-    title: 'Customizable Raycasting',
-    description: (
-      <>
-        Three-Keko offers a customizable raycasting feature, empowering you to project rays within your 3D scene to
-        identify object intersections. This versatile functionality is indispensable for implementing diverse
-        interactive mechanics such as object selection, targeting, and more.{' '}
-      </>
-    ),
+    )
   },
   {
     title: 'Smart Rendering',
-    description: <>Executes rendering operations exclusively when required, minimizing unnecessary updates.</>,
-  },
-  {
-    title: 'Hitbox',
     description: (
       <>
-        The Hitbox feature simplifies intersection calculations by employing geometries with fewer vertices, effectively
-        reducing computational complexity.
+        Smart rendering allows a frame to render only when it is needed, which is particularly useful when using mostly static scenes, optimizing performance and reducing unnecessary computational overhead. <br />
+        It is based on a `Scene` property called `needsRender`, which is changed automatically when there is a change in position, scale, rotation, visiblity, focus, removal or addition of `Object3D`.
+        It is also possible to change it manually, in cases where changes are not automatically identified.
       </>
-    ),
+    )
   },
   {
-    title: 'Focus',
-    description: <>Implement focus and blur control in your 3D scenes.</>,
+    title: 'Simplified Rendering',
+    description: (
+      <>
+        The rendering of viewports is handled by the `Main` class, using the `createView` method, which returns an instance of `RenderView`. <br />
+        By modifying the various properties of this instance, various parameters can be changed, including: the size, position, background, interaction state, and visibility.
+        It is also possible to specify an `EffectComposer` for each RenderView to handle post-processing effects.
+      </>
+    )
+  },
+  {
+    title: 'Object3D Property Binding',
+    description: (
+      <>
+        It is possible to bind to a property of an `Object3D` the result of a callback, using the `bindProperty` method. <br />
+        The bindings are computed automatically during each animate cycle.
+        To manually compute the various bindings using the `setManualDetectionMode` and `detectChanges` methods.
+      </>
+    )
+  },
+  {
+    title: 'Event Programming',
+    description: (
+      <>
+        It facilitates interaction with `Object3D` by adding a series of programmable events. <br />
+        Interaction events work similarly to DOM events, with the same propagation and methods such as `preventDefault` or `stopPropagation`. <br />
+      </>
+    )
+  },
+  {
+    title: 'Focus and Blur',
+    description: (
+      <>
+        Implements focus handling and related events to handle certain interactions more easily. <br />
+        By setting the value of the `focusable` property of an `Object3D` you can determine whether it can receive focus.
+      </>
+    )
   },
   {
     title: 'Drag and Drop',
-    description: <>Facilitating object dragging and dropping onto designated drop targets.</>,
+    description: (
+      <>
+        Implements drag and drop handling and related events by adding two properties to each `Object3D`: <br />
+        `draggable`: makes an object draggable. <br />
+        `findDropTarget`: determines whether intersections with drop targets will be checked during dragging. <br />
+        The drag can be cancelled by pressing 'Esc'.
+      </>
+    )
   },
   {
-    title: 'Tween',
+    title: 'Hitbox Functionality',
     description: (
-      <>Enabling the creation of animations with ease, the Tween feature simplifies the process of animating objects.</>
-    ),
+      <>
+        Hitboxes can be used to handle a different intersection area or to simplify intersection calculations.
+      </>
+    )
   },
+  {
+    title: 'Raycasting Options',
+    description: (
+      <>
+        It is possible to choose between continuous raycasting (every frame) or raycasting only during mouse movement, providing the flexibility to optimise raycasting operations according to application requirements. <br />
+        In addition, it is possible to choose which objects can be intersected, setting `interceptByRaycaster` property.
+      </>
+    )
+  },
+  {
+    title: 'Tweening',
+    description: (
+      <>
+        Implements smooth animations effortlessly with built-in tweening functionality. `Vector3`, `Euler`, `Quaternion`, `Color` are supported.
+      </>
+    )
+  },
+  {
+    title: 'Simplified InstancedMesh',
+    description: (
+      <>
+        With the class `InstancedMesh2` it is possible to handle each sub-entity of an `InstancedMesh` as if it were an `Object3D`. This makes development much simpler and more intuitive.
+      </>
+    )
+  }
 ];
 
-function Feature({title, Svg=null, description}: FeatureItem) {
+function Feature({ title, Svg = null, description }: FeatureItem) {
   return (
     <div className={clsx('col col--4')}>
       <div className="text--center">

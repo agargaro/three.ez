@@ -25,4 +25,4 @@ The hitbox hit by the raycaster.
 
 #### Defined in
 
-[src/events/Events.ts:105](https://github.com/agargaro/three.ez/blob/2012bca/src/events/Events.ts#L105)
+[src/events/Events.ts:105](https://github.com/agargaro/three.ez/blob/e7ff09c/src/events/Events.ts#L105)

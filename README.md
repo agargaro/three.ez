@@ -18,7 +18,7 @@ Automatically resizes `Renderer`, `Camera`, `EffectComposer`. Using `rendererRes
 ### Smart Rendering
 
 Smart rendering allows a frame to render only when it is needed, which is particularly useful when using mostly static scenes, optimizing performance and reducing unnecessary computational overhead. <br />
-It is based on a `Scene` property called `needsRender`, which is changed automatically when there is a change in position, scale, rotation, visiblity, focus, removal or addition of `Object3D``.
+It is based on a `Scene` property called `needsRender`, which is changed automatically when there is a change in position, scale, rotation, visiblity, focus, removal or addition of `Object3D`.
 It is also possible to change it manually, in cases where changes are not automatically identified.
 
 ### Simplified Rendering

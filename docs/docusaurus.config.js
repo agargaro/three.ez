@@ -7,19 +7,18 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'three.ez',
-  tagline: 'Simplifying three.js development.',
+  tagline: 'Simplify three.js development, including events, drag & drop, binding, focus management, smart rendering, tweening and more.',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
-  url: 'https://your-docusaurus-test-site.com',
+  url: 'https://agargaro.github.io',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
 
   // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
+  organizationName: 'agargaro',
+  projectName: 'three.ez',
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -77,14 +76,13 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      // Replace with your project's social card
-      image: 'img/docusaurus-social-card.jpg',
+      // image: 'img/docusaurus-social-card.jpg', // Replace with your project's social card
       navbar: {
         title: 'three.ez',
-        logo: {
-          alt: 'three.ez Logo',
-          src: 'img/logo.svg',
-        },
+        // logo: {
+        //   alt: 'three.ez Logo',
+        //   src: 'img/logo.svg',
+        // },
         items: [
           {
             type: 'docSidebar',
@@ -92,7 +90,6 @@ const config = {
             position: 'left',
             label: 'API',
           },
-          // { to: '/blog', label: 'Blog', position: 'left' },
           {
             href: 'https://github.com/agargaro/three.ez',
             label: 'GitHub',
@@ -132,10 +129,6 @@ const config = {
           {
             title: 'More',
             items: [
-              // {
-              //   label: 'Blog',
-              //   to: '/blog',
-              // },
               {
                 label: 'GitHub',
                 href: 'https://github.com/agargaro/three.ez',
@@ -143,11 +136,11 @@ const config = {
             ],
           },
         ],
-        // copyright: `Copyright © ${new Date().getFullYear()} three.ez, Inc. Built with Docusaurus.`,
+        // copyright: `Copyright © 2023 three.ez. Built with Docusaurus.`,
       },
       prism: {
-        theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
+        theme: lightCodeTheme,
       },
     }),
 };
