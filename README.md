@@ -38,9 +38,9 @@ To manually compute the various bindings using the `setManualDetectionMode` and 
 It facilitates interaction with `Object3D` by adding a series of programmable events. <br />
 Interaction events work similarly to DOM events, with the same propagation and methods such as `preventDefault` or `stopPropagation`. <br />
 Events list: 
-[InteractionEvents](https://agargaro.github.io/three-ez/docs/api/interfaces/Events.InteractionEvents)
-— [MiscEvents](https://agargaro.github.io/three-ez/docs/api/interfaces/Events.MiscEvents)
-— [UpdateEvents](https://agargaro.github.io/three-ez/docs/api/interfaces/Events.UpdateEvents)
+[InteractionEvents](https://agargaro.github.io/three.ez/docs/api/interfaces/Events.InteractionEvents)
+— [MiscEvents](https://agargaro.github.io/three.ez/docs/api/interfaces/Events.MiscEvents)
+— [UpdateEvents](https://agargaro.github.io/three.ez/docs/api/interfaces/Events.UpdateEvents)
 
 ### Focus and Blur
 
@@ -75,11 +75,11 @@ With the class `InstancedMesh2` it is possible to handle each sub-entity of an `
 ## How It Works
 
 The `Main` class handles rendering, resizing, events and all other functionality. <br />
-The Main class documentation is available [here](https://agargaro.github.io/three-ez/docs/api/classes/Core.Main). <br />
+The Main class documentation is available [here](https://agargaro.github.io/three.ez/docs/api/classes/Core.Main). <br />
 In addition, methods and properties have been added to the `Object3D` and `Scene` classes. <br />
 List of properties and methods added: 
-[Object3D](https://agargaro.github.io/three-ez/docs/api/interfaces/Patch.Object3DExtPrototype)
-— [Scene](https://agargaro.github.io/three-ez/docs/api/interfaces/Patch.SceneExtPrototype)
+[Object3D](https://agargaro.github.io/three.ez/docs/api/interfaces/Patch.Object3DExtPrototype)
+— [Scene](https://agargaro.github.io/three.ez/docs/api/interfaces/Patch.SceneExtPrototype)
 
 ## Installation
 
@@ -184,7 +184,7 @@ There is one example without vite.
 
 ## Documentation
 
-The API documentation is available [here](https://agargaro.github.io/three-ez/docs/api). <br />
+The API documentation is available [here](https://agargaro.github.io/three.ez/docs/api). <br />
 If there is demand, comprehensive, guided tutorials will be written for each functionality.
 
 ## Contributing

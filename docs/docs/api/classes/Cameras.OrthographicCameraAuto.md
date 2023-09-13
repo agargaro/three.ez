@@ -36,7 +36,7 @@ OrthographicCamera.constructor
 
 #### Defined in
 
-[src/cameras/OrthographicCameraAuto.ts:36](https://github.com/agargaro/three.ez/blob/ee63373/src/cameras/OrthographicCameraAuto.ts#L36)
+[src/cameras/OrthographicCameraAuto.ts:36](https://github.com/agargaro/three.ez/blob/74f01c4/src/cameras/OrthographicCameraAuto.ts#L36)
 
 ## Accessors
 
@@ -52,7 +52,7 @@ If true, the 'size' property will refer to the width. If not, to the height.
 
 #### Defined in
 
-[src/cameras/OrthographicCameraAuto.ts:24](https://github.com/agargaro/three.ez/blob/ee63373/src/cameras/OrthographicCameraAuto.ts#L24)
+[src/cameras/OrthographicCameraAuto.ts:24](https://github.com/agargaro/three.ez/blob/74f01c4/src/cameras/OrthographicCameraAuto.ts#L24)
 
 ___
 
@@ -68,4 +68,4 @@ Fixed width or height dimension based on the 'fixedWidth' property.
 
 #### Defined in
 
-[src/cameras/OrthographicCameraAuto.ts:15](https://github.com/agargaro/three.ez/blob/ee63373/src/cameras/OrthographicCameraAuto.ts#L15)
+[src/cameras/OrthographicCameraAuto.ts:15](https://github.com/agargaro/three.ez/blob/74f01c4/src/cameras/OrthographicCameraAuto.ts#L15)

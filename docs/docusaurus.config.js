@@ -10,15 +10,11 @@ const config = {
   tagline: 'Simplify three.js development, including events, drag & drop, binding, focus management, smart rendering, tweening and more.',
   favicon: 'img/favicon.ico',
 
-  // Set the production url of your site here
   url: 'https://agargaro.github.io',
-  // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/three.ez/',
-
-  // GitHub pages deployment config.
   organizationName: 'agargaro',
   projectName: 'three.ez',
+  trailingSlash: false,
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -137,6 +133,9 @@ const config = {
           },
         ],
         // copyright: `Copyright © 2023 three.ez. Built with Docusaurus.`,
+      },
+      colorMode: {
+        defaultMode: 'dark',
       },
       prism: {
         darkTheme: darkCodeTheme,
