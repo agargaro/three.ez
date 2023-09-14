@@ -114,6 +114,7 @@ Object.defineProperty(Scene.prototype, "userData", { // needed to inject code in
         this.intersections = [];
         this.intersectionsDropTarget = [];
         this.__boundObjects = new DistinctTargetArray();
+        this.__boundCallbacks = [];
         this.__eventsDispatcher = new EventsDispatcher(this);
         this.scene = this;
         Object.defineProperty(this, "userData", {
