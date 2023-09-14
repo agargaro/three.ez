@@ -1,4 +1,4 @@
-import { Color, Euler, MathUtils, Quaternion, Vector3 } from "three";
+import { Color, ColorRepresentation, Euler, MathUtils, Quaternion, Vector3 } from "three";
 import { DEFAULT_EASING, Easing, EasingFunction, Easings } from "./Easings";
 import { RunningAction } from "./RunningTween";
 import { Tween } from "./Tween";
@@ -138,7 +138,7 @@ export class ActionMotion<T> implements IAction<T> {
         return typeof easing === "string" ? (easings[easing] ?? easings.linear) : easing;
     }
 
-    private vector3(key: string, actionValue: Vector3, targetValue: Vector3): RunningAction<Vector3> {
+    private vector3(key: string, actionValue: Vector3 | number, targetValue: Vector3): RunningAction<Vector3> {
         if (targetValue?.isVector3) {
             const value = typeof actionValue === "number" ? new Vector3(actionValue, actionValue, actionValue) : actionValue;
             return {
@@ -180,14 +180,14 @@ export class ActionMotion<T> implements IAction<T> {
         }
     }
 
-    private color(key: string, actionValue: Color, targetValue: Color): RunningAction<Color> {
+    private color(key: string, actionValue: ColorRepresentation, targetValue: Color): RunningAction<Color> {
         if (targetValue?.isColor) {
             return {
                 key,
                 time: this.time,
                 easing: this.getEasing(),
                 start: targetValue.clone(),
-                end: this.isBy ? actionValue.clone().add(targetValue) : actionValue,
+                end: this.isBy ? new Color(actionValue).add(targetValue) : new Color(actionValue),
                 callback: (start, end, alpha) => { targetValue.lerpColors(start, end, alpha) }
             };
         }
