@@ -307,7 +307,9 @@ export class RunningTween<T = any> {
     private executeTween(block: RunningBlock, delta: number, tween: Tween<T>): void {
         const runningTween = TweenManager.createChildren(this.target, tween, this.root ?? this);
         block.runningTweens.push(runningTween);
-        runningTween.execute(delta);
+        if (runningTween.execute(delta)) {
+            TweenManager.addChildren(runningTween);
+        }
     }
 
     /** @internal */
@@ -315,9 +317,10 @@ export class RunningTween<T = any> {
         this.reversed = reversed ? !this.originallyReversed : this.originallyReversed;
         this.repeat = !this.reversed;
         this.actionIndex = this.reversed ? this.history.length : -1;
-        TweenManager.addChildren(this);
         this.getBlock();
-        this.execute(delta);
+        if (this.execute(delta)) {
+            TweenManager.addChildren(this);
+        }
     }
 
     /** @internal */
@@ -327,7 +330,7 @@ export class RunningTween<T = any> {
             for (const exTween of block.runningTweens) {
                 const indexLastBlock = (exTween.repeat || exTween.reversed) ? exTween.actionIndex : exTween.history.length - 1;
                 const lastBlock = exTween.history[indexLastBlock];
-                delta = Math.min(delta, lastBlock.elapsedTime - lastBlock.totalTime, this.getTweensDelta(lastBlock));
+                delta = Math.min(delta, lastBlock.elapsedTime - lastBlock.totalTime, exTween.getTweensDelta(lastBlock));
             }
         }
         return delta;

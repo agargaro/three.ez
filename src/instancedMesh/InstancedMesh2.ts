@@ -6,7 +6,7 @@ function overrideProperty(...names: (keyof InstancedMesh2)[]): void {
     for (const name of names) {
         Object.defineProperty(InstancedMesh2.prototype, name, {
             get: function (this: InstancedMesh2) { return this._hoveredInstance[name] },
-            set: function () { console.error(`Cannot set ${name} in InstancedMesh2. Set it in InstancedMeshSingle instead.`) },
+            set: function () { console.error(`Cannot set ${name} in InstancedMesh2. Set it in InstancedMeshEntity instead.`) },
             configurable: true
         });
     }

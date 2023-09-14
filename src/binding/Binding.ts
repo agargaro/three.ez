@@ -32,7 +32,6 @@ export class Binding {
   }
 
   private static addToBoundCallbacks<T>(key: string, target: Object3D, getValue: () => T, renderOnChange: boolean): void {
-    target.__boundCallbacks ??= [];
     const setValue = this.createSetValue(key, target, renderOnChange);
     const bindingCallback: BindingCallback = { key, getValue, setValue };
     target.__boundCallbacks.push(bindingCallback);
@@ -74,7 +73,7 @@ export class Binding {
   }
 
   public static bindToScene(target: Object3D): void {
-    if (target.__boundCallbacks?.length > 0) {
+    if (target.__boundCallbacks.length > 0) {
       target.scene.__boundObjects.push(target);
     }
   }

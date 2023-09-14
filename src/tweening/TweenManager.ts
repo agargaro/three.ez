@@ -20,9 +20,7 @@ export class TweenManager {
     public static createChildren<T>(target: T, tween: Tween<T>, root: RunningTween<T>): RunningTween<T> {
         const runningTween = new RunningTween(target, tween);
         runningTween.root = root;
-        runningTween.timeScale = root.timeScale;
         runningTween.getBlock();
-        this._runningChildren.push(runningTween);
         return runningTween;
     }
 
@@ -35,7 +33,8 @@ export class TweenManager {
     public static update(delta: number): void {
         const runningChildren = this._runningChildren;
         for (let i = runningChildren.length - 1; i >= 0; i--) {
-            if (!runningChildren[i].execute(delta)) {
+            const rc = runningChildren[i];
+            if (!rc.execute(delta * rc.root.timeScale)) {
                 runningChildren.splice(i, 1);
             }
         }
