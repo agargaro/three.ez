@@ -55,15 +55,12 @@ export interface SceneExtPrototype {
 
 Scene.prototype.continousRaycasting = false;
 Scene.prototype.continousRaycastingDropTarget = false;
-Scene.prototype.intersections = [];
-Scene.prototype.intersectionsDropTarget = [];
 Scene.prototype.focusable = false;
 Scene.prototype.needsRender = true;
 Scene.prototype.blurOnClickOut = false;
 Scene.prototype.timeScale = 1;
 Scene.prototype.totalTime = 0;
 Scene.prototype.__smartRendering = false;
-Scene.prototype.__boundObjects = new DistinctTargetArray();
 Scene.prototype.cursor = "default";
 
 Scene.prototype.activeSmartRendering = function () {
@@ -114,6 +111,9 @@ Scene.prototype.remove = function (object: Object3D) {
 
 Object.defineProperty(Scene.prototype, "userData", { // needed to inject code in constructor
     set: function (value) {
+        this.intersections = [];
+        this.intersectionsDropTarget = [];
+        this.__boundObjects = new DistinctTargetArray();
         this.__eventsDispatcher = new EventsDispatcher(this);
         this.scene = this;
         Object.defineProperty(this, "userData", {
