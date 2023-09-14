@@ -4,11 +4,12 @@ import { RunningAction } from "./RunningTween";
 import { Tween } from "./Tween";
 
 const easings = new Easings();
-export type AllowedTypes = number | Vector3 | Quaternion | Euler | Color;
+export type AllowedTypes = number | Vector3 | Quaternion | Euler | ColorRepresentation;
 export type Omitype<T, U> = { [P in keyof T as T[P] extends U ? never : P]: T[P] };
 export type PickType<T, U> = { [P in keyof T as T[P] extends U ? P : never]: T[P] };
 export type TransformType<T, U, V> = { [P in keyof T]: T[P] extends U ? T[P] | V : T[P] };
-export type FilteredType<T> = PickType<Partial<TransformType<T, Vector3, number>>, AllowedTypes>;
+export type TransformedTypes<T> = TransformType<TransformType<T, Color, ColorRepresentation>, Vector3, number>;
+export type FilteredType<T> = PickType<Partial<TransformedTypes<T>>, AllowedTypes>;
 export type Motion<T> = { [key in keyof FilteredType<T>]: FilteredType<T>[key] };
 
 /**
