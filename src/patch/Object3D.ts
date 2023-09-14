@@ -151,7 +151,6 @@ Object3D.prototype.hovered = false;
 Object3D.prototype.interceptByRaycaster = true;
 Object3D.prototype.findDropTarget = false;
 Object3D.prototype.__manualDetection = false;
-Object3D.prototype.__boundCallbacks = [];
 
 Object3D.prototype.__visible = true;
 Object.defineProperty(Object3D.prototype, "visible", {
@@ -238,6 +237,7 @@ Object3D.prototype.triggerAncestor = function <T extends keyof Events>(type: T, 
 
 Object.defineProperty(Object3D.prototype, "userData", { // needed to inject code in constructor
     set: function (value) {
+        this.__boundCallbacks = [];
         this.__eventsDispatcher = new EventsDispatcher(this);
         Object.defineProperty(this, "userData", {
             value, writable: true, configurable: true
