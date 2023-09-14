@@ -1,14 +1,15 @@
-import { Color, Euler, MathUtils, Quaternion, Vector3 } from "three";
+import { Color, ColorRepresentation, Euler, MathUtils, Quaternion, Vector3 } from "three";
 import { DEFAULT_EASING, Easing, EasingFunction, Easings } from "./Easings";
 import { RunningAction } from "./RunningTween";
 import { Tween } from "./Tween";
 
 const easings = new Easings();
-export type AllowedTypes = number | Vector3 | Quaternion | Euler | Color;
+export type AllowedTypes = number | Vector3 | Quaternion | Euler | ColorRepresentation;
 export type Omitype<T, U> = { [P in keyof T as T[P] extends U ? never : P]: T[P] };
 export type PickType<T, U> = { [P in keyof T as T[P] extends U ? P : never]: T[P] };
 export type TransformType<T, U, V> = { [P in keyof T]: T[P] extends U ? T[P] | V : T[P] };
-export type FilteredType<T> = PickType<Partial<TransformType<T, Vector3, number>>, AllowedTypes>;
+export type TransformedTypes<T> = TransformType<TransformType<T, Color, ColorRepresentation>, Vector3, number>;
+export type FilteredType<T> = PickType<Partial<TransformedTypes<T>>, AllowedTypes>;
 export type Motion<T> = { [key in keyof FilteredType<T>]: FilteredType<T>[key] };
 
 /**
@@ -138,7 +139,7 @@ export class ActionMotion<T> implements IAction<T> {
         return typeof easing === "string" ? (easings[easing] ?? easings.linear) : easing;
     }
 
-    private vector3(key: string, actionValue: Vector3, targetValue: Vector3): RunningAction<Vector3> {
+    private vector3(key: string, actionValue: Vector3 | number, targetValue: Vector3): RunningAction<Vector3> {
         if (targetValue?.isVector3) {
             const value = typeof actionValue === "number" ? new Vector3(actionValue, actionValue, actionValue) : actionValue;
             return {
@@ -180,14 +181,14 @@ export class ActionMotion<T> implements IAction<T> {
         }
     }
 
-    private color(key: string, actionValue: Color, targetValue: Color): RunningAction<Color> {
+    private color(key: string, actionValue: ColorRepresentation, targetValue: Color): RunningAction<Color> {
         if (targetValue?.isColor) {
             return {
                 key,
                 time: this.time,
                 easing: this.getEasing(),
                 start: targetValue.clone(),
-                end: this.isBy ? actionValue.clone().add(targetValue) : actionValue,
+                end: this.isBy ? new Color(actionValue).add(targetValue) : new Color(actionValue),
                 callback: (start, end, alpha) => { targetValue.lerpColors(start, end, alpha) }
             };
         }
