@@ -31,7 +31,7 @@ export class Object3D extends Object3DBase implements Object3DExtPrototype {
     detectChanges(recursive?: boolean): void;
     bindProperty<T extends keyof this>(property: T, getCallback: () => this[T], renderOnChange?: boolean): this;
     unbindProperty<T extends keyof this>(property: T): this;
-    tween(): Tween<Object3D>;
+    tween<T extends Object3D>(): Tween<T>;
     override parent: Object3D;
     override children: Object3D[];
     override add(...object: (Object3DBase | Object3D)[]): this;
