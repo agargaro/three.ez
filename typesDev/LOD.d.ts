@@ -38,12 +38,12 @@ export class LOD extends LODBase implements Object3DExtPrototypeInternal {
     hasEvent<K extends keyof Events>(type: K, listener: (args: Events[K]) => void): boolean;
     off<K extends keyof Events>(type: K, listener: (args: Events[K]) => void): void;
     trigger<K extends keyof Events>(type: K, args: Events[K]): void;
-    triggerAncestor<K extends keyof Events>(type: K, args: Events[K]): void;
+    triggerAncestor<K extends keyof InteractionEvents>(type: K, args?: InteractionEvents[K]): void;
     setManualDetectionMode(): void;
     detectChanges(recursive?: boolean): void;
     bindProperty<T extends keyof this>(property: T, getCallback: () => this[T], renderOnChange?: boolean): this;
     unbindProperty<T extends keyof this>(property: T): this;
-    tween(): Tween<LOD>;
+    tween<T extends Object3D = LOD>(): Tween<T>;
     override parent: Object3D;
     override children: Object3D[];
     override add(...object: (Object3DBase | Object3D)[]): this;

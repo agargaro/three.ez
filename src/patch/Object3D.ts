@@ -137,9 +137,10 @@ export interface Object3DExtPrototype {
     unbindProperty<T extends keyof this>(property: T): this;
     /**
      * Initiates a Tween animation for the object.
+     * @template T - The type of the target.
      * @returns A Tween instance for further configuration.
      */
-    tween(): Tween<Object3D>;
+    tween<T extends Object3D>(): Tween<T>;
 }
 
 Object3D.prototype.focusable = true;
@@ -274,8 +275,8 @@ Object3D.prototype.unbindProperty = function (property) {
     return this;
 };
 
-Object3D.prototype.tween = function () {
-    return new Tween(this);
+Object3D.prototype.tween = function <T extends Object3D>() {
+    return new Tween<T>(this as T);
 };
 
 /** @internal */
