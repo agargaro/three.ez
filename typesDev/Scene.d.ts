@@ -55,7 +55,7 @@ export class Scene extends SceneBase implements Object3DExtPrototypeInternal, Sc
     detectChanges(recursive?: boolean): void;
     bindProperty<T extends keyof this>(property: T, getCallback: () => this[T], renderOnChange?: boolean): this;
     unbindProperty<T extends keyof this>(property: T): this;
-    tween(): Tween<Scene>;
+    tween<T extends Object3D = Scene>(): Tween<T>;
     override parent: Object3D;
     override children: Object3D[];
     override add(...object: (Object3DBase | Object3D)[]): this;
