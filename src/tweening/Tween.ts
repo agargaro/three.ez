@@ -67,6 +67,16 @@ export class Tween<T = any> {
     }
 
     /**
+     * Define a movement from the current state to a new state instantaneously.
+     * @param action - The motion configuration.
+     * @returns The updated Tween instance.
+     */
+    public set(action: Motion<T>): this {
+        this.actions.push(new ActionMotion(0, action, {}, false));
+        return this;
+    }
+
+    /**
      * Add a callback action to the Tween.
      * @param callback - The callback function to execute.
      * @returns The updated Tween instance.
