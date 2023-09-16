@@ -237,7 +237,7 @@ Object3D.prototype.triggerAncestor = function <T extends keyof Events>(type: T, 
 }
 
 Object.defineProperty(Object3D.prototype, "userData", { // needed to inject code in constructor
-    set: function (value) {
+    set: function (this: Object3D, value) {
         this.__boundCallbacks = [];
         this.__eventsDispatcher = new EventsDispatcher(this);
         Object.defineProperty(this, "userData", {
