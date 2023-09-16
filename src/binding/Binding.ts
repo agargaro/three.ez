@@ -73,12 +73,12 @@ export class Binding {
 
   public static bindToScene(target: Object3D): void {
     if (target.__boundCallbacks.length > 0) {
-      target.scene.__boundObjects.push(target);
+      target.scene.__boundObjects.add(target);
     }
   }
 
   public static unbindFromScene(target: Object3D): void {
-    target.scene.__boundObjects.remove(target);
+    target.scene.__boundObjects.delete(target);
   }
 
   public static unbindProperty(target: Object3D, key: string): void {
@@ -104,7 +104,7 @@ export class Binding {
 
   public static compute(scene: Scene): void {
     const boundObjs = scene.__boundObjects;
-    for (const target of boundObjs.data) {
+    for (const target of boundObjs) {
       this.executeAllCallbacks(target);
     }
   }

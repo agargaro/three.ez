@@ -49,7 +49,6 @@ module.exports = {
           // "patch/Vector3.d.ts",
           // "patch/WebGLRenderer.d.ts",
           // "rendering/RenderManager.d.ts",
-          // "utils/DistinctTargetArray.d.ts"
         ],
       }
     }),
