@@ -1,7 +1,6 @@
 import { Camera, Color, ColorRepresentation, Scene, Vector2, WebGLRenderer, WebGLRendererParameters } from "three";
 import { EffectComposer } from "three/examples/jsm/postprocessing/EffectComposer";
 import { applyWebGLRendererPatch } from "../patch/WebGLRenderer";
-import { DistinctTargetArray } from "../utils/DistinctTargetArray";
 import { RenderView, ViewParameters } from "./RenderView";
 
 /** @internal */
@@ -10,7 +9,7 @@ export class RenderManager {
   public views: RenderView[] = [];
   public activeView: RenderView;
   public hoveredView: RenderView;
-  private _visibleScenes = new DistinctTargetArray<Scene>();
+  private _visibleScenes = new Set<Scene>();
   private _rendererSize = new Vector2();
   private _fullscreen: boolean;
   private _backgroundColor: Color;
@@ -109,15 +108,15 @@ export class RenderManager {
     this.renderer.setClearColor(this._backgroundColor, this._backgroundAlpha);
   }
 
-  public getVisibleScenes(): Scene[] {
+  public getVisibleScenes(): Set<Scene> {
     if (this.views.length === 0) return;
     this._visibleScenes.clear();
     for (const view of this.views) {
       if (view.visible) {
-        this._visibleScenes.push(view.scene);
+        this._visibleScenes.add(view.scene);
       }
     }
-    return this._visibleScenes.data;
+    return this._visibleScenes;
   }
 
   public updateActiveView(mouse: Vector2): void {

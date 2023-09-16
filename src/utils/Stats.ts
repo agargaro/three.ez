@@ -1,3 +1,7 @@
+
+/**
+ * Porting of mrdoob statistics, with support if no rendered frame.
+ */
 export class Stats {
 	public dom = document.createElement('div');
 	private mode = 0;

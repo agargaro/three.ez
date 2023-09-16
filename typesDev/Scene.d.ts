@@ -1,11 +1,11 @@
 import { BufferGeometry, Material, Mesh, Object3D, WebGLRenderer } from "three";
 import { Scene as SceneBase, Object3D as Object3DBase } from "three/index";
-import { BindingCallback, Cursor, DistinctTargetArray, Events, EventsDispatcher, InteractionEvents, IntersectionExt, Object3DExtPrototypeInternal, SceneExtPrototypeInternal, Tween } from "../src/index";
+import { BindingCallback, Cursor, Events, EventsDispatcher, InteractionEvents, IntersectionExt, Object3DExtPrototypeInternal, SceneExtPrototypeInternal, Tween } from "../src/index";
 
 export class Scene extends SceneBase implements Object3DExtPrototypeInternal, SceneExtPrototypeInternal {
     __baseVisibleDescriptor: PropertyDescriptor;
     __isDropTarget: boolean;
-    __boundObjects: DistinctTargetArray;
+    __boundObjects: Set<Object3D>;
     __smartRendering: boolean;
     continousRaycasting: boolean;
     continousRaycastingDropTarget: boolean;

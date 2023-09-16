@@ -1,5 +1,4 @@
 import { Object3D, Scene } from "three";
-import { DistinctTargetArray } from "../utils/DistinctTargetArray";
 import { EventsCache } from "../events/MiscEventsManager";
 import { activeSmartRendering, applySmartRenderingPatch, removeSmartRenderingPatch } from "./SmartRendering";
 import { Binding } from "../binding/Binding";
@@ -9,7 +8,7 @@ import { EventsDispatcher } from "../events/EventsDispatcher";
 
 /** @internal */
 export interface SceneExtPrototypeInternal extends SceneExtPrototype {
-    __boundObjects: DistinctTargetArray;
+    __boundObjects: Set<Object3D>;
     __smartRendering: boolean;
 }
 
@@ -113,7 +112,7 @@ Object.defineProperty(Scene.prototype, "userData", { // needed to inject code in
     set: function (this: Scene, value) {
         this.intersections = [];
         this.intersectionsDropTarget = [];
-        this.__boundObjects = new DistinctTargetArray();
+        this.__boundObjects = new Set();
         this.__boundCallbacks = [];
         this.__eventsDispatcher = new EventsDispatcher(this);
         this.scene = this;

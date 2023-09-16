@@ -1,8 +1,7 @@
 import { Camera, Object3D, Scene } from "three";
 import { Events, MiscEvents } from "./Events";
-import { DistinctTargetArray } from "../utils/DistinctTargetArray";
 
-type SceneEventsCache = { [x: string]: DistinctTargetArray };
+type SceneEventsCache = { [x: string]: Set<Object3D> };
 
 /** @internal */
 export class EventsCache {
@@ -31,8 +30,8 @@ export class EventsCache {
 
    private static pushScene(scene: Scene, type: keyof Events, target: Object3D): void {
       const sceneCache = this._events[scene.id] ?? (this._events[scene.id] = {});
-      const eventCache = sceneCache[type] ?? (sceneCache[type] = new DistinctTargetArray());
-      eventCache.push(target);
+      const eventCache = sceneCache[type] ?? (sceneCache[type] = new Set());
+      eventCache.add(target);
    }
 
    public static removeAll(target: Object3D): void {
@@ -40,7 +39,7 @@ export class EventsCache {
       if (sceneCache) {
          for (const key in sceneCache) {
             const eventCache = sceneCache[key];
-            eventCache.remove(target);
+            eventCache.delete(target);
          }
       }
    }
@@ -48,14 +47,14 @@ export class EventsCache {
    public static remove(type: keyof Events, target: Object3D): void {
       const sceneCache = this._events[target.scene?.id];
       if (sceneCache) {
-         sceneCache[type]?.remove(target);
+         sceneCache[type]?.delete(target);
       }
    }
 
    public static dispatchEvent<K extends keyof MiscEvents>(scene: Scene, type: K, event?: Events[K]): void {
       const sceneCache = this._events[scene?.id];
       if (sceneCache?.[type]) {
-         for (const target of sceneCache[type].data) {
+         for (const target of sceneCache[type]) {
             target.__eventsDispatcher.dispatch(type, event);
          }
       }
@@ -64,7 +63,7 @@ export class EventsCache {
    public static dispatchEventExcludeCameras<K extends keyof MiscEvents>(scene: Scene, type: K, event?: Events[K]): void {
       const sceneCache = this._events[scene?.id];
       if (sceneCache?.[type]) {
-         for (const target of sceneCache[type].data) {
+         for (const target of sceneCache[type]) {
             if (!(target as Camera).isCamera) {
                target.__eventsDispatcher.dispatch(type, event);
             }
