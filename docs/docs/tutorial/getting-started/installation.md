@@ -12,9 +12,9 @@ sidebar_position: 0
   npm install @three.ez/main
   ```
 
-1. If you are using **TypeScript**, you must follow the steps described in [TypeScript Support](https://agargaro.github.io/three.ez/docs/tutorial/getting-started/typescript-support), otherwise skip this step.
+1. If you are using `TypeScript`, you must follow the steps described in [TypeScript Support](https://agargaro.github.io/three.ez/docs/tutorial/getting-started/typescript-support), otherwise skip this step.
 
-1. Open the **main.ts** file and copy this code:
+1. Open the `main.ts` file and copy this code:
   ```typescript
   import { Scene, Mesh, BoxGeometry, MeshNormalMaterial } from 'three';
   import { Main, PerspectiveCameraAuto } from '@three.ez/main';
