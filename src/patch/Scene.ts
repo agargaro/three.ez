@@ -110,7 +110,7 @@ Scene.prototype.remove = function (object: Object3D) {
 
 
 Object.defineProperty(Scene.prototype, "userData", { // needed to inject code in constructor
-    set: function (value) {
+    set: function (this: Scene, value) {
         this.intersections = [];
         this.intersectionsDropTarget = [];
         this.__boundObjects = new DistinctTargetArray();

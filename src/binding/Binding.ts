@@ -56,7 +56,6 @@ export class Binding {
 
   private static getIndexByKey(target: Object3D, key: string): number {
     const boundCallbacks = target.__boundCallbacks;
-    if (!boundCallbacks) return -1;
     for (let i = 0; i < boundCallbacks.length; i++) {
       if (boundCallbacks[i].key === key) return i;
     }
@@ -65,10 +64,10 @@ export class Binding {
 
   public static setManualDetectionMode(target: Object3D): void {
     if (target.__manualDetection) return;
-    if (!target.__boundCallbacks) {
-      target.__manualDetection = true;
-    } else {
+    if (target.__boundCallbacks.length > 0) {
       console.error("Cannot change detectChangesMode if a binding is already created.");
+    } else {
+      target.__manualDetection = true;
     }
   }
 
