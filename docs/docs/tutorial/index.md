@@ -20,19 +20,19 @@ The only dependency of this library is `three.js r151+`.
 - **Simplified Multiple Rendering**: 
   - Easily handle rendering for multiple scenes or viewports on a single canvas
 - **Object3D Property Binding**: 
-  - Simplify Object3D property management
+  - Simplify `Object3D` property management
 - **Event Programming**: 
-  - Add interactions to Object3D through programmable events, similar to DOM events
+  - Add interactions to `Object3D` through programmable events, similar to `DOM events`
   - It is possible to bind events on changing position, scale, rotation, visibility and enabled state
 - **Focus and Blur**: 
   - Enhance interactivity with focus and blur events
 - **Drag and Drop**: 
   - Seamlessly integrate drag and drop functionality
-- **Tweening**: 
-  - Create smooth animations effortlessly with built-in tweening
-- **Raycasting Options**: 
-  - Choose between continuous or mouse movement-based raycasting, optimizing intersection operations
 - **Hitbox Functionality**: 
   - Utilize hitboxes for customized intersections or simplified calculations
+- **Raycasting Options**: 
+  - Choose between continuous or mouse movement-based raycasting, optimizing intersection operations
+- **Tweening**: 
+  - Create smooth animations effortlessly with built-in tweening
 - **Simplified InstancedMesh**: 
-  - Manage InstancedMesh instances as if they were Object3D, simplifying creation and manipulation
+  - Manage `InstancedMesh` instances as if they were `Object3D`, simplifying creation and manipulation
