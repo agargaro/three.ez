@@ -1,9 +1,42 @@
 {
-  // This file is not used in compilation. It is here just for a nice editor experience.
-  "extends": "@tsconfig/docusaurus/tsconfig.json",
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "Docusaurus v2",
+  "docs": "https://v2.docusaurus.io/docs/typescript-support",
   "compilerOptions": {
+    "allowJs": true,
+    "esModuleInterop": true,
+    "jsx": "react",
+    "lib": [
+      "DOM"
+    ],
+    "noEmit": true,
+    "types": [
+      "node",
+      "@docusaurus/module-type-aliases",
+      "@docusaurus/theme-classic"
+    ],
     "baseUrl": ".",
-    "module": "Node16",
-    "moduleResolution":"Node16",
+    "paths": {
+      "@site/*": [
+        "./*"
+      ],
+      "three": [
+        "../typesDev/index.d.ts"
+      ],
+      "@three.ez/main": [
+        "../src/index.ts"
+      ]
+    },
+    "skipLibCheck": true,
+    "module": "ES2020",
+    "target": "ES2020",
+    "strict": true,
+    "noImplicitOverride": true,
+    "moduleResolution": "node",
+    "declaration": true,
+    "strictNullChecks": false,
+    "stripInternal": true,
+    "outDir": "build",
+    "noImplicitAny": false
   }
 }

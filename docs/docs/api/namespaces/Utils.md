@@ -8,4 +8,5 @@ custom_edit_url: null
 
 ## Classes
 
+- [Stats](../classes/Utils.Stats.md)
 - [Utils](../classes/Utils.Utils.md)

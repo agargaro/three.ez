@@ -3,9 +3,35 @@
   align-items: center;
   padding: 2rem 0;
   width: 100%;
+  position: relative;
+  z-index: 1;
 }
 
 .featureSvg {
   height: 200px;
   width: 200px;
+}
+
+.featureContainer {
+  /* max-height: ; */
+  overflow: auto;
+  max-height: calc(100vh - 254px);
+}
+
+.transparentCodeBlock {
+  --prism-background-color: #15182d36 !important;
+  backdrop-filter: blur(6px);
+  border: 1px solid #ffffff80;
+}
+
+.cubeCanvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+  touch-action: none;
+  user-select: none;
+  border: 1px solid red;
+  position: absolute;
+  top: 0;
+  z-index: 0;
 }

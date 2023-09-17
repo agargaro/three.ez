@@ -19,7 +19,7 @@ The difference in time between the current animation frame and the previous one 
 
 #### Defined in
 
-[src/events/Events.ts:385](https://github.com/agargaro/three.ez/blob/46fae0a/src/events/Events.ts#L385)
+[src/events/Events.ts:385](https://github.com/agargaro/three.ez/blob/ba52259/src/events/Events.ts#L385)
 
 ___
 
@@ -31,4 +31,4 @@ The total amount of time that has passed since the animation started (in millise
 
 #### Defined in
 
-[src/events/Events.ts:387](https://github.com/agargaro/three.ez/blob/46fae0a/src/events/Events.ts#L387)
+[src/events/Events.ts:387](https://github.com/agargaro/three.ez/blob/ba52259/src/events/Events.ts#L387)

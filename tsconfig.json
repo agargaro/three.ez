@@ -19,7 +19,7 @@
 	},
 	"include": [
 		"src/**/*.ts"
-	],
+, "docs/index copy.ts"	],
 	"exclude": [
 		"src/types",
 		"src/example.ts"
