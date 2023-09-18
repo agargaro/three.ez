@@ -7,7 +7,6 @@ import { Main } from './intro-cube/main';
 
 type FeatureItem = {
   title: string;
-  Svg?: React.ComponentType<React.ComponentProps<'svg'>>;
   description: JSX.Element;
   code: string;
 };
@@ -88,11 +87,13 @@ const FeatureList: FeatureItem[] = [
   },
 ];
 
-function Feature({ title, Svg = null, description, code }: FeatureItem) {
+interface FeatureProps extends FeatureItem {
+  className: string;
+}
+function Feature({ title, description, code, className }: FeatureProps) {
   return (
-    <div className={clsx('col col--10')}>
-      <div className="text--center">{Svg && <Svg className={styles.featureSvg} role="img" />}</div>
-      <div className="text--center padding-horiz--md">
+    <div className={className} data-title={title}>
+      <div className="text--center">
         <h3>{title}</h3>
         <p>{description}</p>
       </div>
@@ -104,33 +105,49 @@ function Feature({ title, Svg = null, description, code }: FeatureItem) {
 }
 
 export default function HomepageFeatures(): JSX.Element {
-  const [examplesCode, setExamplesCode] = useState(examples);
-  const [index, setIndex] = useState(0);
   let main: Main;
+
+  const handleIntersection = (entries: IntersectionObserverEntry[]) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const index = FeatureList.findIndex((feature) => feature.title === entry.target.getAttribute('data-title'));
+        if (index !== main.currentStep) {
+          if (index !== -1) {
+            if (index > main.currentStep) {
+              main.next();
+            } else {
+              main.back();
+            }
+          }
+        }
+      }
+    });
+  };
+
   useEffect(() => {
-    // Update the document title using the browser API
     main = new Main();
-  });
-
-  function back(event: React.MouseEvent<HTMLButtonElement, MouseEvent>): void {
-    main.back();
-  }
-
-  function next(event: React.MouseEvent<HTMLButtonElement, MouseEvent>): void {
-    main.next();
-  }
+    const options = {
+      root: document.querySelector('#scrollcontainer'),
+      rootMargin: '0px',
+      threshold: 0.5,
+    };
+    const observer = new IntersectionObserver(handleIntersection, options);
+    FeatureList.forEach((feature) => {
+      const element = document.querySelector(`[data-title="${feature.title}"]`);
+      if (element) {
+        observer.observe(element);
+      }
+    });
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
 
   return (
-    <section className={styles.featureContainer}>
-      <section className={styles.features}>
-        <div>
-          <button onClick={back}>⬆️</button>
-          <button onClick={next}>⬇️</button>
-          {FeatureList.map((props) => (
-            <Feature key={props.title} {...props} />
-          ))}
-        </div>
-      </section>
+    <section className={styles.featuresContainer}>
+      {FeatureList.map((props) => (
+        <Feature key={props.title} {...props} className={styles.features} />
+      ))}
       <canvas id="cubecanvas" className={styles.cubeCanvas}></canvas>
     </section>
   );

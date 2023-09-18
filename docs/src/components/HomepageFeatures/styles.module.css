@@ -1,21 +1,21 @@
 .features {
   display: flex;
-  align-items: center;
-  padding: 2rem 0;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 6rem 0;
   width: 100%;
   position: relative;
   z-index: 1;
+  scroll-snap-align: start;
+  scroll-behavior: smooth;
+  scroll-snap-stop: always;
+  height: calc(100vh - calc(var(--ifm-navbar-height) + var(--ifm-navbar-padding-vertical) * 2));;
 }
-
-.featureSvg {
-  height: 200px;
-  width: 200px;
-}
-
-.featureContainer {
-  /* max-height: ; */
-  overflow: auto;
-  max-height: calc(100vh - 254px);
+.featuresContainer {
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  max-height: calc(100vh - calc(var(--ifm-navbar-height) + var(--ifm-navbar-padding-vertical) * 2));
 }
 
 .transparentCodeBlock {

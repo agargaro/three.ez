@@ -83,43 +83,6 @@ const config = {
           },
         ],
       },
-      footer: {
-        style: 'dark',
-        links: [
-          {
-            title: 'Docs',
-            items: [
-              {
-                label: 'Tutorial',
-                to: '/docs/intro',
-              },
-            ],
-          },
-          {
-            title: 'Community',
-            items: [
-              {
-                label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/three.ez',
-              },
-              {
-                label: 'Discord',
-                href: 'https://discord.gg/MVTwrdX3JM',
-              },
-            ],
-          },
-          {
-            title: 'More',
-            items: [
-              {
-                label: 'GitHub',
-                href: 'https://github.com/agargaro/three.ez',
-              },
-            ],
-          },
-        ],
-        // copyright: `Copyright © 2023 three.ez. Built with Docusaurus.`,
-      },
       colorMode: {
         defaultMode: 'dark',
       },
