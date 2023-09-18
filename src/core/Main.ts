@@ -19,7 +19,7 @@ export interface MainParameters {
     showStats?: boolean;
     /** A boolean flag indicating whether to disable the context menu on right-click (default: true). */
     disableContextMenu?: boolean;
-    /** The default background color (default: black). */
+    /** The default background color (default: 'black'). */
     backgroundColor?: ColorRepresentation;
     /** The default alpha (transparency) value for the background (default: 1). */
     backgroundAlpha?: number;

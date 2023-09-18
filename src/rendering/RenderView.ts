@@ -19,19 +19,19 @@ export interface Viewport {
  * Represents a set of parameters for configuring a view.
  */
 export interface ViewParameters {
-  /** The scene to be rendered in the view. */
+  /** The scene rendered in the view. */
   scene: Scene;
-  /** The camera used to view the scene (Don't use the same camera for differents scenes). */
+  /** The camera used to view the scene (don't use the same camera for different scenes). */
   camera: Camera;
-  /** The normalized viewport defining the dimensions and position of the view (optional). Values range from 0 to 1. */
+  /** The normalized viewport defining the dimensions and position of the view. Values range from 0 to 1 (optional). */
   viewport?: Viewport;
-  /** The tags of the view. */
+  /** The tags of the view (optional). */
   tags?: string[];
   /** Determines if the view is visible (optional, default: true). */
   visible?: boolean;
   /** Determines whether InteractionEvents will be triggered for the view. (optional, default: true).  */
   enabled?: boolean;
-  /** The background color of the view (optional). It can be a Color object or a numeric value representing the color. */
+  /** The background color of the view (optional, default: 'black'). */
   backgroundColor?: ColorRepresentation;
   /** The background alpha value of the view (optional, default: 1). */
   backgroundAlpha?: number;

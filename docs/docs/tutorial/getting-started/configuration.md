@@ -14,7 +14,7 @@ Within the `Main` class constructor, you can provide an optional configuration o
 | ---------------- | -------------------- | --------------------------------------------------------------------------------------- |
 | **animate**       | XRFrameRequestCallback | A callback function executed for each frame.                                          |
 | **backgroundAlpha** | number             | The default alpha (transparency) value for the background (default: 1).                |
-| **backgroundColor** | ColorRepresentation | The default background color (default: black).                                          |
+| **backgroundColor** | ColorRepresentation | The default background color (default: 'black').                                          |
 | **disableContextMenu** | boolean         | A boolean flag indicating whether to disable the context menu on right-click (default: true). |
 | **enableCursor** | boolean              | A boolean flag indicating whether to enable cursor handling in the application (default: true). |
 | **fullscreen**    | boolean              | A boolean flag indicating whether to enable full-screen mode and automatic canvas resizing (default: true). |
