@@ -12,7 +12,8 @@ sidebar_position: 0
   npm install @three.ez/main
   ```
 
-1. For TypeScript users, it's essential to follow the steps outlined in [TypeScript Support](https://agargaro.github.io/three.ez/docs/tutorial/getting-started/typescript-support). If you're not using TypeScript, you can skip this step.
+1. For TypeScript users, it's essential to follow the steps outlined in [TypeScript Support](https://agargaro.github.io/three.ez/docs/tutorial/getting-started/typescript-support). <br />
+If you're not using TypeScript, you can skip this step.
 
 1. Open your `main.ts` file and insert the provided code:
   ```typescript

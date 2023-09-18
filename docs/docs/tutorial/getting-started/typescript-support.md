@@ -11,7 +11,8 @@ npm install --save @types/three
 
 > 💡 **`three.ez` extends the properties of the `Scene` and `Object3D` classes, requiring the override of `three` type definitions.**
 
-The type definitions for `three.ez` are bundled within the main package. To override the `three` type definitions, follow these steps:
+The type definitions for `three.ez` are bundled within the main package. <br />
+To override the `three` type definitions, simply navigate to your `tsconfig.json` file and add the following path configuration:
 
 ```javascript
 "compilerOptions": {

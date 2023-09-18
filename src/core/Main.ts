@@ -13,7 +13,7 @@ import { RaycasterSortComparer } from "../events/RaycasterManager";
  * Represents the configuration parameters for initializing the Main class.
  */
 export interface MainParameters {
-    /** A Boolean flag indicating whether to enable full-screen mode and perform automatic resizing of the canvas (default: true). */
+    /** A boolean flag indicating whether to enable full-screen mode and perform automatic resizing of the canvas (default: true). */
     fullscreen?: boolean;
     /** A boolean flag indicating whether to display performance statistics (default: true). */
     showStats?: boolean;
