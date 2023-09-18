@@ -4,17 +4,17 @@ sidebar_position: 0
 
 # Installation
 
-1. Create a `three.js` project by following the [official guide (option 1)](https://threejs.org/docs/#manual/en/introduction/Installation)
-> ⚠️ **three.ez is compatible with three.js r151+.**
+1. Begin by creating a `three.js` project, which can be done by following the [official guide (option 1)](https://threejs.org/docs/#manual/en/introduction/Installation).
+> ⚠️ **Please note that three.ez is compatible with three.js r151+.**
 
 1. Install `three.ez`
   ```bash
   npm install @three.ez/main
   ```
 
-1. If you are using `TypeScript`, you must follow the steps described in [TypeScript Support](https://agargaro.github.io/three.ez/docs/tutorial/getting-started/typescript-support), otherwise skip this step.
+1. For TypeScript users, it's essential to follow the steps outlined in [TypeScript Support](https://agargaro.github.io/three.ez/docs/tutorial/getting-started/typescript-support). If you're not using TypeScript, you can skip this step.
 
-1. Open the `main.ts` file and copy this code:
+1. Open your `main.ts` file and insert the provided code:
   ```typescript
   import { Scene, Mesh, BoxGeometry, MeshNormalMaterial } from 'three';
   import { Main, PerspectiveCameraAuto } from '@three.ez/main';
@@ -26,7 +26,7 @@ sidebar_position: 0
   main.createView({ scene, camera: new PerspectiveCameraAuto(70).translateZ(1) });
   ```
 
-  Or copy this if you prefer to use classes, making it more readable and modular ***(recommended)***:
+ Alternatively, if you prefer a more structured and modular approach using classes ***(which is recommended)***, you can use the following code snippet:
 
   ```typescript
   import { Scene as SceneBase, Mesh, BoxGeometry, MeshNormalMaterial } from 'three';
@@ -56,4 +56,4 @@ sidebar_position: 0
   const main = new Main();
   ```
 
-  > 💡 **In this documentation we will use `.ts` as the file extension. If you are not using TypeScript, consider `.js`.**
+  > 💡 **Throughout this documentation, we use the `.ts` file extension. If you're not using TypeScript, feel free to use `.js` instead.**

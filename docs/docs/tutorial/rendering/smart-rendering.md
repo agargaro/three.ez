@@ -4,12 +4,13 @@ sidebar_position: 1
 
 # Smart Rendering
 
-Smart rendering allows a frame to be rendered only when it is needed, which is especially useful when using mostly static scenes, optimizing performance and reducing unnecessary computational overhead.
+Smart rendering allows frames to be rendered only when necessary, making it especially valuable for mostly static scenes. <br />
+This optimization enhances performance and minimizes unnecessary computational overhead.
 
-## How does it work?
+## How It Works
 
-A `needRender` property is added to each `Scene` object. <br />
-If the smart rendering mode is on, the `needRender` flag is reset after each rendering. <br />
+A `needRender` property is introduced for each `Scene` object. <br />
+When smart rendering is enabled, the `needRender` flag is reset after each rendering. <br />
 This property is automatically set to **true** when specific events occur within the scene:
 
 - Changes in object `position`, `scale`, and `rotation`
@@ -17,19 +18,18 @@ This property is automatically set to **true** when specific events occur within
 - Adding or removing objects
 - Focus changes
 
-> ⚠️ **Automatic change detection may introduce a minor overhead, so it is advisable to activate this mode only when it is required.**
+> ⚠️ **Automatic change detection may introduce a minor overhead, so it is recommended to activate this mode only when necessary.**
 
-## Manual detection
+## Manual Update
 
+If automatic change detection isn't possible (e.g., modifications in geometry, material properties, etc.), you can manually set the flag to **true**.
+You can manually update the `needsRender` flag by modifying it on any `Object3D` that has been added to the `Scene` object.
 
-If it's not possible to automatically detect a change (such as modifications in geometry, material properties, etc.), you will need to set the flag to **true** manually. <br />
-You can manually update the `needsRender` flag by changing it on any `Object3D` that has been added to the `Scene` object.
+## Activation
 
-## How it is activated
-
-The smart rendering mode is **disabled** by default. <br />
-To enable it, you need to utilize the `activeSmartRendering` method on the `Scene` object.
-> 💡 **Smart rendering is associated with a scene, meaning it doesn't need to be enabled for all of your scenes.**
+Smart rendering mode is **disabled** by default. <br />
+To enable it, use the `activeSmartRendering` method on the `Scene` object.
+> 💡 **Smart rendering is specific to a scene, so it doesn't need to be enabled for all scenes.**
 
 ## Example 
 
@@ -42,8 +42,9 @@ draggableBox.on(['pointerenter', 'pointerleave'], function(e) {
 });
 
 const scene = new Scene();
-scene.activeSmartRendering(); // in this case it automatically detects drag movements
+scene.activeSmartRendering(); // in this case, it automatically detects drag movements
 scene.add(draggableBox);
+
 ```
 
 ## Live Examples

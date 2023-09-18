@@ -4,12 +4,12 @@ sidebar_position: 2
 
 # Playground
 
-Playgrounds allow you to run three.ez in your browser, without installing anything!
+Playgrounds let you experience `three.ez` right in your browser, with no need for installation!
 
-They are mostly useful for:
+They're particularly handy for:
 
 - Testing
 - Reporting bugs
 
-### [⚡ Stackblitz JavaScript](https://stackblitz.com/edit/three-ez-template-js?file=src%2Fmain.js)
-### [⚡ Stackblitz TypeScript](https://stackblitz.com/edit/three-ez-template?file=src%2Fmain.ts)
+### [⚡ Try it with JavaScript on Stackblitz](https://stackblitz.com/edit/three-ez-template-js?file=src%2Fmain.js)
+### [⚡ Try it with TypeScript on Stackblitz](https://stackblitz.com/edit/three-ez-template?file=src%2Fmain.ts)
