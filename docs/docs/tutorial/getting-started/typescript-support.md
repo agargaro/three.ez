@@ -4,15 +4,14 @@ sidebar_position: 3
 
 # TypeScript Support
 
-Install `three.js` type definitions:
+Before using `three.ez`, make sure you have the `three.js` type definitions installed:
 ```bash
 npm install --save @types/three
 ```
 
-> 💡 **`three.ez` adds properties to the `Scene` and `Object3D` classes so you need to override the `three` type definitions.**
+> 💡 **`three.ez` extends the properties of the `Scene` and `Object3D` classes, requiring the override of `three` type definitions.**
 
-The type definitions of `three.ez` are already in the main package. <br />
-To override `three` type definitions, go to `ts.config` and add this path:
+The type definitions for `three.ez` are bundled within the main package. To override the `three` type definitions, follow these steps:
 
 ```javascript
 "compilerOptions": {
@@ -22,26 +21,26 @@ To override `three` type definitions, go to `ts.config` and add this path:
 }
 ```
 
-> ⚠️ **Currently all the main type definitions of `three.js` have been overridden. <br /> Instead, not all the type definitions of the official examples have been overridden.**
+> ⚠️ **Currently, `three.ez` has overridden all the primary `three.js` type definitions. However, not all type definitions from the official examples have been overridden.**
 
-## Manual override of definition types
+## Manually Overriding Type Definitions
 
-Work in progress...
+This section is a work in progress...
 
-## Use external libraries without type definitions
+## Using External Libraries without Type Definitions
 
-It is possible to use external libraries without type definitions.
-There are two possible solutions:
-1. Add `@ts-ignore` to the import to ignore the error ***(not recommended)***
+You can use external libraries that lack type definitions in two ways:
+
+1. Add `@ts-ignore` to the import statement to suppress the error ***(not recommended)***
     ```javascript
     // @ts-ignore
     import * as Package from 'package';
     ```
-2. Manually create type definition files `(.d.ts)`:
-   - Create the `types` folder in the root of the project
-   - Create a file in the `types` folder and rename it `[package-name].d.ts`
-   - Write the type definitions inside the file
-   - Go to `ts.config` and add the path to the new type definitions
+2. Create Type Definition Files (`*.d.ts`):
+   - Create a `types` folder at the project's root directory
+   - Inside the `types` folder, create a file and name it `[package-name].d.ts`
+   - Write the type definitions within this file
+   - In your `tsconfig`, include the path to the new type definitions
 
     ```javascript
     "compilerOptions": {
@@ -52,5 +51,5 @@ There are two possible solutions:
     }
     ```
  
- > 💡 **You can consult an example [here](https://stackblitz.com/edit/three-ez-textbox?file=types%2Ftroika-three-text.d.ts).**
+ > 💡 **You can find an example [here](https://stackblitz.com/edit/three-ez-textbox?file=types%2Ftroika-three-text.d.ts).**
 
