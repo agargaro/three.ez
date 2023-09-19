@@ -14,8 +14,8 @@ This library has only one dependency: `three.js r151+`.
 ## Key Features
 
 - **Automatic Resize Handling**
-  - Automatically resizes the `Renderer`, `Camera`, and `EffectComposer`.
-  - Using the `rendererResize` event, you can easily set the resolution for custom shaders.
+  - Automatically resizes the `Renderer`, `Camera`, and `EffectComposer`. <br />
+  Using the `rendererResize` event, you can easily set the resolution for custom shaders.
 
 - **Smart Rendering**
   - Optimize performance by rendering frames only when necessary, reducing computational overhead.
@@ -27,8 +27,8 @@ This library has only one dependency: `three.js r151+`.
   - Streamline the management of `Object3D` properties.
 
 - **Event Programming**
-  - Add interactions to `Object3D` through programmable events, similar to `DOM events`.
-  - You can bind events for changes in position, scale, rotation, visibility, and enabled state.
+  - Add interactions to `Object3D` through programmable events, similar to `DOM events`. <br />
+  You can bind events for changes in position, scale, rotation, visibility, and enabled state.
 
 - **Focus and Blur**
   - Enhance interactivity with focus and blur events.
@@ -58,19 +58,23 @@ npm install @three.ez/main
 
 ## Usage
 
-Here's an example of a simple animated and draggable box:
-
 ```typescript
 import { Scene, Mesh, BoxGeometry, MeshNormalMaterial } from 'three';
-import { Main, PerspectiveCameraAuto } from '@three.ez/main';
+import { Main, PerspectiveCameraAuto, TweenManager } from '@three.ez/main';
 
-const box = new Mesh(new BoxGeometry(0.2, 0.2, 0.2), new MeshNormalMaterial());
+const box = new Mesh(new BoxGeometry(0.1, 0.1, 0.1), new MeshNormalMaterial());
 box.draggable = true;
 box.on('animate', (e) => box.rotateX(e.delta).rotateY(e.delta * 2));
+box.on(['pointerover', 'pointerout'], (e) => {
+  TweenManager.stopAll();
+  box.tween().to(500, { scale: e.type === 'pointerover' ? 1.5 : 1 }, { easing: 'easeOutElastic' }).start();
+});
 const scene = new Scene().add(box);
 const main = new Main();
 main.createView({ scene, camera: new PerspectiveCameraAuto(70).translateZ(1) });
 ```
+
+<img src="/docs/static/img/demo.gif" />
 
 ## Override TypeScript Type Definition
 
