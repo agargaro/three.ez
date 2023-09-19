@@ -5,13 +5,13 @@ import { EffectComposer } from "three/examples/jsm/postprocessing/EffectComposer
  * Represents an object that defines the dimensions and position of a viewport.
  */
 export interface Viewport {
-  /** The left coordinate of the viewport. */
+  /** Left coordinate of the viewport. */
   left: number;
-  /** The bottom coordinate of the viewport. */
+  /** Bottom coordinate of the viewport. */
   bottom: number;
-  /** The width of the viewport */
+  /** Width of the viewport. */
   width: number;
-  /** The height of the viewport. */
+  /** Height of the viewport. */
   height: number;
 }
 
@@ -19,25 +19,25 @@ export interface Viewport {
  * Represents a set of parameters for configuring a view.
  */
 export interface ViewParameters {
-  /** The scene rendered in the view. */
+  /** Scene rendered in the view. */
   scene: Scene;
-  /** The camera used to view the scene (don't use the same camera for different scenes). */
+  /** Camera used to view the scene (avoid using the same camera for different scenes). */
   camera: Camera;
-  /** The normalized viewport defining the dimensions and position of the view. Values range from 0 to 1 (optional). */
+  /** Normalized viewport defining dimensions and position of the view (optional). Values range from 0 to 1. */
   viewport?: Viewport;
-  /** The tags of the view (optional). */
+  /** Tags of the view (optional). */
   tags?: string[];
   /** Determines if the view is visible (optional, default: true). */
   visible?: boolean;
-  /** Determines whether InteractionEvents will be triggered for the view. (optional, default: true).  */
+  /** Determines whether InteractionEvents will be triggered for the view (optional, default: true).  */
   enabled?: boolean;
-  /** The background color of the view (optional, default: 'black'). */
+  /** Background color of the view (optional, default: 'black'). */
   backgroundColor?: ColorRepresentation;
-  /** The background alpha value of the view (optional, default: 1). */
+  /** Background alpha value of the view (optional, default: 1). */
   backgroundAlpha?: number;
-  /** The effect composer used for post-processing (optional). */
+  /** Effect composer used for post-processing (optional). */
   composer?: EffectComposer;
-  /** Function to be called before rendering the view (optional). */
+  /** Function called before rendering the view (optional). */
   onBeforeRender?: () => void;
   /** Function to be called after rendering the view (optional). */
   onAfterRender?: () => void;

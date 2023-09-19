@@ -9,7 +9,8 @@ Before using `three.ez`, make sure you have the `three.js` type definitions inst
 npm install --save @types/three
 ```
 
-> 💡 **`three.ez` extends the properties of the `Scene` and `Object3D` classes, requiring the override of `three` type definitions.**
+> ℹ️ **Note** <br />
+> `three.ez` extends the properties of the `Scene` and `Object3D` classes, requiring the override of `three` type definitions.
 
 The type definitions for `three.ez` are bundled within the main package. <br />
 To override the `three` type definitions, simply navigate to your `tsconfig.json` file and add the following path configuration:
@@ -22,7 +23,8 @@ To override the `three` type definitions, simply navigate to your `tsconfig.json
 }
 ```
 
-> ⚠️ **Currently, `three.ez` has overridden all the primary `three.js` type definitions. However, not all type definitions from the official examples have been overridden.**
+> ⚠️ **Warning** <br />
+> Currently, `three.ez` has overridden all the primary `three.js` type definitions. However, not all type definitions from the official examples have been overridden.
 
 ## Manually Overriding Type Definitions
 
@@ -52,5 +54,5 @@ You can use external libraries that lack type definitions in two ways:
     }
     ```
  
- > 💡 **You can find an example [here](https://stackblitz.com/edit/three-ez-textbox?file=types%2Ftroika-three-text.d.ts).**
-
+ > ℹ️ **Note** <br />
+ > You can find an example [here](https://stackblitz.com/edit/three-ez-textbox?file=types%2Ftroika-three-text.d.ts).

@@ -22,7 +22,8 @@ Within the `Main` class constructor, you can provide an optional configuration o
 | **rendererParameters** | WebGLRendererParameters | Configuration parameters for the [WebGLRenderer](https://threejs.org/docs/#api/en/renderers/WebGLRenderer). |
 | **showStats**     | boolean              | A boolean flag indicating whether to display performance statistics (default: true).    |
 
-> 💡 **You can access the documentation for the `Main` class [here](../../api/classes/Core.Main).**
+> ℹ️ **Note** <br />
+> You can access the documentation for the `Main` class [here](../../api/classes/Core.Main).
 
 ## Example
 
@@ -30,7 +31,7 @@ Within the `Main` class constructor, you can provide an optional configuration o
 
 const main = new Main({
   animate: () => {
-    // If you use external libraries that require cyclic updates, perform them here.
+    /** If you use external libraries that require cyclic updates, perform them here. */
   },
   backgroundAlpha: 1,
   backgroundColor: 'black',
@@ -39,6 +40,12 @@ const main = new Main({
   fullscreen: true,
   multitouch: false,
   rendererParameters: { antialias: true },
-  showStats: true,
+  showStats: true
 });
 ```
+
+## Live Examples
+
+[⚡ Stackblitz - Template](https://stackblitz.com/edit/three-ez-template?file=src%2Fmain.ts) <br />
+[⚡ Stackblitz - Template Small](https://stackblitz.com/edit/three-ez-template-small?file=src%2Fmain.ts) <br />
+[⚡ Stackblitz - Template No Vite](https://stackblitz.com/edit/three-ez-template-no-vite?file=index.ts)

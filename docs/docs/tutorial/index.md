@@ -8,7 +8,8 @@ sidebar_position: 0
 It offers a comprehensive suite of user-friendly tools and high-performance features, making it accessible even to beginners. <br />
 With `three.ez`, you'll discover an efficient and robust toolkit for your 3D projects.
 
-This library has only one dependency: `three.js r151+`.
+> ℹ️ **Note** <br />
+> This library has only one dependency: `three.js r151+`.
 
 ## Key Features
 

@@ -1,5 +1,5 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
 ---
 
 # Smart Rendering
@@ -18,7 +18,8 @@ This property is automatically set to **true** when specific events occur within
 - Adding or removing objects
 - Focus changes
 
-> ⚠️ **Automatic change detection may introduce a minor overhead, so it is recommended to activate this mode only when necessary.**
+> ⚠️ **Warning** <br />
+> Automatic change detection may introduce a minor overhead, so it is recommended to activate this mode only when necessary.
 
 ## Manual Update
 
@@ -29,7 +30,9 @@ You can manually update the `needsRender` flag by modifying it on any `Object3D`
 
 Smart rendering mode is **disabled** by default. <br />
 To enable it, use the `activeSmartRendering` method on the `Scene` object.
-> 💡 **Smart rendering is specific to a scene, so it doesn't need to be enabled for all scenes.**
+
+> ℹ️ **Note** <br />
+> Smart rendering is specific to a scene, so it doesn't need to be enabled for all scenes.
 
 ## Example 
 
@@ -44,7 +47,6 @@ draggableBox.on(['pointerenter', 'pointerleave'], function(e) {
 const scene = new Scene();
 scene.activeSmartRendering(); // in this case, it automatically detects drag movements
 scene.add(draggableBox);
-
 ```
 
 ## Live Examples

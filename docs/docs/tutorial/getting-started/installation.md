@@ -5,7 +5,8 @@ sidebar_position: 0
 # Installation
 
 1. Begin by creating a `three.js` project, which can be done by following the [official guide (option 1)](https://threejs.org/docs/#manual/en/introduction/Installation).
-> ⚠️ **Please note that three.ez is compatible with three.js r151+.**
+> ⚠️ **Warning** <br />
+> Please note that `three.ez` is compatible with `three.js r151+`.
 
 1. Install `three.ez`
   ```bash
@@ -57,4 +58,5 @@ If you're not using TypeScript, you can skip this step.
   const main = new Main();
   ```
 
-  > 💡 **Throughout this documentation, we use the `.ts` file extension. If you're not using TypeScript, feel free to use `.js` instead.**
+  > ℹ️ **Note** <br />
+  > Throughout this documentation, we use the `.ts` file extension. If you're not using TypeScript, feel free to use `.js` instead.
