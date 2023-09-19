@@ -11,13 +11,14 @@
   "keywords": [
     "three",
     "three.js",
+    "threejs",
     "interaction",
     "events",
-    "drag & drop",
+    "drag and drop",
     "smart rendering",
     "multiple views",
     "tween",
-    "focus & blur",
+    "focus management",
     "binding"
   ],
   "scripts": {
