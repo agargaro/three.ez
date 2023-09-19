@@ -34,6 +34,7 @@ export class Mesh<
     clicking: boolean;
     dragging: boolean;
     get enabledState(): boolean;
+    get visibilityState(): boolean;
     get firstFocusable(): Object3D;
     applyFocus(): void;
     applyBlur(): void;

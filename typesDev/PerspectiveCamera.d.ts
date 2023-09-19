@@ -31,6 +31,7 @@ export class PerspectiveCamera extends PerspectiveCameraBase implements Object3D
     clicking: boolean;
     dragging: boolean;
     get enabledState(): boolean;
+    get visibilityState(): boolean;
     get firstFocusable(): Object3D;
     applyFocus(): void;
     applyBlur(): void;

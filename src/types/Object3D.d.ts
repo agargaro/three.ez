@@ -19,6 +19,7 @@ export class Object3D<TEventMap extends Object3DEventMap = Object3DEventMap> ext
     get clicking(): boolean;
     get dragging(): boolean;
     get enabledState(): boolean;
+    get visibilityState(): boolean;
     get firstFocusable(): Object3D;
     applyFocus(): void;
     applyBlur(): void;

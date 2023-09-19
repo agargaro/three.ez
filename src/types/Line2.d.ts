@@ -20,6 +20,7 @@ export class Line2 extends Line2Base implements Object3DExtPrototype {
     get clicking(): boolean;
     get dragging(): boolean;
     get enabledState(): boolean;
+    get visibilityState(): boolean;
     get firstFocusable(): Object3D;
     applyFocus(): void;
     applyBlur(): void;

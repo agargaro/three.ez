@@ -19,6 +19,7 @@ export class Group extends GroupBase implements Object3DExtPrototype {
     get clicking(): boolean;
     get dragging(): boolean;
     get enabledState(): boolean;
+    get visibilityState(): boolean;
     get firstFocusable(): Object3D;
     applyFocus(): void;
     applyBlur(): void;
