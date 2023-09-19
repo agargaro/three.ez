@@ -73,8 +73,9 @@ const scene = new Scene().add(box);
 const main = new Main();
 main.createView({ scene, camera: new PerspectiveCameraAuto(70).translateZ(1) });
 ```
-
-<img src="/docs/static/img/demo.gif" />
+<a href='https://stackblitz.com/edit/three-ez-template-small?file=src%2Fmain.ts'>
+  <img src='https://raw.githubusercontent.com/agargaro/three.ez/master/docs/static/img/demo.gif' />
+</a>
 
 ## Override TypeScript Type Definition
 

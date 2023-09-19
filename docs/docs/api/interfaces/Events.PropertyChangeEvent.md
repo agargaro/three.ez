@@ -19,13 +19,13 @@ Represents a property change event.
 
 ### target
 
-• **target**: `Object3D`
+• **target**: `Object3D`<`Object3DEventMap`\>
 
 A reference to the object to which the event was originally dispatched.
 
 #### Defined in
 
-[src/events/Events.ts:396](https://github.com/agargaro/three.ez/blob/ba52259/src/events/Events.ts#L396)
+[src/events/Events.ts:396](https://github.com/agargaro/three.ez/blob/16c77a5/src/events/Events.ts#L396)
 
 ___
 
@@ -37,4 +37,4 @@ The new value associated with the property change.
 
 #### Defined in
 
-[src/events/Events.ts:398](https://github.com/agargaro/three.ez/blob/ba52259/src/events/Events.ts#L398)
+[src/events/Events.ts:398](https://github.com/agargaro/three.ez/blob/16c77a5/src/events/Events.ts#L398)
