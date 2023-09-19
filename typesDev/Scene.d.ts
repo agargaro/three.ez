@@ -43,6 +43,7 @@ export class Scene extends SceneBase implements Object3DExtPrototypeInternal, Sc
     clicking: boolean;
     dragging: boolean;
     get enabledState(): boolean;
+    get visibilityState(): boolean;
     get firstFocusable(): Object3D;
     applyFocus(): void;
     applyBlur(): void;

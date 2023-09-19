@@ -67,6 +67,8 @@ export interface Object3DExtPrototype {
     get dragging(): boolean;
     /** Retrieves the combined enabled state considering parent objects. */
     get enabledState(): boolean;
+    /** Retrieves the combined visibility state considering parent objects. */
+    get visibilityState(): boolean;
     /** Retrieves the first possibile focusable object. */
     get firstFocusable(): Object3D;
     /**
@@ -195,6 +197,16 @@ Object.defineProperty(Object3D.prototype, "enabledState", {
         let obj = this;
         do {
             if (!obj.enabled) return false;
+        } while (obj = obj.parent);
+        return true;
+    }
+});
+
+Object.defineProperty(Object3D.prototype, "visibilityState", {
+    get: function (this: Object3D) {
+        let obj = this;
+        do {
+            if (!obj.visible) return false;
         } while (obj = obj.parent);
         return true;
     }

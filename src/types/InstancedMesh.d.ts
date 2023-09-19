@@ -22,6 +22,7 @@ export class InstancedMesh<
     get clicking(): boolean;
     get dragging(): boolean;
     get enabledState(): boolean;
+    get visibilityState(): boolean;
     get firstFocusable(): Object3D;
     applyFocus(): void;
     applyBlur(): void;
