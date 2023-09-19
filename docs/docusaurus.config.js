@@ -19,9 +19,6 @@ const config = {
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
 
-  // Even if you don't use internalization, you can use this field to set useful
-  // metadata like html lang. For example, if your site is Chinese, you may want
-  // to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
@@ -29,7 +26,6 @@ const config = {
   plugins: [
     [
       'docusaurus-plugin-typedoc',
-      // Plugin / TypeDoc options
       {
         entryPoints: ['../src/index-doc.ts'],
         tsconfig: '../tsconfig.json',
@@ -53,14 +49,7 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
-        },
-        blog: {
-          showReadingTime: true,
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+            'https://github.com/agargaro/three.ez/tree/master/docs',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -72,19 +61,20 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      // image: 'img/docusaurus-social-card.jpg', // Replace with your project's social card
       navbar: {
         title: 'three.ez',
-        // logo: {
-        //   alt: 'three.ez Logo',
-        //   src: 'img/logo.svg',
-        // },
         items: [
+          {
+            type: 'docSidebar',
+            sidebarId: 'apiSidebar',
+            position: 'left',
+            label: 'API',
+          },
           {
             type: 'docSidebar',
             sidebarId: 'tutorialSidebar',
             position: 'left',
-            label: 'API',
+            label: 'Tutorial',
           },
           {
             href: 'https://github.com/agargaro/three.ez',
@@ -116,10 +106,6 @@ const config = {
                 label: 'Discord',
                 href: 'https://discord.gg/MVTwrdX3JM',
               },
-              // {
-              //   label: 'Twitter',
-              //   href: 'https://twitter.com/docusaurus',
-              // },
             ],
           },
           {

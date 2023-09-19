@@ -138,7 +138,7 @@ const main = new Main();
   ```
 </details>
 
-## Override Typescript Type Definition
+## Override TypeScript Type Definition
 
 To extend the definitions of `three`, go into `ts.config` and add this path:
 

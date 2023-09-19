@@ -13,13 +13,13 @@ import { RaycasterSortComparer } from "../events/RaycasterManager";
  * Represents the configuration parameters for initializing the Main class.
  */
 export interface MainParameters {
-    /** A Boolean flag indicating whether to enable full-screen mode and perform automatic resizing of the canvas (default: true). */
+    /** A boolean flag indicating whether to enable full-screen mode and perform automatic resizing of the canvas (default: true). */
     fullscreen?: boolean;
     /** A boolean flag indicating whether to display performance statistics (default: true). */
     showStats?: boolean;
     /** A boolean flag indicating whether to disable the context menu on right-click (default: true). */
     disableContextMenu?: boolean;
-    /** The default background color (default: black). */
+    /** The default background color (default: 'black'). */
     backgroundColor?: ColorRepresentation;
     /** The default alpha (transparency) value for the background (default: 1). */
     backgroundAlpha?: number;
