@@ -1,7 +1,7 @@
 import { Scene as SceneBase, Mesh, BoxGeometry, MeshNormalMaterial } from 'three';
 import { Main as MainBase, PerspectiveCameraAuto } from './index';
 
-// This file is excluded from the ts.config file. In order to work with this example, remove this line. 
+// This file is excluded from the tsconfig.json file. In order to work with this example, remove that line. 
 
 class DraggableBox extends Mesh {
   constructor() {
