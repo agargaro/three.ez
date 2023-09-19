@@ -50,7 +50,7 @@ export class InteractionManager {
         domElement.addEventListener("pointermove", this.enqueue.bind(this));
         domElement.addEventListener("pointerup", this.enqueue.bind(this));
         domElement.addEventListener("pointercancel", this.enqueue.bind(this));
-        domElement.addEventListener("wheel", this.enqueue.bind(this));
+        domElement.addEventListener("wheel", this.enqueue.bind(this), { passive: true });
         domElement.tabIndex = -1;
         domElement.addEventListener("keydown", this.enqueue.bind(this));
         domElement.addEventListener("keyup", this.enqueue.bind(this));
