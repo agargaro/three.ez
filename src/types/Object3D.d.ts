@@ -1,8 +1,8 @@
-import { BufferGeometry, Material, Mesh, Scene, WebGLRenderer } from "three";
+import { BufferGeometry, Material, Mesh, Scene, WebGLRenderer, Object3DEventMap } from "three";
 import { Object3D as Object3DBase } from "three/index";
 import { Cursor, Events, InteractionEvents, Object3DExtPrototype, Tween } from "../index";
 
-export class Object3D extends Object3DBase implements Object3DExtPrototype {
+export class Object3D<TEventMap extends Object3DEventMap = Object3DEventMap> extends Object3DBase<TEventMap> implements Object3DExtPrototype {
     enabled: boolean;
     interceptByRaycaster: boolean;
     hitboxes: Mesh[];

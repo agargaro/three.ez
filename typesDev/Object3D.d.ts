@@ -1,8 +1,8 @@
-import { BufferGeometry, Material, Mesh, Scene, WebGLRenderer } from "three";
+import { BufferGeometry, Material, Mesh, Scene, WebGLRenderer, Object3DEventMap } from "three";
 import { Object3D as Object3DBase } from "three/index";
 import { BindingCallback, Cursor, Events, EventsDispatcher, InteractionEvents, Object3DExtPrototypeInternal, Tween } from "../src/index";
 
-export class Object3D extends Object3DBase implements Object3DExtPrototypeInternal {
+export class Object3D<TEventMap extends Object3DEventMap = Object3DEventMap> extends Object3DBase<TEventMap> implements Object3DExtPrototypeInternal {
     __baseVisibleDescriptor: PropertyDescriptor;
     __isDropTarget: boolean;
     __boundCallbacks: BindingCallback[];
