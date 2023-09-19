@@ -136,7 +136,7 @@ export class ActionMotion<T> implements IAction<T> {
 
     private getEasing(): EasingFunction {
         const easing = this.config?.easing ?? DEFAULT_EASING;
-        return typeof easing === "string" ? (easings[easing] ?? easings.linear) : easing;
+        return typeof easing === "string" ? (easings[easing].bind(easings) ?? easings.linear) : easing;
     }
 
     private vector3(key: string, actionValue: Vector3 | number, targetValue: Vector3): RunningAction<Vector3> {
