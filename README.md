@@ -1,6 +1,6 @@
 # three.ez
 
-[![npm](https://img.shields.io/npm/v/@three.ez/main)](https://img.shields.io/npm/v/@three.ez/main)
+[![npm](https://img.shields.io/npm/v/@three.ez/main)](https://www.npmjs.com/package/@three.ez/main)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=agargaro_three.ez&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=agargaro_three.ez)
 [![DeepScan grade](https://deepscan.io/api/teams/21196/projects/25445/branches/796375/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=21196&pid=25445&bid=796375)
 [![CodeFactor](https://www.codefactor.io/repository/github/agargaro/three.ez/badge)](https://www.codefactor.io/repository/github/agargaro/three.ez)
@@ -13,40 +13,21 @@ This library has only one dependency: `three.js r151+`.
 
 ## Key Features
 
-- **Automatic Resize Handling**
-  - Automatically resizes the `Renderer`, `Camera`, and `EffectComposer`. <br />
-  Using the `rendererResize` event, you can easily set the resolution for custom shaders.
-
-- **Smart Rendering**
-  - Optimize performance by rendering frames only when necessary, reducing computational overhead.
-
-- **Simplified Multiple Rendering**
-  - Effortlessly manage rendering for multiple scenes or viewports within a single canvas.
-
-- **Object3D Property Binding**
-  - Streamline the management of `Object3D` properties.
-
-- **Event Programming**
-  - Add interactions to `Object3D` through programmable events, similar to `DOM events`. <br />
-  You can bind events for changes in position, scale, rotation, visibility, and enabled state.
-
-- **Focus and Blur**
-  - Enhance interactivity with focus and blur events.
-
-- **Drag and Drop**
-  - Seamlessly integrate drag-and-drop functionality.
-
-- **Hitbox Functionality**
-  - Leverage hitboxes for customized intersections or simplified calculations.
-
-- **Raycasting Options**
-  - Choose between continuous or mouse movement-based raycasting, optimizing intersection operations.
-
-- **Tweening**
-  - Create smooth animations effortlessly with built-in tweening.
-
-- **Simplified InstancedMesh**
-  - Manage `InstancedMesh` instances with the ease of working with `Object3D`, simplifying creation and manipulation.
+| **Feature**                      | **Description**                                                                                   |
+| -------------------------------- | ------------------------------------------------------------------------------------------------- |
+| **Automatic Resize Handling**    | Automatically resizes the `Renderer`, `Camera`, and `EffectComposer`.                            |
+|                                  | Using the `rendererResize` event, you can easily set the resolution for custom shaders.           |
+| **Smart Rendering**              | Optimize performance by rendering frames only when necessary, reducing computational overhead.   |
+| **Simplified Multiple Rendering**| Effortlessly manage rendering for multiple scenes or viewports within a single canvas.           |
+| **Object3D Property Binding**    | Streamline the management of `Object3D` properties.                                                |
+| **Event Programming**            | Add interactions to `Object3D` through programmable events, similar to `DOM events`.               |
+|                                  | You can bind events for changes in position, scale, rotation, visibility, and enabled state.       |
+| **Focus and Blur**               | Enhance interactivity with focus and blur events.                                                    |
+| **Drag and Drop**                | Seamlessly integrate drag-and-drop functionality.                                                     |
+| **Hitbox Functionality**         | Leverage hitboxes for customized intersections or simplified calculations.                            |
+| **Raycasting Options**           | Choose between continuous or mouse movement-based raycasting, optimizing intersection operations.   |
+| **Tweening**                     | Create smooth animations effortlessly with built-in tweening.                                        |
+| **Simplified InstancedMesh**     | Manage `InstancedMesh` instances with the ease of working with `Object3D`, simplifying creation and manipulation. |
 
 ## Installation
 
