@@ -16,22 +16,24 @@ export interface Object3DExtPrototypeInternal extends Object3DExtPrototype {
     focused: boolean;
     clicking: boolean;
     dragging: boolean;
-    __boundCallbacks: BindingCallback[];
-    __manualDetection: boolean;
-    __eventsDispatcher: EventsDispatcher;
-    __vec3Patched: boolean;
-    __rotationPatched: boolean;
-    __smartRenderingPatched: boolean;
-    __enabled: boolean;
-    __visible: boolean;
-    __isDropTarget: boolean;
-    __baseVisibleDescriptor: PropertyDescriptor;
 }
 
 /**
  * Represents the prototype for extended Object3D functionality.
  */
 export interface Object3DExtPrototype {
+    /** @internal */ __boundCallbacks: BindingCallback[];
+    /** @internal */ __manualDetection: boolean;
+    /** @internal */ __eventsDispatcher: EventsDispatcher;
+    /** @internal */ __vec3Patched: boolean;
+    /** @internal */ __rotationPatched: boolean;
+    /** @internal */ __smartRenderingPatched: boolean;
+    /** @internal */ __enabled: boolean;
+    /** @internal */ __visible: boolean;
+    /** @internal */ __isDropTarget: boolean;
+    /** @internal */ __baseVisibleDescriptor: PropertyDescriptor;
+    /** @internal */ __onChangeBaseEuler: () => void;
+    /** @internal */ __onChangeBaseQuat: () => void;
     /**
      * Determines if the object is enabled. (default: true).
      * If set to true, it allows triggering all InteractionEvents; otherwise, events are disabled.
@@ -58,13 +60,13 @@ export interface Object3DExtPrototype {
     /** Indicates whether the scene needs rendering. */
     needsRender: boolean;
     /** Indicates if the primary pointer is over this object. */
-    get hovered(): boolean;
+    hovered: boolean;
     /** Indicates if the object is currently focused. */
-    get focused(): boolean;
+    focused: boolean;
     /** Indicates if the object is currently being clicked. */
-    get clicking(): boolean;
+    clicking: boolean;
     /** Indicates if the object is currently being dragged. */
-    get dragging(): boolean;
+    dragging: boolean;
     /** Retrieves the combined enabled state considering parent objects. */
     get enabledState(): boolean;
     /** Retrieves the combined visibility state considering parent objects. */
@@ -142,7 +144,7 @@ export interface Object3DExtPrototype {
      * @template T - The type of the target.
      * @returns A Tween instance for further configuration.
      */
-    tween<T extends Object3D>(): Tween<T>;
+    tween<T extends Object3D = Object3D>(): Tween<T>;
 }
 
 Object3D.prototype.focusable = true;
