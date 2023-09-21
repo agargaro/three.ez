@@ -1,5 +1,5 @@
-import { Object3DExtPrototype } from './patch/Object3D';
-import { SceneExtPrototype } from './patch/Scene';
+import { Object3DExtPrototype, Object3DExtPrototypeInternal } from './patch/Object3D';
+import { SceneExtPrototype, SceneExtPrototypeInternal } from './patch/Scene';
 
 export * from './binding';
 export * from './core';
@@ -16,7 +16,16 @@ declare module 'three/src/core/Object3D' {
 }
 
 declare module 'three/src/scenes/Scene' {
-    export interface Scene extends SceneExtPrototype {
-
-    }
+    export interface Scene extends SceneExtPrototype { }
 }
+
+/** @internal */
+declare module 'three/src/core/Object3D' {
+    export interface Object3D extends Object3DExtPrototypeInternal { }
+}
+
+/** @internal */
+declare module 'three/src/scenes/Scene' {
+    export interface Scene extends SceneExtPrototypeInternal { }
+}
+

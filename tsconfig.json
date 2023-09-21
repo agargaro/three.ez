@@ -11,8 +11,5 @@
 		"outDir": "build",
 		"esModuleInterop": true,
 		"noImplicitAny": false
-	},
-	"exclude": [
-		"src/index.ts"
-	]
+	}
 }
