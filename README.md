@@ -58,18 +58,6 @@ main.createView({ scene, camera: new PerspectiveCameraAuto(70).translateZ(1) });
   <img src='https://raw.githubusercontent.com/agargaro/three.ez/master/docs/static/img/demo.gif' />
 </a>
 
-## Override TypeScript Type Definition
-
-To extend the definitions of `three`, go into `tsconfig.json` and add this path:
-
-```javascript
-"compilerOptions": {
-  "paths": {
-    "three": ["./node_modules/@three.ez/main/types"]
-  }
-}
-```
-
 ## Live Examples
 
 These examples use `vite`, and some mobile devices may run out of memory. However, there is one example without it.
@@ -103,7 +91,7 @@ These examples use `vite`, and some mobile devices may run out of memory. Howeve
 
 ## Documentation
 
-The tutorial is available [here](https://agargaro.github.io/three.ez/docs/tutorial) (work in progress). <br />
+The tutorial is available [here](https://agargaro.github.io/three.ez/docs/tutorial) *(work in progress)*. <br />
 The API documentation is available [here](https://agargaro.github.io/three.ez/docs/api). 
 
 ## Contributing
