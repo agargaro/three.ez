@@ -13,9 +13,6 @@ sidebar_position: 0
   npm install @three.ez/main
   ```
 
-1. For TypeScript users, it's essential to follow the steps outlined in [TypeScript Support](https://agargaro.github.io/three.ez/docs/tutorial/getting-started/typescript-support). <br />
-If you're not using TypeScript, you can skip this step.
-
 1. Open your `main.ts` file and insert the provided code:
   ```typescript
   import { Scene, Mesh, BoxGeometry, MeshNormalMaterial } from 'three';
@@ -28,7 +25,7 @@ If you're not using TypeScript, you can skip this step.
   main.createView({ scene, camera: new PerspectiveCameraAuto(70).translateZ(1) });
   ```
 
- Alternatively, if you prefer a more structured and modular approach using classes ***(which is recommended)***, you can use the following code snippet:
+ Alternatively, if you prefer a more structured and modular approach using classes ***(which is recommended for large project)***, you can use the following code snippet:
 
   ```typescript
   import { Scene as SceneBase, Mesh, BoxGeometry, MeshNormalMaterial } from 'three';
