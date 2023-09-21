@@ -7,15 +7,14 @@ import { addBase, removeBase } from "./Object3D";
 import { EventsDispatcher } from "../events/EventsDispatcher";
 
 /** @internal */
-export interface SceneExtPrototypeInternal extends SceneExtPrototype {
-    __boundObjects: Set<Object3D>;
-    __smartRendering: boolean;
-}
+export interface SceneExtPrototypeInternal extends SceneExtPrototype { }
 
 /**
  * Represents the prototype for extended Scene functionality.
  */
 export interface SceneExtPrototype {
+    /** @internal */ __boundObjects: Set<Object3D>;
+    /** @internal */ __smartRendering: boolean;
     /**
      * Flag indicating whether continuous raycasting is enabled (default: false).
      * If set to true, raycasting will occur every frame, otherwise it will occur only upon mouse movement. 

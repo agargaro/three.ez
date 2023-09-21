@@ -8,11 +8,15 @@
 		"declaration": true,
 		"strictNullChecks": false,
 		"stripInternal": true,
-		"outDir": "build",
+		"outDir": "publish",
 		"esModuleInterop": true,
 		"noImplicitAny": false
 	},
+	"include": [
+		"src/**/*.ts"
+	],
 	"exclude": [
-		"src/index.ts"
+		"src/index-doc.ts",
+		"src/index-test.ts",
 	]
 }
