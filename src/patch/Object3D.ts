@@ -43,6 +43,8 @@ export interface Object3DExtPrototype {
     interceptByRaycaster: boolean;
     /** Array of hitboxes for collision detection. */
     hitboxes: Mesh[];
+    /** Indicates which object will be dragged instead of this one. */
+    dragTarget: Object3D;
     /** Indicates whether the object can receive focus (default: true). */
     focusable: boolean;
     /** Indicates whether the object is draggable (default: false). */
