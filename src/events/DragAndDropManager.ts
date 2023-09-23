@@ -66,7 +66,7 @@ export class DragAndDropManager {
                     this._startIntersection = intersection;
                 }
             } else if (target.enabledState) {
-                this._target = target;
+                this._target = target.dragTarget ?? target;
                 this._startIntersection = intersection;
             }
         }
