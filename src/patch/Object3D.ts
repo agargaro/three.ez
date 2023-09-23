@@ -81,7 +81,7 @@ export interface Object3DExtPrototype {
      * @param listener - The callback function to execute when the event occurs.
      * @returns A function to remove the event listener.
      */
-    on<K extends keyof Events>(type: K | K[], listener: (event?: Events[K]) => void): (event?: Events[K]) => void;
+    on<K extends keyof Events>(type: K | K[], listener: (this: this, event?: Events[K]) => void): (event?: Events[K]) => void;
     /**
      * Checks if the object has a specific event listener.
      * @param type - The type of event to check for.
