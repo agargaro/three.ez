@@ -84,9 +84,22 @@ export class TweenManager {
     }
 
     /**
+     * Stop the running tween with a specific id.
+     * @param id Tween identifier.
+     */
+    public static stopById(id: string): void {
+        for (let i = this._running.length - 1; i >= 0; i--) {
+            if (this._running[i].tween.id === id) {
+                this._running[i].stop();
+                return;
+            }
+        }
+    }
+
+    /**
      * Stop all running tweens.
      */
-    public static stopAll() {
+    public static stopAll(): void {
         for (let i = this._running.length - 1; i >= 0; i--) {
             this._running[i].stop();
         }
@@ -96,7 +109,7 @@ export class TweenManager {
      * Stop all running tweens with a specific tag.
      * @param tag - The tag to filter running tweens.
      */
-    public static stopAllByTag(tag: string) {
+    public static stopAllByTag(tag: string): void {
         for (let i = this._running.length - 1; i >= 0; i--) {
             if (this._running[i].tween.tags.indexOf(tag) > -1) {
                 this._running[i].stop();
@@ -107,7 +120,7 @@ export class TweenManager {
     /**
      * Complete all running tweens.
      */
-    public static completeAll() {
+    public static completeAll(): void {
         for (let i = this._running.length - 1; i >= 0; i--) {
             this._running[i].complete();
         }
@@ -117,7 +130,7 @@ export class TweenManager {
      * Complete all running tweens with a specific tag.
      * @param tag - The tag to filter running tweens.
      */
-    public static completeAllByTag(tag: string) {
+    public static completeAllByTag(tag: string): void {
         for (let i = this._running.length - 1; i >= 0; i--) {
             if (this._running[i].tween.tags.indexOf(tag) > -1) {
                 this._running[i].complete();

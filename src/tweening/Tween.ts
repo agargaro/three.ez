@@ -14,12 +14,24 @@ export class Tween<T = any> {
     public target: T;
     /** Tags used for filtering and management. */
     public tags: string[] = [];
+    /** Unique identifier. If you start a new tween, the old one with the same id (if specified) will be stopped. */
+    public id: string;
 
     /**
      * @param target - The object to apply the tween to.
      */
     constructor(target: T) {
         this.target = target;
+    }
+
+    /**
+     * Set a unique identifier for the Tween.  If you start a new tween, the old one with the same id (if specified) will be stopped.
+     * @param id The identifier to assign to the Tween.
+     * @returns The updated Tween instance.
+     */
+    public setId(id: string): this {
+        this.id = id;
+        return this;
     }
 
     /**
@@ -210,6 +222,9 @@ export class Tween<T = any> {
      * @returns A RunningTween instance that controls the execution of the Tween.
      */
     public start(): RunningTween<T> {
+        if (this.id !== undefined) {
+            TweenManager.stopById(this.id);
+        }
         return TweenManager.create(this.target, this);
     }
 
