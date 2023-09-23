@@ -13,6 +13,7 @@
 		"noImplicitAny": false
 	},
 	"include": [
-		"src/**/*.ts"
+		"src/**/*.ts",
+		"docs/scripts/index.ts"
 	]
 }
