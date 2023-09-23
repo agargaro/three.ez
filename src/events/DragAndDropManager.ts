@@ -77,7 +77,7 @@ export class DragAndDropManager {
 
     public startDragging(event: PointerEvent, camera: Camera): void {
         const currentTarget = this._targetInstanced ?? this._target;
-        this._target.dragging = true;
+        this._target.__dragging = true;
         this.isDragging = true;
         this._startPosition.copy(currentTarget.position);
         this.trigger("dragstart", event, this._target, false, undefined, undefined, this._startIntersection);
@@ -137,7 +137,7 @@ export class DragAndDropManager {
 
     private clear(): void {
         this.isDragging = false;
-        this._target.dragging = false;
+        this._target.__dragging = false;
         this._target = undefined;
         this._targetInstanced = undefined;
         this._dataTransfer = undefined;

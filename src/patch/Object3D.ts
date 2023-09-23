@@ -22,6 +22,10 @@ export interface Object3DExtPrototype {
     /** @internal */ __smartRenderingPatched: boolean;
     /** @internal */ __enabled: boolean;
     /** @internal */ __visible: boolean;
+    /** @internal */ __hovered: boolean;
+    /** @internal */ __focused: boolean;
+    /** @internal */ __clicking: boolean;
+    /** @internal */ __dragging: boolean;
     /** @internal */ __isDropTarget: boolean;
     /** @internal */ __baseVisibleDescriptor: PropertyDescriptor;
     /** @internal */ __onChangeBaseEuler: () => void;
@@ -54,13 +58,13 @@ export interface Object3DExtPrototype {
     /** Indicates whether the scene needs rendering. */
     needsRender: boolean;
     /** Indicates if the primary pointer is over this object. */
-    hovered: boolean;
+    get hovered(): boolean;
     /** Indicates if the object is currently focused. */
-    focused: boolean;
+    get focused(): boolean;
     /** Indicates if the object is currently being clicked. */
-    clicking: boolean;
+    get clicking(): boolean;
     /** Indicates if the object is currently being dragged. */
-    dragging: boolean;
+    get dragging(): boolean;
     /** Retrieves the combined enabled state considering parent objects. */
     get enabledState(): boolean;
     /** Retrieves the combined visibility state considering parent objects. */
@@ -143,14 +147,14 @@ export interface Object3DExtPrototype {
 }
 
 Object3D.prototype.focusable = true;
-Object3D.prototype.focused = false;
-Object3D.prototype.clicking = false;
-Object3D.prototype.dragging = false;
 Object3D.prototype.draggable = false;
-Object3D.prototype.hovered = false;
 Object3D.prototype.interceptByRaycaster = true;
 Object3D.prototype.findDropTarget = false;
 Object3D.prototype.__manualDetection = false;
+Object3D.prototype.__focused = false;
+Object3D.prototype.__clicking = false;
+Object3D.prototype.__dragging = false;
+Object3D.prototype.__hovered = false;
 
 Object3D.prototype.__visible = true;
 Object.defineProperty(Object3D.prototype, "visible", {
@@ -216,6 +220,30 @@ Object.defineProperty(Object3D.prototype, "needsRender", {
     set: function (this: Object3D, value: boolean) {
         if (!this.scene) return;
         this.scene.needsRender = value;
+    }
+});
+
+Object.defineProperty(Object3D.prototype, "hovered", {
+    get: function (this: Object3D) {
+        return this.__hovered;
+    }
+});
+
+Object.defineProperty(Object3D.prototype, "focused", {
+    get: function (this: Object3D) {
+        return this.__focused;
+    }
+});
+
+Object.defineProperty(Object3D.prototype, "clicking", {
+    get: function (this: Object3D) {
+        return this.__clicking;
+    }
+});
+
+Object.defineProperty(Object3D.prototype, "dragging", {
+    get: function (this: Object3D) {
+        return this.__dragging;
     }
 });
 

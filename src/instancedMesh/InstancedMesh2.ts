@@ -98,7 +98,7 @@ export class InstancedMesh2 extends InstancedMesh {
      * @param target Optional. The instance to focus on. If not provided, the focus is cleared.
      */
     public focus(target?: InstancedMeshEntity): void {
-        if (!this.focused) return;
+        if (!this.__focused) return;
 
         const focusableObj = target?.focusable ? target : undefined;
         if ((!target || focusableObj?.enabled) && this._focusedInstance !== focusableObj) {
