@@ -6,9 +6,6 @@ import { FocusEventExt, IntersectionExt } from "../events/Events";
 import { addBase, removeBase } from "./Object3D";
 import { EventsDispatcher } from "../events/EventsDispatcher";
 
-/** @internal */
-export interface SceneExtPrototypeInternal extends SceneExtPrototype { }
-
 /**
  * Represents the prototype for extended Scene functionality.
  */

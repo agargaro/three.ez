@@ -10,14 +10,6 @@ import { removeSceneReference, setSceneReference } from "./Scene";
 import { applyVec3Patch } from "./Vector3";
 import { Tween } from "../tweening/Tween";
 
-/** @internal */
-export interface Object3DExtPrototypeInternal extends Object3DExtPrototype {
-    hovered: boolean;
-    focused: boolean;
-    clicking: boolean;
-    dragging: boolean;
-}
-
 /**
  * Represents the prototype for extended Object3D functionality.
  */
