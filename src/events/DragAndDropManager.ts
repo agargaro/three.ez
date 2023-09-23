@@ -12,6 +12,7 @@ export class DragAndDropManager {
     private _worldPosition = new Vector3();
     private _inverseMatrix = new Matrix4();
     private _startPosition = new Vector3();
+    private _originalIntersection = new Vector3();
     private _target: Object3D;
     private _targetInstanced: InstancedMeshEntity;
     private _targetMatrixWorld = new Matrix4();
@@ -42,6 +43,7 @@ export class DragAndDropManager {
         this._plane.setFromNormalAndCoplanarPoint(camera.getWorldDirection(this._plane.normal), this._worldPosition.setFromMatrixPosition(this._targetMatrixWorld));
         this._raycaster.ray.intersectPlane(this._plane, this._intersection);
         this._intersection.sub(this._offset).applyMatrix4(this._inverseMatrix);
+        this._originalIntersection.copy(this._intersection);
 
         const dragEvent = this.trigger("drag", event, this._target, true, this._intersection, dropTargetIntersection?.object, dropTargetIntersection);
 
@@ -54,6 +56,7 @@ export class DragAndDropManager {
             this._target.position.copy(this._intersection);
         }
 
+        this._offset.add(this._originalIntersection.sub(this._target.position));
         this.dropTargetEvent(event, dropTargetIntersection);
     }
 
