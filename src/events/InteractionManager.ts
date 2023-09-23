@@ -158,7 +158,7 @@ export class InteractionManager {
         this._pointerDownTarget[event.pointerId] = target;
 
         if (this.isMainClick(event)) {
-            target.clicking = true;
+            target.__clicking = true;
         }
 
         if (!pointerDownEvent?._defaultPrevented && event.isPrimary) {
@@ -221,9 +221,9 @@ export class InteractionManager {
         if (target !== lastHoveredTarget) {
             if (event.isPrimary) {
                 if (lastHoveredTarget) {
-                    lastHoveredTarget.hovered = false;
+                    lastHoveredTarget.__hovered = false;
                 }
-                target.hovered = true;
+                target.__hovered = true;
             }
             this._lastHoveredTarget[event.pointerId] = target;
             this.triggerAncestorPointer("pointerout", event, lastHoveredTarget, target);
@@ -238,7 +238,7 @@ export class InteractionManager {
         const startTarget = this._pointerDownTarget[event.pointerId];
 
         if (event.pointerType !== "mouse") {
-            target.hovered = false;
+            target.__hovered = false;
             this.triggerAncestorPointer("pointerout", event, target);
             this.triggerPointer("pointerleave", event, target);
         }
@@ -257,7 +257,7 @@ export class InteractionManager {
         }
 
         if (startTarget && this.isMainClick(event)) {
-            startTarget.clicking = false;
+            startTarget.__clicking = false;
         }
 
         if (event.pointerId !== this._primaryIdentifier) {

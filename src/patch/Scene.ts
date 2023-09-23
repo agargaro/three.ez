@@ -70,13 +70,13 @@ Scene.prototype.focus = function (target?: Object3D): void {
         this.focusedObject = focusableObj;
 
         if (oldFocusedObj?.enabledState) {
-            oldFocusedObj.focused = false;
+            oldFocusedObj.__focused = false;
             oldFocusedObj.__eventsDispatcher.dispatchDOMAncestor("blur", new FocusEventExt(focusableObj));
             oldFocusedObj.__eventsDispatcher.dispatchDOM("focusout", new FocusEventExt(focusableObj));
         }
 
         if (focusableObj) {
-            focusableObj.focused = true
+            focusableObj.__focused = true
             focusableObj.__eventsDispatcher.dispatchDOMAncestor("focus", new FocusEventExt(oldFocusedObj));
             focusableObj.__eventsDispatcher.dispatchDOM("focusin", new FocusEventExt(oldFocusedObj));
         }
