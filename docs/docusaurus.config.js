@@ -30,11 +30,7 @@ const config = {
         entryPoints: ['../src/index-doc.ts'],
         tsconfig: '../tsconfig.doc.json',
         excludeExternals: true,
-        excludeNotDocumented: true,
-        exclude: [
-          "**typesDev/**",
-          "**src/types/**"
-        ],
+        excludeNotDocumented: true
       },
     ],
     require.resolve("@cmfcmf/docusaurus-search-local"),
