@@ -17,13 +17,13 @@ export interface SceneExtPrototype {
      * When set to true, main raycasting occurs every frame, while false triggers raycasting only upon mouse movement.
      * Additionally, if set to true, the 'pointerintersection' event will be fired every frame.
      */
-    continousRaycasting: boolean;
+    continuousRaycasting: boolean;
     /** 
      * A flag indicating whether continuous raycasting is enabled when searching for drop targets (default: false).
      * When set to true, main raycasting for drop targets occurs every frame, while false triggers it only upon mouse movement. 
      * Additionally, if set to true, the 'dragover' event will be fired every frame.
      */
-    continousRaycastingDropTarget: boolean;
+    continuousRaycastingDropTarget: boolean;
     /** An array of intersections computed from the pointer (primary pointer only). */
     intersections: IntersectionExt[];
     /** An array of intersections computed from the pointer if an object is dragged and has 'findDropTarget' set to true (primary pointer only). */
@@ -50,8 +50,8 @@ export interface SceneExtPrototype {
     focus(target?: Object3D): void;
 }
 
-Scene.prototype.continousRaycasting = false;
-Scene.prototype.continousRaycastingDropTarget = false;
+Scene.prototype.continuousRaycasting = false;
+Scene.prototype.continuousRaycastingDropTarget = false;
 Scene.prototype.focusable = false;
 Scene.prototype.needsRender = true;
 Scene.prototype.blurOnClickOut = false;

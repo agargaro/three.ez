@@ -55,7 +55,7 @@ export interface InteractionEvents<T = Object3D, R = Object3D, RD = Object3D | I
   pointerdown: PointerEventExt<T, R>;
   /** Event triggered when a pointer button is released. */
   pointerup: PointerEventExt<T, R>;
-  /** Event triggered if pointer is on target. Triggers every frame and only works if the scene has 'continousRaycasting' equal to true. */
+  /** Event triggered if pointer is on target. Triggers every frame and only works if the scene has 'continuousRaycasting' equal to true. */
   pointerintersection: PointerIntersectionEvent<T>;
   /** Event triggered when a click event occurs. */
   click: PointerEventExt<T, R>;
