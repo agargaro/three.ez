@@ -7,7 +7,7 @@ custom_edit_url: null
 
 [Utils](../namespaces/Utils.md).Utils
 
-A utility class providing helper methods.
+A utility class providing helper methods for various operations.
 
 ## Methods
 
@@ -29,8 +29,8 @@ Calculates the intersection point of a ray with a plane in world coordinates.
 
 `Vector3`
 
-The intersection point.
+The intersection point as Vector3.
 
 #### Defined in
 
-[src/utils/Utils.ts:17](https://github.com/agargaro/three.ez/blob/16c77a5/src/utils/Utils.ts#L17)
+[src/utils/Utils.ts:17](https://github.com/agargaro/three.ez/blob/a81f57c/src/utils/Utils.ts#L17)

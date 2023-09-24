@@ -23,7 +23,7 @@ Complete all running tweens.
 
 #### Defined in
 
-[src/tweening/TweenManager.ts:110](https://github.com/agargaro/three.ez/blob/16c77a5/src/tweening/TweenManager.ts#L110)
+[src/tweening/TweenManager.ts:123](https://github.com/agargaro/three.ez/blob/a81f57c/src/tweening/TweenManager.ts#L123)
 
 ___
 
@@ -45,7 +45,7 @@ Complete all running tweens with a specific tag.
 
 #### Defined in
 
-[src/tweening/TweenManager.ts:120](https://github.com/agargaro/three.ez/blob/16c77a5/src/tweening/TweenManager.ts#L120)
+[src/tweening/TweenManager.ts:133](https://github.com/agargaro/three.ez/blob/a81f57c/src/tweening/TweenManager.ts#L133)
 
 ___
 
@@ -61,7 +61,7 @@ Stop all running tweens.
 
 #### Defined in
 
-[src/tweening/TweenManager.ts:89](https://github.com/agargaro/three.ez/blob/16c77a5/src/tweening/TweenManager.ts#L89)
+[src/tweening/TweenManager.ts:102](https://github.com/agargaro/three.ez/blob/a81f57c/src/tweening/TweenManager.ts#L102)
 
 ___
 
@@ -83,4 +83,26 @@ Stop all running tweens with a specific tag.
 
 #### Defined in
 
-[src/tweening/TweenManager.ts:99](https://github.com/agargaro/three.ez/blob/16c77a5/src/tweening/TweenManager.ts#L99)
+[src/tweening/TweenManager.ts:112](https://github.com/agargaro/three.ez/blob/a81f57c/src/tweening/TweenManager.ts#L112)
+
+___
+
+### stopById
+
+▸ `Static` **stopById**(`id`): `void`
+
+Stop the running tween with a specific id.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `id` | `string` | Tween identifier. |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/tweening/TweenManager.ts:90](https://github.com/agargaro/three.ez/blob/a81f57c/src/tweening/TweenManager.ts#L90)

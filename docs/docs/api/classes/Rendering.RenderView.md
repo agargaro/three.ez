@@ -8,7 +8,7 @@ custom_edit_url: null
 [Rendering](../namespaces/Rendering.md).RenderView
 
 Represents a render view with specific parameters. 
-Don't instance this manually.
+Don't instantiate this manually.
 
 ## Implements
 
@@ -20,7 +20,7 @@ Don't instance this manually.
 
 • **new RenderView**(`parameters`, `rendererSize`)
 
-Don't instance this manually.
+Don't instantiate this manually.
 
 #### Parameters
 
@@ -31,7 +31,7 @@ Don't instance this manually.
 
 #### Defined in
 
-[src/rendering/RenderView.ts:76](https://github.com/agargaro/three.ez/blob/16c77a5/src/rendering/RenderView.ts#L76)
+[src/rendering/RenderView.ts:76](https://github.com/agargaro/three.ez/blob/a81f57c/src/rendering/RenderView.ts#L76)
 
 ## Properties
 
@@ -53,7 +53,7 @@ The viewport defining the dimensions and position of the view.
 
 #### Defined in
 
-[src/rendering/RenderView.ts:55](https://github.com/agargaro/three.ez/blob/16c77a5/src/rendering/RenderView.ts#L55)
+[src/rendering/RenderView.ts:55](https://github.com/agargaro/three.ez/blob/a81f57c/src/rendering/RenderView.ts#L55)
 
 ## Methods
 
@@ -69,4 +69,4 @@ Updates the dimensions of the viewport based on the renderer size.
 
 #### Defined in
 
-[src/rendering/RenderView.ts:97](https://github.com/agargaro/three.ez/blob/16c77a5/src/rendering/RenderView.ts#L97)
+[src/rendering/RenderView.ts:97](https://github.com/agargaro/three.ez/blob/a81f57c/src/rendering/RenderView.ts#L97)
