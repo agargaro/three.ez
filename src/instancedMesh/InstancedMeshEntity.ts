@@ -12,7 +12,7 @@ const tempQuaternion = new Quaternion();
 export class InstancedMeshEntity extends EventDispatcher {
     /** A flag indicating that this is an instance of InstancedMeshEntity. */
     public isInstancedMeshEntity = true;
-    /** Object's parent in the scene graph. An object can have at most one parent. */
+    /** The parent InstancedMesh2 that contains this instance. */
     public parent: InstancedMesh2;
     /** An identifier for this individual instance within an InstancedMesh2. */
     public instanceId: number;
@@ -113,7 +113,7 @@ export class InstancedMeshEntity extends EventDispatcher {
     }
 
     /**
-     * Applies the matrix transform to the object and updates the object's position, rotation and scale.
+     * Applies the matrix transform to the object and updates the object's position, rotation, and scale.
      * @param m Matrix to apply.
      * @returns The instance of the object.
      */

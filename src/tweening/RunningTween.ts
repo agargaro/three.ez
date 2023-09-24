@@ -3,7 +3,7 @@ import { EasingFunction } from "./Easings";
 import { Tween } from "./Tween";
 import { TweenManager } from "./TweenManager";
 
-type updateCallback<T> = (start?: T, end?: T, alpha?: number) => void;
+type UpdateCallback<T> = (start?: T, end?: T, alpha?: number) => void;
 
 interface RunningBlock {
     tweens?: Tween[];
@@ -20,7 +20,7 @@ interface RunningBlock {
 /** @internal */
 export interface RunningAction<T = any> {
     time: number;
-    callback: updateCallback<T>;
+    callback: UpdateCallback<T>;
     easing?: EasingFunction;
     start?: T;
     end?: T;
@@ -30,7 +30,7 @@ export interface RunningAction<T = any> {
 /**
  * This class represents a running tween for a specific target object.
  * It manages the execution of actions and tweens associated with the tween.
- * Don't instance this manually.
+ * Don't instantiate this manually.
  * @template T - The type of the target object.
  */
 export class RunningTween<T = any> {
@@ -43,7 +43,7 @@ export class RunningTween<T = any> {
     /** @internal */ public reversed?: boolean;
     /** @internal */ public originallyReversed?: boolean;
     /** @internal */ public repeat?: boolean;
-    /** @internal */ public ripetitions: { [x: number]: number } = {};
+    /** @internal */ public repetitions: { [x: number]: number } = {};
     /** @internal */ public _finished = false;
     /**
     * Indicates whether the execution of the running tween is paused.
@@ -63,7 +63,7 @@ export class RunningTween<T = any> {
     public get finished(): boolean { return this._finished }
 
     /**
-     * Don't instance this manually.
+     * Don't instantiate this manually.
      */
     constructor(target: T, tween: Tween<T>) {
         this.target = target;
@@ -225,7 +225,7 @@ export class RunningTween<T = any> {
 
     /** @internal */
     private handleRepetition(times: number): void {
-        const repeat = this.ripetitions;
+        const repeat = this.repetitions;
         repeat[this.actionIndex] ??= 0;
         if (repeat[this.actionIndex] < times) {
             repeat[this.actionIndex]++;
@@ -238,7 +238,7 @@ export class RunningTween<T = any> {
 
     /** @internal */
     private handleYoyo(times: number): RunningBlock {
-        const repeat = this.ripetitions;
+        const repeat = this.repetitions;
         repeat[this.actionIndex] ??= 0;
         if (repeat[this.actionIndex] < times) {
             repeat[this.actionIndex]++;
@@ -335,7 +335,6 @@ export class RunningTween<T = any> {
         }
         return delta;
     }
-
 }
 
 //TODO write rever function and consider also to create set action

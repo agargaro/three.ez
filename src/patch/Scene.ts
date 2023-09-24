@@ -7,42 +7,44 @@ import { addBase, removeBase } from "./Object3D";
 import { EventsDispatcher } from "../events/EventsDispatcher";
 
 /**
- * Represents the prototype for extended Scene functionality.
+ * Represents the prototype for extending Scene functionality.
  */
 export interface SceneExtPrototype {
     /** @internal */ __boundObjects: Set<Object3D>;
     /** @internal */ __smartRendering: boolean;
     /**
-     * Flag indicating whether continuous raycasting is enabled (default: false).
-     * If set to true, raycasting will occur every frame, otherwise it will occur only upon mouse movement. 
-     * Also, if set to true, the 'pointerintersection' event will be triggered every frame.
+     * A flag indicating whether continuous raycasting is enabled (default: false).
+     * When set to true, raycasting occurs continuously, while false triggers raycasting only upon mouse movement. 
+     * Additionally, if set to true, the 'pointerintersection' event will be fired every frame.
      */
     continousRaycasting: boolean;
     /** 
-     * Flag indicating whether continuous raycasting when searching for drop targets is enabled (default: false).
-     * If set to true, raycasting will occur every frame, otherwise it will occur only upon mouse movement. 
-     * Also, if set to true, the 'dragover' event will be triggered every frame.
+     * A flag indicating whether continuous raycasting is enabled when searching for drop targets (default: false).
+     * When set to true, raycasting for drop targets occurs continuously, while false triggers it only upon mouse movement. 
+     * Additionally, if set to true, the 'dragover' event will be fired every frame.
      */
     continousRaycastingDropTarget: boolean;
     /** An array of intersections computed from the pointer (primary pointer only). */
     intersections: IntersectionExt[];
-    /** An array of intersections computed from the pointer if an object is dragged and has 'findDropTarget' to true (primary pointer only). */
+    /** An array of intersections computed from the pointer if an object is dragged and has 'findDropTarget' set to true (primary pointer only). */
     intersectionsDropTarget: IntersectionExt[];
     /** A reference to the currently focused Object3D within the scene. */
     focusedObject: Object3D;
-    /** Flag indicating whether to blur focused object3D when clicking outside of any object. */
+    /** 
+     * A flag indicating whether to blur the focused Object3D when clicking outside of any object.
+     */
     blurOnClickOut: boolean;
     /** The time scale for scene animations. */
     timeScale: number;
     /** The total time elapsed in the scene. */
     totalTime: number;
     /** 
-     * Activate smart rendering for the scene.
+     * Activates smart rendering for the scene.
      * @returns The updated instance of the scene.
      */
     activeSmartRendering(): this;
     /** 
-     * Set the focus to the specified Object3D within the scene, or clears the focus if no target is provided.
+     * Sets the focus to the specified Object3D within the scene, or clears the focus if no target is provided.
      * @param target Optional. The Object3D to focus on. If not provided, the focus is cleared.
      */
     focus(target?: Object3D): void;

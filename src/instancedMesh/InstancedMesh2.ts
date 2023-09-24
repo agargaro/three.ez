@@ -13,13 +13,13 @@ function overrideProperty(...names: (keyof InstancedMesh2)[]): void {
 }
 
 /**
- * An extension of the InstancedMesh class that allows individual management of each instance in a similar manner to an Object3D.
+ * Extends the InstancedMesh class to provide individual management of each instance, similar to an Object3D.
  */
 export class InstancedMesh2 extends InstancedMesh {
     /** A flag indicating that this is an instance of InstancedMesh2. */
     public isInstancedMesh2 = true;
     /** 
-     * An array that stores individual InstancedMeshEntity instances associated with this InstancedMesh2.
+     * An array storing individual InstancedMeshEntity instances associated with this InstancedMesh2.
      * Each element represents a separate instance that can be managed individually.
      */
     public instances: InstancedMeshEntity[] = [];

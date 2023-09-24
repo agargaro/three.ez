@@ -3,10 +3,10 @@ import { RenderManager } from "../rendering/RenderManager";
 import { IntersectionExt } from "./Events";
 
 /**
- * A custom sorting comparer function used to order intersections when performing raycasting.
+ * A custom sorting comparison function used for ordering intersections during raycasting.
  * @param a - The first intersection to compare.
  * @param b - The second intersection to compare.
- * @returns A negative number if `a` should come before `b`, a positive number if `b` should come before `a`, or zero if their order does not matter.
+ * @returns A negative value if `a` should precede `b`, a positive value if `b` should precede `a`, or zero if their order is indeterminate.
  */
 export type RaycasterSortComparer = (a: IntersectionExt, b: IntersectionExt) => number;
 
