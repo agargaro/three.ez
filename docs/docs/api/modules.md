@@ -1,6 +1,6 @@
 ---
 id: "modules"
-title: "@three.ez/main"
+title: "three.ez-doc"
 sidebar_label: "Exports"
 sidebar_position: 0.5
 custom_edit_url: null

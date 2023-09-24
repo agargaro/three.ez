@@ -1,4 +1,5 @@
 export * from '../../src/patch/Euler';
+export * from '../../src/patch/Material';
 export * from '../../src/patch/Matrix4';
 export * from '../../src/patch/Object3D';
 export * from '../../src/patch/Quaternion';

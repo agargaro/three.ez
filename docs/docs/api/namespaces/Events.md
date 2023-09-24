@@ -33,11 +33,11 @@ custom_edit_url: null
 
 Ƭ **Cursor**: [`CursorsKeys`](Events.md#cursorskeys) \| `String`
 
-Indicates a cursor by a list or by url.
+Represents a cursor, either by a CSS cursor key or a URL.
 
 #### Defined in
 
-[src/events/CursorManager.ts:18](https://github.com/agargaro/three.ez/blob/16c77a5/src/events/CursorManager.ts#L18)
+[src/events/CursorManager.ts:18](https://github.com/agargaro/three.ez/blob/a81f57c/src/events/CursorManager.ts#L18)
 
 ___
 
@@ -45,11 +45,11 @@ ___
 
 Ƭ **CursorsKeys**: ``"auto"`` \| ``"default"`` \| ``"none"`` \| ``"context-menu"`` \| ``"help"`` \| ``"pointer"`` \| ``"progress"`` \| ``"wait"`` \| ``"cell"`` \| ``"crosshair"`` \| ``"text"`` \| ``"vertical-text"`` \| ``"alias"`` \| ``"copy"`` \| ``"move"`` \| ``"no-drop"`` \| ``"not-allowed"`` \| ``"grab"`` \| ``"grabbing"`` \| ``"all-scroll"`` \| ``"col-resize"`` \| ``"row-resize"`` \| ``"n-resize"`` \| ``"e-resize"`` \| ``"s-resize"`` \| ``"w-resize"`` \| ``"ne-resize"`` \| ``"nw-resize"`` \| ``"se-resize"`` \| ``"sw-resize"`` \| ``"ew-resize"`` \| ``"ns-resize"`` \| ``"nesw-resize"`` \| ``"nwse-resize"`` \| ``"zoom-in"`` \| ``"zoom-out"``
 
-https://developer.mozilla.org/en-US/docs/Web/CSS/cursor
+Valid cursor values based on the CSS cursor property.
 
 #### Defined in
 
-[src/events/CursorManager.ts:5](https://github.com/agargaro/three.ez/blob/16c77a5/src/events/CursorManager.ts#L5)
+[src/events/CursorManager.ts:5](https://github.com/agargaro/three.ez/blob/a81f57c/src/events/CursorManager.ts#L5)
 
 ___
 
@@ -61,7 +61,7 @@ ___
 
 ▸ (`a`, `b`): `number`
 
-A custom sorting comparer function used to order intersections when performing raycasting.
+A custom sorting comparison function used for ordering intersections during raycasting.
 
 ##### Parameters
 
@@ -74,8 +74,8 @@ A custom sorting comparer function used to order intersections when performing r
 
 `number`
 
-A negative number if `a` should come before `b`, a positive number if `b` should come before `a`, or zero if their order does not matter.
+A negative value if `a` should precede `b`, a positive value if `b` should precede `a`, or zero if their order is indeterminate.
 
 #### Defined in
 
-[src/events/RaycasterManager.ts:11](https://github.com/agargaro/three.ez/blob/16c77a5/src/events/RaycasterManager.ts#L11)
+[src/events/RaycasterManager.ts:11](https://github.com/agargaro/three.ez/blob/a81f57c/src/events/RaycasterManager.ts#L11)

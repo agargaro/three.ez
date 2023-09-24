@@ -1,6 +1,6 @@
 ---
 id: "index"
-title: "@three.ez/main"
+title: "three.ez-doc"
 sidebar_label: "Readme"
 sidebar_position: 0
 custom_edit_url: null
@@ -8,10 +8,9 @@ custom_edit_url: null
 
 # three.ez
 
-[![npm version](https://badge.fury.io/js/@three.ez%2Fmain.svg)](https://badge.fury.io/js/@three.ez%2Fmain)
+[![npm](https://img.shields.io/npm/v/@three.ez/main)](https://www.npmjs.com/package/@three.ez/main)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=agargaro_three.ez&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=agargaro_three.ez)
 [![DeepScan grade](https://deepscan.io/api/teams/21196/projects/25445/branches/796375/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=21196&pid=25445&bid=796375)
-[![CodeFactor](https://www.codefactor.io/repository/github/agargaro/three.ez/badge)](https://www.codefactor.io/repository/github/agargaro/three.ez)
 
 **three.ez** is a TypeScript library designed to streamline and enhance the development of `three.js` applications. <br /> 
 It provides a comprehensive suite of user-friendly tools and high-performance features, making it accessible even to beginners. <br />
@@ -21,40 +20,21 @@ This library has only one dependency: `three.js r151+`.
 
 ## Key Features
 
-- **Automatic Resize Handling**
-  - Automatically resizes the `Renderer`, `Camera`, and `EffectComposer`. <br />
-  Using the `rendererResize` event, you can easily set the resolution for custom shaders.
-
-- **Smart Rendering**
-  - Optimize performance by rendering frames only when necessary, reducing computational overhead.
-
-- **Simplified Multiple Rendering**
-  - Effortlessly manage rendering for multiple scenes or viewports within a single canvas.
-
-- **Object3D Property Binding**
-  - Streamline the management of `Object3D` properties.
-
-- **Event Programming**
-  - Add interactions to `Object3D` through programmable events, similar to `DOM events`. <br />
-  You can bind events for changes in position, scale, rotation, visibility, and enabled state.
-
-- **Focus and Blur**
-  - Enhance interactivity with focus and blur events.
-
-- **Drag and Drop**
-  - Seamlessly integrate drag-and-drop functionality.
-
-- **Hitbox Functionality**
-  - Leverage hitboxes for customized intersections or simplified calculations.
-
-- **Raycasting Options**
-  - Choose between continuous or mouse movement-based raycasting, optimizing intersection operations.
-
-- **Tweening**
-  - Create smooth animations effortlessly with built-in tweening.
-
-- **Simplified InstancedMesh**
-  - Manage `InstancedMesh` instances with the ease of working with `Object3D`, simplifying creation and manipulation.
+| **Feature**                      | **Description**                                                                                   |
+| -------------------------------- | ------------------------------------------------------------------------------------------------- |
+| **Automatic Resize Handling**    | Automatically resizes the `Renderer`, `Camera`, and `EffectComposer`.                            |
+|                                  | Using the `rendererResize` event, you can easily set the resolution for custom shaders.           |
+| [**Smart Rendering**](https://agargaro.github.io/three.ez/docs/tutorial/rendering/smart-rendering)              | Optimize performance by rendering frames only when necessary, reducing computational overhead.   |
+| **Simplified Multiple Rendering**| Effortlessly manage rendering for multiple scenes or viewports within a single canvas.           |
+| **Object3D Property Binding**    | Streamline the management of `Object3D` properties.                                                |
+| [**Event Programming**](https://stackblitz.com/edit/three-ez-events?file=src%2Fmain.ts) | Add interactions to `Object3D` through programmable events, similar to `DOM events`. |
+|                                  | You can bind events for changes in position, scale, rotation, visibility, and enabled state.       |
+| **Focus and Blur**               | Enhance interactivity with focus and blur events.                                                    |
+| **Drag and Drop**                | Seamlessly integrate drag-and-drop functionality.                                                     |
+| **Hitbox Functionality**         | Leverage hitboxes for customized intersections or simplified calculations.                            |
+| **Raycasting Options**           | Choose between continuous or mouse movement-based raycasting, optimizing intersection operations.   |
+| **Tweening**                     | Create smooth animations effortlessly with built-in tweening.                                        |
+| **Simplified InstancedMesh**     | Manage `InstancedMesh` instances with the ease of working with `Object3D`, simplifying creation and manipulation. |
 
 ## Installation
 
@@ -68,34 +48,23 @@ npm install @three.ez/main
 
 ```typescript
 import { Scene, Mesh, BoxGeometry, MeshNormalMaterial } from 'three';
-import { Main, PerspectiveCameraAuto, TweenManager } from '@three.ez/main';
+import { Main, PerspectiveCameraAuto } from '@three.ez/main';
 
 const box = new Mesh(new BoxGeometry(0.1, 0.1, 0.1), new MeshNormalMaterial());
 box.draggable = true;
 box.on('animate', (e) => box.rotateX(e.delta).rotateY(e.delta * 2));
-box.on(['pointerover', 'pointerout'], (e) => {
-  TweenManager.stopAll();
-  box.tween().to(500, { scale: e.type === 'pointerover' ? 1.5 : 1 }, { easing: 'easeOutElastic' }).start();
+box.on(['pointerover', 'pointerout'], function (e) {
+    this.tween('id').to(500, { scale: e.type === 'pointerover' ? 1.5 : 1 }, { easing: 'easeOutElastic' }).start();
 });
+
 const scene = new Scene().add(box);
+
 const main = new Main();
 main.createView({ scene, camera: new PerspectiveCameraAuto(70).translateZ(1) });
 ```
 <a href='https://stackblitz.com/edit/three-ez-template-small?file=src%2Fmain.ts'>
   <img src='https://raw.githubusercontent.com/agargaro/three.ez/master/docs/static/img/demo.gif' />
 </a>
-
-## Override TypeScript Type Definition
-
-To extend the definitions of `three`, go into `tsconfig.json` and add this path:
-
-```javascript
-"compilerOptions": {
-  "paths": {
-    "three": ["./node_modules/@three.ez/main/types"]
-  }
-}
-```
 
 ## Live Examples
 
@@ -104,7 +73,7 @@ These examples use `vite`, and some mobile devices may run out of memory. Howeve
 [Examples Collection](https://stackblitz.com/@agargaro/collections/three-ez)
 
 - [Template](https://stackblitz.com/edit/three-ez-template?file=src%2Fmain.ts)
-— [Template Small](https://stackblitz.com/edit/three-ez-template-small?file=src%2Fmain.ts)
+— [Template Extended](https://stackblitz.com/edit/three-ez-template-extended?file=src%2Fmain.ts)
 — [Template No Vite](https://stackblitz.com/edit/three-ez-template-no-vite?file=index.ts)
 - [Smart Rendering](https://stackblitz.com/edit/three-ez-smart-rendering?file=src%2Fmain.ts)
 - [Multiple Views](https://stackblitz.com/edit/three-ez-multiple-views?file=src%2Fmain.ts)
@@ -130,7 +99,7 @@ These examples use `vite`, and some mobile devices may run out of memory. Howeve
 
 ## Documentation
 
-The tutorial is available [here](https://agargaro.github.io/three.ez/docs/tutorial) (work in progress). <br />
+The tutorial is available [here](https://agargaro.github.io/three.ez/docs/tutorial) *(work in progress)*. <br />
 The API documentation is available [here](https://agargaro.github.io/three.ez/docs/api). 
 
 ## Contributing
