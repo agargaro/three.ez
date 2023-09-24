@@ -191,12 +191,12 @@ export class InteractionManager {
 
     private pointerIntersection(): void {
         if (this._dragManager.isDragging) {
-            if (!this._primaryRaycasted && this._dragManager.findDropTarget && this._renderManager.activeScene?.continousRaycastingDropTarget) {
+            if (!this._primaryRaycasted && this._dragManager.findDropTarget && this._renderManager.activeScene?.continuousRaycastingDropTarget) {
                 const event = this._lastPointerMove[this._primaryIdentifier] || this._lastPointerDown[this._primaryIdentifier];
                 this.raycastScene(event);
                 this._dragManager.dropTargetEvent(event, this._intersectionDropTarget);
             }
-        } else if (this._renderManager.hoveredScene?.continousRaycasting && (this._mouseDetected || this._isTapping)) {
+        } else if (this._renderManager.hoveredScene?.continuousRaycasting && (this._mouseDetected || this._isTapping)) {
             if (!this._primaryRaycasted) {
                 const event = this._lastPointerMove[this._primaryIdentifier] || this._lastPointerDown[this._primaryIdentifier];
                 this.raycastScene(event);
