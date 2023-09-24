@@ -10,26 +10,26 @@ import { Stats } from "../utils/Stats";
 import { RaycasterSortComparer } from "../events/RaycasterManager";
 
 /**
- * Represents the configuration parameters for initializing the Main class.
+ * Configuration parameters for initializing the Main class.
  */
 export interface MainParameters {
-    /** A boolean flag indicating whether to enable full-screen mode and perform automatic resizing of the canvas (default: true). */
+    /** Enable full-screen mode and automatic canvas resizing (default: true). */
     fullscreen?: boolean;
-    /** A boolean flag indicating whether to display performance statistics (default: true). */
+    /** Display performance statistics (default: true). */
     showStats?: boolean;
-    /** A boolean flag indicating whether to disable the context menu on right-click (default: true). */
+    /** Disable the context menu on right-click (default: true). */
     disableContextMenu?: boolean;
-    /** The default background color (default: 'black'). */
+    /** Default background color (default: 'black'). */
     backgroundColor?: ColorRepresentation;
-    /** The default alpha (transparency) value for the background (default: 1). */
+    /** Default background alpha (transparency) value (default: 1). */
     backgroundAlpha?: number;
-    /** A callback function executed for each frame. */
+    /** Callback function executed for each frame. */
     animate?: XRFrameRequestCallback;
     /** Configuration parameters for the WebGLRenderer. */
     rendererParameters?: WebGLRendererParameters;
-    /** A boolean flag indicating whether to enable cursor handling in the application (default: true). */
+    /** Enable cursor handling in the application (default: true). */
     enableCursor?: boolean;
-    /** A boolean flag indicating whether to enable multitouch interactions (default: false). */
+    /** Enable multitouch interactions (default: false). */
     multitouch?: boolean;
 }
 
@@ -79,7 +79,7 @@ export class Main {
     public get activeComposer(): EffectComposer { return this._renderManager.activeView?.composer }
 
     /**
-     * A boolean flag indicating whether to display performance statistics.
+     * Indicates whether to display performance statistics.
      * If set to true, statistics will be shown; otherwise, they will be hidden.
      */
     public get showStats(): boolean { return this._showStats }
@@ -94,13 +94,13 @@ export class Main {
     }
 
     /**
-     * A boolean flag indicating whether to enable multitouch interactions.
+     * Indicates whether to enable multitouch interactions.
      */
     public get multitouch(): boolean { return this._interactionManager.queue.multitouch }
     public set multitouch(value: boolean) { this._interactionManager.queue.multitouch = value }
 
     /**
-     * A boolean flag indicating whether to enable cursor handling in the application.
+     * Indicates whether to enable cursor handling in the application.
      */
     public get enableCursor(): boolean { return this._interactionManager.cursorManager.enabled }
     public set enableCursor(value: boolean) { this._interactionManager.cursorManager.enabled = value }
@@ -135,7 +135,7 @@ export class Main {
     public get mousePosition(): Vector2 { return this._interactionManager.raycasterManager.pointer }
 
     /**
-     * @param parameters Represents the configuration parameters for initializing the Main class.
+     * @param parameters Configuration parameters for initializing the Main class.
      */
     constructor(parameters: MainParameters = {}) {
         this._renderManager = new RenderManager(parameters.rendererParameters, parameters.fullscreen, parameters.backgroundColor, parameters.backgroundAlpha);

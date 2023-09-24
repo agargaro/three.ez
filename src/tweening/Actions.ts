@@ -42,7 +42,7 @@ export interface MotionConfig<T = any> {
      * @param start - The initial value of the animated property.
      * @param end - The final value of the animated property.
      * @param alpha - The current animation progress as a normalized value (0 to 1).
-     * @returns If `false` will not assign new value to property.
+     * @returns If `false`, will not assign a new value to the property.
      */
     onProgress?: (target: T, key: string, start: AllowedTypes, end: AllowedTypes, alpha: number) => boolean | void;
 }
@@ -205,5 +205,4 @@ export class ActionMotion<T> implements IAction<T> {
                 callback: (start, end, alpha) => { target[key] = MathUtils.lerp(start, end, alpha) }
             };
     }
-
 }

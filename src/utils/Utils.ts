@@ -1,7 +1,7 @@
 import { Camera, Plane, Ray, Vector3 } from "three";
 
 /**
- * A utility class providing helper methods.
+ * A utility class providing helper methods for various operations.
  */
 export class Utils {
 	private static _plane = new Plane();
@@ -12,7 +12,7 @@ export class Utils {
      * @param ray - The ray to intersect with the plane.
      * @param camera - The camera used as a reference for the plane's orientation.
      * @param distance - The distance from the camera to the plane.
-     * @returns The intersection point.
+     * @returns The intersection point as Vector3.
      */
 	public static getSceneIntersection(ray: Ray, camera: Camera, distance: number): Vector3 {
 		this._plane.setFromNormalAndCoplanarPoint(camera.getWorldDirection(this._plane.normal), camera.getWorldPosition(this._temp));

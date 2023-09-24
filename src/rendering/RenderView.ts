@@ -2,7 +2,7 @@ import { Camera, Color, ColorRepresentation, Scene, Vector2 } from "three";
 import { EffectComposer } from "three/examples/jsm/postprocessing/EffectComposer";
 
 /**
- * Represents an object that defines the dimensions and position of a viewport.
+ * Represents an object defining the dimensions and position of a viewport.
  */
 export interface Viewport {
   /** Left coordinate of the viewport. */
@@ -39,13 +39,13 @@ export interface ViewParameters {
   composer?: EffectComposer;
   /** Function called before rendering the view (optional). */
   onBeforeRender?: () => void;
-  /** Function to be called after rendering the view (optional). */
+  /** Function called after rendering the view (optional). */
   onAfterRender?: () => void;
 }
 
 /**
  * Represents a render view with specific parameters. 
- * Don't instance this manually.
+ * Don't instantiate this manually.
  */
 export class RenderView implements ViewParameters {
   public scene: Scene;
@@ -71,7 +71,7 @@ export class RenderView implements ViewParameters {
   }
 
   /**
-   * Don't instance this manually.
+   * Don't instantiate this manually.
    */
   constructor(parameters: ViewParameters, rendererSize: Vector2) {
     this._rendererSize = rendererSize;
@@ -87,7 +87,7 @@ export class RenderView implements ViewParameters {
     this._onBeforeRender = parameters.onBeforeRender;
     this._onAfterRender = parameters.onAfterRender;
 
-    this.scene.add(this.camera); // mandatory to trigger camera resize event
+    this.scene.add(this.camera); // Mandatory to trigger camera resize event
     this.update();
   }
 
@@ -116,5 +116,4 @@ export class RenderView implements ViewParameters {
   public onAfterRender(): void {
     this._onAfterRender?.apply(this);
   }
-
 }

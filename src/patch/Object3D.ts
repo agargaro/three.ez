@@ -69,7 +69,7 @@ export interface Object3DExtPrototype {
     get enabledState(): boolean;
     /** Retrieves the combined visibility state considering parent objects. */
     get visibilityState(): boolean;
-    /** Retrieves the first possibile focusable object. */
+    /** Retrieves the first possible focusable object. */
     get firstFocusable(): Object3D;
     /**
      * Applies focus to the object.

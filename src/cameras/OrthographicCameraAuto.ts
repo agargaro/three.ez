@@ -1,7 +1,7 @@
 import { OrthographicCamera } from "three";
 
 /**
- * Orthographic camera that resizes automatically.
+ * Extends the OrthographicCamera to automatically resize based on a fixed width or height dimension.
  */
 export class OrthographicCameraAuto extends OrthographicCamera {
     private _size: number;
@@ -10,7 +10,7 @@ export class OrthographicCameraAuto extends OrthographicCamera {
     private _height = -1;
 
     /**
-     * Fixed width or height dimension based on the 'fixedWidth' property.
+     * Gets or sets the fixed width or height dimension based on the 'fixedWidth' property.
      */
     public get size(): number { return this._size }
     public set size(value: number) {
@@ -19,7 +19,7 @@ export class OrthographicCameraAuto extends OrthographicCamera {
     }
 
     /**
-     * If true, the 'size' property will refer to the width. If not, to the height.
+     * Determines whether the 'size' property refers to the width (true) or height (false).
      */
     public get fixedWidth(): boolean { return this._fixedWidth }
     public set fixedWidth(value: boolean) {
@@ -29,7 +29,7 @@ export class OrthographicCameraAuto extends OrthographicCamera {
 
     /**
      * @param size Fixed width or height dimension based on the 'fixedWidth' property. Default `2`.
-     * @param fixedWidth  If true, the 'size' property will refer to the width. If not, to the height. Default `true`.
+     * @param fixedWidth If true, the 'size' property will refer to the width. If not, to the height. Default `true`.
      * @param near Camera frustum near plane. Default `0.1`.
      * @param far Camera frustum far plane. Default `2000`.
      */
