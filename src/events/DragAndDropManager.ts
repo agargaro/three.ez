@@ -52,11 +52,14 @@ export class DragAndDropManager {
                 this._targetInstanced.position.copy(this._intersection);
                 this._targetInstanced.updateMatrix();
             }
-        } else if (!dragEvent._defaultPrevented && !this._target.position.equals(this._intersection)) {
-            this._target.position.copy(this._intersection);
+            this._offset.add(this._originalIntersection.sub(this._targetInstanced.position));
+        } else {
+            if (!dragEvent._defaultPrevented && !this._target.position.equals(this._intersection)) {
+                this._target.position.copy(this._intersection);
+            }
+            this._offset.add(this._originalIntersection.sub(this._target.position));
         }
 
-        this._offset.add(this._originalIntersection.sub(this._target.position));
         this.dropTargetEvent(event, dropTargetIntersection);
     }
 
