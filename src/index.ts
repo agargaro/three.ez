@@ -1,3 +1,4 @@
+import { MaterialExtPrototype } from './patch/Material';
 import { Object3DExtPrototype } from './patch/Object3D';
 import { SceneExtPrototype } from './patch/Scene';
 
@@ -17,6 +18,7 @@ export * from './instancedMesh/EventsDispatcherInstanced';
 export * from './instancedMesh/InstancedMesh2';
 export * from './instancedMesh/InstancedMeshEntity';
 export * from './patch/Euler';
+export * from './patch/Material'
 export * from './patch/Matrix4';
 export * from './patch/Object3D';
 export * from './patch/Quaternion';
@@ -36,6 +38,10 @@ export * from './utils/Utils';
 
 declare module 'three/src/core/Object3D' {
     export interface Object3D extends Object3DExtPrototype { }
+}
+
+declare module 'three/src/Materials/Material' {
+    export interface Material extends MaterialExtPrototype { }
 }
 
 declare module 'three/src/scenes/Scene' {
