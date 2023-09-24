@@ -1,7 +1,7 @@
 import { PerspectiveCamera } from "three";
 
 /**
- * Extends the Three.js PerspectiveCamera to automatically adjust its aspect ratio on renderer resize.
+ * Extends the PerspectiveCamera to automatically adjust its aspect ratio on renderer resize.
  */
 export class PerspectiveCameraAuto extends PerspectiveCamera {
     

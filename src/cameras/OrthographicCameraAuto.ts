@@ -1,7 +1,7 @@
 import { OrthographicCamera } from "three";
 
 /**
- * Extends the Three.js OrthographicCamera to automatically resize based on a fixed width or height dimension.
+ * Extends the OrthographicCamera to automatically resize based on a fixed width or height dimension.
  */
 export class OrthographicCameraAuto extends OrthographicCamera {
     private _size: number;

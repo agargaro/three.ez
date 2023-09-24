@@ -14,13 +14,13 @@ export interface SceneExtPrototype {
     /** @internal */ __smartRendering: boolean;
     /**
      * A flag indicating whether continuous raycasting is enabled (default: false).
-     * When set to true, raycasting occurs continuously, while false triggers raycasting only upon mouse movement. 
+     * When set to true, main raycasting occurs every frame, while false triggers raycasting only upon mouse movement.
      * Additionally, if set to true, the 'pointerintersection' event will be fired every frame.
      */
     continousRaycasting: boolean;
     /** 
      * A flag indicating whether continuous raycasting is enabled when searching for drop targets (default: false).
-     * When set to true, raycasting for drop targets occurs continuously, while false triggers it only upon mouse movement. 
+     * When set to true, main raycasting for drop targets occurs every frame, while false triggers it only upon mouse movement. 
      * Additionally, if set to true, the 'dragover' event will be fired every frame.
      */
     continousRaycastingDropTarget: boolean;
