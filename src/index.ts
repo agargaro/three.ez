@@ -40,7 +40,7 @@ declare module 'three/src/core/Object3D' {
     export interface Object3D extends Object3DExtPrototype { }
 }
 
-declare module 'three/src/Materials/Material' {
+declare module 'three/src/materials/Material' {
     export interface Material extends MaterialExtPrototype { }
 }
 
