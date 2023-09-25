@@ -6,6 +6,7 @@ import { InstancedMeshEntity } from "../instancedMesh/InstancedMeshEntity";
 /** @internal */
 export class DragAndDropManager {
     public isDragging = false;
+    public dragButtons = [0];
     private _plane = new Plane();
     private _offset = new Vector3();
     private _intersection = new Vector3();
@@ -64,7 +65,7 @@ export class DragAndDropManager {
     }
 
     public initDrag(event: PointerEvent, target: Object3D, instanceId: number, intersection: IntersectionExt): void {
-        if (event.isPrimary && target?.draggable) {
+        if (this.isDragButton(event) && target?.draggable) {
             if (instanceId >= 0) {
                 if ((target as InstancedMesh2).isInstancedMesh2 && (target as InstancedMesh2).__enabledStateHovered) {
                     this._targetInstanced = (target as InstancedMesh2).instances[instanceId];
@@ -169,5 +170,9 @@ export class DragAndDropManager {
 
             this.trigger("dragover", event, dropTarget, false, dropTargetPoint, this._target, dropTargetIntersection);
         }
+    }
+
+    private isDragButton(event: PointerEvent): boolean {
+        return event.isPrimary && ((event.pointerType === "mouse" && this.dragButtons.some(x => x === event.button)) || event.pointerType !== "mouse");
     }
 }
