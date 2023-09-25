@@ -100,6 +100,13 @@ export class Main {
     public set multitouch(value: boolean) { this._interactionManager.queue.multitouch = value }
 
     /**
+     * Defines the mouse buttons that can be used for dragging objects.
+     * Specify the button values as an array of PointerEvent button values.
+     */
+    public get dragButtons(): number[] { return this._interactionManager.dragManager.dragButtons }
+    public set dragButtons(value: number[]) { this._interactionManager.dragManager.dragButtons = value }
+
+    /**
      * Indicates whether to enable cursor handling in the application.
      */
     public get enableCursor(): boolean { return this._interactionManager.cursorManager.enabled }
