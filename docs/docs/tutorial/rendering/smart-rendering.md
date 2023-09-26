@@ -41,11 +41,11 @@ const draggableBox = new Mesh(new BoxGeometry(), new MeshLambertMaterial({ color
 draggableBox.draggable = true;
 draggableBox.on(['pointerenter', 'pointerleave'], function(e) {
   this.material.color.set(e.type === 'pointerenter' ? 'yellow' : 'green');
-  this.needsRender = true; // necessary because color change cannot be automatically detected
+  this.needsRender = true; // Necessary because color change cannot be automatically detected
 });
 
 const scene = new Scene();
-scene.activeSmartRendering(); // in this case, it automatically detects drag movements
+scene.activeSmartRendering(); // In this case, it automatically detects drag movements
 scene.add(draggableBox);
 ```
 
