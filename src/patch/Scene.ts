@@ -3,7 +3,7 @@ import { EventsCache } from "../events/MiscEventsManager";
 import { activeSmartRendering, applySmartRenderingPatch, removeSmartRenderingPatch } from "./SmartRendering";
 import { Binding } from "../binding/Binding";
 import { FocusEventExt, IntersectionExt } from "../events/Events";
-import { addBase, removeBase } from "./Object3D";
+import { DEFAULT_DRAGGABLE, DEFAULT_INTERCEPT_BY_RAYCASTER, addBase, removeBase } from "./Object3D";
 import { EventsDispatcher } from "../events/EventsDispatcher";
 
 /**
@@ -52,7 +52,6 @@ export interface SceneExtPrototype {
 
 Scene.prototype.continuousRaycasting = false;
 Scene.prototype.continuousRaycastingDropTarget = false;
-Scene.prototype.focusable = false;
 Scene.prototype.needsRender = true;
 Scene.prototype.blurOnClickOut = false;
 Scene.prototype.timeScale = 1;
@@ -108,12 +107,17 @@ Scene.prototype.remove = function (object: Object3D) {
 
 Object.defineProperty(Scene.prototype, "userData", { // needed to inject code in constructor
     set: function (this: Scene, value) {
-        this.intersections = [];
-        this.intersectionsDropTarget = [];
-        this.__boundObjects = new Set();
+        this.focusable = false;
+        this.draggable = DEFAULT_DRAGGABLE;
+        this.interceptByRaycaster = DEFAULT_INTERCEPT_BY_RAYCASTER;
         this.__boundCallbacks = [];
         this.__eventsDispatcher = new EventsDispatcher(this);
+
+        this.intersections = [];
+        this.intersectionsDropTarget = [];
         this.scene = this;
+        this.__boundObjects = new Set();
+
         Object.defineProperty(this, "userData", {
             value, writable: true, configurable: true
         });

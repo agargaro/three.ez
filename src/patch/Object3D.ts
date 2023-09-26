@@ -31,21 +31,21 @@ export interface Object3DExtPrototype {
     /** @internal */ __onChangeBaseEuler: () => void;
     /** @internal */ __onChangeBaseQuat: () => void;
     /**
-     * Determines if the object is enabled. (default: true).
+     * Determines if the object is enabled. Default is `true`.
      * If set to true, it allows triggering all InteractionEvents; otherwise, events are disabled.
      */
     enabled: boolean;
-    /** Determines if the object can be intercepted by a raycaster (default: true). */
+    /** Determines if the object can be intercepted by the main raycaster. Default is DEFAULT_INTERCEPT_BY_RAYCASTER (`true`). */
     interceptByRaycaster: boolean;
     /** Array of hitboxes for collision detection. */
     hitboxes: Mesh[];
     /** Indicates which object will be dragged instead of this one. */
     dragTarget: Object3D;
-    /** Indicates whether the object can receive focus (default: true). */
+    /** Indicates whether the object can receive focus. Default is DEFAULT_FOCUSABLE (`true`). */
     focusable: boolean;
-    /** Indicates whether the object is draggable (default: false). */
+    /** Indicates whether the object is draggable. Default is DEFAULT_DRAGGABLE (`false`). */
     draggable: boolean;
-    /** Determines when the object is dragged, whether it will have to search for any drop targets (default: false). */
+    /** Determines when the object is dragged, whether it will have to search for any drop targets. Default is `false`. */
     findDropTarget: boolean;
     /** Reference to the scene the object belongs to. */
     scene: Scene;
@@ -127,7 +127,7 @@ export interface Object3DExtPrototype {
      * Binds a property to a callback function for updates.
      * @param property - The name of the property to bind.
      * @param getCallback - A function that retrieves the property's value.
-     * @param renderOnChange - Indicates whether to render when the property changes (optional, default: false).
+     * @param renderOnChange - Indicates whether to render when the property changes (optional, default: `false`).
      * @returns The instance of the object with the binding applied.
      */
     bindProperty<T extends keyof this>(property: T, getCallback: () => this[T], renderOnChange?: boolean): this;
@@ -146,9 +146,13 @@ export interface Object3DExtPrototype {
     tween<T extends Object3D = Object3D>(id?: string): Tween<T>;
 }
 
-Object3D.prototype.focusable = true;
-Object3D.prototype.draggable = false;
-Object3D.prototype.interceptByRaycaster = true;
+/** The default setting for 'focusable' for newly created Object3Ds. */
+export let DEFAULT_FOCUSABLE = true;
+/** The default setting for 'draggable' for newly created Object3Ds. */
+export let DEFAULT_DRAGGABLE = false;
+/** The default setting for 'interceptByRaycaster' for newly created Object3Ds. */
+export let DEFAULT_INTERCEPT_BY_RAYCASTER = true;
+
 Object3D.prototype.findDropTarget = false;
 Object3D.prototype.__manualDetection = false;
 Object3D.prototype.__focused = false;
@@ -275,8 +279,12 @@ Object3D.prototype.triggerAncestor = function <T extends keyof Events>(type: T, 
 
 Object.defineProperty(Object3D.prototype, "userData", { // needed to inject code in constructor
     set: function (this: Object3D, value) {
+        this.focusable = DEFAULT_FOCUSABLE;
+        this.draggable = DEFAULT_DRAGGABLE;
+        this.interceptByRaycaster = DEFAULT_INTERCEPT_BY_RAYCASTER;
         this.__boundCallbacks = [];
         this.__eventsDispatcher = new EventsDispatcher(this);
+
         Object.defineProperty(this, "userData", {
             value, writable: true, configurable: true
         });
