@@ -54,7 +54,7 @@ const scene = new Scene().add(box);
 const main = new Main();
 main.createView({ scene, camera: new PerspectiveCameraAuto(70).translateZ(1) });
 ```
-<a href='https://stackblitz.com/edit/three-ez-template-small?file=src%2Fmain.ts'>
+<a href='https://stackblitz.com/edit/three-ez-template?file=src%2Fmain.ts'>
   <img src='https://raw.githubusercontent.com/agargaro/three.ez/master/docs/static/img/demo.gif' />
 </a>
 
