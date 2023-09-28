@@ -18,7 +18,7 @@ This library has only one dependency: `three.js r151+`.
 |                                  | Using the `rendererResize` event, you can easily set the resolution for custom shaders.           |
 | [**Smart Rendering**](https://agargaro.github.io/three.ez/docs/tutorial/rendering/smart-rendering)              | Optimize performance by rendering frames only when necessary, reducing computational overhead.   |
 | **Simplified Multiple Rendering**| Effortlessly manage rendering for multiple scenes or viewports within a single canvas.           |
-| **Object3D Property Binding**    | Streamline the management of `Object3D` properties.                                                |
+| [**Object3D Property Binding**](https://agargaro.github.io/three.ez/docs/tutorial/binding) | Streamline the management of `Object3D` properties.                                                |
 | [**Event Programming**](https://stackblitz.com/edit/three-ez-events?file=src%2Fmain.ts) | Add interactions to `Object3D` through programmable events, similar to `DOM events`. |
 |                                  | You can bind events for changes in position, scale, rotation, visibility, and enabled state.       |
 | **Focus and Blur**               | Enhance interactivity with focus and blur events.                                                    |
@@ -43,8 +43,11 @@ import { Scene, Mesh, BoxGeometry, MeshNormalMaterial } from 'three';
 import { Main, PerspectiveCameraAuto } from '@three.ez/main';
 
 const box = new Mesh(new BoxGeometry(0.1, 0.1, 0.1), new MeshNormalMaterial());
+
 box.draggable = true;
+
 box.on('animate', (e) => box.rotateX(e.delta).rotateY(e.delta * 2));
+
 box.on(['pointerover', 'pointerout'], function (e) {
     this.tween('id').to(500, { scale: e.type === 'pointerover' ? 1.5 : 1 }, { easing: 'easeOutElastic' }).start();
 });

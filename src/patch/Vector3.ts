@@ -39,7 +39,7 @@ function patchVector(vec3: Vector3Ext): void {
     Object.setPrototypeOf(vec3, Vector3Ext.prototype);
 }
 
-/** Updated to r156 */
+/** Updated to r157 */
 class Vector3Ext {
     public distanceToManhattan: (v: Vector3) => number; //remove when fix deprecated d.ts
     public lengthManhattan: () => number; //remove when fix deprecated d.ts
