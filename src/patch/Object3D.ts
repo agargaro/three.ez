@@ -120,7 +120,7 @@ export interface Object3DExtPrototype {
     /**
      * Calculates all bindings on the current object.
      * If 'recursive' is set to true, it will also calculate bindings for all children.
-     * @param recursive Optional. If true, calculate bindings for children as well.
+     * @param recursive If true, calculate bindings for children as well (optional, default: `false`).
      */
     detectChanges(recursive?: boolean): void;
     /**
