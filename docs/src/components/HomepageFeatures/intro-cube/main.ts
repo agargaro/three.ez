@@ -24,7 +24,7 @@ export class Main extends MainBase {
   }
 
   constructor() {
-    super({ rendererParameters: { antialias: true, canvas: document.getElementById('cubecanvas') } });
+    super({ fullscreen: false, rendererParameters: { antialias: true, canvas: document.getElementById('cubecanvas') } });
     this.createView({ scene: this.scene, camera: this.scene.camera });
   }
 

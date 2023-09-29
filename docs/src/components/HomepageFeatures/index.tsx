@@ -144,11 +144,13 @@ export default function HomepageFeatures(): JSX.Element {
   }, []);
 
   return (
-    <section className={styles.featuresContainer}>
-      {FeatureList.map((props) => (
-        <Feature key={props.title} {...props} className={styles.features} />
-      ))}
+    <div className={styles.pageContainer}>
+      <section className={styles.featuresContainer}>
+        {FeatureList.map((props) => (
+          <Feature key={props.title} {...props} className={styles.features} />
+        ))}
+      </section>
       <canvas id="cubecanvas" className={styles.cubeCanvas}></canvas>
-    </section>
+    </div>
   );
 }

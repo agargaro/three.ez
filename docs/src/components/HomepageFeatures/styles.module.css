@@ -1,3 +1,13 @@
+.pageContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas: 'code canvas';
+  max-height: calc(100vh - calc(var(--ifm-navbar-height) + var(--ifm-navbar-padding-vertical) * 2));
+}
+
 .features {
   display: flex;
   flex-direction: column;
@@ -9,9 +19,10 @@
   scroll-snap-align: start;
   scroll-behavior: smooth;
   scroll-snap-stop: always;
-  height: calc(100vh - calc(var(--ifm-navbar-height) + var(--ifm-navbar-padding-vertical) * 2));;
+  height: calc(100vh - calc(var(--ifm-navbar-height) + var(--ifm-navbar-padding-vertical) * 2));
 }
 .featuresContainer {
+  grid-area: code;
   scroll-snap-type: y mandatory;
   overflow-y: scroll;
   overflow-x: hidden;
@@ -31,7 +42,8 @@
   touch-action: none;
   user-select: none;
   border: 1px solid red;
-  position: absolute;
   top: 0;
   z-index: 0;
+  grid-area: canvas;
+  max-height: calc(100vh - calc(var(--ifm-navbar-height) + var(--ifm-navbar-padding-vertical) * 2));
 }
