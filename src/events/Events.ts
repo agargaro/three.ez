@@ -14,9 +14,9 @@ export interface UpdateEvents {
   scalechange: never;
   /** Event triggered when the rotation of the object changes. */
   rotationchange: never;
-  /** Event triggered when the enabledState of the object changes. The propagation of this event does not go to parents but to children. */
+  /** Event triggered when the enabledState of the object changes (either its own or the parent's `enabled` property). */
   enabledchange: PropertyChangeEvent<boolean>;
-  /** Event triggered when the visibility of the object changes. The propagation of this event does not go to parents but to children. */
+  /** Event triggered when the visibilityState of the object changes (either its own or the parent's `visible` property). */
   visiblechange: PropertyChangeEvent<boolean>;
 }
 
