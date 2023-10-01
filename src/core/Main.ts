@@ -197,7 +197,7 @@ export class Main {
         });
     }
 
-    private animate(time: DOMHighResTimeStamp, frame: XRFrame): void {
+    public animate(time: DOMHighResTimeStamp, frame: XRFrame): void {
         if (this._animate) {
             this._animate(time, frame);
         }
