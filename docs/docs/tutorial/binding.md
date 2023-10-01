@@ -14,9 +14,11 @@ To create a binding, you should use the `bindProperty` method. <br />
 When the binding is created, its initial value is calculated, and at the end of each animation cycle, it will be recalculated.
 
 ```typescript
-const box = new Mesh(new BoxGeometry(), new MeshLambertMaterial({ color: 'green' }));
+const box = new Mesh(new BoxGeometry(), new MeshLambertMaterial());
 box.bindProperty('visible', () => box.parent?.enabled); // Visible only if parent is enabled
 ```
+> ℹ️ **Note** <br />
+> The `bindProperty` method has a third parameter that is useful when using the [smart rendering mode](./rendering/smart-rendering).
 
 > ⚠️ **Warning** <br />
 > Exercise caution when using the `parent` property within a get callback, especially when the object may not have a parent yet.
