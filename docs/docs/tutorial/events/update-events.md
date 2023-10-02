@@ -7,13 +7,13 @@ sidebar_position: 2
 Update events are triggered when the value of a property or a state changes. <br />
 It's important to note that unlike `interaction events`, update events do not follow a propagation system.
 
-| Event            | Description                                           |
-|-------------------|-------------------------------------------------------|
-| `positionchange`  | Triggered when the object's position changes.         |
-| `scalechange`     | Triggered when the object's scale changes.            |
-| `rotationchange`  | Triggered when the object's rotation changes.         |
-| `enabledchange`   | Triggered when the object's enabled state changes (either its own or the parent's `enabled` property). |
-| `visiblechange`   | Triggered when the object's visibility changes (either its own or the parent's `visible` property). |
+| Event             | Description                                           |Parameters                                                 |
+|-------------------|-------------------------------------------------------|-----------------------------------------------------------|
+| `positionchange`  | Triggered when the object's `position` changes.       |                                                           |
+| `scalechange`     | Triggered when the object's `scale` changes.          |                                                           |
+| `rotationchange`  | Triggered when the object's `rotation` changes.       |                                                           |
+| `enabledchange`   | Triggered when the object's enabled state changes (either its own or the parent's `enabled` property). | [PropertyChangeEvent](../../api/interfaces/Events.PropertyChangeEvent) |
+| `visiblechange`   | Triggered when the object's visibility changes (either its own or the parent's `visible` property). | [PropertyChangeEvent](../../api/interfaces/Events.PropertyChangeEvent) |
 
 
 ## Example
