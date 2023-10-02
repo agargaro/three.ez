@@ -1,3 +1,15 @@
+.mainTitle {
+  color: var(--ifm-font-color-base);
+  font-family: 'Red Hat Mono';
+  font-size: 128px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -17.28px;
+  text-transform: lowercase;
+  mix-blend-mode: difference;
+}
+
 .features {
   display: flex;
   flex-direction: column;
@@ -9,7 +21,7 @@
   scroll-snap-align: start;
   scroll-behavior: smooth;
   scroll-snap-stop: always;
-  height: calc(100vh - calc(var(--ifm-navbar-height) + var(--ifm-navbar-padding-vertical) * 2));;
+  height: calc(100vh - calc(var(--ifm-navbar-height) + var(--ifm-navbar-padding-vertical) * 2));
 }
 .featuresContainer {
   scroll-snap-type: y mandatory;
@@ -33,5 +45,5 @@
   border: 1px solid red;
   position: absolute;
   top: 0;
-  z-index: 0;
+  z-index: -1;
 }

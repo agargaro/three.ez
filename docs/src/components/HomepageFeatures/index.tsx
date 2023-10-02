@@ -106,7 +106,7 @@ function Feature({ title, description, code, className }: FeatureProps) {
 
 export default function HomepageFeatures(): JSX.Element {
   let main: Main;
-
+  let showFeature = false;
   const handleIntersection = (entries: IntersectionObserverEntry[]) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
@@ -126,6 +126,7 @@ export default function HomepageFeatures(): JSX.Element {
 
   useEffect(() => {
     main = new Main();
+    showFeature = false;
     const options = {
       root: document.querySelector('#scrollcontainer'),
       rootMargin: '0px',
@@ -144,11 +145,16 @@ export default function HomepageFeatures(): JSX.Element {
   }, []);
 
   return (
-    <section className={styles.featuresContainer}>
-      {FeatureList.map((props) => (
-        <Feature key={props.title} {...props} className={styles.features} />
-      ))}
+    <div>
       <canvas id="cubecanvas" className={styles.cubeCanvas}></canvas>
-    </section>
+      <h1 className={styles.mainTitle}>Three.ez</h1>
+      {showFeature && (
+        <section className={styles.featuresContainer}>
+          {FeatureList.map((props) => (
+            <Feature key={props.title} {...props} className={styles.features} />
+          ))}
+        </section>
+      )}
+    </div>
   );
 }

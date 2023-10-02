@@ -19,7 +19,7 @@ Flag indicating whether to blur focused object3D when clicking outside of any ob
 
 #### Defined in
 
-[src/patch/Scene.ts:38](https://github.com/agargaro/three.ez/blob/ba52259/src/patch/Scene.ts#L38)
+[src/patch/Scene.ts:38](https://github.com/agargaro/three.ez/blob/4f6b61c/src/patch/Scene.ts#L38)
 
 ___
 
@@ -33,7 +33,7 @@ Also, if set to true, the 'pointerintersection' event will be triggered every fr
 
 #### Defined in
 
-[src/patch/Scene.ts:24](https://github.com/agargaro/three.ez/blob/ba52259/src/patch/Scene.ts#L24)
+[src/patch/Scene.ts:24](https://github.com/agargaro/three.ez/blob/4f6b61c/src/patch/Scene.ts#L24)
 
 ___
 
@@ -47,7 +47,7 @@ Also, if set to true, the 'dragover' event will be triggered every frame.
 
 #### Defined in
 
-[src/patch/Scene.ts:30](https://github.com/agargaro/three.ez/blob/ba52259/src/patch/Scene.ts#L30)
+[src/patch/Scene.ts:30](https://github.com/agargaro/three.ez/blob/4f6b61c/src/patch/Scene.ts#L30)
 
 ___
 
@@ -59,7 +59,7 @@ A reference to the currently focused Object3D within the scene.
 
 #### Defined in
 
-[src/patch/Scene.ts:36](https://github.com/agargaro/three.ez/blob/ba52259/src/patch/Scene.ts#L36)
+[src/patch/Scene.ts:36](https://github.com/agargaro/three.ez/blob/4f6b61c/src/patch/Scene.ts#L36)
 
 ___
 
@@ -71,7 +71,7 @@ An array of intersections computed from the pointer (primary pointer only).
 
 #### Defined in
 
-[src/patch/Scene.ts:32](https://github.com/agargaro/three.ez/blob/ba52259/src/patch/Scene.ts#L32)
+[src/patch/Scene.ts:32](https://github.com/agargaro/three.ez/blob/4f6b61c/src/patch/Scene.ts#L32)
 
 ___
 
@@ -83,7 +83,7 @@ An array of intersections computed from the pointer if an object is dragged and 
 
 #### Defined in
 
-[src/patch/Scene.ts:34](https://github.com/agargaro/three.ez/blob/ba52259/src/patch/Scene.ts#L34)
+[src/patch/Scene.ts:34](https://github.com/agargaro/three.ez/blob/4f6b61c/src/patch/Scene.ts#L34)
 
 ___
 
@@ -95,7 +95,7 @@ The time scale for scene animations.
 
 #### Defined in
 
-[src/patch/Scene.ts:40](https://github.com/agargaro/three.ez/blob/ba52259/src/patch/Scene.ts#L40)
+[src/patch/Scene.ts:40](https://github.com/agargaro/three.ez/blob/4f6b61c/src/patch/Scene.ts#L40)
 
 ___
 
@@ -107,7 +107,7 @@ The total time elapsed in the scene.
 
 #### Defined in
 
-[src/patch/Scene.ts:42](https://github.com/agargaro/three.ez/blob/ba52259/src/patch/Scene.ts#L42)
+[src/patch/Scene.ts:42](https://github.com/agargaro/three.ez/blob/4f6b61c/src/patch/Scene.ts#L42)
 
 ## Methods
 
@@ -125,7 +125,7 @@ The updated instance of the scene.
 
 #### Defined in
 
-[src/patch/Scene.ts:47](https://github.com/agargaro/three.ez/blob/ba52259/src/patch/Scene.ts#L47)
+[src/patch/Scene.ts:47](https://github.com/agargaro/three.ez/blob/4f6b61c/src/patch/Scene.ts#L47)
 
 ___
 
@@ -147,4 +147,4 @@ Set the focus to the specified Object3D within the scene, or clears the focus if
 
 #### Defined in
 
-[src/patch/Scene.ts:52](https://github.com/agargaro/three.ez/blob/ba52259/src/patch/Scene.ts#L52)
+[src/patch/Scene.ts:52](https://github.com/agargaro/three.ez/blob/4f6b61c/src/patch/Scene.ts#L52)
