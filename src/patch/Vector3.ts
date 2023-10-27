@@ -39,7 +39,7 @@ function patchVector(vec3: Vector3Ext): void {
     Object.setPrototypeOf(vec3, Vector3Ext.prototype);
 }
 
-/** Updated to r157 */
+/** Updated to r158 */
 class Vector3Ext {
     public distanceToManhattan: (v: Vector3) => number; //remove when fix deprecated d.ts
     public lengthManhattan: () => number; //remove when fix deprecated d.ts
@@ -248,15 +248,14 @@ class Vector3Ext {
     }
 
     applyQuaternion(q: Quaternion) {
-        const x = this._x, y = this._y, z = this._z;
+        const vx = this._x, vy = this._y, vz = this._z;
         const qx = q.x, qy = q.y, qz = q.z, qw = q.w;
-        const ix = qw * x + qy * z - qz * y;
-        const iy = qw * y + qz * x - qx * z;
-        const iz = qw * z + qx * y - qy * x;
-        const iw = - qx * x - qy * y - qz * z;
-        this._x = ix * qw + iw * - qx + iy * - qz - iz * - qy;
-        this._y = iy * qw + iw * - qy + iz * - qx - ix * - qz;
-        this._z = iz * qw + iw * - qz + ix * - qy - iy * - qx;
+        const tx = 2 * (qy * vz - qz * vy);
+        const ty = 2 * (qz * vx - qx * vz);
+        const tz = 2 * (qx * vy - qy * vx);
+        this._x = vx + qw * tx + qy * tz - qz * ty;
+        this._y = vy + qw * ty + qz * tx - qx * tz;
+        this._z = vz + qw * tz + qx * ty - qy * tx;
         this._onChangeCallback();
         return this;
     }
