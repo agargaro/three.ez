@@ -1,4 +1,4 @@
-import { Box3, Ray, Vector3 } from 'three';
+import { Box3, Vector3 } from 'three';
 import { ObjVec3, TEMP, VectorObject3D, VectorUtils } from './VectorUtils';
 
 export class IntersectionUtils {
