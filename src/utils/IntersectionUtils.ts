@@ -58,8 +58,6 @@ export class IntersectionUtils {
         const invdirx = 1 / rayDir.x, invdiry = 1 / rayDir.y, invdirz = 1 / rayDir.z;
         let tmin = 0, tmax = Infinity, bmin: number, bmax: number, dmin: number, dmax: number;
 
-        // check x
-
         if (invdirx >= 0) {
             bmin = box.min.x;
             bmax = box.max.x;
@@ -74,8 +72,6 @@ export class IntersectionUtils {
         tmin = dmin > tmin ? dmin : tmin; // in this order ignore NaN error
         tmax = dmax < tmax ? dmax : tmax; 
 
-        // check y
-
         if (invdiry >= 0) {
             bmin = box.min.y;
             bmax = box.max.y;
@@ -89,8 +85,6 @@ export class IntersectionUtils {
 
         tmin = dmin > tmin ? dmin : tmin;
         tmax = dmax < tmax ? dmax : tmax;
-
-        // check z
 
         if (invdirz >= 0) {
             bmin = box.min.z;
