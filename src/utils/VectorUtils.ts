@@ -1,19 +1,18 @@
 import { Object3D, Vector2, Vector3 } from 'three';
 
-type VectorObject3D = Vector2 | Vector3 | Object3D;
-type ObjVec3 = Vector3 | Object3D;
-
-const TEMP: Vector3[] = [...Array(4)].map(() => new Vector3());
+export type VectorObject3D = Vector2 | Vector3 | Object3D;
+export type ObjVec3 = Vector3 | Object3D;
+/** @internal */ export const TEMP: Vector3[] = [...Array(4)].map(() => new Vector3());
 const ORIGIN = new Vector3();
 
 export class VectorUtils {
   public static DEFAULT_NORMAL = new Vector3(0, 0, 1);
 
-  private static getPositionFromObject3D(item: VectorObject3D): Vector3 {
+  public static getPositionFromObject3D(item: VectorObject3D): Vector3 {
     return (item as Object3D).isObject3D ? (item as Object3D).position : (item as Vector3);
   }
 
-  private static getPositionsFromObject3D(items: VectorObject3D[]): Vector3[] {
+  public static getPositionsFromObject3D(items: VectorObject3D[]): Vector3[] {
     const ret: Vector3[] = [];
     for (const item of items) {
       ret.push(this.getPositionFromObject3D(item));
@@ -98,56 +97,5 @@ export class VectorUtils {
   public static projectOnLine(point: ObjVec3, l1: ObjVec3, l2: ObjVec3, target = new Vector3()): Vector3 {
     const [vc, p1c, p2c] = this.getPositionsFromObject3D([point, l1, l2]);
     return target.subVectors(vc, p1c).projectOnVector(TEMP[0].subVectors(p1c, p2c)).add(p1c);
-  }
-
-  // https://paulbourke.net/geometry/pointlineplane/
-  public static lineIntersection2D(a1: VectorObject3D, a2: VectorObject3D, b1: VectorObject3D, b2: VectorObject3D, target = new Vector3()): Vector3 {
-    const [a1c, a2c, b1c, b2c] = this.getPositionsFromObject3D([a1, a2, b1, b2]);
-    const denominator = (b2c.y - b1c.y) * (a2c.x - a1c.x) - (b2c.x - b1c.x) * (a2c.y - a1c.y);
-    if (denominator === 0) return; // parallel
-    let ua = ((b2c.x - b1c.x) * (a1c.y - b1c.y) - (b2c.y - b1c.y) * (a1c.x - b1c.x)) / denominator;
-    return target.set(a1c.x + ua * (a2c.x - a1c.x), a1c.y + ua * (a2c.y - a1c.y), 0);
-  }
-
-  // https://paulbourke.net/geometry/pointlineplane/
-  public static segmentIntersection2D(a1: VectorObject3D, a2: VectorObject3D, b1: VectorObject3D, b2: VectorObject3D, target = new Vector3()): Vector3 {
-    const [a1c, a2c, b1c, b2c] = this.getPositionsFromObject3D([a1, a2, b1, b2]);
-    const denominator = (b2c.y - b1c.y) * (a2c.x - a1c.x) - (b2c.x - b1c.x) * (a2c.y - a1c.y);
-    if (denominator === 0) return; // parallel
-    let ua = ((b2c.x - b1c.x) * (a1c.y - b1c.y) - (b2c.y - b1c.y) * (a1c.x - b1c.x)) / denominator;
-    let ub = ((a2c.x - a1c.x) * (a1c.y - b1c.y) - (a2c.y - a1c.y) * (a1c.x - b1c.x)) / denominator;
-    if (ua < 0 || ua > 1 || ub < 0 || ub > 1) return;
-    return target.set(a1c.x + ua * (a2c.x - a1c.x), a1c.y + ua * (a2c.y - a1c.y), 0);
-  }
-
-  // https://paulbourke.net/geometry/pointlineplane/
-  public static lineIntersection3D(p1: ObjVec3, p2: ObjVec3, p3: ObjVec3, p4: ObjVec3, target = new Vector3(), tolerance = 10 ** -10): Vector3 {
-    const [p1c, p2c, p3c, p4c] = this.getPositionsFromObject3D([p1, p2, p3, p4]);
-
-    const p13 = TEMP[0].subVectors(p1c, p3c);
-    const p43 = TEMP[1].subVectors(p4c, p3c);
-
-    if (p43.lengthSq() < tolerance) return;
-    const p21 = TEMP[2].subVectors(p2c, p1c);
-    if (p21.lengthSq() < tolerance) return;
-
-    const d1343 = p13.x * p43.x + p13.y * p43.y + p13.z * p43.z;
-    const d4321 = p43.x * p21.x + p43.y * p21.y + p43.z * p21.z;
-    const d1321 = p13.x * p21.x + p13.y * p21.y + p13.z * p21.z;
-    const d4343 = p43.x * p43.x + p43.y * p43.y + p43.z * p43.z;
-    const d2121 = p21.x * p21.x + p21.y * p21.y + p21.z * p21.z;
-
-    const denom = d2121 * d4343 - d4321 * d4321;
-    if (Math.abs(denom) < tolerance) return;
-
-    const numer = d1343 * d4321 - d1321 * d4343;
-
-    const mua = numer / denom;
-    const Pa = target.set(p1c.x + mua * p21.x, p1c.y + mua * p21.y, p1c.z + mua * p21.z);
-
-    // const mub = (d1343 + d4321 * mua) / d4343;
-    // const Pb = new Vector3(p3.x + mub * p43.x, p3.y + mub * p43.y, p3.z + mub * p43.z);
-
-    return Pa;
   }
 }

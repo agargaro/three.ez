@@ -33,6 +33,7 @@ export * from './tweening/Easings';
 export * from './tweening/Tween';
 export * from './tweening/TweenManager';
 export * from './tweening/RunningTween';
+export * from './utils/IntersectionUtils';
 export * from './utils/Stats';
 export * from './utils/Utils';
 export * from './utils/VectorUtils';
