@@ -31,7 +31,7 @@ export interface Resource {
   /**
    * The type of loader to use for this resource.
    */
-  loader: typeof Loader<any>;
+  loader: typeof Loader;
   /**
    * An array of resource paths or configurations to be loaded by the loader.
    */
@@ -104,11 +104,11 @@ export class Asset {
    * @param loaderType The desired loader type.
    * @returns The loader associated with the resource type.
    */
-  public static getLoader(loaderType: typeof Loader<any>): Loader {
+  public static getLoader<T extends Loader>(loaderType: typeof Loader): T {
     if (!this._loaders[loaderType.name]) {
-      return this._loaders[loaderType.name] = new loaderType(this._loadingManager);
+      this._loaders[loaderType.name] = new loaderType(this._loadingManager);
     }
-    return this._loaders[loaderType.name];
+    return this._loaders[loaderType.name] as T;
   }
 
   /**
@@ -146,7 +146,7 @@ export class Asset {
    * @param loader The loader type to be used for preloading.
    * @param paths An array of resource paths or configurations to preload.
    */
-  public static preload(loader: typeof Loader<any>, paths: (string | ResourceConfig) | (string | ResourceConfig)[]): void {
+  public static preload(loader: typeof Loader, paths: (string | ResourceConfig) | (string | ResourceConfig)[]): void {
     this._pending.push({ loader, paths });
   }
 
