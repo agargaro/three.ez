@@ -31,7 +31,7 @@ export interface Resource {
   /**
    * The type of loader to use for this resource.
    */
-  loader: typeof Loader;
+  loader: typeof Loader<any, any>;
   /**
    * An array of resource paths or configurations to be loaded by the loader.
    */
@@ -146,7 +146,7 @@ export class Asset {
    * @param loader The loader type to be used for preloading.
    * @param paths An array of resource paths or configurations to preload.
    */
-  public static preload(loader: typeof Loader, paths: (string | ResourceConfig) | (string | ResourceConfig)[]): void {
+  public static preload(loader: typeof Loader<any>, paths: (string | ResourceConfig) | (string | ResourceConfig)[]): void {
     this._pending.push({ loader, paths });
   }
 
