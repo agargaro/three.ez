@@ -1,28 +1,75 @@
 import { Loader, LoadingManager, Object3D, Scene } from 'three';
 import * as SkeletonUtils from 'three/examples/jsm/utils/SkeletonUtils';
 
+/**
+ * A type definition representing a collection of 3D nodes where each node is identified by a unique string key.
+ */
 export type Nodes = { [x: string]: Object3D };
 
+/**
+ * Configuration options for resource loading.
+ */
 export interface LoadingConfig {
+  /**
+   * A callback function for reporting progress during resource loading.
+   * This function is called with a ratio (0 to 1) to indicate the loading progress.
+   */
   onProgress?: (ratio: number) => void;
+  /**
+   * A callback function for handling errors during resource loading.
+   * This function is called with an `error` object in case of loading errors.
+   */
   onError?: (error: unknown) => void;
   /** @internal */ progress?: number;
   /** @internal */ total?: number;
 }
 
+/**
+ * An interface representing a resource, specifying the loader type and paths to be loaded.
+ */
 export interface Resource {
+  /**
+   * The type of loader to use for this resource.
+   */
   loader: typeof Loader<any>;
+  /**
+   * An array of resource paths or configurations to be loaded by the loader.
+   */
   paths: (string | ResourceConfig) | (string | ResourceConfig)[];
 }
 
+/**
+ * An interface representing the configuration of a resource, including its path and optional callbacks.
+ */
 export interface ResourceConfig {
+  /**
+   * The path to the resource that needs to be loaded.
+   */
   path: string;
-  getNodes?: boolean; // default true
+  /**
+   * A flag indicating whether to retrieve and store nodes associated with the resource. (default: true)
+   */
+  getNodes?: boolean;
+  /**
+   * A callback function to be called when the resource is successfully loaded.
+   */
   onLoad?: (result: unknown) => void;
 }
 
+
+/**
+ * The Asset class is a manager for loading and handling resources in a scene.
+ */
 export class Asset {
+  /**
+   * Default callback function for reporting progress during resource loading.
+   * This function is called with a ratio (0 to 1) to indicate the loading progress.
+   */
   public static onProgress: (ratio: number) => void;
+  /**
+   * Default callback function for handling errors during resource loading.
+   * This function is called with an `error` object in case of loading errors.
+   */
   public static onError: (error: unknown) => void;
   protected static _loadingManager = new LoadingManager();
   protected static _loaders: { [x: string]: Loader } = {};
@@ -30,7 +77,17 @@ export class Asset {
   protected static _nodes: { [x: string]: Nodes } = {};
   protected static _pending: Resource[] = [];
 
+  /**
+   * Get a previously loaded result object for a specific path.
+   * @param path The path of the resource.
+   * @returns A previously loaded result object.
+   */
   public static get<T>(path: string): T;
+  /**
+   * Get a list of previously loaded result objects for a series of specific paths.
+   * @param path An array of resource paths.
+   * @returns An array of previously loaded result objects.
+   */
   public static get<T>(...path: string[]): T[];
   public static get<T>(args: string | string[]): T | T[] {
     if (typeof args === "string") return this._results[args];
@@ -42,35 +99,74 @@ export class Asset {
     return ret;
   }
 
+  /**
+   * Get a specific loader based on the resource type.
+   * @param loaderType The desired loader type.
+   * @returns The loader associated with the resource type.
+   */
   public static getLoader(loaderType: typeof Loader<any>): Loader {
     if (!this._loaders[loaderType.name]) {
-      return (this._loaders[loaderType.name] = new loaderType(this._loadingManager));
+      return this._loaders[loaderType.name] = new loaderType(this._loadingManager);
     }
     return this._loaders[loaderType.name];
   }
 
+  /**
+   * Get a list of nodes previously generated for a specific resource.
+   * @param path The path of the resource.
+   * @returns An object containing 3D nodes associated with the resource.
+   */
   public static getNodes(path: string): Nodes {
     return this._nodes[path];
   }
 
+  /**
+   * Get a specific node previously generated for a specific resource.
+   * @param path The path of the resource.
+   * @param name The name of the desired node.
+   * @returns The 3D node associated with the resource and the specified name.
+   */
   public static getNode(path: string, name: string): Object3D {
     return this._nodes[path][name];
   }
 
+  /**
+   * Get a cloned instance of a 3D node associated with a specific resource and name.
+   * The method clones the node to create a deep copy.
+   * @param path The path of the resource.
+   * @param name The name of the node to clone.
+   * @returns A deep clone of the specified 3D node.
+   */
   public static getClonedNode(path: string, name: string): Object3D {
     return SkeletonUtils.clone(this.getNode(path, name)); // consider to use only object.clone() if no animations
   }
 
+  /**
+   * Preload resources for future use.
+   * @param loader The loader type to be used for preloading.
+   * @param paths An array of resource paths or configurations to preload.
+   */
   public static preload(loader: typeof Loader<any>, paths: (string | ResourceConfig) | (string | ResourceConfig)[]): void {
     this._pending.push({ loader, paths });
   }
 
+  /**
+   * Preload all pending resources and return a promise that resolves when all resources are loaded.
+   * @param config Optional configuration for the loading process.
+   * @returns A promise that resolves when all pending resources are loaded.
+   */
   public static preloadAllPending(config: LoadingConfig = {}): Promise<void[]> {
     const promise = this.loadAll(config, ...this._pending);
     this._pending = [];
     return promise;
   }
 
+  /**
+   * Load all specified resources and return a promise that resolves when all resources are loaded.
+   * @param config Configuration for the loading process.
+   * @param resources An array of resource objects to load.
+   * @returns A promise that resolves when all resources are loaded.
+   */
   public static loadAll(config: LoadingConfig, ...resources: Resource[]): Promise<void[]> {
     const promises: Promise<void>[] = [];
     config.onProgress ??= this.onProgress;
