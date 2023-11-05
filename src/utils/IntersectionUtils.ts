@@ -1,9 +1,24 @@
 import { Box3, Vector3 } from 'three';
 import { ObjVec3, TEMP, VectorObject3D, VectorUtils } from './VectorUtils';
 
+/**
+ * Class that provides a set of utilities for calculating intersections between 2D and 3D geometric objects.
+ */
 export class IntersectionUtils {
 
     // https://paulbourke.net/geometry/pointlineplane/
+    /**
+     * Computes the intersection between two 2D lines defined by points `a1` and `a2`, and `b1` and `b2`.
+     *
+     * @param a1 - The first point of the first line.
+     * @param a2 - The second point of the first line.
+     * @param b1 - The first point of the second line.
+     * @param b2 - The second point of the second line.
+     * @param target - (Optional) The vector to store the intersection point. If omitted, a new vector will be created.
+     * @returns The intersection point of the two lines or `undefined` if the lines are parallel.
+     * 
+     * @see {@link https://paulbourke.net/geometry/pointlineplane/}
+     */
     public static line_line_2D(a1: VectorObject3D, a2: VectorObject3D, b1: VectorObject3D, b2: VectorObject3D, target = new Vector3()): Vector3 {
         const [a1c, a2c, b1c, b2c] = VectorUtils.getPositionsFromObject3D([a1, a2, b1, b2]);
         const denominator = (b2c.y - b1c.y) * (a2c.x - a1c.x) - (b2c.x - b1c.x) * (a2c.y - a1c.y);
@@ -12,7 +27,18 @@ export class IntersectionUtils {
         return target.set(a1c.x + ua * (a2c.x - a1c.x), a1c.y + ua * (a2c.y - a1c.y), 0);
     }
 
-    // https://paulbourke.net/geometry/pointlineplane/
+    /**
+     * Computes the intersection between two 2D line segments defined by points `a1` and `a2`, and `b1` and `b2`.
+     *
+     * @param a1 - The first point of the first segment.
+     * @param a2 - The second point of the first segment.
+     * @param b1 - The first point of the second segment.
+     * @param b2 - The second point of the second segment.
+     * @param target - (Optional) The vector to store the intersection point. If omitted, a new vector will be created.
+     * @returns The intersection point of the two segments or `undefined` if the segments do not intersect.
+     * 
+     * @see {@link https://paulbourke.net/geometry/pointlineplane/}
+     */
     public static segment_segment_2D(a1: VectorObject3D, a2: VectorObject3D, b1: VectorObject3D, b2: VectorObject3D, target = new Vector3()): Vector3 {
         const [a1c, a2c, b1c, b2c] = VectorUtils.getPositionsFromObject3D([a1, a2, b1, b2]);
         const denominator = (b2c.y - b1c.y) * (a2c.x - a1c.x) - (b2c.x - b1c.x) * (a2c.y - a1c.y);
@@ -23,7 +49,19 @@ export class IntersectionUtils {
         return target.set(a1c.x + ua * (a2c.x - a1c.x), a1c.y + ua * (a2c.y - a1c.y), 0);
     }
 
-    // https://paulbourke.net/geometry/pointlineplane/
+    /**
+     * Computes the intersection between two 3D lines defined by points `a1` and `a2`, and `b1` and `b2`.
+     *
+     * @param a1 - The first point of the first line.
+     * @param a2 - The second point of the first line.
+     * @param b1 - The first point of the second line.
+     * @param b2 - The second point of the second line.
+     * @param target - (Optional) The vector to store the intersection point. If omitted, a new vector will be created.
+     * @param tolerance - (Optional) The tolerance for evaluating the intersection. The default value is 10^-6.
+     * @returns The intersection point of the two lines or `undefined` if the lines are parallel or do not intersect.
+     * 
+     * @see {@link https://paulbourke.net/geometry/pointlineplane/}
+     */
     public static line_line_3D(a1: ObjVec3, a2: ObjVec3, b1: ObjVec3, b2: ObjVec3, target = new Vector3(), tolerance = 10 ** -6): Vector3 {
         const [p1c, p2c, p3c, p4c] = VectorUtils.getPositionsFromObject3D([a1, a2, b1, b2]);
 
@@ -54,6 +92,14 @@ export class IntersectionUtils {
         return Pa;
     }
 
+    /**
+     * Checks if a 3D line intersects an Axis-Aligned Bounding Box (AABB) defined by `box`.
+     *
+     * @param rayOrigin - The origin of the line.
+     * @param rayDir - The direction of the line.
+     * @param box - The AABB to check for intersection with.
+     * @returns `true` if the line intersects the AABB, otherwise `false`.
+     */
     public static line_boxAABB(rayOrigin: Vector3, rayDir: Vector3, box: Box3): boolean {
         const invdirx = 1 / rayDir.x, invdiry = 1 / rayDir.y, invdirz = 1 / rayDir.z;
         let tmin = 0, tmax = Infinity, bmin: number, bmax: number, dmin: number, dmax: number;
@@ -70,7 +116,7 @@ export class IntersectionUtils {
         dmax = (bmax - rayOrigin.x) * invdirx;
 
         tmin = dmin > tmin ? dmin : tmin; // in this order ignore NaN error
-        tmax = dmax < tmax ? dmax : tmax; 
+        tmax = dmax < tmax ? dmax : tmax;
 
         if (invdiry >= 0) {
             bmin = box.min.y;
@@ -97,12 +143,20 @@ export class IntersectionUtils {
         dmin = (bmin - rayOrigin.z) * invdirz;
         dmax = (bmax - rayOrigin.z) * invdirz;
 
-        tmin = dmin > tmin ? dmin : tmin; 
+        tmin = dmin > tmin ? dmin : tmin;
         tmax = dmax < tmax ? dmax : tmax;
 
         return tmin <= tmax;
     }
 
+    /**
+     * Checks if a 3D line segment defined by points `p1` and `p2` intersects an Axis-Aligned Bounding Box (AABB) defined by `box`.
+     *
+     * @param p1 - The first point of the segment.
+     * @param p2 - The second point of the segment.
+     * @param box - The AABB to check for intersection with.
+     * @returns `true` if the segment intersects the AABB and is within the segment's length, otherwise `false`.
+     */
     public static segment_boxAABB(p1: Vector3, p2: Vector3, box: Box3): boolean {
         const rayDir = TEMP[0].subVectors(p2, p1).normalize();
         const distance = p1.distanceTo(p2);
@@ -121,7 +175,7 @@ export class IntersectionUtils {
         dmax = (bmax - p1.x) * invdirx;
 
         tmin = dmin > tmin ? dmin : tmin; // in this order ignore NaN error
-        tmax = dmax < tmax ? dmax : tmax; 
+        tmax = dmax < tmax ? dmax : tmax;
 
         if (invdiry >= 0) {
             bmin = box.min.y;
@@ -148,7 +202,7 @@ export class IntersectionUtils {
         dmin = (bmin - p1.z) * invdirz;
         dmax = (bmax - p1.z) * invdirz;
 
-        tmin = dmin > tmin ? dmin : tmin; 
+        tmin = dmin > tmin ? dmin : tmin;
         tmax = dmax < tmax ? dmax : tmax;
 
         return tmin <= tmax && distance >= tmin;
