@@ -12,12 +12,13 @@ export interface LoadingConfig {
 
 export interface Resource {
   loader: typeof Loader<any>;
-  paths: (string | NodesConfig)[];
+  paths: (string | ResourceConfig) | (string | ResourceConfig)[];
 }
 
-export interface NodesConfig {
+export interface ResourceConfig {
   path: string;
-  getNodes: boolean; // default true
+  getNodes?: boolean; // default true
+  onLoad?: (result: unknown) => void;
 }
 
 export class Asset {
@@ -27,6 +28,7 @@ export class Asset {
   protected static _loaders: { [x: string]: Loader } = {};
   protected static _results: { [x: string]: any } = {};
   protected static _nodes: { [x: string]: Nodes } = {};
+  protected static _pending: Resource[] = [];
 
   public static get<T>(path: string): T;
   public static get<T>(...path: string[]): T[];
@@ -59,8 +61,20 @@ export class Asset {
     return SkeletonUtils.clone(this.getNode(path, name)); // consider to use only object.clone() if no animations
   }
 
-  public static loadAll(resources: Resource[], config: LoadingConfig = {}): Promise<void[]> {
+  public static preload(loader: typeof Loader<any>, paths: (string | ResourceConfig) | (string | ResourceConfig)[]): void {
+    this._pending.push({ loader, paths });
+  }
+
+  public static preloadAllPending(config: LoadingConfig = {}): Promise<void[]> {
+    const promise = this.loadAll(config, ...this._pending);
+    this._pending = [];
+    return promise;
+  }
+
+  public static loadAll(config: LoadingConfig, ...resources: Resource[]): Promise<void[]> {
     const promises: Promise<void>[] = [];
+    config.onProgress ??= this.onProgress;
+    config.onError ??= this.onError;
     config.total = 0;
     config.progress = 0;
 
@@ -72,30 +86,32 @@ export class Asset {
   }
 
   protected static loadByLoader(resource: Resource, promises: Promise<void>[], config: LoadingConfig): void {
-    if (resource?.paths?.length > 0) {
+    if (resource?.paths) {
       const loader = this.getLoader(resource.loader);
 
-      for (const path of resource.paths) {
-        promises.push(this.startLoad(loader, path, config));
+      if (Array.isArray(resource.paths)) {
+        for (const path of resource.paths) {
+          promises.push(this.startLoad(loader, path, config));
+        }
+      } else {
+        promises.push(this.startLoad(loader, resource.paths, config));
       }
     }
   }
 
-  protected static startLoad(loader: Loader, value: string | NodesConfig, config: LoadingConfig): Promise<void> {
+  protected static startLoad(loader: Loader, value: string | ResourceConfig, config: LoadingConfig): Promise<void> {
     return new Promise<void>((resolve) => {
-      const path = (value as NodesConfig).path ?? value as string;
+      const path = (value as ResourceConfig).path ?? value as string;
       if (this._results[path]) return resolve();
-      const getNodes = (value as NodesConfig).getNodes ?? true;
+      const onLoad = (value as ResourceConfig).onLoad;
+      const getNodes = (value as ResourceConfig).getNodes ?? true;
       config.total++;
 
       loader.load(path, (result) => {
         this._results[path] = result;
-
-        if (getNodes) {
-          this.generateNodes(path, result);
-        }
-
-        config.onProgress(++config.progress / config.total);
+        if (getNodes) this.generateNodes(path, result);
+        if (config.onProgress) config.onProgress(++config.progress / config.total);
+        if (onLoad) onLoad(result);
         resolve();
       }, undefined, config.onError);
     });
