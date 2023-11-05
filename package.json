@@ -1,6 +1,6 @@
 {
   "name": "@three.ez/main",
-  "version": "0.3.6",
+  "version": "0.3.7",
   "description": "Simplify three.js development, including events, drag & drop, binding, focus management, smart rendering, tweening and more.",
   "author": "agargaro",
   "license": "MIT",
@@ -19,7 +19,8 @@
     "multiple views",
     "tween",
     "focus management",
-    "binding"
+    "binding",
+    "3d"
   ],
   "scripts": {
     "publish-beta": "npm version prerelease --preid=beta --git-tag-version false && npx webpack && cd publish && npm publish --tag beta --access public",
