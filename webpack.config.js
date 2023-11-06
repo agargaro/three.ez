@@ -9,7 +9,8 @@ module.exports = {
     outputModule: true
   },
   externals: [
-    'three'
+    'three',
+    'three/examples/jsm/utils/SkeletonUtils'
   ],
   module: {
     rules: [
