@@ -1,5 +1,4 @@
-import { Loader, LoadingManager, Object3D, Scene } from 'three';
-import * as SkeletonUtils from 'three/examples/jsm/utils/SkeletonUtils';
+import { Loader, Object3D, Scene } from 'three';
 
 /**
  * A type definition representing a collection of 3D nodes where each node is identified by a unique string key.
@@ -130,18 +129,16 @@ export class Asset {
   }
 
   /**
-   * Get a cloned instance of a 3D node associated with a specific resource and name.
-   * The method clones the node to create a deep copy.
-   * @param path The path of the resource.
-   * @param name The name of the node to clone.
-   * @returns A deep clone of the specified 3D node.
+   * Load a resource using a specified loader type and path.
+   * @param loaderType The type of loader to use for loading the resource.
+   * @param path The path to the resource to be loaded.
+   * @param onProgress (optional) A callback function to report loading progress with a ProgressEvent.
+   * @param getNodes (optional) A flag indicating whether to retrieve and store nodes associated with the resource. (default: true)
+   * @returns A Promise that resolves with the loaded resource when loading is complete.
    */
-  public static getClonedNode(path: string, name: string): Object3D {
-    return SkeletonUtils.clone(this.getNode(path, name)); // consider to use only object.clone() if no animations
-  }
-
   public static load<T>(loaderType: typeof Loader, path: string, onProgress?: (event: ProgressEvent) => void, getNodes = true): Promise<T> {
     return new Promise<T>((resolve) => {
+      if (this._results[path]) return resolve(this._results[path]);
       const loader = this.getLoader(loaderType);
       loader.load(path, (result) => {
         this._results[path] = result;
