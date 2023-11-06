@@ -71,7 +71,6 @@ export class Asset {
    * This function is called with an `error` object in case of loading errors.
    */
   public static onError: (error: unknown) => void;
-  protected static _loadingManager = new LoadingManager();
   protected static _loaders: { [x: string]: Loader } = {};
   protected static _results: { [x: string]: any } = {};
   protected static _nodes: { [x: string]: Nodes } = {};
@@ -106,7 +105,7 @@ export class Asset {
    */
   public static getLoader<T extends Loader>(loaderType: typeof Loader): T {
     if (!this._loaders[loaderType.name]) {
-      this._loaders[loaderType.name] = new loaderType(this._loadingManager);
+      this._loaders[loaderType.name] = new loaderType();
     }
     return this._loaders[loaderType.name] as T;
   }
@@ -139,6 +138,17 @@ export class Asset {
    */
   public static getClonedNode(path: string, name: string): Object3D {
     return SkeletonUtils.clone(this.getNode(path, name)); // consider to use only object.clone() if no animations
+  }
+
+  public static load<T>(loaderType: typeof Loader, path: string, onProgress?: (event: ProgressEvent) => void, getNodes = true): Promise<T> {
+    return new Promise<T>((resolve) => {
+      const loader = this.getLoader(loaderType);
+      loader.load(path, (result) => {
+        this._results[path] = result;
+        if (getNodes) this.generateNodes(path, result);
+        resolve(result as T);
+      }, onProgress);
+    });
   }
 
   /**
