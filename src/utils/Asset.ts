@@ -1,9 +1,4 @@
-import { Loader, Object3D, Scene } from 'three';
-
-/**
- * A type definition representing a collection of 3D nodes where each node is identified by a unique string key.
- */
-export type Nodes = { [x: string]: Object3D };
+import { Loader } from 'three';
 
 /**
  * Configuration options for resource loading.
@@ -46,13 +41,9 @@ export interface ResourceConfig {
    */
   path: string;
   /**
-   * A flag indicating whether to retrieve and store nodes associated with the resource. (default: true)
-   */
-  getNodes?: boolean;
-  /**
    * A callback function to be called when the resource is successfully loaded.
    */
-  onLoad?: (result: unknown) => void;
+  onLoad: (result: unknown) => void;
 }
 
 
@@ -72,7 +63,6 @@ export class Asset {
   public static onError: (error: unknown) => void;
   protected static _loaders: { [x: string]: Loader } = {};
   protected static _results: { [x: string]: any } = {};
-  protected static _nodes: { [x: string]: Nodes } = {};
   protected static _pending: Resource[] = [];
 
   /**
@@ -110,39 +100,18 @@ export class Asset {
   }
 
   /**
-   * Get a list of nodes previously generated for a specific resource.
-   * @param path The path of the resource.
-   * @returns An object containing 3D nodes associated with the resource.
-   */
-  public static getNodes(path: string): Nodes {
-    return this._nodes[path];
-  }
-
-  /**
-   * Get a specific node previously generated for a specific resource.
-   * @param path The path of the resource.
-   * @param name The name of the desired node.
-   * @returns The 3D node associated with the resource and the specified name.
-   */
-  public static getNode(path: string, name: string): Object3D {
-    return this._nodes[path][name];
-  }
-
-  /**
    * Load a resource using a specified loader type and path.
    * @param loaderType The type of loader to use for loading the resource.
    * @param path The path to the resource to be loaded.
    * @param onProgress (optional) A callback function to report loading progress with a ProgressEvent.
-   * @param getNodes (optional) A flag indicating whether to retrieve and store nodes associated with the resource. (default: true)
    * @returns A Promise that resolves with the loaded resource when loading is complete.
    */
-  public static load<T>(loaderType: typeof Loader, path: string, onProgress?: (event: ProgressEvent) => void, getNodes = true): Promise<T> {
+  public static load<T>(loaderType: typeof Loader, path: string, onProgress?: (event: ProgressEvent) => void): Promise<T> {
     return new Promise<T>((resolve) => {
       if (this._results[path]) return resolve(this._results[path]);
       const loader = this.getLoader(loaderType);
       loader.load(path, (result) => {
         this._results[path] = result;
-        if (getNodes) this.generateNodes(path, result);
         resolve(result as T);
       }, onProgress);
     });
@@ -207,49 +176,14 @@ export class Asset {
       const path = (value as ResourceConfig).path ?? value as string;
       if (this._results[path]) return resolve();
       const onLoad = (value as ResourceConfig).onLoad;
-      const getNodes = (value as ResourceConfig).getNodes ?? true;
       config.total++;
 
       loader.load(path, (result) => {
         this._results[path] = result;
-        if (getNodes) this.generateNodes(path, result);
         if (config.onProgress) config.onProgress(++config.progress / config.total);
         if (onLoad) onLoad(result);
         resolve();
       }, undefined, config.onError);
     });
-  }
-
-  protected static generateNodes(path: string, resource: any): void {
-    const nodes = this._nodes[path] = {};
-    const nameCollision: { [x: string]: number } = {};
-
-    if ((resource as Object3D).isObject3D) return this.generateNodesFromObject(resource, nodes, nameCollision);
-
-    if ((resource.scenes as Scene[])?.at(0)?.isObject3D) { // scenes is from GLTF
-      for (const scene of resource.scenes) {
-        this.generateNodesFromObject(scene, nodes, nameCollision);
-      }
-    }
-  }
-
-  protected static generateNodesFromObject(object: Object3D, nodes: Nodes, nameCollision: { [x: string]: number }): void {
-    const name = this.getName(object, nameCollision);
-    nodes[name] = object;
-
-    for (const child of object.children) {
-      this.generateNodesFromObject(child, nodes, nameCollision);
-    }
-  }
-
-  protected static getName(object: Object3D, nameCollision: { [x: string]: number }): string {
-    const key = object.name;
-
-    if (nameCollision[key] === undefined) {
-      nameCollision[key] = 0;
-      return key;
-    }
-
-    return `${key}_${++nameCollision[key]}`;
   }
 }
