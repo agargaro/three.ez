@@ -92,7 +92,7 @@ export class Asset {
    * @param loaderType The desired loader type.
    * @returns The loader associated with the resource type.
    */
-  public static getLoader<T extends Loader>(loaderType: typeof Loader): T {
+  public static getLoader<T extends Loader>(loaderType: typeof Loader<any>): T {
     if (!this._loaders[loaderType.name]) {
       this._loaders[loaderType.name] = new loaderType();
     }
@@ -106,7 +106,7 @@ export class Asset {
    * @param onProgress (optional) A callback function to report loading progress with a ProgressEvent.
    * @returns A Promise that resolves with the loaded resource when loading is complete.
    */
-  public static load<T>(loaderType: typeof Loader, path: string, onProgress?: (event: ProgressEvent) => void): Promise<T> {
+  public static load<T>(loaderType: typeof Loader<any>, path: string, onProgress?: (event: ProgressEvent) => void): Promise<T> {
     return new Promise<T>((resolve) => {
       if (this._results[path]) return resolve(this._results[path]);
       const loader = this.getLoader(loaderType);
