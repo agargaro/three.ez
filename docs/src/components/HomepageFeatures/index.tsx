@@ -98,6 +98,14 @@ const FeatureList: FeatureItem[] = [
         Manage <code>InstancedMesh</code> instances as if they were <code>Object3D</code>, simplifying creation and manipulation.
       </>
     )
+  },
+  {
+    title: 'Asset Management',
+    description: (
+      <>
+       Efficiently load and manage external assets and resources for your 3D projects.
+      </>
+    )
   }
 ];
 

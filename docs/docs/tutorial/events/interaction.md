@@ -2,6 +2,6 @@
 sidebar_position: 0
 ---
 
-# Interaction Events
+# Interaction
 
 Work in progress... 

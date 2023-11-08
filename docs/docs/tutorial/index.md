@@ -47,3 +47,6 @@ Create smooth animations effortlessly with built-in tweening.
 
 ### Simplified InstancedMesh
 Manage `InstancedMesh` instances with the ease of working with `Object3D`, simplifying creation and manipulation.
+
+## Asset Management
+Efficiently load and manage external assets and resources for your 3D projects.

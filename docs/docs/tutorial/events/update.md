@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# Update Events
+# Update
 
 Update events are triggered when the value of a property or a state changes. <br />
 It's important to note that unlike `interaction events`, update events do not follow a propagation system.
