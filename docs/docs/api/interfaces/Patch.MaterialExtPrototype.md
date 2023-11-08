@@ -37,4 +37,4 @@ A Tween instance for further configuration.
 
 #### Defined in
 
-[src/patch/Material.ts:14](https://github.com/agargaro/three.ez/blob/3b2406b/src/patch/Material.ts#L14)
+[src/patch/Material.ts:14](https://github.com/agargaro/three.ez/blob/cf5584f/src/patch/Material.ts#L14)
