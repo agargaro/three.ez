@@ -94,10 +94,10 @@ const config = {
           {
             title: 'Community',
             items: [
-              {
-                label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/three.ez',
-              },
+              // {
+              //   label: 'Stack Overflow',
+              //   href: 'https://stackoverflow.com/questions/tagged/three.ez',
+              // },
               {
                 label: 'Discord',
                 href: 'https://discord.gg/MVTwrdX3JM',
