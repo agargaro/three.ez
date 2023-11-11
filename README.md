@@ -74,6 +74,8 @@ These examples use `vite`, and some mobile devices may run out of memory. Howeve
 - [Smart Rendering](https://stackblitz.com/edit/three-ez-smart-rendering?file=src%2Fmain.ts)
 - [Multiple Views](https://stackblitz.com/edit/three-ez-multiple-views?file=src%2Fmain.ts)
 — [Multiple Views Wireframe](https://stackblitz.com/edit/three-ez-multiple-views-wireframe?file=src%2Fmain.ts)
+— [Multiple Views Switch](https://stackblitz.com/edit/three-ez-multiple-views-switch?file=src%2Fmain.ts)
+- [Asset](https://stackblitz.com/edit/three-ez-asset-management?file=src%2Fmain.ts)
 - [Binding](https://stackblitz.com/edit/three-ez-binding?file=src%2Fmain.ts)
 — [Binding Collisions](https://stackblitz.com/edit/three-ez-binding-collisions?file=src%2Fmain.ts)
 - [Events](https://stackblitz.com/edit/three-ez-events?file=src%2Fmain.ts)
