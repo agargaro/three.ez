@@ -13,7 +13,7 @@ export class PerspectiveCameraAuto extends PerspectiveCamera {
     constructor(fov?: number, near?: number, far?: number) {
         super(fov, undefined, near, far);
         
-        this.on("rendererresize", (e) => {
+        this.on("viewportresize", (e) => {
             this.aspect = e.width / e.height;
             this.updateProjectionMatrix();
         });

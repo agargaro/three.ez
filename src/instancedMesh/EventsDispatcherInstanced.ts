@@ -1,7 +1,7 @@
 import { EventExt, InteractionEvents, MiscEvents } from "../events/Events";
 import { InstancedMeshEntity } from "./InstancedMeshEntity";
 
-export type InstancedMiscUpdateEvents = Omit<MiscEvents, "rendererresize" | "beforeanimate" | "afteranimate">;
+export type InstancedMiscUpdateEvents = Omit<MiscEvents, "viewportresize" | "beforeanimate" | "afteranimate">;
 export type InstancedInteractionEvents = Omit<InteractionEvents<InstancedMeshEntity, InstancedMeshEntity>,
     "focusout" | "focusin" | "pointerleave" | "pointerenter" | "dragenter" | "dragover" | "dragleave" | "drop">;
 export type InstancedEvents = InstancedMiscUpdateEvents & InstancedInteractionEvents;

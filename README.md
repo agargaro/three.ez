@@ -15,7 +15,7 @@ This library has only one dependency: `three.js r151+`.
 | **Feature**                      | **Description**                                                                                   |
 | -------------------------------- | ------------------------------------------------------------------------------------------------- |
 | **Automatic Resize Handling**    | Automatically resizes the `Renderer`, `Camera`, and `EffectComposer`.                            |
-|                                  | Using the `rendererResize` event, you can easily set the resolution for custom shaders.           |
+|                                  | Using the `viewportResize` event, you can easily set the resolution for custom shaders.           |
 | [**Smart Rendering**](https://agargaro.github.io/three.ez/docs/tutorial/rendering/smart-rendering)              | Optimize performance by rendering frames only when necessary, reducing computational overhead.   |
 | [**Simplified Multiple Rendering**](https://agargaro.github.io/three.ez/docs/tutorial/rendering/multiple-rendering) | Effortlessly manage rendering for multiple scenes or viewports within a single canvas.           |
 | [**Object3D Property Binding**](https://agargaro.github.io/three.ez/docs/tutorial/binding) | Streamline the management of `Object3D` properties.                                                |

@@ -38,7 +38,7 @@ export class OrthographicCameraAuto extends OrthographicCamera {
         this._size = size;
         this._fixedWidth = fixedWidth;
 
-        this.on("rendererresize", (e) => {
+        this.on("viewportresize", (e) => {
             this._width = e.width;
             this._height = e.height;
             this.update();

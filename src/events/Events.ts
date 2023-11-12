@@ -25,7 +25,7 @@ export interface UpdateEvents {
  */
 export interface MiscEvents {
   /** Event triggered on first render and every time an object is rendered with a different viewport size from the previous one. */
-  rendererresize: RendererResizeEvent;
+  viewportresize: ViewportResizeEvent;
   /** Event triggered every frame, before 'animate'. Usually used to prepare object animations. */
   beforeanimate: AnimateEvent;
   /** Event triggered every frame. Used to animate objects. */
@@ -366,7 +366,7 @@ export class FocusEventExt<T = Object3D, R = Object3D> extends EventExt<T> {
 /**
  * Represents an event related to resizing of a renderer.
  */
-export interface RendererResizeEvent {
+export interface ViewportResizeEvent {
   /** Returns new render width. */
   width: number;
   /** Returns the render height. */

@@ -14,7 +14,7 @@ const FeatureList: FeatureItem[] = [
     description: (
       <>
         Automatically resizes <code>Renderer</code>, <code>Camera</code>, <code>EffectComposer</code>.
-        Using the <code>rendererResize</code> event, you can easily set the resolution for custom shaders.
+        Using the <code>viewportResize</code> event, you can easily set the resolution for custom shaders.
       </>
     )
   },
