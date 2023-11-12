@@ -33,7 +33,14 @@ await Asset.loadAll({
 }, {
   loader: AudioLoader,
   paths: ['assets/win.mp3'],
+}, {
+  loader: GLTFLoader,
+  paths: ['model.glb'],
 });
+
+// now assets are loaded
+const gltf = Asset.get<GLTF>('model.glb');
+const texture = Asset.get<Texture>('texture.jpg');
 ```
 
 ### Preloading in multiple files
@@ -54,7 +61,7 @@ export class Soldier extends Group {
 **main.ts**
 ```typescript
 await Asset.preloadAllPending({ onProgress: (e) => console.log(e * 100 + '%') });
-// gltf and audio are now loaded
+// now assets are loaded
 const main = new Main();
 ```
 
