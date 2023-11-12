@@ -60,4 +60,4 @@ const main = new Main();
 
 ## Live Examples
 
-[⚡ Stackblitz - Asset](https://stackblitz.com/edit/three-ez-asset?file=src%2Fmain.ts) <br />
+[⚡ Stackblitz - Asset Management](https://stackblitz.com/edit/three-ez-asset-management?file=src%2Fmain.ts) <br />
