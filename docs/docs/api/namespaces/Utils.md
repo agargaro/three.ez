@@ -33,4 +33,4 @@ A type definition representing a collection of 3D nodes where each node is ident
 
 #### Defined in
 
-[src/utils/Utils.ts:6](https://github.com/agargaro/three.ez/blob/cf5584f/src/utils/Utils.ts#L6)
+[src/utils/Utils.ts:6](https://github.com/agargaro/three.ez/blob/5cb5c71/src/utils/Utils.ts#L6)

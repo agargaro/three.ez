@@ -13,7 +13,7 @@ custom_edit_url: null
 [![DeepScan grade](https://deepscan.io/api/teams/21196/projects/25445/branches/796375/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=21196&pid=25445&bid=796375)
 
 **three.ez** is a TypeScript library designed to streamline and enhance the development of `three.js` applications. <br /> 
-It provides a comprehensive suite of user-friendly tools and high-performance features, making it accessible even to beginners. <br />
+It provides a comprehensive suite of user-friendly tools and high-performance features. <br />
 With **three.ez**, you'll discover an efficient and robust toolkit for your 3D projects.
 
 This library has only one dependency: `three.js r151+`.
@@ -23,7 +23,7 @@ This library has only one dependency: `three.js r151+`.
 | **Feature**                      | **Description**                                                                                   |
 | -------------------------------- | ------------------------------------------------------------------------------------------------- |
 | **Automatic Resize Handling**    | Automatically resizes the `Renderer`, `Camera`, and `EffectComposer`.                            |
-|                                  | Using the `rendererResize` event, you can easily set the resolution for custom shaders.           |
+|                                  | Using the `viewportResize` event, you can easily set the resolution for custom shaders.           |
 | [**Smart Rendering**](https://agargaro.github.io/three.ez/docs/tutorial/rendering/smart-rendering)              | Optimize performance by rendering frames only when necessary, reducing computational overhead.   |
 | [**Simplified Multiple Rendering**](https://agargaro.github.io/three.ez/docs/tutorial/rendering/multiple-rendering) | Effortlessly manage rendering for multiple scenes or viewports within a single canvas.           |
 | [**Object3D Property Binding**](https://agargaro.github.io/three.ez/docs/tutorial/binding) | Streamline the management of `Object3D` properties.                                                |
@@ -35,6 +35,7 @@ This library has only one dependency: `three.js r151+`.
 | **Raycasting Options**           | Choose between continuous or mouse movement-based raycasting, optimizing intersection operations.   |
 | **Tweening**                     | Create smooth animations effortlessly with built-in tweening.                                        |
 | **Simplified InstancedMesh**     | Manage `InstancedMesh` instances with the ease of working with `Object3D`, simplifying creation and manipulation. |
+| [**Asset Management**](https://agargaro.github.io/three.ez/docs/tutorial/asset) | Efficiently load and manage external assets and resources for your 3D projects. |
 
 ## Installation
 
@@ -81,6 +82,8 @@ These examples use `vite`, and some mobile devices may run out of memory. Howeve
 - [Smart Rendering](https://stackblitz.com/edit/three-ez-smart-rendering?file=src%2Fmain.ts)
 - [Multiple Views](https://stackblitz.com/edit/three-ez-multiple-views?file=src%2Fmain.ts)
 — [Multiple Views Wireframe](https://stackblitz.com/edit/three-ez-multiple-views-wireframe?file=src%2Fmain.ts)
+— [Multiple Views Switch](https://stackblitz.com/edit/three-ez-multiple-views-switch?file=src%2Fmain.ts)
+- [Asset Management](https://stackblitz.com/edit/three-ez-asset-management?file=src%2Fmain.ts)
 - [Binding](https://stackblitz.com/edit/three-ez-binding?file=src%2Fmain.ts)
 — [Binding Collisions](https://stackblitz.com/edit/three-ez-binding-collisions?file=src%2Fmain.ts)
 - [Events](https://stackblitz.com/edit/three-ez-events?file=src%2Fmain.ts)

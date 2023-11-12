@@ -19,7 +19,7 @@ The type of loader to use for this resource.
 
 #### Defined in
 
-[src/utils/Asset.ts:28](https://github.com/agargaro/three.ez/blob/cf5584f/src/utils/Asset.ts#L28)
+[src/utils/Asset.ts:28](https://github.com/agargaro/three.ez/blob/5cb5c71/src/utils/Asset.ts#L28)
 
 ___
 
@@ -31,4 +31,4 @@ An array of resource paths or configurations to be loaded by the loader.
 
 #### Defined in
 
-[src/utils/Asset.ts:32](https://github.com/agargaro/three.ez/blob/cf5584f/src/utils/Asset.ts#L32)
+[src/utils/Asset.ts:32](https://github.com/agargaro/three.ez/blob/5cb5c71/src/utils/Asset.ts#L32)
