@@ -1,4 +1,4 @@
-import { ActionCallback, ActionDelay, ActionMotion, ActionRepeat, ActionTween, ActionYoyo, IAction, Motion, MotionConfig } from "./Actions";
+import { ActionCallback, ActionDelay, ActionMotion, ActionRepeat, ActionTween, ActionYoyo, IAction, Motion, SetMotion, MotionConfig } from "./Actions";
 import { RunningTween } from "./RunningTween";
 import { TweenManager } from "./TweenManager";
 
@@ -83,7 +83,7 @@ export class Tween<T = any> {
      * @param action - The motion configuration.
      * @returns The updated Tween instance.
      */
-    public set(action: Motion<T>): this {
+    public set(action: SetMotion<T>): this {
         this.actions.push(new ActionMotion(0, action, {}, false));
         return this;
     }
