@@ -5,7 +5,7 @@
 [![DeepScan grade](https://deepscan.io/api/teams/21196/projects/25445/branches/796375/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=21196&pid=25445&bid=796375)
 
 **three.ez** is a TypeScript library designed to streamline and enhance the development of `three.js` applications. <br /> 
-It provides a comprehensive suite of user-friendly tools and high-performance features, making it accessible even to beginners. <br />
+It provides a comprehensive suite of user-friendly tools and high-performance features. <br />
 With **three.ez**, you'll discover an efficient and robust toolkit for your 3D projects.
 
 This library has only one dependency: `three.js r151+`.
@@ -75,7 +75,7 @@ These examples use `vite`, and some mobile devices may run out of memory. Howeve
 - [Multiple Views](https://stackblitz.com/edit/three-ez-multiple-views?file=src%2Fmain.ts)
 — [Multiple Views Wireframe](https://stackblitz.com/edit/three-ez-multiple-views-wireframe?file=src%2Fmain.ts)
 — [Multiple Views Switch](https://stackblitz.com/edit/three-ez-multiple-views-switch?file=src%2Fmain.ts)
-- [Asset](https://stackblitz.com/edit/three-ez-asset-management?file=src%2Fmain.ts)
+- [Asset Management](https://stackblitz.com/edit/three-ez-asset-management?file=src%2Fmain.ts)
 - [Binding](https://stackblitz.com/edit/three-ez-binding?file=src%2Fmain.ts)
 — [Binding Collisions](https://stackblitz.com/edit/three-ez-binding-collisions?file=src%2Fmain.ts)
 - [Events](https://stackblitz.com/edit/three-ez-events?file=src%2Fmain.ts)
