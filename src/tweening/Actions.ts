@@ -11,6 +11,7 @@ export type TransformType<T, U, V> = { [P in keyof T]: T[P] extends U ? T[P] | V
 export type TransformedTypes<T> = TransformType<TransformType<T, Color, ColorRepresentation>, Vector3, number>;
 export type FilteredType<T> = PickType<Partial<TransformedTypes<T>>, AllowedTypes>;
 export type Motion<T> = { [key in keyof FilteredType<T>]: FilteredType<T>[key] };
+export type SetMotion<T> = { [key in keyof T]?: T[key] };
 
 /**
  * Interface for configuring motion animations in a Tween.
@@ -114,7 +115,7 @@ export class ActionDelay<T> implements IAction<T> {
 /** @internal */
 export class ActionMotion<T> implements IAction<T> {
     public hasActions = true;
-    constructor(public time: number, public motion: Motion<T>, public config: MotionConfig<T>, public isBy: boolean) { }
+    constructor(public time: number, public motion: Motion<T> | SetMotion<T>, public config: MotionConfig<T>, public isBy: boolean) { }
 
     public init(target: T): ActionDescriptor {
         const actions: RunningAction[] = [];
