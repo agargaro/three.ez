@@ -12,7 +12,7 @@ It's important to note that unlike `interaction events`, misc events do not foll
 
 | Event            | Description                                                                                                   | Parameters                                                |
 |------------------|---------------------------------------------------------------------------------------------------------------|----------------------------------------------------------|
-| `viewportresize` | Triggered on first render and every time an object is rendered with a different viewport size than the previous one. | [viewportResizeEvent](../../api/interfaces/Events.viewportResizeEvent) |
+| `viewportresize` | Triggered on first render and every time an object is rendered with a different viewport size than the previous one. | [ViewportResizeEvent](../../api/interfaces/Events.ViewportResizeEvent) |
 | `beforeanimate`  | Triggered every frame just before `animate`.<br /> Typically used for preparing object animations.                 | [AnimateEvent](../../api/interfaces/Events.AnimateEvent) |
 | `animate`        | Triggered every frame for animating objects.                                                                  | [AnimateEvent](../../api/interfaces/Events.AnimateEvent)   |
 | `afteranimate`   | Triggered every frame immediately after `animate`.<br /> Often used for post-animation operations.                  | [AnimateEvent](../../api/interfaces/Events.AnimateEvent) |
