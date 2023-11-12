@@ -12,7 +12,7 @@ It's important to note that unlike `interaction events`, misc events do not foll
 
 | Event            | Description                                                                                                   | Parameters                                                |
 |------------------|---------------------------------------------------------------------------------------------------------------|----------------------------------------------------------|
-| `rendererresize` | Triggered on first render and every time an object is rendered with a different viewport size than the previous one. | [RendererResizeEvent](../../api/interfaces/Events.RendererResizeEvent) |
+| `viewportresize` | Triggered on first render and every time an object is rendered with a different viewport size than the previous one. | [viewportResizeEvent](../../api/interfaces/Events.viewportResizeEvent) |
 | `beforeanimate`  | Triggered every frame just before `animate`.<br /> Typically used for preparing object animations.                 | [AnimateEvent](../../api/interfaces/Events.AnimateEvent) |
 | `animate`        | Triggered every frame for animating objects.                                                                  | [AnimateEvent](../../api/interfaces/Events.AnimateEvent)   |
 | `afteranimate`   | Triggered every frame immediately after `animate`.<br /> Often used for post-animation operations.                  | [AnimateEvent](../../api/interfaces/Events.AnimateEvent) |
@@ -22,7 +22,7 @@ It's important to note that unlike `interaction events`, misc events do not foll
 ```typescript
 const box = new Mesh(new BoxGeometry(), new MeshLambertMaterial());
 
-box.on('rendererresize', (e) => {
+box.on('viewportresize', (e) => {
     console.log(`New viewport size: ${e.width} - ${e.height} / Camera: ${e.camera}`);
 });
 

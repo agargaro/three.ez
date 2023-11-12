@@ -15,7 +15,7 @@ With `three.ez`, you'll discover an efficient and robust toolkit for your 3D pro
 
 ### Automatic Resize Handling
 Automatically resizes the `Renderer`, `Camera`, and `EffectComposer`. <br />
-Using the `rendererResize` event, you can easily set the resolution for custom shaders.
+Using the `viewportResize` event, you can easily set the resolution for custom shaders.
 
 ### Smart Rendering
 Optimize performance by rendering frames only when necessary, reducing computational overhead.
