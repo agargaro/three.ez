@@ -29,7 +29,7 @@ export interface Resource {
   /**
    * An array of resource paths or configurations to be loaded by the loader.
    */
-  paths: (string | ResourceConfig) | (string | ResourceConfig)[];
+  paths: (string | ResourceConfig)[];
 }
 
 /**
@@ -125,7 +125,7 @@ export class Asset {
    * @param loader The loader type to be used for preloading.
    * @param paths An array of resource paths or configurations to preload.
    */
-  public static preload(loader: typeof Loader<any>, paths: (string | ResourceConfig) | (string | ResourceConfig)[]): void {
+  public static preload(loader: typeof Loader<any>, ...paths: (string | ResourceConfig)[]): void {
     this._pending.push({ loader, paths });
   }
 
@@ -164,12 +164,8 @@ export class Asset {
     if (resource?.paths) {
       const loader = this.getLoader(resource.loader);
 
-      if (Array.isArray(resource.paths)) {
-        for (const path of resource.paths) {
-          promises.push(this.startLoad(loader, path, config));
-        }
-      } else {
-        promises.push(this.startLoad(loader, resource.paths, config));
+      for (const path of resource.paths) {
+        promises.push(this.startLoad(loader, path, config));
       }
     }
   }
