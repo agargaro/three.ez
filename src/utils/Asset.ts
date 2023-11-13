@@ -143,7 +143,7 @@ export class Asset {
    * @param resources An array of resource objects to load.
    * @returns A promise that resolves when all resources are loaded.
    */
-  public static loadAll(config: LoadingConfig, ...resources: Resource[]): Promise<void[]> {
+  public static loadAll(config: LoadingConfig = {}, ...resources: Resource[]): Promise<void[]> {
     const promises: Promise<void>[] = [];
     config.onProgress ??= this.onProgress;
     config.onError ??= this.onError;
