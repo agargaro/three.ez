@@ -11,13 +11,12 @@ The `Asset` class provides an efficient solution for loading and managing variou
 To load a resource synchronously, use the **load** method.
 
 ```typescript
-try {
-  const audioBuffer = await Asset.load(AudioLoader, 'audio.mp3') as AudioBuffer;
-} catch (e) {
-  console.error(e);
-}
+const audioBuffer = await Asset.load(AudioLoader, 'audio.mp3', onProgressCallback, onErrorCallback) as AudioBuffer;
 // now the resource is also available using Asset.get('audio.mp3')
 ```
+
+> ℹ️ **Note** <br />
+> onProgressCallback and onErrorCallback are optional.
 
 ## Resource Preloading
 
@@ -67,9 +66,6 @@ await Asset.preloadAllPending({ onProgress: (e) => console.log(e * 100 + '%'), o
 // now assets are loaded
 const main = new Main();
 ```
-
-> ⚠️ **Warning** <br />
-> Unlike the `load` method, where errors are handled in the **catch**, for the `loadAll` and `preloadAllPending` methods only the **onError** callback can be used
 
 ## Live Examples
 

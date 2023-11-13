@@ -106,15 +106,16 @@ export class Asset {
    * @param onProgress (optional) A callback function to report loading progress with a ProgressEvent.
    * @returns A Promise that resolves with the loaded resource when loading is complete.
    */
-  public static load<T>(loaderType: typeof Loader<any>, path: string, onProgress?: (event: ProgressEvent) => void): Promise<T> {
-    return new Promise<T>((resolve, reject) => {
+  public static load<T>(loaderType: typeof Loader<any>, path: string, onProgress?: (event: ProgressEvent) => void, onError?: (error: unknown) => void): Promise<T> {
+    return new Promise<T>((resolve) => {
       if (this._results[path]) return resolve(this._results[path]);
       const loader = this.getLoader(loaderType);
       loader.load(path, (result) => {
         this._results[path] = result;
         resolve(result as T);
       }, onProgress, (e) => {
-        reject(e);
+        if (onError) onError(e);
+        resolve(undefined);
       });
     });
   }
