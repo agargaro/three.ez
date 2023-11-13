@@ -107,13 +107,15 @@ export class Asset {
    * @returns A Promise that resolves with the loaded resource when loading is complete.
    */
   public static load<T>(loaderType: typeof Loader<any>, path: string, onProgress?: (event: ProgressEvent) => void): Promise<T> {
-    return new Promise<T>((resolve) => {
+    return new Promise<T>((resolve, reject) => {
       if (this._results[path]) return resolve(this._results[path]);
       const loader = this.getLoader(loaderType);
       loader.load(path, (result) => {
         this._results[path] = result;
         resolve(result as T);
-      }, onProgress);
+      }, onProgress, (e) => {
+        reject(e);
+      });
     });
   }
 
@@ -183,7 +185,11 @@ export class Asset {
         if (config.onProgress) config.onProgress(++config.progress / config.total);
         if (onLoad) onLoad(result);
         resolve();
-      }, undefined, config.onError);
+      }, undefined, (e) => {
+        if (config.onError) config.onError(e);
+        if (config.onProgress) config.onProgress(++config.progress / config.total);
+        resolve();
+      });
     });
   }
 }
