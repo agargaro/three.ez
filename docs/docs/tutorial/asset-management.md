@@ -6,13 +6,16 @@ sidebar_position: 4
 
 The `Asset` class provides an efficient solution for loading and managing various resources, including 3D models, textures, and other assets in your applications.
 
-
 ## Resource Loading
 
 To load a resource synchronously, use the **load** method.
 
 ```typescript
-const audioBuffer = await Asset.load(AudioLoader, 'audio.mp3') as AudioBuffer;
+try {
+  const audioBuffer = await Asset.load(AudioLoader, 'audio.mp3') as AudioBuffer;
+} catch (e) {
+  console.error(e);
+}
 // now the resource is also available using Asset.get('audio.mp3')
 ```
 
@@ -60,10 +63,13 @@ export class Soldier extends Group {
 
 **main.ts**
 ```typescript
-await Asset.preloadAllPending({ onProgress: (e) => console.log(e * 100 + '%') });
+await Asset.preloadAllPending({ onProgress: (e) => console.log(e * 100 + '%'), onError: (e) => console.error(e) });
 // now assets are loaded
 const main = new Main();
 ```
+
+> ⚠️ **Warning** <br />
+> Unlike the `load` method, where errors are handled in the **catch**, for the `loadAll` and `preloadAllPending` methods only the **onError** callback can be used
 
 ## Live Examples
 
