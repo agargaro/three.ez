@@ -141,7 +141,8 @@ export class ActionMotion<T> implements IAction<T> {
     }
 
     private vector(key: string, actionValue: Vector | number, targetValue: Vector): RunningAction<Vector> {
-        if ((targetValue as Vector2)?.isVector2 || (targetValue as Vector3)?.isVector3 || (targetValue as Vector4)?.isVector4) {
+        if (!targetValue) return;
+        if ((targetValue as Vector2).isVector2 || (targetValue as Vector3).isVector3 || (targetValue as Vector4).isVector4) {
             const value = typeof actionValue === "number" ? targetValue.clone().setScalar(actionValue) : actionValue;
             return {
                 key,
