@@ -48,7 +48,7 @@ export class InteractionManager {
         domElement.addEventListener("pointerleave", this.enqueue.bind(this));
         domElement.addEventListener("pointerdown", this.enqueue.bind(this));
         domElement.addEventListener("pointermove", this.enqueue.bind(this));
-        domElement.addEventListener("pointerup", this.enqueue.bind(this));
+        document.addEventListener("pointerup", this.enqueue.bind(this));
         domElement.addEventListener("pointercancel", this.enqueue.bind(this));
         domElement.addEventListener("wheel", this.enqueue.bind(this), { passive: true });
         domElement.tabIndex = -1;
