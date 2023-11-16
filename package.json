@@ -26,7 +26,10 @@
     "publish-beta": "npm version prerelease --preid=beta --git-tag-version false && npx webpack && cd publish && npm publish --tag beta --access public",
     "publish-patch": "npm version patch --git-tag-version false && npx webpack && cd publish && npm publish --access public",
     "publish-minor": "npm version minor --git-tag-version false && npx webpack && cd publish && npm publish --access public",
-    "publish-major": "npm version major --git-tag-version false && npx webpack && cd publish && npm publish --access public"
+    "publish-major": "npm version major --git-tag-version false && npx webpack && cd publish && npm publish --access public",
+    "build": "npx webpack",
+    "start": "npx vite",
+    "pack": "npm pack publish"
   },
   "devDependencies": {
     "@types/three": "^0.156.0",
