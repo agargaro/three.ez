@@ -1,79 +1,5 @@
 import { Object3D } from "three";
 
-/** @internal */
-export function querySelector(target: Object3D, query: string): Object3D {
-  // const blocks = parse(query);
-  return undefined;
-}
-
-/** @internal */
-export function querySelectorAll(target: Object3D, query: string): Object3D[] {
-  const result: Object3D[] = [];
-  const queryBlocks = parse(query);
-  const blocks: QueryBlock[][] = [];
-
-  for (let i = 0; i < queryBlocks.length; i++) {
-    blocks[i] = [queryBlocks[i]];
-  }
-
-  search(target, blocks, result);
-  return result;
-}
-
-function search(target: Object3D, blocks: QueryBlock[][], result: Object3D[]): void {
-  const newBlocks: QueryBlock[][] = [];
-  let added = false;
-
-  for (let i = 0; i < blocks.length; i++) {
-    newBlocks.push([]);
-    const blockList = blocks[i];
-    const lastBlock = blockList[blockList.length - 1];
-
-    if (lastBlock !== lastBlock.prev) blockList.push(lastBlock.prev);
-
-    for (let j = 0; j < blockList.length; j++) {
-      const block = blockList[j];
-
-      if (checkType(target, block.type) && checkTags(target, block.tags) && checkAttributes(target, block.attributes)) {
-        if (!block.next) { // if last query block
-          if (!added) {
-            result.push(target);
-            if (target.children.length === 0) return;
-            added = true;
-          }
-        } else {
-          newBlocks[i].push(block.next);
-        }
-      }
-    }
-
-    if (newBlocks[i].length === 0) newBlocks[i].push(lastBlock.prev);
-  }
-
-  const children = target.children;
-  for (let i = 0; i < children.length; i++) {
-    search(children[i], newBlocks, result)
-  }
-}
-
-function checkType(target: Object3D, type: string): boolean {
-  return !type || target.type === type;
-}
-
-function checkTags(target: Object3D, tags: string[]): boolean {
-  return true;
-}
-
-function checkAttributes(target: Object3D, attributes: Attribute[]): boolean {
-  for (let j = 0; j < attributes.length; j++) {
-    const attr = attributes[j];
-    if (target[attr.key] != attr.value) return false; // fix not consider 0
-  }
-  return true;
-}
-
-//#region Query Parsing
-
 interface Attribute {
   key: string;
   value: string;
@@ -91,6 +17,77 @@ interface QueryBlock {
 interface NewBlockData {
   char: string;
   end?: number;
+}
+
+/** @internal */
+export function querySelector(target: Object3D, query: string): Object3D {
+  // const blocks = parse(query);
+  return undefined;
+}
+
+/** @internal */
+export function querySelectorAll(target: Object3D, query: string): Object3D[] {
+  const result: Object3D[] = [];
+  const queryBlocks = parse(query);
+  const blocks: QueryBlock[][] = [];
+
+  for (let i = 0; i < queryBlocks.length; i++) {
+    blocks[i] = [queryBlocks[i]];
+  }
+
+  searchAll(target, blocks, result);
+  return result;
+}
+
+function searchAll(target: Object3D, blocks: QueryBlock[][], result: Object3D[]): void {
+  const newBlocks: QueryBlock[][] = [];
+  let added = false;
+
+  for (let i = 0; i < blocks.length; i++) {
+    newBlocks.push([]);
+    const blockList = blocks[i];
+    const lastBlock = blockList[blockList.length - 1];
+
+    if (lastBlock !== lastBlock.prev) blockList.push(lastBlock.prev);
+
+    for (const block of blockList) {
+      if (checkType(target, block.type) && checkTags(target, block.tags) && checkAttributes(target, block.attributes)) {
+        if (!block.next) {
+          if (!added) {
+            result.push(target);
+            if (target.children.length === 0) return;
+            added = true;
+          }
+        } else {
+          newBlocks[i].push(block.next);
+        }
+      }
+    }
+
+    if (newBlocks[i].length === 0) newBlocks[i].push(lastBlock.prev);
+  }
+
+  for (const child of target.children) {
+    searchAll(child, newBlocks, result)
+  }
+}
+
+function checkType(target: Object3D, type: string): boolean {
+  return !type || target.type === type;
+}
+
+function checkTags(target: Object3D, tags: string[]): boolean {
+  for (const tag of tags) {
+    if (!target.tags.has(tag)) return false;
+  }
+  return true;
+}
+
+function checkAttributes(target: Object3D, attributes: Attribute[]): boolean {
+  for (const attribute of attributes) {
+    if (target[attribute.key] != attribute.value) return false; // fix not consider 0
+  }
+  return true;
 }
 
 function parse(query: string): QueryBlock[] {
@@ -178,8 +175,6 @@ function addAttribute(query: string, start: number, end: number, block: QueryBlo
   const split = sub.split("=");
   block.attributes.push({ key: split[0], value: split[1] });
 }
-
-//#endregion
 
 // SUPPORTED:
 // .tag
