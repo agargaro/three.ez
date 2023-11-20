@@ -3,6 +3,7 @@ import { Object3D } from "three";
 interface Attribute {
   key: string;
   value: string;
+  operator?: string;
 }
 
 interface QueryBlock {
@@ -78,15 +79,15 @@ function searchAll(target: Object3D, blocks: QueryBlock[][], result: Object3D[])
 
     for (const block of blockList) {
       if (!checkType(target, block.type) || !checkTags(target, block.tags) || !checkAttributes(target, block.attributes)) continue;
-      if (!block.next) {
+      if (block.next) {
+        newBlock.push(block.next);
+      } else {
         if (!added) {
           result.push(target);
           if (target.children.length === 0) return;
           added = true;
         }
-        continue;
       }
-      newBlock.push(block.next);
     }
 
     const lastBlock = blockList[blockList.length - 1];
@@ -111,7 +112,16 @@ function checkTags(target: Object3D, tags: string[]): boolean {
 
 function checkAttributes(target: Object3D, attributes: Attribute[]): boolean {
   for (const attribute of attributes) {
-    if (target[attribute.key] != attribute.value) return false; // fix not consider 0
+    // fix not consider 0 and boolean values.. useToString?
+    if (attribute.operator === undefined) {
+      if (target[attribute.key] != attribute.value) return false;
+    } else if (attribute.operator === '*') {
+      if (!target[attribute.key].includes(attribute.value)) return false;
+    } else if (attribute.operator === '$') {
+      if (!target[attribute.key].endsWith(attribute.value)) return false;
+    } else { // ^
+      if (!target[attribute.key].startsWith(attribute.value)) return false;
+    }
   }
   return true;
 }
@@ -200,7 +210,12 @@ function addType(query: string, start: number, end: number, block: QueryBlock): 
 function addAttribute(query: string, start: number, end: number, block: QueryBlock): void {
   const sub = query.substring(start + 1, end - 1);
   const split = sub.split("=");
-  block.attributes.push({ key: split[0], value: split[1] });
+  const lastChar = split[0][split[0].length - 1];
+  if (lastChar === '*' || lastChar === '$' || lastChar === '^') {
+    block.attributes.push({ key: split[0].slice(0, -1), value: split[1], operator: lastChar });
+  } else {
+    block.attributes.push({ key: split[0], value: split[1] });
+  }
 }
 
 // SUPPORTED:
