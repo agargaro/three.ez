@@ -81,12 +81,10 @@ function searchAll(target: Object3D, blocks: QueryBlock[][], result: Object3D[])
       if (!checkType(target, block.type) || !checkTags(target, block.tags) || !checkAttributes(target, block.attributes)) continue;
       if (block.next) {
         newBlock.push(block.next);
-      } else {
-        if (!added) {
-          result.push(target);
-          if (target.children.length === 0) return;
-          added = true;
-        }
+      } else if (!added) {
+        result.push(target);
+        if (target.children.length === 0) return;
+        added = true;
       }
     }
 
@@ -113,17 +111,22 @@ function checkTags(target: Object3D, tags: string[]): boolean {
 function checkAttributes(target: Object3D, attributes: Attribute[]): boolean {
   for (const attribute of attributes) {
     // fix not consider 0 and boolean values.. useToString?
-    if (attribute.operator === undefined) {
-      if (target[attribute.key] != attribute.value) return false;
-    } else if (attribute.operator === '*') {
-      if (!target[attribute.key].includes(attribute.value)) return false;
-    } else if (attribute.operator === '$') {
-      if (!target[attribute.key].endsWith(attribute.value)) return false;
-    } else { // ^
-      if (!target[attribute.key].startsWith(attribute.value)) return false;
+    switch (attribute.operator) {
+      case undefined:
+        if (target[attribute.key] !== attribute.value) return false;
+        break;
+      case '*':
+        if (!target[attribute.key].includes(attribute.value)) return false;
+        break;
+      case '$':
+        if (!target[attribute.key].endsWith(attribute.value)) return false;
+        break;
+      case '^':
+        if (!target[attribute.key].startsWith(attribute.value)) return false;
+        break;
     }
+    return true;
   }
-  return true;
 }
 
 function parse(query: string): QueryBlock[] {
