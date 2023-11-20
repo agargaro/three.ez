@@ -110,6 +110,7 @@ Object.defineProperty(Scene.prototype, "userData", { // needed to inject code in
         this.focusable = false;
         this.draggable = DEFAULT_DRAGGABLE;
         this.interceptByRaycaster = DEFAULT_INTERCEPT_BY_RAYCASTER;
+        this.tags = new Set();
         this.__boundCallbacks = [];
         this.__eventsDispatcher = new EventsDispatcher(this);
 

@@ -9,6 +9,7 @@ import { applyQuaternionPatch } from "./Quaternion";
 import { removeSceneReference, setSceneReference } from "./Scene";
 import { applyVec3Patch } from "./Vector3";
 import { Tween } from "../tweening/Tween";
+import { querySelector, querySelectorAll } from "../utils/Query";
 
 /**
  * Represents the prototype for extended Object3D functionality.
@@ -57,6 +58,8 @@ export interface Object3DExtPrototype {
     cursorDrop: Cursor;
     /** Indicates whether the scene needs rendering. */
     needsRender: boolean;
+    /** Indicates the tags to be searched using the querySelector and `querySelectorAll` methods. */
+    tags: Set<string>;
     /** Indicates if the primary pointer is over this object. */
     get hovered(): boolean;
     /** Indicates if the object is currently focused. */
@@ -144,7 +147,22 @@ export interface Object3DExtPrototype {
      * @returns A Tween instance for further configuration.
      */
     tween<T extends Object3D = Object3D>(id?: string): Tween<T>;
+    /**
+     * Finds and returns the first Object3D element that matches the specified query string.
+     * This method follows a similar syntax to CSS selectors.
+     * @param query - The query string to match against the Object3D elements.
+     * @returns The first Object3D element that matches the query, or undefined if no match is found.
+     */
+    querySelector(query: string): Object3D;
+    /**
+     * Finds and returns a list of Object3D elements that match the specified query string.
+     * This method follows a similar syntax to CSS selectors.
+     * @param query - The query string to match against the Object3D elements.
+     * @returns An array of Object3D elements that match the query.
+     */
+    querySelectorAll(query: string): Object3D[];
 }
+
 
 /** The default setting for 'focusable' for newly created Object3Ds. */
 export let DEFAULT_FOCUSABLE = true;
@@ -282,6 +300,7 @@ Object.defineProperty(Object3D.prototype, "userData", { // needed to inject code
         this.focusable = DEFAULT_FOCUSABLE;
         this.draggable = DEFAULT_DRAGGABLE;
         this.interceptByRaycaster = DEFAULT_INTERCEPT_BY_RAYCASTER;
+        this.tags = new Set();
         this.__boundCallbacks = [];
         this.__eventsDispatcher = new EventsDispatcher(this);
 
@@ -322,6 +341,14 @@ Object3D.prototype.unbindProperty = function (property) {
 
 Object3D.prototype.tween = function <T extends Object3D>(id?: string) {
     return new Tween<T>(this as T).setId(id);
+};
+
+Object3D.prototype.querySelector = function (query: string) {
+    return querySelector(this, query);
+};
+
+Object3D.prototype.querySelectorAll = function (query: string) {
+    return querySelectorAll(this, query);
 };
 
 /** @internal */

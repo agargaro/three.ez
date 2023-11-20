@@ -1,13 +1,13 @@
 import { Object3D } from "three";
 
 /** @internal */
-export function query(target: Object3D, query: string): Object3D {
+export function querySelector(target: Object3D, query: string): Object3D {
   // const blocks = parse(query);
   return undefined;
 }
 
 /** @internal */
-export function queryAll(target: Object3D, query: string): Object3D[] {
+export function querySelectorAll(target: Object3D, query: string): Object3D[] {
   const result: Object3D[] = [];
   const queryBlocks = parse(query);
   const blocks: QueryBlock[][] = [];
