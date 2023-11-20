@@ -49,23 +49,18 @@ function search(target: Object3D, blocks: QueryBlock[][]): Object3D {
   const newBlocks: QueryBlock[][] = [];
 
   for (let i = 0; i < blocks.length; i++) {
-    newBlocks.push([]);
+    const newBlock = []; 
+    newBlocks.push(newBlock);
     const blockList = blocks[i];
-    const lastBlock = blockList[blockList.length - 1];
-
-    if (lastBlock !== lastBlock.prev) blockList.push(lastBlock.prev); // move?
 
     for (const block of blockList) {
-      if (checkType(target, block.type) && checkTags(target, block.tags) && checkAttributes(target, block.attributes)) {
-        if (!block.next) {
-          return target;
-        } else {
-          newBlocks[i].push(block.next);
-        }
-      }
+      if (!checkType(target, block.type) || !checkTags(target, block.tags) || !checkAttributes(target, block.attributes)) continue;
+      if (!block.next) return target;
+      newBlock.push(block.next);
     }
 
-    if (newBlocks[i].length === 0) newBlocks[i].push(lastBlock.prev);
+    const lastBlock = blockList[blockList.length - 1];
+    if (newBlock[newBlock.length - 1] !== lastBlock.prev) newBlock.push(lastBlock.prev);
   }
 
   for (const child of target.children) {
@@ -141,7 +136,8 @@ function parse(query: string): QueryBlock[] {
     if (result) {
 
       if (result.char === ',') {
-        blocks.push(currentBlock = { attributes: [], tags: [] });
+        currentBlock = { attributes: [], tags: [] };
+        blocks.push(currentBlock);
         currentBlock.prev = currentBlock;
       } else {
         const newBlock: QueryBlock = { attributes: [], tags: [], recursive: result.char === ' ' };
