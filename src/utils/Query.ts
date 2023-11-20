@@ -9,48 +9,50 @@ export function query(target: Object3D, query: string): Object3D {
 /** @internal */
 export function queryAll(target: Object3D, query: string): Object3D[] {
   const result: Object3D[] = [];
-  test(target, parse(query), result);
+  const queryBlocks = parse(query);
+  const blocks: QueryBlock[][] = [];
+
+  for (let i = 0; i < queryBlocks.length; i++) {
+    blocks[i] = [queryBlocks[i]];
+  }
+
+  search(target, blocks, result);
   return result;
 }
 
-function test(target: Object3D, blocks: QueryBlock[], result: Object3D[]): void {
-  const newBlocks = [];
+function search(target: Object3D, blocks: QueryBlock[][], result: Object3D[]): void {
+  const newBlocks: QueryBlock[][] = [];
   let added = false;
 
   for (let i = 0; i < blocks.length; i++) {
-    let block = blocks[i];
+    newBlocks.push([]);
+    const blockList = blocks[i];
+    const lastBlock = blockList[blockList.length - 1];
 
-    if (checkType(target, block.type) && checkTags(target, block.tags) && checkAttributes(target, block.attributes)) {
-      if (!block.next) {
-        if (!added) {
-          result.push(target);
-          added = true;
-        }
-        newBlocks.push(block.prev);
-      } else {
-        newBlocks.push(block.next)
-      }
+    if (lastBlock !== lastBlock.prev) blockList.push(lastBlock.prev);
 
-    } else {
+    for (let j = 0; j < blockList.length; j++) {
+      const block = blockList[j];
 
-      // OPT
-      if (block !== block.prev) {
-        block = block.prev;
-
-        if (checkType(target, block.type) && checkTags(target, block.tags) && checkAttributes(target, block.attributes)) {
-          newBlocks.push(block.next)
+      if (checkType(target, block.type) && checkTags(target, block.tags) && checkAttributes(target, block.attributes)) {
+        if (!block.next) { // if last query block
+          if (!added) {
+            result.push(target);
+            if (target.children.length === 0) return;
+            added = true;
+          }
         } else {
-          newBlocks.push(block)
+          newBlocks[i].push(block.next);
         }
-      } else {
-        newBlocks.push(block)
       }
     }
+
+    if (newBlocks[i].length === 0) newBlocks[i].push(lastBlock.prev);
   }
 
   const children = target.children;
   for (let i = 0; i < children.length; i++) {
-    test(children[i], newBlocks, result)
+    search(children[i], newBlocks, result)
   }
 }
 
@@ -184,6 +186,6 @@ function addAttribute(query: string, start: number, end: number, block: QueryBlo
 // .tag.tag2
 // .tag .tag2
 // Mesh
-// .tag , .tag2
+// .tag, .tag2
 // .tag > .tag2
 // [attribute=value]
