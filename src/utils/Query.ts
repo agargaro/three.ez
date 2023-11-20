@@ -21,8 +21,14 @@ interface NewBlockData {
 
 /** @internal */
 export function querySelector(target: Object3D, query: string): Object3D {
-  // const blocks = parse(query);
-  return undefined;
+  const queryBlocks = parse(query);
+  const blocks: QueryBlock[][] = [];
+
+  for (let i = 0; i < queryBlocks.length; i++) {
+    blocks[i] = [queryBlocks[i]];
+  }
+
+  return search(target, blocks);
 }
 
 /** @internal */
@@ -39,6 +45,35 @@ export function querySelectorAll(target: Object3D, query: string): Object3D[] {
   return result;
 }
 
+function search(target: Object3D, blocks: QueryBlock[][]): Object3D {
+  const newBlocks: QueryBlock[][] = [];
+
+  for (let i = 0; i < blocks.length; i++) {
+    newBlocks.push([]);
+    const blockList = blocks[i];
+    const lastBlock = blockList[blockList.length - 1];
+
+    if (lastBlock !== lastBlock.prev) blockList.push(lastBlock.prev); // move?
+
+    for (const block of blockList) {
+      if (checkType(target, block.type) && checkTags(target, block.tags) && checkAttributes(target, block.attributes)) {
+        if (!block.next) {
+          return target;
+        } else {
+          newBlocks[i].push(block.next);
+        }
+      }
+    }
+
+    if (newBlocks[i].length === 0) newBlocks[i].push(lastBlock.prev);
+  }
+
+  for (const child of target.children) {
+    const obj = search(child, newBlocks);
+    if (obj) return obj;
+  }
+}
+
 function searchAll(target: Object3D, blocks: QueryBlock[][], result: Object3D[]): void {
   const newBlocks: QueryBlock[][] = [];
   let added = false;
@@ -48,7 +83,7 @@ function searchAll(target: Object3D, blocks: QueryBlock[][], result: Object3D[])
     const blockList = blocks[i];
     const lastBlock = blockList[blockList.length - 1];
 
-    if (lastBlock !== lastBlock.prev) blockList.push(lastBlock.prev);
+    if (lastBlock !== lastBlock.prev) blockList.push(lastBlock.prev); // this could be moved to increase perf?
 
     for (const block of blockList) {
       if (checkType(target, block.type) && checkTags(target, block.tags) && checkAttributes(target, block.attributes)) {
