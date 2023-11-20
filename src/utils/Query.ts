@@ -48,10 +48,9 @@ export function querySelectorAll(target: Object3D, query: string): Object3D[] {
 function search(target: Object3D, blocks: QueryBlock[][]): Object3D {
   const newBlocks: QueryBlock[][] = [];
 
-  for (let i = 0; i < blocks.length; i++) {
-    const newBlock = []; 
+  for (const blockList of blocks) {
+    const newBlock = [];
     newBlocks.push(newBlock);
-    const blockList = blocks[i];
 
     for (const block of blockList) {
       if (!checkType(target, block.type) || !checkTags(target, block.tags) || !checkAttributes(target, block.attributes)) continue;
@@ -73,28 +72,25 @@ function searchAll(target: Object3D, blocks: QueryBlock[][], result: Object3D[])
   const newBlocks: QueryBlock[][] = [];
   let added = false;
 
-  for (let i = 0; i < blocks.length; i++) {
-    newBlocks.push([]);
-    const blockList = blocks[i];
-    const lastBlock = blockList[blockList.length - 1];
-
-    if (lastBlock !== lastBlock.prev) blockList.push(lastBlock.prev); // this could be moved to increase perf?
+  for (const blockList of blocks) {
+    const newBlock = [];
+    newBlocks.push(newBlock);
 
     for (const block of blockList) {
-      if (checkType(target, block.type) && checkTags(target, block.tags) && checkAttributes(target, block.attributes)) {
-        if (!block.next) {
-          if (!added) {
-            result.push(target);
-            if (target.children.length === 0) return;
-            added = true;
-          }
-        } else {
-          newBlocks[i].push(block.next);
+      if (!checkType(target, block.type) || !checkTags(target, block.tags) || !checkAttributes(target, block.attributes)) continue;
+      if (!block.next) {
+        if (!added) {
+          result.push(target);
+          if (target.children.length === 0) return;
+          added = true;
         }
+        continue;
       }
+      newBlock.push(block.next);
     }
 
-    if (newBlocks[i].length === 0) newBlocks[i].push(lastBlock.prev);
+    const lastBlock = blockList[blockList.length - 1];
+    if (newBlock[newBlock.length - 1] !== lastBlock.prev) newBlock.push(lastBlock.prev);
   }
 
   for (const child of target.children) {
