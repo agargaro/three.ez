@@ -139,7 +139,8 @@ function checkAttributes(target: Object3D, attributes: Attribute[]): boolean {
 }
 
 function getValue(target: Object3D, key: string): string {
-  return typeof target[key] === 'string' ? target[key] : target[key].toString();
+  const value = target[key];
+  return typeof value === 'string' ? value : value?.toString();
 }
 
 function parse(query: string): QueryBlock[] {
@@ -233,12 +234,3 @@ function addAttribute(query: string, start: number, end: number, block: QueryBlo
     block.attributes.push({ key: split[0], value: split[1] });
   }
 }
-
-// SUPPORTED:
-// .tag
-// .tag.tag2
-// .tag .tag2
-// Mesh
-// .tag, .tag2
-// .tag > .tag2
-// [attribute=value]
