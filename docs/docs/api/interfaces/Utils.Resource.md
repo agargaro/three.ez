@@ -19,16 +19,16 @@ The type of loader to use for this resource.
 
 #### Defined in
 
-[src/utils/Asset.ts:28](https://github.com/agargaro/three.ez/blob/5cb5c71/src/utils/Asset.ts#L28)
+[src/utils/Asset.ts:28](https://github.com/agargaro/three.ez/blob/fab1372/src/utils/Asset.ts#L28)
 
 ___
 
 ### paths
 
-• **paths**: `string` \| [`ResourceConfig`](Utils.ResourceConfig.md) \| (`string` \| [`ResourceConfig`](Utils.ResourceConfig.md))[]
+• **paths**: (`string` \| [`ResourceConfig`](Utils.ResourceConfig.md))[]
 
 An array of resource paths or configurations to be loaded by the loader.
 
 #### Defined in
 
-[src/utils/Asset.ts:32](https://github.com/agargaro/three.ez/blob/5cb5c71/src/utils/Asset.ts#L32)
+[src/utils/Asset.ts:32](https://github.com/agargaro/three.ez/blob/fab1372/src/utils/Asset.ts#L32)

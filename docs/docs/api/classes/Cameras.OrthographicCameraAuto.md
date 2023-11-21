@@ -36,7 +36,7 @@ OrthographicCamera.constructor
 
 #### Defined in
 
-[src/cameras/OrthographicCameraAuto.ts:36](https://github.com/agargaro/three.ez/blob/5cb5c71/src/cameras/OrthographicCameraAuto.ts#L36)
+[src/cameras/OrthographicCameraAuto.ts:36](https://github.com/agargaro/three.ez/blob/fab1372/src/cameras/OrthographicCameraAuto.ts#L36)
 
 ## Properties
 
@@ -52,7 +52,7 @@ OrthographicCamera.cursor
 
 #### Defined in
 
-[src/patch/Object3D.ts:53](https://github.com/agargaro/three.ez/blob/5cb5c71/src/patch/Object3D.ts#L53)
+[src/patch/Object3D.ts:54](https://github.com/agargaro/three.ez/blob/fab1372/src/patch/Object3D.ts#L54)
 
 ___
 
@@ -68,7 +68,7 @@ OrthographicCamera.cursorDrag
 
 #### Defined in
 
-[src/patch/Object3D.ts:55](https://github.com/agargaro/three.ez/blob/5cb5c71/src/patch/Object3D.ts#L55)
+[src/patch/Object3D.ts:56](https://github.com/agargaro/three.ez/blob/fab1372/src/patch/Object3D.ts#L56)
 
 ___
 
@@ -84,7 +84,7 @@ OrthographicCamera.cursorDrop
 
 #### Defined in
 
-[src/patch/Object3D.ts:57](https://github.com/agargaro/three.ez/blob/5cb5c71/src/patch/Object3D.ts#L57)
+[src/patch/Object3D.ts:58](https://github.com/agargaro/three.ez/blob/fab1372/src/patch/Object3D.ts#L58)
 
 ___
 
@@ -100,7 +100,7 @@ OrthographicCamera.dragTarget
 
 #### Defined in
 
-[src/patch/Object3D.ts:43](https://github.com/agargaro/three.ez/blob/5cb5c71/src/patch/Object3D.ts#L43)
+[src/patch/Object3D.ts:44](https://github.com/agargaro/three.ez/blob/fab1372/src/patch/Object3D.ts#L44)
 
 ___
 
@@ -116,7 +116,7 @@ OrthographicCamera.draggable
 
 #### Defined in
 
-[src/patch/Object3D.ts:47](https://github.com/agargaro/three.ez/blob/5cb5c71/src/patch/Object3D.ts#L47)
+[src/patch/Object3D.ts:48](https://github.com/agargaro/three.ez/blob/fab1372/src/patch/Object3D.ts#L48)
 
 ___
 
@@ -133,7 +133,7 @@ OrthographicCamera.enabled
 
 #### Defined in
 
-[src/patch/Object3D.ts:37](https://github.com/agargaro/three.ez/blob/5cb5c71/src/patch/Object3D.ts#L37)
+[src/patch/Object3D.ts:38](https://github.com/agargaro/three.ez/blob/fab1372/src/patch/Object3D.ts#L38)
 
 ___
 
@@ -149,7 +149,7 @@ OrthographicCamera.findDropTarget
 
 #### Defined in
 
-[src/patch/Object3D.ts:49](https://github.com/agargaro/three.ez/blob/5cb5c71/src/patch/Object3D.ts#L49)
+[src/patch/Object3D.ts:50](https://github.com/agargaro/three.ez/blob/fab1372/src/patch/Object3D.ts#L50)
 
 ___
 
@@ -165,7 +165,7 @@ OrthographicCamera.focusable
 
 #### Defined in
 
-[src/patch/Object3D.ts:45](https://github.com/agargaro/three.ez/blob/5cb5c71/src/patch/Object3D.ts#L45)
+[src/patch/Object3D.ts:46](https://github.com/agargaro/three.ez/blob/fab1372/src/patch/Object3D.ts#L46)
 
 ___
 
@@ -181,7 +181,7 @@ OrthographicCamera.hitboxes
 
 #### Defined in
 
-[src/patch/Object3D.ts:41](https://github.com/agargaro/three.ez/blob/5cb5c71/src/patch/Object3D.ts#L41)
+[src/patch/Object3D.ts:42](https://github.com/agargaro/three.ez/blob/fab1372/src/patch/Object3D.ts#L42)
 
 ___
 
@@ -197,7 +197,7 @@ OrthographicCamera.interceptByRaycaster
 
 #### Defined in
 
-[src/patch/Object3D.ts:39](https://github.com/agargaro/three.ez/blob/5cb5c71/src/patch/Object3D.ts#L39)
+[src/patch/Object3D.ts:40](https://github.com/agargaro/three.ez/blob/fab1372/src/patch/Object3D.ts#L40)
 
 ___
 
@@ -213,7 +213,7 @@ OrthographicCamera.needsRender
 
 #### Defined in
 
-[src/patch/Object3D.ts:59](https://github.com/agargaro/three.ez/blob/5cb5c71/src/patch/Object3D.ts#L59)
+[src/patch/Object3D.ts:60](https://github.com/agargaro/three.ez/blob/fab1372/src/patch/Object3D.ts#L60)
 
 ___
 
@@ -229,7 +229,23 @@ OrthographicCamera.scene
 
 #### Defined in
 
-[src/patch/Object3D.ts:51](https://github.com/agargaro/three.ez/blob/5cb5c71/src/patch/Object3D.ts#L51)
+[src/patch/Object3D.ts:52](https://github.com/agargaro/three.ez/blob/fab1372/src/patch/Object3D.ts#L52)
+
+___
+
+### tags
+
+• **tags**: `Set`<`string`\>
+
+Indicates the tags to be searched using the querySelector and `querySelectorAll` methods.
+
+#### Inherited from
+
+OrthographicCamera.tags
+
+#### Defined in
+
+[src/patch/Object3D.ts:62](https://github.com/agargaro/three.ez/blob/fab1372/src/patch/Object3D.ts#L62)
 
 ## Accessors
 
@@ -249,7 +265,7 @@ OrthographicCamera.clicking
 
 #### Defined in
 
-[src/patch/Object3D.ts:65](https://github.com/agargaro/three.ez/blob/5cb5c71/src/patch/Object3D.ts#L65)
+[src/patch/Object3D.ts:68](https://github.com/agargaro/three.ez/blob/fab1372/src/patch/Object3D.ts#L68)
 
 ___
 
@@ -269,7 +285,7 @@ OrthographicCamera.dragging
 
 #### Defined in
 
-[src/patch/Object3D.ts:67](https://github.com/agargaro/three.ez/blob/5cb5c71/src/patch/Object3D.ts#L67)
+[src/patch/Object3D.ts:70](https://github.com/agargaro/three.ez/blob/fab1372/src/patch/Object3D.ts#L70)
 
 ___
 
@@ -289,7 +305,7 @@ OrthographicCamera.enabledState
 
 #### Defined in
 
-[src/patch/Object3D.ts:69](https://github.com/agargaro/three.ez/blob/5cb5c71/src/patch/Object3D.ts#L69)
+[src/patch/Object3D.ts:72](https://github.com/agargaro/three.ez/blob/fab1372/src/patch/Object3D.ts#L72)
 
 ___
 
@@ -309,7 +325,7 @@ OrthographicCamera.firstFocusable
 
 #### Defined in
 
-[src/patch/Object3D.ts:73](https://github.com/agargaro/three.ez/blob/5cb5c71/src/patch/Object3D.ts#L73)
+[src/patch/Object3D.ts:76](https://github.com/agargaro/three.ez/blob/fab1372/src/patch/Object3D.ts#L76)
 
 ___
 
@@ -325,7 +341,7 @@ Determines whether the 'size' property refers to the width (true) or height (fal
 
 #### Defined in
 
-[src/cameras/OrthographicCameraAuto.ts:24](https://github.com/agargaro/three.ez/blob/5cb5c71/src/cameras/OrthographicCameraAuto.ts#L24)
+[src/cameras/OrthographicCameraAuto.ts:24](https://github.com/agargaro/three.ez/blob/fab1372/src/cameras/OrthographicCameraAuto.ts#L24)
 
 ___
 
@@ -345,7 +361,7 @@ OrthographicCamera.focused
 
 #### Defined in
 
-[src/patch/Object3D.ts:63](https://github.com/agargaro/three.ez/blob/5cb5c71/src/patch/Object3D.ts#L63)
+[src/patch/Object3D.ts:66](https://github.com/agargaro/three.ez/blob/fab1372/src/patch/Object3D.ts#L66)
 
 ___
 
@@ -365,7 +381,7 @@ OrthographicCamera.hovered
 
 #### Defined in
 
-[src/patch/Object3D.ts:61](https://github.com/agargaro/three.ez/blob/5cb5c71/src/patch/Object3D.ts#L61)
+[src/patch/Object3D.ts:64](https://github.com/agargaro/three.ez/blob/fab1372/src/patch/Object3D.ts#L64)
 
 ___
 
@@ -381,7 +397,7 @@ Gets or sets the fixed width or height dimension based on the 'fixedWidth' prope
 
 #### Defined in
 
-[src/cameras/OrthographicCameraAuto.ts:15](https://github.com/agargaro/three.ez/blob/5cb5c71/src/cameras/OrthographicCameraAuto.ts#L15)
+[src/cameras/OrthographicCameraAuto.ts:15](https://github.com/agargaro/three.ez/blob/fab1372/src/cameras/OrthographicCameraAuto.ts#L15)
 
 ___
 
@@ -401,7 +417,7 @@ OrthographicCamera.visibilityState
 
 #### Defined in
 
-[src/patch/Object3D.ts:71](https://github.com/agargaro/three.ez/blob/5cb5c71/src/patch/Object3D.ts#L71)
+[src/patch/Object3D.ts:74](https://github.com/agargaro/three.ez/blob/fab1372/src/patch/Object3D.ts#L74)
 
 ## Methods
 
@@ -421,7 +437,7 @@ OrthographicCamera.applyBlur
 
 #### Defined in
 
-[src/patch/Object3D.ts:81](https://github.com/agargaro/three.ez/blob/5cb5c71/src/patch/Object3D.ts#L81)
+[src/patch/Object3D.ts:84](https://github.com/agargaro/three.ez/blob/fab1372/src/patch/Object3D.ts#L84)
 
 ___
 
@@ -441,7 +457,7 @@ OrthographicCamera.applyFocus
 
 #### Defined in
 
-[src/patch/Object3D.ts:77](https://github.com/agargaro/three.ez/blob/5cb5c71/src/patch/Object3D.ts#L77)
+[src/patch/Object3D.ts:80](https://github.com/agargaro/three.ez/blob/fab1372/src/patch/Object3D.ts#L80)
 
 ___
 
@@ -477,7 +493,7 @@ OrthographicCamera.bindProperty
 
 #### Defined in
 
-[src/patch/Object3D.ts:133](https://github.com/agargaro/three.ez/blob/5cb5c71/src/patch/Object3D.ts#L133)
+[src/patch/Object3D.ts:136](https://github.com/agargaro/three.ez/blob/fab1372/src/patch/Object3D.ts#L136)
 
 ___
 
@@ -504,7 +520,7 @@ OrthographicCamera.detectChanges
 
 #### Defined in
 
-[src/patch/Object3D.ts:125](https://github.com/agargaro/three.ez/blob/5cb5c71/src/patch/Object3D.ts#L125)
+[src/patch/Object3D.ts:128](https://github.com/agargaro/three.ez/blob/fab1372/src/patch/Object3D.ts#L128)
 
 ___
 
@@ -539,7 +555,7 @@ OrthographicCamera.hasEvent
 
 #### Defined in
 
-[src/patch/Object3D.ts:95](https://github.com/agargaro/three.ez/blob/5cb5c71/src/patch/Object3D.ts#L95)
+[src/patch/Object3D.ts:98](https://github.com/agargaro/three.ez/blob/fab1372/src/patch/Object3D.ts#L98)
 
 ___
 
@@ -572,7 +588,7 @@ OrthographicCamera.off
 
 #### Defined in
 
-[src/patch/Object3D.ts:101](https://github.com/agargaro/three.ez/blob/5cb5c71/src/patch/Object3D.ts#L101)
+[src/patch/Object3D.ts:104](https://github.com/agargaro/three.ez/blob/fab1372/src/patch/Object3D.ts#L104)
 
 ___
 
@@ -623,7 +639,65 @@ OrthographicCamera.on
 
 #### Defined in
 
-[src/patch/Object3D.ts:88](https://github.com/agargaro/three.ez/blob/5cb5c71/src/patch/Object3D.ts#L88)
+[src/patch/Object3D.ts:91](https://github.com/agargaro/three.ez/blob/fab1372/src/patch/Object3D.ts#L91)
+
+___
+
+### querySelector
+
+▸ **querySelector**(`query`): `Object3D`<`Object3DEventMap`\>
+
+Finds and returns the first Object3D element that matches the specified query string.
+This method follows a similar syntax to CSS selectors.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `query` | `string` | The query string to match against the Object3D elements. |
+
+#### Returns
+
+`Object3D`<`Object3DEventMap`\>
+
+The first Object3D element that matches the query, or undefined if no match is found.
+
+#### Inherited from
+
+OrthographicCamera.querySelector
+
+#### Defined in
+
+[src/patch/Object3D.ts:156](https://github.com/agargaro/three.ez/blob/fab1372/src/patch/Object3D.ts#L156)
+
+___
+
+### querySelectorAll
+
+▸ **querySelectorAll**(`query`): `Object3D`<`Object3DEventMap`\>[]
+
+Finds and returns a list of Object3D elements that match the specified query string.
+This method follows a similar syntax to CSS selectors.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `query` | `string` | The query string to match against the Object3D elements. |
+
+#### Returns
+
+`Object3D`<`Object3DEventMap`\>[]
+
+An array of Object3D elements that match the query.
+
+#### Inherited from
+
+OrthographicCamera.querySelectorAll
+
+#### Defined in
+
+[src/patch/Object3D.ts:163](https://github.com/agargaro/three.ez/blob/fab1372/src/patch/Object3D.ts#L163)
 
 ___
 
@@ -645,7 +719,7 @@ OrthographicCamera.setManualDetectionMode
 
 #### Defined in
 
-[src/patch/Object3D.ts:119](https://github.com/agargaro/three.ez/blob/5cb5c71/src/patch/Object3D.ts#L119)
+[src/patch/Object3D.ts:122](https://github.com/agargaro/three.ez/blob/fab1372/src/patch/Object3D.ts#L122)
 
 ___
 
@@ -678,7 +752,7 @@ OrthographicCamera.trigger
 
 #### Defined in
 
-[src/patch/Object3D.ts:107](https://github.com/agargaro/three.ez/blob/5cb5c71/src/patch/Object3D.ts#L107)
+[src/patch/Object3D.ts:110](https://github.com/agargaro/three.ez/blob/fab1372/src/patch/Object3D.ts#L110)
 
 ___
 
@@ -711,7 +785,7 @@ OrthographicCamera.triggerAncestor
 
 #### Defined in
 
-[src/patch/Object3D.ts:113](https://github.com/agargaro/three.ez/blob/5cb5c71/src/patch/Object3D.ts#L113)
+[src/patch/Object3D.ts:116](https://github.com/agargaro/three.ez/blob/fab1372/src/patch/Object3D.ts#L116)
 
 ___
 
@@ -745,7 +819,7 @@ OrthographicCamera.tween
 
 #### Defined in
 
-[src/patch/Object3D.ts:146](https://github.com/agargaro/three.ez/blob/5cb5c71/src/patch/Object3D.ts#L146)
+[src/patch/Object3D.ts:149](https://github.com/agargaro/three.ez/blob/fab1372/src/patch/Object3D.ts#L149)
 
 ___
 
@@ -779,4 +853,4 @@ OrthographicCamera.unbindProperty
 
 #### Defined in
 
-[src/patch/Object3D.ts:139](https://github.com/agargaro/three.ez/blob/5cb5c71/src/patch/Object3D.ts#L139)
+[src/patch/Object3D.ts:142](https://github.com/agargaro/three.ez/blob/fab1372/src/patch/Object3D.ts#L142)
