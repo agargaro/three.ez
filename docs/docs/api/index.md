@@ -35,7 +35,7 @@ This library has only one dependency: `three.js r151+`.
 | **Raycasting Options**           | Choose between continuous or mouse movement-based raycasting, optimizing intersection operations.   |
 | **Tweening**                     | Create smooth animations effortlessly with built-in tweening.                                        |
 | **Simplified InstancedMesh**     | Manage `InstancedMesh` instances with the ease of working with `Object3D`, simplifying creation and manipulation. |
-| [**Asset Management**](https://agargaro.github.io/three.ez/docs/tutorial/asset) | Efficiently load and manage external assets and resources for your 3D projects. |
+| [**Asset Management**](https://agargaro.github.io/three.ez/docs/tutorial/asset-management) | Efficiently load and manage external assets and resources for your 3D projects. |
 
 ## Installation
 

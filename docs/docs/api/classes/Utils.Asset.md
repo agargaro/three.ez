@@ -34,7 +34,7 @@ This function is called with an `error` object in case of loading errors.
 
 #### Defined in
 
-[src/utils/Asset.ts:63](https://github.com/agargaro/three.ez/blob/5cb5c71/src/utils/Asset.ts#L63)
+[src/utils/Asset.ts:63](https://github.com/agargaro/three.ez/blob/fab1372/src/utils/Asset.ts#L63)
 
 ___
 
@@ -61,7 +61,7 @@ This function is called with a ratio (0 to 1) to indicate the loading progress.
 
 #### Defined in
 
-[src/utils/Asset.ts:58](https://github.com/agargaro/three.ez/blob/5cb5c71/src/utils/Asset.ts#L58)
+[src/utils/Asset.ts:58](https://github.com/agargaro/three.ez/blob/fab1372/src/utils/Asset.ts#L58)
 
 ## Methods
 
@@ -91,7 +91,7 @@ A previously loaded result object.
 
 #### Defined in
 
-[src/utils/Asset.ts:73](https://github.com/agargaro/three.ez/blob/5cb5c71/src/utils/Asset.ts#L73)
+[src/utils/Asset.ts:73](https://github.com/agargaro/three.ez/blob/fab1372/src/utils/Asset.ts#L73)
 
 ▸ `Static` **get**<`T`\>(`...path`): `T`[]
 
@@ -117,7 +117,7 @@ An array of previously loaded result objects.
 
 #### Defined in
 
-[src/utils/Asset.ts:79](https://github.com/agargaro/three.ez/blob/5cb5c71/src/utils/Asset.ts#L79)
+[src/utils/Asset.ts:79](https://github.com/agargaro/three.ez/blob/fab1372/src/utils/Asset.ts#L79)
 
 ___
 
@@ -147,13 +147,13 @@ The loader associated with the resource type.
 
 #### Defined in
 
-[src/utils/Asset.ts:95](https://github.com/agargaro/three.ez/blob/5cb5c71/src/utils/Asset.ts#L95)
+[src/utils/Asset.ts:95](https://github.com/agargaro/three.ez/blob/fab1372/src/utils/Asset.ts#L95)
 
 ___
 
 ### load
 
-▸ `Static` **load**<`T`\>(`loaderType`, `path`, `onProgress?`): `Promise`<`T`\>
+▸ `Static` **load**<`T`\>(`loaderType`, `path`, `onProgress?`, `onError?`): `Promise`<`T`\>
 
 Load a resource using a specified loader type and path.
 
@@ -170,6 +170,7 @@ Load a resource using a specified loader type and path.
 | `loaderType` | `Object` | The type of loader to use for loading the resource. |
 | `path` | `string` | The path to the resource to be loaded. |
 | `onProgress?` | (`event`: `ProgressEvent`<`EventTarget`\>) => `void` | (optional) A callback function to report loading progress with a ProgressEvent. |
+| `onError?` | (`error`: `unknown`) => `void` | - |
 
 #### Returns
 
@@ -179,13 +180,13 @@ A Promise that resolves with the loaded resource when loading is complete.
 
 #### Defined in
 
-[src/utils/Asset.ts:109](https://github.com/agargaro/three.ez/blob/5cb5c71/src/utils/Asset.ts#L109)
+[src/utils/Asset.ts:109](https://github.com/agargaro/three.ez/blob/fab1372/src/utils/Asset.ts#L109)
 
 ___
 
 ### loadAll
 
-▸ `Static` **loadAll**(`config`, `...resources`): `Promise`<`void`[]\>
+▸ `Static` **loadAll**(`config?`, `...resources`): `Promise`<`void`[]\>
 
 Load all specified resources and return a promise that resolves when all resources are loaded.
 
@@ -204,13 +205,13 @@ A promise that resolves when all resources are loaded.
 
 #### Defined in
 
-[src/utils/Asset.ts:146](https://github.com/agargaro/three.ez/blob/5cb5c71/src/utils/Asset.ts#L146)
+[src/utils/Asset.ts:149](https://github.com/agargaro/three.ez/blob/fab1372/src/utils/Asset.ts#L149)
 
 ___
 
 ### preload
 
-▸ `Static` **preload**(`loader`, `paths`): `void`
+▸ `Static` **preload**(`loader`, `...paths`): `void`
 
 Preload resources for future use.
 
@@ -219,7 +220,7 @@ Preload resources for future use.
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `loader` | `Object` | The loader type to be used for preloading. |
-| `paths` | `string` \| [`ResourceConfig`](../interfaces/Utils.ResourceConfig.md) \| (`string` \| [`ResourceConfig`](../interfaces/Utils.ResourceConfig.md))[] | An array of resource paths or configurations to preload. |
+| `...paths` | (`string` \| [`ResourceConfig`](../interfaces/Utils.ResourceConfig.md))[] | An array of resource paths or configurations to preload. |
 
 #### Returns
 
@@ -227,7 +228,7 @@ Preload resources for future use.
 
 #### Defined in
 
-[src/utils/Asset.ts:125](https://github.com/agargaro/three.ez/blob/5cb5c71/src/utils/Asset.ts#L125)
+[src/utils/Asset.ts:128](https://github.com/agargaro/three.ez/blob/fab1372/src/utils/Asset.ts#L128)
 
 ___
 
@@ -251,4 +252,4 @@ A promise that resolves when all pending resources are loaded.
 
 #### Defined in
 
-[src/utils/Asset.ts:134](https://github.com/agargaro/three.ez/blob/5cb5c71/src/utils/Asset.ts#L134)
+[src/utils/Asset.ts:137](https://github.com/agargaro/three.ez/blob/fab1372/src/utils/Asset.ts#L137)

@@ -35,6 +35,7 @@ export * from './tweening/TweenManager';
 export * from './tweening/RunningTween';
 export * from './utils/Asset';
 export * from './utils/IntersectionUtils';
+export * from './utils/Query';
 export * from './utils/Stats';
 export * from './utils/Utils';
 export * from './utils/VectorUtils';
