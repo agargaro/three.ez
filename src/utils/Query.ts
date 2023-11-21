@@ -120,25 +120,26 @@ function checkTags(target: Object3D, tags: string[]): boolean {
 
 function checkAttributes(target: Object3D, attributes: Attribute[]): boolean {
   for (const attribute of attributes) {
-    const value = typeof target[attribute.key] === 'string' ? target[attribute.key] : target[attribute.key].toString();
-
     switch (attribute.operator) {
       case undefined:
-        if (value !== attribute.value) return false;
+        if (getValue(target, attribute.key) !== attribute.value) return false;
         break;
       case '*':
-        if (!value.includes(attribute.value)) return false;
+        if (!getValue(target, attribute.key).includes(attribute.value)) return false;
         break;
       case '$':
-        if (!value.endsWith(attribute.value)) return false;
+        if (!getValue(target, attribute.key).endsWith(attribute.value)) return false;
         break;
       case '^':
-        if (!value.startsWith(attribute.value)) return false;
+        if (!getValue(target, attribute.key).startsWith(attribute.value)) return false;
         break;
     }
   }
-
   return true;
+}
+
+function getValue(target: Object3D, key: string): string {
+  return typeof target[key] === 'string' ? target[key] : target[key].toString();
 }
 
 function parse(query: string): QueryBlock[] {
