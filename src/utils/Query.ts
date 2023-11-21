@@ -50,13 +50,11 @@ function search(target: Object3D, blocks: QueryBlock[][]): Object3D {
   const newBlocks: QueryBlock[][] = [];
 
   for (const blockList of blocks) {
-    const newBlock = [];
+    const newBlock: QueryBlock[] = [];
     newBlocks.push(newBlock);
 
     for (const block of blockList) {
-      if (!checkType(target, block.type) || !checkTags(target, block.tags) || !checkAttributes(target, block.attributes)) continue;
-      if (!block.next) return target;
-      newBlock.push(block.next);
+      if (validateBlock(target, block, newBlock)) return target;
     }
 
     const lastBlock = blockList[blockList.length - 1];
@@ -74,14 +72,11 @@ function searchAll(target: Object3D, blocks: QueryBlock[][], result: Object3D[])
   let added = false;
 
   for (const blockList of blocks) {
-    const newBlock = [];
+    const newBlock: QueryBlock[] = [];
     newBlocks.push(newBlock);
 
     for (const block of blockList) {
-      if (!checkType(target, block.type) || !checkTags(target, block.tags) || !checkAttributes(target, block.attributes)) continue;
-      if (block.next) {
-        newBlock.push(block.next);
-      } else if (!added) {
+      if (validateBlock(target, block, newBlock) && !added) {
         result.push(target);
         if (target.children.length === 0) return;
         added = true;
@@ -97,6 +92,21 @@ function searchAll(target: Object3D, blocks: QueryBlock[][], result: Object3D[])
   }
 }
 
+function validateBlock(target: Object3D, block: QueryBlock, newBlock: QueryBlock[]): boolean {
+  if (areValidConditions(target, block)) {
+    if (block.next) {
+      newBlock.push(block.next);
+    } else {
+      return true;
+    }
+  }
+  return false;
+}
+
+function areValidConditions(target: Object3D, block: QueryBlock): boolean {
+  return checkType(target, block.type) && checkTags(target, block.tags) && checkAttributes(target, block.attributes);
+}
+
 function checkType(target: Object3D, type: string): boolean {
   return !type || target.type === type;
 }
@@ -110,23 +120,26 @@ function checkTags(target: Object3D, tags: string[]): boolean {
 
 function checkAttributes(target: Object3D, attributes: Attribute[]): boolean {
   for (const attribute of attributes) {
-    // fix not consider 0 and boolean values.. useToString?
     switch (attribute.operator) {
       case undefined:
-        if (target[attribute.key] !== attribute.value) return false;
+        if (getValue(target, attribute.key) !== attribute.value) return false;
         break;
       case '*':
-        if (!target[attribute.key].includes(attribute.value)) return false;
+        if (!getValue(target, attribute.key).includes(attribute.value)) return false;
         break;
       case '$':
-        if (!target[attribute.key].endsWith(attribute.value)) return false;
+        if (!getValue(target, attribute.key).endsWith(attribute.value)) return false;
         break;
       case '^':
-        if (!target[attribute.key].startsWith(attribute.value)) return false;
+        if (!getValue(target, attribute.key).startsWith(attribute.value)) return false;
         break;
     }
-    return true;
   }
+  return true;
+}
+
+function getValue(target: Object3D, key: string): string {
+  return typeof target[key] === 'string' ? target[key] : target[key].toString();
 }
 
 function parse(query: string): QueryBlock[] {
@@ -141,7 +154,7 @@ function parse(query: string): QueryBlock[] {
   while ((i = end) < query.length) {
     let char = query[i];
 
-    const result = checkBlock(query, i);
+    const result = getBlock(query, i);
     if (result) {
 
       if (result.char === ',') {
@@ -169,7 +182,7 @@ function parse(query: string): QueryBlock[] {
   return blocks;
 }
 
-function checkBlock(query: string, index: number): NewBlockData {
+function getBlock(query: string, index: number): NewBlockData {
   let ret: NewBlockData;
 
   for (; index < query.length; index++) {
