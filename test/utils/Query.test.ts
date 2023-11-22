@@ -1,17 +1,13 @@
-import createContext from 'gl';
 import { Group, Mesh, Scene } from 'three';
 import { beforeAll, describe, expect, it } from 'vitest';
-import { Main } from '../../src';
+import { PerspectiveCameraAuto } from '../../src';
+
+const init = new PerspectiveCameraAuto();
 
 describe('Query standard cases', () => {
   let scene: Scene;
 
   beforeAll(() => {
-    const context = createContext(1, 1);
-    const canvas = document.createElement('canvas');
-    const main = new Main({ showStats: false, rendererParameters: { context, canvas } });
-    main.createView({ scene, camera: undefined })
-    
     scene = new Scene();
     for (let i = 0; i < 4; i++) {
       const group = new Group();
@@ -73,18 +69,18 @@ describe('Query standard cases', () => {
   });
 
   it('querySelector: matching type and tags', () => {
-    const result = scene.querySelector('Mesh.last');
-    expect(result).toEqual(scene.children[0].children[3]);
+    const result = scene.querySelector('Mesh.first');
+    expect(result).toEqual(scene.children[0].children[0]);
   });
 
   it('querySelector: matching type, name and tags', () => {
-    const result = scene.querySelector('Mesh.odd[name*=_3]');
-    expect(result).toEqual(scene.children[0].children[3]);
+    const result = scene.querySelector('Mesh.even[name*=_2]');
+    expect(result).toEqual(scene.children[0].children[2]);
   });
 
   it('querySelector: matching type parent and recursive type children', () => {
-    const result = scene.querySelector('Scene Mesh');
-    expect(result).toEqual(scene.children[0].children[0]);
+    const result = scene.querySelector('Scene Mesh.odd');
+    expect(result).toEqual(scene.children[0].children[1]);
   });
 
   it('querySelector: no matching type parent and type children', () => {
@@ -125,9 +121,7 @@ describe('Query standard cases', () => {
     expect(result[6]).toEqual(scene.children[2].children[3]);
     expect(result[7]).toEqual(scene.children[3].children[2]);
   });
-
-  //continua da qui
-
+  
   it('querySelectorAll: matching ends with name', () => {
     const result = scene.querySelectorAll('[name$=_3]');
     expect(result.length).toEqual(5);
@@ -288,11 +282,6 @@ describe('Query special cases', () => {
   let mesh: Mesh;
 
   beforeAll(() => {
-    const context = createContext(1, 1);
-    const canvas = document.createElement('canvas');
-    const main = new Main({ showStats: false, rendererParameters: { context, canvas } });
-    main.createView({ scene, camera: undefined })
-
     scene = new Scene();
     scene.tags.add("x");
     group = new Group();
