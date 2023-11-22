@@ -1,8 +1,8 @@
 import { Group, Mesh, Scene } from 'three';
 import { beforeAll, describe, expect, it } from 'vitest';
-import { PerspectiveCameraAuto } from '../../src';
+import { setup } from '../../src';
 
-const init = new PerspectiveCameraAuto();
+setup();
 
 describe('Query standard cases', () => {
   let scene: Scene;
