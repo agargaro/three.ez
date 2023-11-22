@@ -4,14 +4,14 @@ import { beforeAll, describe, expect, it } from 'vitest';
 import { Main } from '../../src';
 
 describe('Query standard cases', () => {
-  let mainInstance: Main;
   let scene: Scene;
 
   beforeAll(() => {
     const context = createContext(1, 1);
-    const canvas: HTMLCanvasElement = document.createElement('canvas');
-    mainInstance = new Main({ showStats: false, rendererParameters: { context, canvas } });
-
+    const canvas = document.createElement('canvas');
+    const main = new Main({ showStats: false, rendererParameters: { context, canvas } });
+    main.createView({ scene, camera: undefined })
+    
     scene = new Scene();
     for (let i = 0; i < 4; i++) {
       const group = new Group();
@@ -25,12 +25,10 @@ describe('Query standard cases', () => {
         const mesh = new Mesh();
         mesh.name = `mesh_${i}_${j}`;
         group.add(mesh);
-
-        if (j === 0) mesh.tags.add('first');
-        if (j === 3) mesh.tags.add('last');
-
         mesh.tags.add(j % 2 === 0 ? 'even' : 'odd');
       }
+      group.children[0].tags.add('first');
+      group.children[3].tags.add('last');
     }
   });
 
@@ -128,7 +126,7 @@ describe('Query standard cases', () => {
     expect(result[7]).toEqual(scene.children[3].children[2]);
   });
 
-//continua da qui
+  //continua da qui
 
   it('querySelectorAll: matching ends with name', () => {
     const result = scene.querySelectorAll('[name$=_3]');
@@ -284,7 +282,6 @@ describe('Query standard cases', () => {
 });
 
 describe('Query special cases', () => {
-  let mainInstance: Main;
   let scene: Scene;
   let group: Group;
   let group2: Group;
@@ -292,8 +289,9 @@ describe('Query special cases', () => {
 
   beforeAll(() => {
     const context = createContext(1, 1);
-    const canvas: HTMLCanvasElement = document.createElement('canvas');
-    mainInstance = new Main({ showStats: false, rendererParameters: { context, canvas } });
+    const canvas = document.createElement('canvas');
+    const main = new Main({ showStats: false, rendererParameters: { context, canvas } });
+    main.createView({ scene, camera: undefined })
 
     scene = new Scene();
     scene.tags.add("x");
