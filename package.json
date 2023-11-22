@@ -35,10 +35,12 @@
     "test:coverage": "vitest --coverage"
   },
   "devDependencies": {
-    "@vitest/coverage-v8": "^0.34.6",
     "@types/three": "^0.158.0",
+    "@vitest/coverage-v8": "^0.34.6",
     "copy-pkg-json-webpack-plugin": "^0.0.40",
     "copy-webpack-plugin": "^11.0.0",
+    "gl": "^6.0.2",
+    "jsdom": "^22.1.0",
     "three": "^0.158.0",
     "ts-loader": "^9.4.4",
     "typedoc": "^0.25.1",
