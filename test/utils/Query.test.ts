@@ -182,12 +182,9 @@ describe('Query standard cases', () => {
   });
 
   it('querySelectorAll: matching type and tags', () => {
-    const result = scene.querySelectorAll('Mesh.last');
-    expect(result.length).toEqual(4);
-    expect(result[0]).toEqual(scene.children[0].children[3]);
-    expect(result[1]).toEqual(scene.children[1].children[3]);
-    expect(result[2]).toEqual(scene.children[2].children[3]);
-    expect(result[3]).toEqual(scene.children[3].children[3]);
+    const result = scene.querySelectorAll('Mesh.last[name*=_2]');
+    expect(result.length).toEqual(1);
+    expect(result[0]).toEqual(scene.children[2].children[3]);
   });
 
   it('querySelectorAll: matching type, name and tags', () => {
@@ -201,24 +198,16 @@ describe('Query standard cases', () => {
   });
 
   it('querySelectorAll: matching type parent and recursive type children', () => {
-    const result = scene.querySelectorAll('Scene Mesh');
-    expect(result.length).toEqual(16);
+    const result = scene.querySelectorAll('Scene Mesh.even');
+    expect(result.length).toEqual(8);
     expect(result[0]).toEqual(scene.children[0].children[0]);
-    expect(result[1]).toEqual(scene.children[0].children[1]);
-    expect(result[2]).toEqual(scene.children[0].children[2]);
-    expect(result[3]).toEqual(scene.children[0].children[3]);
-    expect(result[4]).toEqual(scene.children[1].children[0]);
-    expect(result[5]).toEqual(scene.children[1].children[1]);
-    expect(result[6]).toEqual(scene.children[1].children[2]);
-    expect(result[7]).toEqual(scene.children[1].children[3]);
-    expect(result[8]).toEqual(scene.children[2].children[0]);
-    expect(result[9]).toEqual(scene.children[2].children[1]);
-    expect(result[10]).toEqual(scene.children[2].children[2]);
-    expect(result[11]).toEqual(scene.children[2].children[3]);
-    expect(result[12]).toEqual(scene.children[3].children[0]);
-    expect(result[13]).toEqual(scene.children[3].children[1]);
-    expect(result[14]).toEqual(scene.children[3].children[2]);
-    expect(result[15]).toEqual(scene.children[3].children[3]);
+    expect(result[1]).toEqual(scene.children[0].children[2]);
+    expect(result[2]).toEqual(scene.children[1].children[0]);
+    expect(result[3]).toEqual(scene.children[1].children[2]);
+    expect(result[4]).toEqual(scene.children[2].children[0]);
+    expect(result[5]).toEqual(scene.children[2].children[2]);
+    expect(result[6]).toEqual(scene.children[3].children[0]);
+    expect(result[7]).toEqual(scene.children[3].children[2]);
   });
 
   it('querySelectorAll: no matching type parent and type children', () => {
@@ -227,24 +216,16 @@ describe('Query standard cases', () => {
   });
 
   it('querySelectorAll: matching type parent and type children', () => {
-    const result = scene.querySelectorAll('Group > Mesh');
-    expect(result.length).toEqual(16);
-    expect(result[0]).toEqual(scene.children[0].children[0]);
-    expect(result[1]).toEqual(scene.children[0].children[1]);
-    expect(result[2]).toEqual(scene.children[0].children[2]);
-    expect(result[3]).toEqual(scene.children[0].children[3]);
-    expect(result[4]).toEqual(scene.children[1].children[0]);
-    expect(result[5]).toEqual(scene.children[1].children[1]);
-    expect(result[6]).toEqual(scene.children[1].children[2]);
-    expect(result[7]).toEqual(scene.children[1].children[3]);
-    expect(result[8]).toEqual(scene.children[2].children[0]);
-    expect(result[9]).toEqual(scene.children[2].children[1]);
-    expect(result[10]).toEqual(scene.children[2].children[2]);
-    expect(result[11]).toEqual(scene.children[2].children[3]);
-    expect(result[12]).toEqual(scene.children[3].children[0]);
-    expect(result[13]).toEqual(scene.children[3].children[1]);
-    expect(result[14]).toEqual(scene.children[3].children[2]);
-    expect(result[15]).toEqual(scene.children[3].children[3]);
+    const result = scene.querySelectorAll('Group > Mesh.odd');
+    expect(result.length).toEqual(8);
+    expect(result[0]).toEqual(scene.children[0].children[1]);
+    expect(result[1]).toEqual(scene.children[0].children[3]);
+    expect(result[2]).toEqual(scene.children[1].children[1]);
+    expect(result[3]).toEqual(scene.children[1].children[3]);
+    expect(result[4]).toEqual(scene.children[2].children[1]);
+    expect(result[5]).toEqual(scene.children[2].children[3]);
+    expect(result[6]).toEqual(scene.children[3].children[1]);
+    expect(result[7]).toEqual(scene.children[3].children[3]);
   });
 
   it('querySelectorAll: matching type 1 or type 2', () => {
