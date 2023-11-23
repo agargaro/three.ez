@@ -9,6 +9,11 @@ import { TweenManager } from "../tweening/TweenManager";
 import { Stats } from "../utils/Stats";
 import { RaycasterSortComparer } from "../events/RaycasterManager";
 
+/** @internal */
+export function setup() { 
+    // Script loaded for test.
+}
+
 /**
  * Configuration parameters for initializing the Main class.
  */

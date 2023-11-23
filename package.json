@@ -30,17 +30,23 @@
     "publish-major": "npm version major --git-tag-version false && npx webpack && cd publish && npm publish --access public",
     "build": "npx webpack",
     "start": "npx vite",
-    "pack": "npm pack publish"
+    "pack": "npm pack publish",
+    "test": "vitest",
+    "test:coverage": "vitest --coverage"
   },
   "devDependencies": {
     "@types/three": "^0.158.0",
+    "@vitest/coverage-v8": "^0.34.6",
     "copy-pkg-json-webpack-plugin": "^0.0.40",
     "copy-webpack-plugin": "^11.0.0",
+    "gl": "^6.0.2",
+    "jsdom": "^22.1.0",
     "three": "^0.158.0",
     "ts-loader": "^9.4.4",
     "typedoc": "^0.25.1",
     "typescript": "^5.2.2",
     "vite": "^4.4.9",
+    "vitest": "^0.34.6",
     "webpack": "^5.88.2",
     "webpack-cli": "^5.1.4"
   },

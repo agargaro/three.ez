@@ -57,8 +57,8 @@ function search(target: Object3D, blocks: QueryBlock[][]): Object3D {
       if (validateBlock(target, block, newBlock)) return target;
     }
 
-    const lastBlock = blockList[blockList.length - 1];
-    if (newBlock[newBlock.length - 1] !== lastBlock.prev) newBlock.push(lastBlock.prev);
+    const lastNewBlock = newBlock[newBlock.length - 1];
+    if (lastNewBlock === undefined || lastNewBlock.prev !== lastNewBlock) newBlock.push(blockList[blockList.length - 1]);
   }
 
   for (const child of target.children) {
@@ -83,8 +83,8 @@ function searchAll(target: Object3D, blocks: QueryBlock[][], result: Object3D[])
       }
     }
 
-    const lastBlock = blockList[blockList.length - 1];
-    if (newBlock[newBlock.length - 1] !== lastBlock.prev) newBlock.push(lastBlock.prev);
+    const lastNewBlock = newBlock[newBlock.length - 1];
+    if (lastNewBlock === undefined || lastNewBlock.prev !== lastNewBlock) newBlock.push(blockList[blockList.length - 1]);
   }
 
   for (const child of target.children) {
