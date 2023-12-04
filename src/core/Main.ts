@@ -10,7 +10,7 @@ import { Stats } from "../utils/Stats";
 import { RaycasterSortComparer } from "../events/RaycasterManager";
 
 /** @internal */
-export function setup() { 
+export function setup() {
     // Script loaded for test.
 }
 
@@ -29,7 +29,7 @@ export interface MainParameters {
     /** Default background alpha (transparency) value (default: 1). */
     backgroundAlpha?: number;
     /** Callback function executed for each frame. */
-    animate?: XRFrameRequestCallback;
+    animate?: (delta: number, total: number) => void;
     /** Configuration parameters for the WebGLRenderer. */
     rendererParameters?: WebGLRendererParameters;
     /** Enable cursor handling in the application (default: true). */
@@ -48,7 +48,7 @@ export class Main {
     private _renderManager: RenderManager;
     private _interactionManager: InteractionManager;
     private _stats: Stats;
-    private _animate: XRFrameRequestCallback;
+    private _animate: (delta: number, total: number) => void;
     private _clock = new Clock();
     private _showStats: boolean;
 
@@ -174,7 +174,7 @@ export class Main {
             this._interactionManager.update();
             TweenManager.update(currentDelta * 1000);
 
-            this.animate(time, frame);
+            this.animate(currentDelta, this._clock.elapsedTime);
 
             let rendered = false;
             const visibleScenes = this._renderManager.getVisibleScenes();
@@ -202,9 +202,9 @@ export class Main {
         });
     }
 
-    public animate(time: DOMHighResTimeStamp, frame: XRFrame): void {
+    public animate(delta: number, total: number): void {
         if (this._animate) {
-            this._animate(time, frame);
+            this._animate(delta, total);
         }
     }
 
