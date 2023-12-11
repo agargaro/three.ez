@@ -119,8 +119,8 @@ export class RenderManager {
     return this._visibleScenes;
   }
 
-  public updateActiveView(mouse: Vector2): void {
-    this.hoveredView = this.getViewByMouse(mouse);
+  public updateActiveView(mouse: Vector2, pointerOnCanvas: boolean): void {
+    this.hoveredView = pointerOnCanvas ? this.getViewByMouse(mouse) : undefined;
     if (this.hoveredView) {
       this.activeView = this.hoveredView;
     }

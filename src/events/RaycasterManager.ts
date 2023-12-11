@@ -15,6 +15,7 @@ export class RaycasterManager {
     public raycaster = new Raycaster();
     public raycasterSortComparer: RaycasterSortComparer = (a: IntersectionExt, b: IntersectionExt) => a.distance - b.distance;
     public pointer = new Vector2();
+    public pointerOnCanvas = false;
     private _computedPointer = new Vector2();
     private _renderManager: RenderManager;
 
@@ -39,7 +40,7 @@ export class RaycasterManager {
 
     private getComputedMousePosition(mouse: Vector2, target: Vector2, isDragging: boolean, isPrimary: boolean): boolean {
         if (!isDragging && isPrimary) {
-            this._renderManager.updateActiveView(mouse);
+            this._renderManager.updateActiveView(mouse, this.pointerOnCanvas);
         }
         const activeView = this._renderManager.activeView;
         if (!activeView?.enabled || activeView !== this._renderManager.hoveredView) return false;

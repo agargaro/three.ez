@@ -141,6 +141,11 @@ export class Main {
      */
     public get mousePosition(): Vector2 { return this._interactionManager.raycasterManager.pointer }
 
+    /** 
+     * 
+     */
+    public get pointerOnCanvas(): boolean { return this._interactionManager.raycasterManager.pointerOnCanvas }
+
     /**
      * @param parameters Configuration parameters for initializing the Main class.
      */

@@ -11,7 +11,6 @@ export class InteractionEventsQueue {
       if (this.isValidEvent(event)) {
          this._items.push(event);
       }
-
    }
 
    private isValidEvent(event: Event): boolean {
