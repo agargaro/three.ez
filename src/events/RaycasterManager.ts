@@ -25,11 +25,6 @@ export class RaycasterManager {
 
     public getIntersections(event: PointerEvent, isDragging: boolean, excluded?: Object3D): IntersectionExt[] {
         const intersections: IntersectionExt[] = [];
-        // console.log(event.offsetX, event.offsetY);
-
-        // aggiuungere pointerOut solo se dedntro canvas
-        // mettere flag se dentro canvas
-        // hoveredScene solo se dentro canvas
         this.pointer.set(event.offsetX, event.offsetY);
         if (this.getComputedMousePosition(this.pointer, this._computedPointer, isDragging, event.isPrimary)) {
             const scene = this._renderManager.activeScene;
