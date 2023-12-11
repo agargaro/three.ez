@@ -45,11 +45,12 @@ export class InteractionManager {
 
     private bindEvents(renderer: WebGLRenderer): void {
         const domElement = renderer.domElement;
+        domElement.addEventListener("pointerenter", this.enqueue.bind(this));
         domElement.addEventListener("pointerleave", this.enqueue.bind(this));
         domElement.addEventListener("pointerdown", this.enqueue.bind(this));
         domElement.addEventListener("pointermove", this.enqueue.bind(this));
-        domElement.addEventListener("pointerup", this.enqueue.bind(this));
-        domElement.addEventListener("pointercancel", this.enqueue.bind(this));
+        document.addEventListener("pointerup", this.enqueue.bind(this));
+        document.addEventListener("pointercancel", this.enqueue.bind(this));
         domElement.addEventListener("wheel", this.enqueue.bind(this), { passive: true });
         domElement.tabIndex = -1;
         domElement.addEventListener("keydown", this.enqueue.bind(this));
@@ -131,10 +132,11 @@ export class InteractionManager {
 
     private computeQueuedEvent(event: Event): void {
         switch (event.type) {
+            case "pointerenter": return this.pointerEnter(event as PointerEvent);
             case "pointerleave": return this.pointerLeave(event as PointerEvent);
             case "pointermove": return this.pointerMove(event as PointerEvent);
             case "pointerdown": return this.pointerDown(event as PointerEvent);
-            case "pointerup": return this.pointerUp(event as PointerEvent);
+            case "pointerup":
             case "pointercancel": return this.pointerUp(event as PointerEvent);
             case "wheel": return this.wheel(event as WheelEvent);
             case "keydown": return this.keyDown(event as KeyboardEvent);
@@ -172,7 +174,12 @@ export class InteractionManager {
         this.dragManager.initDrag(event, target, intersection?.instanceId, intersection);
     }
 
+    private pointerEnter(event: PointerEvent): void {
+        this.raycasterManager.pointerOnCanvas = true;
+    }
+
     private pointerLeave(event: PointerEvent): void {
+        this.raycasterManager.pointerOnCanvas = false;
         this._lastPointerMove[event.pointerId] = event;
     }
 
@@ -234,8 +241,9 @@ export class InteractionManager {
     }
 
     private pointerUp(event: PointerEvent): void {
-        const target = this._intersection[event.pointerId]?.object ?? this._renderManager.activeScene;
         const startTarget = this._pointerDownTarget[event.pointerId];
+        if (!startTarget && !this.raycasterManager.pointerOnCanvas) return;
+        const target = this._intersection[event.pointerId]?.object ?? this._renderManager.activeScene;
 
         if (event.pointerType !== "mouse") {
             target.__hovered = false;

@@ -146,6 +146,11 @@ export class Main {
      */
     public get mousePosition(): Vector2 { return this._interactionManager.raycasterManager.pointer }
 
+    /** 
+     * Indicates if the pointer is over the canvas.
+     */
+    public get pointerOnCanvas(): boolean { return this._interactionManager.raycasterManager.pointerOnCanvas }
+
     /**
      * @param parameters Configuration parameters for initializing the Main class.
      */
