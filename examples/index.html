@@ -12,6 +12,7 @@
             margin: 0;
             overflow: hidden;
             overscroll-behavior: none;
+            background-color: #111111;
         }
 
         canvas {
@@ -21,10 +22,92 @@
             touch-action: none;
             user-select: none;
         }
+
+        .blink {
+            padding: 5px 5px;
+            color: #fff;
+            border: 1px solid #fff;
+            border-radius: 20px;
+            transition: 0.2s;
+        }
+
+        .blink.active-sphere {
+            background: #6666ff;
+        }
+
+        .blink.active-box {
+            background: #ff6666;
+        }
+
+        .blink.active-plane {
+            background: #66ff66;
+            color: #000;
+        }
+
+        .blink.active-scene {
+            background: #ffffff;
+            color: #000;
+        }
+
+        #info {
+            position: absolute;
+            top: 0px;
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            text-align: center;
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            pointer-events: none;
+            z-index: 1;
+            line-height: 30px;
+        }
+
+        #container {
+            width: 500px;
+            height: 500px;
+        }
     </style>
 </head>
 
 <body>
+    <div id="container">
+        <canvas id="myCanvas">
+    </div>
+    <div id="info">
+        <span class="blink" id="animate">animate</span>
+        <span class="blink" id="pointerover">pointerover</span>
+        <span class="blink" id="pointerout">pointerout</span>
+        <span class="blink" id="pointerenter">pointerenter</span>
+        <span class="blink" id="pointerleave">pointerleave</span>
+        <span class="blink" id="pointermove">pointermove</span>
+        <span class="blink" id="pointerdown">pointerdown</span>
+        <span class="blink" id="pointerup">pointerup</span>
+        <span class="blink" id="pointerintersection">pointerintersection</span>
+        <span class="blink" id="click">click</span>
+        <span class="blink" id="dblclick">dblclick</span>
+        <span class="blink" id="wheel">wheel</span>
+        <span class="blink" id="focus">focus</span>
+        <span class="blink" id="blur">blur</span>
+        <span class="blink" id="focusin">focusin</span>
+        <span class="blink" id="focusout">focusout</span>
+        <span class="blink" id="keydown">keydown</span>
+        <span class="blink" id="keyup">keyup</span>
+        <span class="blink" id="drag">drag</span>
+        <span class="blink" id="dragstart">dragstart</span>
+        <span class="blink" id="dragend">dragend</span>
+        <span class="blink" id="drop">drop</span>
+        <span class="blink" id="dragenter">dragenter</span>
+        <span class="blink" id="dragleave">dragleave</span>
+        <span class="blink" id="dragover">dragover</span>
+        <span class="blink" id="dragcancel">dragcancel</span>
+        <span class="blink" id="positionchange">positionchange</span>
+        <span class="blink" id="scalechange">scalechange</span>
+        <span class="blink" id="rotationchange">rotationchange</span>
+        <span class="blink" id="viewportresize">viewportresize</span>
+    </div>
     <script type="module" src="example.ts"></script>
 </body>
 
