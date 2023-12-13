@@ -7,7 +7,7 @@ custom_edit_url: null
 
 [Rendering](../namespaces/Rendering.md).Viewport
 
-Represents an object that defines the dimensions and position of a viewport.
+Represents an object defining the dimensions and position of a viewport.
 
 ## Properties
 
@@ -15,11 +15,11 @@ Represents an object that defines the dimensions and position of a viewport.
 
 • **bottom**: `number`
 
-The bottom coordinate of the viewport.
+Bottom coordinate of the viewport.
 
 #### Defined in
 
-[src/rendering/RenderView.ts:11](https://github.com/agargaro/three.ez/blob/4f6b61c/src/rendering/RenderView.ts#L11)
+[src/rendering/RenderView.ts:11](https://github.com/agargaro/three.ez/blob/fab1372/src/rendering/RenderView.ts#L11)
 
 ___
 
@@ -27,11 +27,11 @@ ___
 
 • **height**: `number`
 
-The height of the viewport.
+Height of the viewport.
 
 #### Defined in
 
-[src/rendering/RenderView.ts:15](https://github.com/agargaro/three.ez/blob/4f6b61c/src/rendering/RenderView.ts#L15)
+[src/rendering/RenderView.ts:15](https://github.com/agargaro/three.ez/blob/fab1372/src/rendering/RenderView.ts#L15)
 
 ___
 
@@ -39,11 +39,11 @@ ___
 
 • **left**: `number`
 
-The left coordinate of the viewport.
+Left coordinate of the viewport.
 
 #### Defined in
 
-[src/rendering/RenderView.ts:9](https://github.com/agargaro/three.ez/blob/4f6b61c/src/rendering/RenderView.ts#L9)
+[src/rendering/RenderView.ts:9](https://github.com/agargaro/three.ez/blob/fab1372/src/rendering/RenderView.ts#L9)
 
 ___
 
@@ -51,8 +51,8 @@ ___
 
 • **width**: `number`
 
-The width of the viewport
+Width of the viewport.
 
 #### Defined in
 
-[src/rendering/RenderView.ts:13](https://github.com/agargaro/three.ez/blob/4f6b61c/src/rendering/RenderView.ts#L13)
+[src/rendering/RenderView.ts:13](https://github.com/agargaro/three.ez/blob/fab1372/src/rendering/RenderView.ts#L13)

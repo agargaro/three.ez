@@ -5,14 +5,13 @@ sidebar_position: 0
 # Installation
 
 1. Begin by creating a `three.js` project, which can be done by following the [official guide (option 1)](https://threejs.org/docs/#manual/en/introduction/Installation).
-> ⚠️ **Please note that three.ez is compatible with three.js r151+.**
+> ⚠️ **Warning** <br />
+> Please note that `three.ez` is compatible with `three.js r151+`.
 
 1. Install `three.ez`
   ```bash
   npm install @three.ez/main
   ```
-
-1. For TypeScript users, it's essential to follow the steps outlined in [TypeScript Support](https://agargaro.github.io/three.ez/docs/tutorial/getting-started/typescript-support). If you're not using TypeScript, you can skip this step.
 
 1. Open your `main.ts` file and insert the provided code:
   ```typescript
@@ -26,7 +25,7 @@ sidebar_position: 0
   main.createView({ scene, camera: new PerspectiveCameraAuto(70).translateZ(1) });
   ```
 
- Alternatively, if you prefer a more structured and modular approach using classes ***(which is recommended)***, you can use the following code snippet:
+ Alternatively, if you prefer a more structured and modular approach using classes ***(which is recommended for large project)***, you can use the following code snippet:
 
   ```typescript
   import { Scene as SceneBase, Mesh, BoxGeometry, MeshNormalMaterial } from 'three';
@@ -56,4 +55,5 @@ sidebar_position: 0
   const main = new Main();
   ```
 
-  > 💡 **Throughout this documentation, we use the `.ts` file extension. If you're not using TypeScript, feel free to use `.js` instead.**
+  > ℹ️ **Note** <br />
+  > Throughout this documentation, we use the `.ts` file extension. If you're not using TypeScript, feel free to use `.js` instead.

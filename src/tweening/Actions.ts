@@ -1,16 +1,17 @@
-import { Color, ColorRepresentation, Euler, MathUtils, Quaternion, Vector3 } from "three";
+import { Color, ColorRepresentation, Euler, MathUtils, Quaternion, Vector, Vector2, Vector3, Vector4 } from "three";
 import { DEFAULT_EASING, Easing, EasingFunction, Easings } from "./Easings";
 import { RunningAction } from "./RunningTween";
 import { Tween } from "./Tween";
 
 const easings = new Easings();
-export type AllowedTypes = number | Vector3 | Quaternion | Euler | ColorRepresentation;
+export type AllowedTypes = number | Vector | Quaternion | Euler | ColorRepresentation;
 export type Omitype<T, U> = { [P in keyof T as T[P] extends U ? never : P]: T[P] };
 export type PickType<T, U> = { [P in keyof T as T[P] extends U ? P : never]: T[P] };
 export type TransformType<T, U, V> = { [P in keyof T]: T[P] extends U ? T[P] | V : T[P] };
-export type TransformedTypes<T> = TransformType<TransformType<T, Color, ColorRepresentation>, Vector3, number>;
+export type TransformedTypes<T> = TransformType<TransformType<T, Color, ColorRepresentation>, Vector, number>;
 export type FilteredType<T> = PickType<Partial<TransformedTypes<T>>, AllowedTypes>;
 export type Motion<T> = { [key in keyof FilteredType<T>]: FilteredType<T>[key] };
+export type SetMotion<T> = { [key in keyof T]?: T[key] };
 
 /**
  * Interface for configuring motion animations in a Tween.
@@ -42,7 +43,7 @@ export interface MotionConfig<T = any> {
      * @param start - The initial value of the animated property.
      * @param end - The final value of the animated property.
      * @param alpha - The current animation progress as a normalized value (0 to 1).
-     * @returns If `false` will not assign new value to property.
+     * @returns If `false`, will not assign a new value to the property.
      */
     onProgress?: (target: T, key: string, start: AllowedTypes, end: AllowedTypes, alpha: number) => boolean | void;
 }
@@ -114,7 +115,7 @@ export class ActionDelay<T> implements IAction<T> {
 /** @internal */
 export class ActionMotion<T> implements IAction<T> {
     public hasActions = true;
-    constructor(public time: number, public motion: Motion<T>, public config: MotionConfig<T>, public isBy: boolean) { }
+    constructor(public time: number, public motion: Motion<T> | SetMotion<T>, public config: MotionConfig<T>, public isBy: boolean) { }
 
     public init(target: T): ActionDescriptor {
         const actions: RunningAction[] = [];
@@ -122,7 +123,7 @@ export class ActionMotion<T> implements IAction<T> {
             if (key === "easing") continue;
             const actionValue = this.motion[key];
             const targetValue = target[key];
-            const action = this.vector3(key, actionValue as Vector3, targetValue as Vector3)
+            const action = this.vector(key, actionValue as Vector, targetValue as Vector)
                 ?? this.quaternion(key, actionValue as Quaternion, targetValue as Quaternion)
                 ?? this.euler(key, actionValue as Euler, targetValue as Euler)
                 ?? this.color(key, actionValue as Color, targetValue as Color)
@@ -136,12 +137,13 @@ export class ActionMotion<T> implements IAction<T> {
 
     private getEasing(): EasingFunction {
         const easing = this.config?.easing ?? DEFAULT_EASING;
-        return typeof easing === "string" ? (easings[easing] ?? easings.linear) : easing;
+        return typeof easing === "string" ? (easings[easing].bind(easings) ?? easings.linear) : easing;
     }
 
-    private vector3(key: string, actionValue: Vector3 | number, targetValue: Vector3): RunningAction<Vector3> {
-        if (targetValue?.isVector3) {
-            const value = typeof actionValue === "number" ? new Vector3(actionValue, actionValue, actionValue) : actionValue;
+    private vector(key: string, actionValue: Vector | number, targetValue: Vector): RunningAction<Vector> {
+        if (!targetValue) return;
+        if ((targetValue as Vector2).isVector2 || (targetValue as Vector3).isVector3 || (targetValue as Vector4).isVector4) {
+            const value = typeof actionValue === "number" ? targetValue.clone().setScalar(actionValue) : actionValue;
             return {
                 key,
                 time: this.time,
@@ -205,5 +207,4 @@ export class ActionMotion<T> implements IAction<T> {
                 callback: (start, end, alpha) => { target[key] = MathUtils.lerp(start, end, alpha) }
             };
     }
-
 }

@@ -6,12 +6,14 @@ import { InstancedMeshEntity } from "../instancedMesh/InstancedMeshEntity";
 /** @internal */
 export class DragAndDropManager {
     public isDragging = false;
+    public dragButtons = [0];
     private _plane = new Plane();
     private _offset = new Vector3();
     private _intersection = new Vector3();
     private _worldPosition = new Vector3();
     private _inverseMatrix = new Matrix4();
     private _startPosition = new Vector3();
+    private _originalIntersection = new Vector3();
     private _target: Object3D;
     private _targetInstanced: InstancedMeshEntity;
     private _targetMatrixWorld = new Matrix4();
@@ -42,6 +44,7 @@ export class DragAndDropManager {
         this._plane.setFromNormalAndCoplanarPoint(camera.getWorldDirection(this._plane.normal), this._worldPosition.setFromMatrixPosition(this._targetMatrixWorld));
         this._raycaster.ray.intersectPlane(this._plane, this._intersection);
         this._intersection.sub(this._offset).applyMatrix4(this._inverseMatrix);
+        this._originalIntersection.copy(this._intersection);
 
         const dragEvent = this.trigger("drag", event, this._target, true, this._intersection, dropTargetIntersection?.object, dropTargetIntersection);
 
@@ -49,16 +52,18 @@ export class DragAndDropManager {
             if (!dragEvent._defaultPrevented && !this._targetInstanced.position.equals(this._intersection)) {
                 this._targetInstanced.position.copy(this._intersection);
                 this._targetInstanced.updateMatrix();
+                this._offset.add(this._originalIntersection.sub(this._targetInstanced.position));
             }
         } else if (!dragEvent._defaultPrevented && !this._target.position.equals(this._intersection)) {
             this._target.position.copy(this._intersection);
+            this._offset.add(this._originalIntersection.sub(this._target.position));
         }
 
         this.dropTargetEvent(event, dropTargetIntersection);
     }
 
     public initDrag(event: PointerEvent, target: Object3D, instanceId: number, intersection: IntersectionExt): void {
-        if (event.isPrimary && target?.draggable) {
+        if (this.isDragButton(event) && target?.draggable) {
             if (instanceId >= 0) {
                 if ((target as InstancedMesh2).isInstancedMesh2 && (target as InstancedMesh2).__enabledStateHovered) {
                     this._targetInstanced = (target as InstancedMesh2).instances[instanceId];
@@ -66,7 +71,7 @@ export class DragAndDropManager {
                     this._startIntersection = intersection;
                 }
             } else if (target.enabledState) {
-                this._target = target;
+                this._target = target.dragTarget ?? target;
                 this._startIntersection = intersection;
             }
         }
@@ -74,7 +79,7 @@ export class DragAndDropManager {
 
     public startDragging(event: PointerEvent, camera: Camera): void {
         const currentTarget = this._targetInstanced ?? this._target;
-        this._target.dragging = true;
+        this._target.__dragging = true;
         this.isDragging = true;
         this._startPosition.copy(currentTarget.position);
         this.trigger("dragstart", event, this._target, false, undefined, undefined, this._startIntersection);
@@ -134,7 +139,7 @@ export class DragAndDropManager {
 
     private clear(): void {
         this.isDragging = false;
-        this._target.dragging = false;
+        this._target.__dragging = false;
         this._target = undefined;
         this._targetInstanced = undefined;
         this._dataTransfer = undefined;
@@ -163,5 +168,9 @@ export class DragAndDropManager {
 
             this.trigger("dragover", event, dropTarget, false, dropTargetPoint, this._target, dropTargetIntersection);
         }
+    }
+
+    private isDragButton(event: PointerEvent): boolean {
+        return event.isPrimary && ((event.pointerType === "mouse" && this.dragButtons.some(x => x === event.button)) || event.pointerType !== "mouse");
     }
 }

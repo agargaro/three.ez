@@ -10,11 +10,11 @@ import { RaycasterManager } from "./RaycasterManager";
 export class InteractionManager {
     public raycasterManager: RaycasterManager;
     public cursorManager: CursorHandler;
+    public dragManager: DragAndDropManager;
     public queue = new InteractionEventsQueue();
     private _intersection: { [x: string]: IntersectionExt } = {};
     private _intersectionDropTarget: IntersectionExt;
     private _renderManager: RenderManager;
-    private _dragManager: DragAndDropManager;
     private _primaryIdentifier: number;
     private _pointerDownTarget: { [x: string]: Object3D } = {};
     private _lastPointerDown: { [x: string]: PointerEvent } = {};
@@ -32,7 +32,7 @@ export class InteractionManager {
         this.registerRenderer(renderer);
         this.cursorManager = new CursorHandler(renderer.domElement);
         this.raycasterManager = new RaycasterManager(renderManager);
-        this._dragManager = new DragAndDropManager(this.raycasterManager.raycaster);
+        this.dragManager = new DragAndDropManager(this.raycasterManager.raycaster);
     }
 
     public registerRenderer(renderer: WebGLRenderer): void {
@@ -45,12 +45,13 @@ export class InteractionManager {
 
     private bindEvents(renderer: WebGLRenderer): void {
         const domElement = renderer.domElement;
+        domElement.addEventListener("pointerenter", this.enqueue.bind(this));
         domElement.addEventListener("pointerleave", this.enqueue.bind(this));
         domElement.addEventListener("pointerdown", this.enqueue.bind(this));
         domElement.addEventListener("pointermove", this.enqueue.bind(this));
-        domElement.addEventListener("pointerup", this.enqueue.bind(this));
-        domElement.addEventListener("pointercancel", this.enqueue.bind(this));
-        domElement.addEventListener("wheel", this.enqueue.bind(this));
+        document.addEventListener("pointerup", this.enqueue.bind(this));
+        document.addEventListener("pointercancel", this.enqueue.bind(this));
+        domElement.addEventListener("wheel", this.enqueue.bind(this), { passive: true });
         domElement.tabIndex = -1;
         domElement.addEventListener("keydown", this.enqueue.bind(this));
         domElement.addEventListener("keyup", this.enqueue.bind(this));
@@ -67,14 +68,14 @@ export class InteractionManager {
         }
         this.pointerIntersection();
         const hoveredObj = this._intersection[this._primaryIdentifier]?.object ?? this._renderManager.activeScene;
-        this.cursorManager.update(this._dragManager.target, hoveredObj, this._intersectionDropTarget?.object);
+        this.cursorManager.update(this.dragManager.target, hoveredObj, this._intersectionDropTarget?.object);
     }
 
     private raycastScene(event: PointerEvent): void {
         this.handlePrimaryIdentifier(event);
-        if (this._dragManager.isDragging) {
+        if (this.dragManager.isDragging) {
             if (!event.isPrimary) return;
-            const intersections = this.raycasterManager.getIntersections(event, true, this._dragManager.findDropTarget ? this._dragManager.target : undefined);
+            const intersections = this.raycasterManager.getIntersections(event, true, this.dragManager.findDropTarget ? this.dragManager.target : undefined);
             this.setDropTarget(intersections);
         } else {
             const intersections = this.raycasterManager.getIntersections(event, false);
@@ -131,10 +132,11 @@ export class InteractionManager {
 
     private computeQueuedEvent(event: Event): void {
         switch (event.type) {
+            case "pointerenter": return this.pointerEnter(event as PointerEvent);
             case "pointerleave": return this.pointerLeave(event as PointerEvent);
             case "pointermove": return this.pointerMove(event as PointerEvent);
             case "pointerdown": return this.pointerDown(event as PointerEvent);
-            case "pointerup": return this.pointerUp(event as PointerEvent);
+            case "pointerup":
             case "pointercancel": return this.pointerUp(event as PointerEvent);
             case "wheel": return this.wheel(event as WheelEvent);
             case "keydown": return this.keyDown(event as KeyboardEvent);
@@ -158,7 +160,7 @@ export class InteractionManager {
         this._pointerDownTarget[event.pointerId] = target;
 
         if (this.isMainClick(event)) {
-            target.clicking = true;
+            target.__clicking = true;
         }
 
         if (!pointerDownEvent?._defaultPrevented && event.isPrimary) {
@@ -169,10 +171,15 @@ export class InteractionManager {
             }
         }
 
-        this._dragManager.initDrag(event, target, intersection?.instanceId, intersection);
+        this.dragManager.initDrag(event, target, intersection?.instanceId, intersection);
+    }
+
+    private pointerEnter(event: PointerEvent): void {
+        this.raycasterManager.pointerOnCanvas = true;
     }
 
     private pointerLeave(event: PointerEvent): void {
+        this.raycasterManager.pointerOnCanvas = false;
         this._lastPointerMove[event.pointerId] = event;
     }
 
@@ -180,8 +187,8 @@ export class InteractionManager {
         this._lastPointerMove[event.pointerId] = event;
         this.raycastScene(event);
         const camera = this._renderManager.activeView?.camera;
-        if (this._dragManager.needsDrag(event, camera)) {
-            this._dragManager.performDrag(event, camera, this._intersectionDropTarget);
+        if (this.dragManager.needsDrag(event, camera)) {
+            this.dragManager.performDrag(event, camera, this._intersectionDropTarget);
         } else {
             this.pointerOutOver(event);
             const target = this._intersection[event.pointerId]?.object ?? this._renderManager.activeScene;
@@ -190,13 +197,13 @@ export class InteractionManager {
     }
 
     private pointerIntersection(): void {
-        if (this._dragManager.isDragging) {
-            if (!this._primaryRaycasted && this._dragManager.findDropTarget && this._renderManager.activeScene?.continousRaycastingDropTarget) {
+        if (this.dragManager.isDragging) {
+            if (!this._primaryRaycasted && this.dragManager.findDropTarget && this._renderManager.activeScene?.continuousRaycastingDropTarget) {
                 const event = this._lastPointerMove[this._primaryIdentifier] || this._lastPointerDown[this._primaryIdentifier];
                 this.raycastScene(event);
-                this._dragManager.dropTargetEvent(event, this._intersectionDropTarget);
+                this.dragManager.dropTargetEvent(event, this._intersectionDropTarget);
             }
-        } else if (this._renderManager.hoveredScene?.continousRaycasting && (this._mouseDetected || this._isTapping)) {
+        } else if (this._renderManager.hoveredScene?.continuousRaycasting && (this._mouseDetected || this._isTapping)) {
             if (!this._primaryRaycasted) {
                 const event = this._lastPointerMove[this._primaryIdentifier] || this._lastPointerDown[this._primaryIdentifier];
                 this.raycastScene(event);
@@ -221,9 +228,9 @@ export class InteractionManager {
         if (target !== lastHoveredTarget) {
             if (event.isPrimary) {
                 if (lastHoveredTarget) {
-                    lastHoveredTarget.hovered = false;
+                    lastHoveredTarget.__hovered = false;
                 }
-                target.hovered = true;
+                target.__hovered = true;
             }
             this._lastHoveredTarget[event.pointerId] = target;
             this.triggerAncestorPointer("pointerout", event, lastHoveredTarget, target);
@@ -234,16 +241,17 @@ export class InteractionManager {
     }
 
     private pointerUp(event: PointerEvent): void {
-        const target = this._intersection[event.pointerId]?.object ?? this._renderManager.activeScene;
         const startTarget = this._pointerDownTarget[event.pointerId];
+        if (!startTarget && !this.raycasterManager.pointerOnCanvas) return;
+        const target = this._intersection[event.pointerId]?.object ?? this._renderManager.activeScene;
 
         if (event.pointerType !== "mouse") {
-            target.hovered = false;
+            target.__hovered = false;
             this.triggerAncestorPointer("pointerout", event, target);
             this.triggerPointer("pointerleave", event, target);
         }
 
-        if (this._dragManager.stopDragging(event)) {
+        if (this.dragManager.stopDragging(event)) {
             this.setDropTarget([]);
         } else {
             this.triggerAncestorPointer("pointerup", event, target, startTarget);
@@ -257,7 +265,7 @@ export class InteractionManager {
         }
 
         if (startTarget && this.isMainClick(event)) {
-            startTarget.clicking = false;
+            startTarget.__clicking = false;
         }
 
         if (event.pointerId !== this._primaryIdentifier) {
@@ -289,7 +297,7 @@ export class InteractionManager {
         const keyDownEvent = this.triggerAncestorKeyboard("keydown", event, true);
         if (!keyDownEvent?._defaultPrevented) {
             if (event.key === "Escape" || event.key === "Esc") {
-                if (this._dragManager.cancelDragging(this._lastPointerMove[this._primaryIdentifier])) {
+                if (this.dragManager.cancelDragging(this._lastPointerMove[this._primaryIdentifier])) {
                     this.setDropTarget([]);
                 }
             }

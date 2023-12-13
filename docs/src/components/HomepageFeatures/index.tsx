@@ -16,7 +16,7 @@ const FeatureList: FeatureItem[] = [
     title: 'Automatic Resize Handling',
     description: (
       <>
-        Automatically resizes <code>Renderer</code>, <code>Camera</code>, <code>EffectComposer</code>. Using the <code>rendererResize</code> event, you can easily set the resolution for custom
+        Automatically resizes <code>Renderer</code>, <code>Camera</code>, <code>EffectComposer</code>. Using the <code>viewportResize</code> event, you can easily set the resolution for custom
         shaders.
       </>
     ),
@@ -83,6 +83,11 @@ const FeatureList: FeatureItem[] = [
         Manage <code>InstancedMesh</code> instances as if they were <code>Object3D</code>, simplifying creation and manipulation.
       </>
     ),
+    code: examples[0],
+  },
+  {
+    title: 'Asset Management',
+    description: <>Efficiently load and manage external assets and resources for your 3D projects.</>,
     code: examples[0],
   },
 ];

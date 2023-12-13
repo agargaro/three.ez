@@ -1,7 +1,7 @@
 import { Object3D } from "three";
 import { InstancedMesh2 } from "../instancedMesh/InstancedMesh2";
 
-/** https://developer.mozilla.org/en-US/docs/Web/CSS/cursor */
+/** Valid cursor values based on the CSS cursor property. */
 export type CursorsKeys = "auto" | "default" | "none" | "context-menu" | "help" | "pointer" | "progress" | "wait" |
     "cell" | "crosshair" | "text" | "vertical-text" | "alias" | "copy" | "move" | "no-drop" | "not-allowed" | "grab" | "grabbing" |
     "all-scroll" | "col-resize" | "row-resize" | "n-resize" | "e-resize" | "s-resize" | "w-resize" |
@@ -14,7 +14,7 @@ const cursorSet = new Set([
     "ne-resize", "nw-resize", "se-resize", "sw-resize", "ew-resize", "ns-resize", "nesw-resize", "nwse-resize", "zoom-in", "zoom-out"
 ]);
 
-/** Indicates a cursor by a list or by url. */
+/** Represents a cursor, either by a CSS cursor key or a URL. */
 export type Cursor = CursorsKeys | String;
 
 /** @internal */

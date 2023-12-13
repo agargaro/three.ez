@@ -5,7 +5,7 @@ type SceneEventsCache = { [x: string]: Set<Object3D> };
 
 /** @internal */
 export class EventsCache {
-   private static _allowedEventsSet = new Set<keyof Events>(["rendererresize", "beforeanimate", "animate", "afteranimate"] as (keyof MiscEvents)[]);
+   private static _allowedEventsSet = new Set<keyof Events>(["viewportresize", "beforeanimate", "animate", "afteranimate"] as (keyof MiscEvents)[]);
    private static _events: { [x: number]: SceneEventsCache } = {};
 
    public static push(type: keyof Events, target: Object3D): void {
@@ -16,7 +16,7 @@ export class EventsCache {
    }
 
    public static update(target: Object3D): void {
-      this.updateEvent(target, "rendererresize");
+      this.updateEvent(target, "viewportresize");
       this.updateEvent(target, "beforeanimate");
       this.updateEvent(target, "animate");
       this.updateEvent(target, "afteranimate");

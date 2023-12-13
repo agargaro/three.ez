@@ -1,4 +1,4 @@
-import { ActionCallback, ActionDelay, ActionMotion, ActionRepeat, ActionTween, ActionYoyo, IAction, Motion, MotionConfig } from "./Actions";
+import { ActionCallback, ActionDelay, ActionMotion, ActionRepeat, ActionTween, ActionYoyo, IAction, Motion, MotionConfig, SetMotion } from "./Actions";
 import { RunningTween } from "./RunningTween";
 import { TweenManager } from "./TweenManager";
 
@@ -14,12 +14,24 @@ export class Tween<T = any> {
     public target: T;
     /** Tags used for filtering and management. */
     public tags: string[] = [];
+    /** Unique identifier. If specified, the old tween with the same id will be stopped. */
+    public id: string;
 
     /**
      * @param target - The object to apply the tween to.
      */
     constructor(target: T) {
         this.target = target;
+    }
+
+    /**
+     * Set a unique identifier for the Tween. If specified, stops the old tween with the same id.
+     * @param id The identifier to assign to the Tween.
+     * @returns The updated Tween instance.
+     */
+    public setId(id: string): this {
+        this.id = id;
+        return this;
     }
 
     /**
@@ -71,7 +83,7 @@ export class Tween<T = any> {
      * @param action - The motion configuration.
      * @returns The updated Tween instance.
      */
-    public set(action: Motion<T>): this {
+    public set(action: SetMotion<T>): this {
         this.actions.push(new ActionMotion(0, action, {}, false));
         return this;
     }
@@ -210,7 +222,9 @@ export class Tween<T = any> {
      * @returns A RunningTween instance that controls the execution of the Tween.
      */
     public start(): RunningTween<T> {
+        if (this.id !== undefined) {
+            TweenManager.stopById(this.id);
+        }
         return TweenManager.create(this.target, this);
     }
-
 }

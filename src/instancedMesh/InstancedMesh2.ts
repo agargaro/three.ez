@@ -6,20 +6,20 @@ function overrideProperty(...names: (keyof InstancedMesh2)[]): void {
     for (const name of names) {
         Object.defineProperty(InstancedMesh2.prototype, name, {
             get: function (this: InstancedMesh2) { return this._hoveredInstance[name] },
-            set: function () { console.error(`Cannot set ${name} in InstancedMesh2. Set it in InstancedMeshEntity instead.`) },
+            set: function () { console.warn(`Cannot set ${name} in InstancedMesh2. Set it in InstancedMeshEntity instead.`) },
             configurable: true
         });
     }
 }
 
 /**
- * An extension of the InstancedMesh class that allows individual management of each instance in a similar manner to an Object3D.
+ * Extends the InstancedMesh class to provide individual management of each instance, similar to an Object3D.
  */
 export class InstancedMesh2 extends InstancedMesh {
     /** A flag indicating that this is an instance of InstancedMesh2. */
     public isInstancedMesh2 = true;
     /** 
-     * An array that stores individual InstancedMeshEntity instances associated with this InstancedMesh2.
+     * An array storing individual InstancedMeshEntity instances associated with this InstancedMesh2.
      * Each element represents a separate instance that can be managed individually.
      */
     public instances: InstancedMeshEntity[] = [];
@@ -98,7 +98,7 @@ export class InstancedMesh2 extends InstancedMesh {
      * @param target Optional. The instance to focus on. If not provided, the focus is cleared.
      */
     public focus(target?: InstancedMeshEntity): void {
-        if (!this.focused) return;
+        if (!this.__focused) return;
 
         const focusableObj = target?.focusable ? target : undefined;
         if ((!target || focusableObj?.enabled) && this._focusedInstance !== focusableObj) {

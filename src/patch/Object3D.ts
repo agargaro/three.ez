@@ -9,43 +9,44 @@ import { applyQuaternionPatch } from "./Quaternion";
 import { removeSceneReference, setSceneReference } from "./Scene";
 import { applyVec3Patch } from "./Vector3";
 import { Tween } from "../tweening/Tween";
-
-/** @internal */
-export interface Object3DExtPrototypeInternal extends Object3DExtPrototype {
-    hovered: boolean;
-    focused: boolean;
-    clicking: boolean;
-    dragging: boolean;
-    __boundCallbacks: BindingCallback[];
-    __manualDetection: boolean;
-    __eventsDispatcher: EventsDispatcher;
-    __vec3Patched: boolean;
-    __rotationPatched: boolean;
-    __smartRenderingPatched: boolean;
-    __enabled: boolean;
-    __visible: boolean;
-    __isDropTarget: boolean;
-    __baseVisibleDescriptor: PropertyDescriptor;
-}
+import { querySelector, querySelectorAll } from "../utils/Query";
 
 /**
  * Represents the prototype for extended Object3D functionality.
  */
 export interface Object3DExtPrototype {
+    /** @internal */ __boundCallbacks: BindingCallback[];
+    /** @internal */ __manualDetection: boolean;
+    /** @internal */ __eventsDispatcher: EventsDispatcher;
+    /** @internal */ __vec3Patched: boolean;
+    /** @internal */ __rotationPatched: boolean;
+    /** @internal */ __smartRenderingPatched: boolean;
+    /** @internal */ __enabled: boolean;
+    /** @internal */ __visible: boolean;
+    /** @internal */ __hovered: boolean;
+    /** @internal */ __focused: boolean;
+    /** @internal */ __clicking: boolean;
+    /** @internal */ __dragging: boolean;
+    /** @internal */ __isDropTarget: boolean;
+    /** @internal */ __baseVisibleDescriptor: PropertyDescriptor;
+    /** @internal */ __onChangeBaseEuler: () => void;
+    /** @internal */ __onChangeBaseQuat: () => void;
     /**
-     * Determines if the object is enabled. (default: true).
+     * Determines if the object is enabled. Default is `true`.
      * If set to true, it allows triggering all InteractionEvents; otherwise, events are disabled.
      */
     enabled: boolean;
-    /** Determines if the object can be intercepted by a raycaster (default: true). */
+    /** Determines if the object can be intercepted by the main raycaster. Default is DEFAULT_INTERCEPT_BY_RAYCASTER (`true`). */
     interceptByRaycaster: boolean;
     /** Array of hitboxes for collision detection. */
     hitboxes: Mesh[];
-    /** Indicates whether the object can receive focus (default: true). */
+    /** Indicates which object will be dragged instead of this one. */
+    dragTarget: Object3D;
+    /** Indicates whether the object can receive focus. Default is DEFAULT_FOCUSABLE (`true`). */
     focusable: boolean;
-    /** Indicates whether the object is draggable (default: false). */
+    /** Indicates whether the object is draggable. Default is DEFAULT_DRAGGABLE (`false`). */
     draggable: boolean;
-    /** Determines when the object is dragged, whether it will have to search for any drop targets (default: false). */
+    /** Determines when the object is dragged, whether it will have to search for any drop targets. Default is `false`. */
     findDropTarget: boolean;
     /** Reference to the scene the object belongs to. */
     scene: Scene;
@@ -57,6 +58,8 @@ export interface Object3DExtPrototype {
     cursorDrop: Cursor;
     /** Indicates whether the scene needs rendering. */
     needsRender: boolean;
+    /** Indicates the tags to be searched using the querySelector and `querySelectorAll` methods. */
+    tags: Set<string>;
     /** Indicates if the primary pointer is over this object. */
     get hovered(): boolean;
     /** Indicates if the object is currently focused. */
@@ -67,7 +70,9 @@ export interface Object3DExtPrototype {
     get dragging(): boolean;
     /** Retrieves the combined enabled state considering parent objects. */
     get enabledState(): boolean;
-    /** Retrieves the first possibile focusable object. */
+    /** Retrieves the combined visibility state considering parent objects. */
+    get visibilityState(): boolean;
+    /** Retrieves the first possible focusable object. */
     get firstFocusable(): Object3D;
     /**
      * Applies focus to the object.
@@ -83,7 +88,7 @@ export interface Object3DExtPrototype {
      * @param listener - The callback function to execute when the event occurs.
      * @returns A function to remove the event listener.
      */
-    on<K extends keyof Events>(type: K | K[], listener: (event?: Events[K]) => void): (event?: Events[K]) => void;
+    on<K extends keyof Events>(type: K | K[], listener: (this: this, event?: Events[K]) => void): (event?: Events[K]) => void;
     /**
      * Checks if the object has a specific event listener.
      * @param type - The type of event to check for.
@@ -118,14 +123,14 @@ export interface Object3DExtPrototype {
     /**
      * Calculates all bindings on the current object.
      * If 'recursive' is set to true, it will also calculate bindings for all children.
-     * @param recursive Optional. If true, calculate bindings for children as well.
+     * @param recursive If true, calculate bindings for children as well (optional, default: `false`).
      */
     detectChanges(recursive?: boolean): void;
     /**
      * Binds a property to a callback function for updates.
      * @param property - The name of the property to bind.
      * @param getCallback - A function that retrieves the property's value.
-     * @param renderOnChange - Indicates whether to render when the property changes (optional, default: false).
+     * @param renderOnChange - Indicates whether to render when the property changes (optional, default: `false`).
      * @returns The instance of the object with the binding applied.
      */
     bindProperty<T extends keyof this>(property: T, getCallback: () => this[T], renderOnChange?: boolean): this;
@@ -137,21 +142,41 @@ export interface Object3DExtPrototype {
     unbindProperty<T extends keyof this>(property: T): this;
     /**
      * Initiates a Tween animation for the object.
+     * @param id - Unique identifier. If you start a new tween, the old one with the same id (if specified) will be stopped.
      * @template T - The type of the target.
      * @returns A Tween instance for further configuration.
      */
-    tween<T extends Object3D>(): Tween<T>;
+    tween<T extends Object3D = Object3D>(id?: string): Tween<T>;
+    /**
+     * Finds and returns the first Object3D element that matches the specified query string.
+     * This method follows a similar syntax to CSS selectors.
+     * @param query - The query string to match against the Object3D elements.
+     * @returns The first Object3D element that matches the query, or undefined if no match is found.
+     */
+    querySelector(query: string): Object3D;
+    /**
+     * Finds and returns a list of Object3D elements that match the specified query string.
+     * This method follows a similar syntax to CSS selectors.
+     * @param query - The query string to match against the Object3D elements.
+     * @returns An array of Object3D elements that match the query.
+     */
+    querySelectorAll(query: string): Object3D[];
 }
 
-Object3D.prototype.focusable = true;
-Object3D.prototype.focused = false;
-Object3D.prototype.clicking = false;
-Object3D.prototype.dragging = false;
-Object3D.prototype.draggable = false;
-Object3D.prototype.hovered = false;
-Object3D.prototype.interceptByRaycaster = true;
+
+/** The default setting for 'focusable' for newly created Object3Ds. */
+export let DEFAULT_FOCUSABLE = true;
+/** The default setting for 'draggable' for newly created Object3Ds. */
+export let DEFAULT_DRAGGABLE = false;
+/** The default setting for 'interceptByRaycaster' for newly created Object3Ds. */
+export let DEFAULT_INTERCEPT_BY_RAYCASTER = true;
+
 Object3D.prototype.findDropTarget = false;
 Object3D.prototype.__manualDetection = false;
+Object3D.prototype.__focused = false;
+Object3D.prototype.__clicking = false;
+Object3D.prototype.__dragging = false;
+Object3D.prototype.__hovered = false;
 
 Object3D.prototype.__visible = true;
 Object.defineProperty(Object3D.prototype, "visible", {
@@ -200,6 +225,16 @@ Object.defineProperty(Object3D.prototype, "enabledState", {
     }
 });
 
+Object.defineProperty(Object3D.prototype, "visibilityState", {
+    get: function (this: Object3D) {
+        let obj = this;
+        do {
+            if (!obj.visible) return false;
+        } while (obj = obj.parent);
+        return true;
+    }
+});
+
 Object.defineProperty(Object3D.prototype, "needsRender", {
     get: function (this: Object3D) {
         return this.scene?.needsRender;
@@ -207,6 +242,30 @@ Object.defineProperty(Object3D.prototype, "needsRender", {
     set: function (this: Object3D, value: boolean) {
         if (!this.scene) return;
         this.scene.needsRender = value;
+    }
+});
+
+Object.defineProperty(Object3D.prototype, "hovered", {
+    get: function (this: Object3D) {
+        return this.__hovered;
+    }
+});
+
+Object.defineProperty(Object3D.prototype, "focused", {
+    get: function (this: Object3D) {
+        return this.__focused;
+    }
+});
+
+Object.defineProperty(Object3D.prototype, "clicking", {
+    get: function (this: Object3D) {
+        return this.__clicking;
+    }
+});
+
+Object.defineProperty(Object3D.prototype, "dragging", {
+    get: function (this: Object3D) {
+        return this.__dragging;
     }
 });
 
@@ -238,8 +297,13 @@ Object3D.prototype.triggerAncestor = function <T extends keyof Events>(type: T, 
 
 Object.defineProperty(Object3D.prototype, "userData", { // needed to inject code in constructor
     set: function (this: Object3D, value) {
+        this.focusable = DEFAULT_FOCUSABLE;
+        this.draggable = DEFAULT_DRAGGABLE;
+        this.interceptByRaycaster = DEFAULT_INTERCEPT_BY_RAYCASTER;
+        this.tags = new Set();
         this.__boundCallbacks = [];
         this.__eventsDispatcher = new EventsDispatcher(this);
+
         Object.defineProperty(this, "userData", {
             value, writable: true, configurable: true
         });
@@ -275,8 +339,16 @@ Object3D.prototype.unbindProperty = function (property) {
     return this;
 };
 
-Object3D.prototype.tween = function <T extends Object3D>() {
-    return new Tween<T>(this as T);
+Object3D.prototype.tween = function <T extends Object3D>(id?: string) {
+    return new Tween<T>(this as T).setId(id);
+};
+
+Object3D.prototype.querySelector = function (query: string) {
+    return querySelector(this, query);
+};
+
+Object3D.prototype.querySelectorAll = function (query: string) {
+    return querySelectorAll(this, query);
 };
 
 /** @internal */

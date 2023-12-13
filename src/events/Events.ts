@@ -14,9 +14,9 @@ export interface UpdateEvents {
   scalechange: never;
   /** Event triggered when the rotation of the object changes. */
   rotationchange: never;
-  /** Event triggered when the enabledState of the object changes. The propagation of this event does not go to parents but to children. */
+  /** Event triggered when the enabledState of the object changes (either its own or the parent's `enabled` property). */
   enabledchange: PropertyChangeEvent<boolean>;
-  /** Event triggered when the visibility of the object changes. The propagation of this event does not go to parents but to children. */
+  /** Event triggered when the visibilityState of the object changes (either its own or the parent's `visible` property). */
   visiblechange: PropertyChangeEvent<boolean>;
 }
 
@@ -25,7 +25,7 @@ export interface UpdateEvents {
  */
 export interface MiscEvents {
   /** Event triggered on first render and every time an object is rendered with a different viewport size from the previous one. */
-  rendererresize: RendererResizeEvent;
+  viewportresize: ViewportResizeEvent;
   /** Event triggered every frame, before 'animate'. Usually used to prepare object animations. */
   beforeanimate: AnimateEvent;
   /** Event triggered every frame. Used to animate objects. */
@@ -55,7 +55,7 @@ export interface InteractionEvents<T = Object3D, R = Object3D, RD = Object3D | I
   pointerdown: PointerEventExt<T, R>;
   /** Event triggered when a pointer button is released. */
   pointerup: PointerEventExt<T, R>;
-  /** Event triggered if pointer is on target. Triggers every frame and only works if the scene has 'continousRaycasting' equal to true. */
+  /** Event triggered if pointer is on target. Triggers every frame and only works if the scene has 'continuousRaycasting' equal to true. */
   pointerintersection: PointerIntersectionEvent<T>;
   /** Event triggered when a click event occurs. */
   click: PointerEventExt<T, R>;
@@ -81,13 +81,13 @@ export interface InteractionEvents<T = Object3D, R = Object3D, RD = Object3D | I
   dragstart: DragEventExt<T, RD>;
   /** Event triggered when dragging ends. */
   dragend: DragEventExt<T, RD>;
-  /** Event triggered when dragging is canceled (Can be canceled pressing 'ESC'). This is triggered on target an dropTarget. */
+  /** Event triggered when dragging is canceled (Can be canceled pressing 'ESC'). This is triggered on target and dropTarget. */
   dragcancel: DragEventExt<T, RD>;
   /** Event triggered when a draggable object enters a drop target. */
   dragenter: DragEventExt<T, RD>;
   /**
-   * Event triggered when a draggable object moves over the drop target. 
-   * Triggers every frame if the scene has 'continousRaycastingDropTarget' equal to true. 
+   * Event triggered when a draggable object moves over the drop target.
+   * Triggers every frame if the scene has 'continuousRaycastingDropTarget' equal to true.
    */
   dragover: DragEventExt<T, RD>;
   /** Event triggered when a draggable object leaves a drop target. */
@@ -124,11 +124,11 @@ export class EventExt<T = Object3D> {
   /** The case-insensitive name identifying the type of the event. */
   public get type() { return this._type }
 
-    /** @internal */ public _defaultPrevented: boolean;
-    /** @internal */ public _stoppedImmediatePropagation: boolean;
-    /** @internal */ public _bubbles: boolean;
-    /** @internal */ public _type: keyof Events;
-    /** @internal */ public _target: T;
+  /** @internal */ public _defaultPrevented: boolean;
+  /** @internal */ public _stoppedImmediatePropagation: boolean;
+  /** @internal */ public _bubbles: boolean;
+  /** @internal */ public _type: keyof Events;
+  /** @internal */ public _target: T;
 
   /**
    * @param cancelable A boolean value indicating whether the event is cancelable.
@@ -366,7 +366,7 @@ export class FocusEventExt<T = Object3D, R = Object3D> extends EventExt<T> {
 /**
  * Represents an event related to resizing of a renderer.
  */
-export interface RendererResizeEvent {
+export interface ViewportResizeEvent {
   /** Returns new render width. */
   width: number;
   /** Returns the render height. */

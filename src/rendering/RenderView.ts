@@ -2,16 +2,16 @@ import { Camera, Color, ColorRepresentation, Scene, Vector2 } from "three";
 import { EffectComposer } from "three/examples/jsm/postprocessing/EffectComposer";
 
 /**
- * Represents an object that defines the dimensions and position of a viewport.
+ * Represents an object defining the dimensions and position of a viewport.
  */
 export interface Viewport {
-  /** The left coordinate of the viewport. */
+  /** Left coordinate of the viewport. */
   left: number;
-  /** The bottom coordinate of the viewport. */
+  /** Bottom coordinate of the viewport. */
   bottom: number;
-  /** The width of the viewport */
+  /** Width of the viewport. */
   width: number;
-  /** The height of the viewport. */
+  /** Height of the viewport. */
   height: number;
 }
 
@@ -19,33 +19,33 @@ export interface Viewport {
  * Represents a set of parameters for configuring a view.
  */
 export interface ViewParameters {
-  /** The scene to be rendered in the view. */
+  /** Scene rendered in the view. */
   scene: Scene;
-  /** The camera used to view the scene (Don't use the same camera for differents scenes). */
+  /** Camera used to view the scene (avoid using the same camera for different scenes). */
   camera: Camera;
-  /** The normalized viewport defining the dimensions and position of the view (optional). Values range from 0 to 1. */
+  /** Normalized viewport defining dimensions and position of the view (optional). Values range from 0 to 1. */
   viewport?: Viewport;
-  /** The tags of the view. */
+  /** Tags of the view (optional). */
   tags?: string[];
   /** Determines if the view is visible (optional, default: true). */
   visible?: boolean;
-  /** Determines whether InteractionEvents will be triggered for the view. (optional, default: true).  */
+  /** Determines whether InteractionEvents will be triggered for the view (optional, default: true).  */
   enabled?: boolean;
-  /** The background color of the view (optional). It can be a Color object or a numeric value representing the color. */
+  /** Background color of the view (optional, default: 'black'). */
   backgroundColor?: ColorRepresentation;
-  /** The background alpha value of the view (optional, default: 1). */
+  /** Background alpha value of the view (optional, default: 1). */
   backgroundAlpha?: number;
-  /** The effect composer used for post-processing (optional). */
+  /** Effect composer used for post-processing (optional). */
   composer?: EffectComposer;
-  /** Function to be called before rendering the view (optional). */
+  /** Function called before rendering the view (optional). */
   onBeforeRender?: () => void;
-  /** Function to be called after rendering the view (optional). */
+  /** Function called after rendering the view (optional). */
   onAfterRender?: () => void;
 }
 
 /**
  * Represents a render view with specific parameters. 
- * Don't instance this manually.
+ * Don't instantiate this manually.
  */
 export class RenderView implements ViewParameters {
   public scene: Scene;
@@ -71,7 +71,7 @@ export class RenderView implements ViewParameters {
   }
 
   /**
-   * Don't instance this manually.
+   * Don't instantiate this manually.
    */
   constructor(parameters: ViewParameters, rendererSize: Vector2) {
     this._rendererSize = rendererSize;
@@ -87,7 +87,7 @@ export class RenderView implements ViewParameters {
     this._onBeforeRender = parameters.onBeforeRender;
     this._onAfterRender = parameters.onAfterRender;
 
-    this.scene.add(this.camera); // mandatory to trigger camera resize event
+    this.scene.add(this.camera); // Mandatory to trigger camera resize event
     this.update();
   }
 
@@ -116,5 +116,4 @@ export class RenderView implements ViewParameters {
   public onAfterRender(): void {
     this._onAfterRender?.apply(this);
   }
-
 }

@@ -19,11 +19,11 @@ Represents a set of parameters for configuring a view.
 
 • `Optional` **backgroundAlpha**: `number`
 
-The background alpha value of the view (optional, default: 1).
+Background alpha value of the view (optional, default: 1).
 
 #### Defined in
 
-[src/rendering/RenderView.ts:37](https://github.com/agargaro/three.ez/blob/4f6b61c/src/rendering/RenderView.ts#L37)
+[src/rendering/RenderView.ts:37](https://github.com/agargaro/three.ez/blob/fab1372/src/rendering/RenderView.ts#L37)
 
 ___
 
@@ -31,11 +31,11 @@ ___
 
 • `Optional` **backgroundColor**: `ColorRepresentation`
 
-The background color of the view (optional). It can be a Color object or a numeric value representing the color.
+Background color of the view (optional, default: 'black').
 
 #### Defined in
 
-[src/rendering/RenderView.ts:35](https://github.com/agargaro/three.ez/blob/4f6b61c/src/rendering/RenderView.ts#L35)
+[src/rendering/RenderView.ts:35](https://github.com/agargaro/three.ez/blob/fab1372/src/rendering/RenderView.ts#L35)
 
 ___
 
@@ -43,11 +43,11 @@ ___
 
 • **camera**: `Camera`
 
-The camera used to view the scene (Don't use the same camera for differents scenes).
+Camera used to view the scene (avoid using the same camera for different scenes).
 
 #### Defined in
 
-[src/rendering/RenderView.ts:25](https://github.com/agargaro/three.ez/blob/4f6b61c/src/rendering/RenderView.ts#L25)
+[src/rendering/RenderView.ts:25](https://github.com/agargaro/three.ez/blob/fab1372/src/rendering/RenderView.ts#L25)
 
 ___
 
@@ -55,11 +55,11 @@ ___
 
 • `Optional` **composer**: `EffectComposer`
 
-The effect composer used for post-processing (optional).
+Effect composer used for post-processing (optional).
 
 #### Defined in
 
-[src/rendering/RenderView.ts:39](https://github.com/agargaro/three.ez/blob/4f6b61c/src/rendering/RenderView.ts#L39)
+[src/rendering/RenderView.ts:39](https://github.com/agargaro/three.ez/blob/fab1372/src/rendering/RenderView.ts#L39)
 
 ___
 
@@ -67,11 +67,11 @@ ___
 
 • `Optional` **enabled**: `boolean`
 
-Determines whether InteractionEvents will be triggered for the view. (optional, default: true).
+Determines whether InteractionEvents will be triggered for the view (optional, default: true).
 
 #### Defined in
 
-[src/rendering/RenderView.ts:33](https://github.com/agargaro/three.ez/blob/4f6b61c/src/rendering/RenderView.ts#L33)
+[src/rendering/RenderView.ts:33](https://github.com/agargaro/three.ez/blob/fab1372/src/rendering/RenderView.ts#L33)
 
 ___
 
@@ -83,7 +83,7 @@ ___
 
 ▸ (): `void`
 
-Function to be called after rendering the view (optional).
+Function called after rendering the view (optional).
 
 ##### Returns
 
@@ -91,7 +91,7 @@ Function to be called after rendering the view (optional).
 
 #### Defined in
 
-[src/rendering/RenderView.ts:43](https://github.com/agargaro/three.ez/blob/4f6b61c/src/rendering/RenderView.ts#L43)
+[src/rendering/RenderView.ts:43](https://github.com/agargaro/three.ez/blob/fab1372/src/rendering/RenderView.ts#L43)
 
 ___
 
@@ -103,7 +103,7 @@ ___
 
 ▸ (): `void`
 
-Function to be called before rendering the view (optional).
+Function called before rendering the view (optional).
 
 ##### Returns
 
@@ -111,7 +111,7 @@ Function to be called before rendering the view (optional).
 
 #### Defined in
 
-[src/rendering/RenderView.ts:41](https://github.com/agargaro/three.ez/blob/4f6b61c/src/rendering/RenderView.ts#L41)
+[src/rendering/RenderView.ts:41](https://github.com/agargaro/three.ez/blob/fab1372/src/rendering/RenderView.ts#L41)
 
 ___
 
@@ -119,11 +119,11 @@ ___
 
 • **scene**: `Scene`
 
-The scene to be rendered in the view.
+Scene rendered in the view.
 
 #### Defined in
 
-[src/rendering/RenderView.ts:23](https://github.com/agargaro/three.ez/blob/4f6b61c/src/rendering/RenderView.ts#L23)
+[src/rendering/RenderView.ts:23](https://github.com/agargaro/three.ez/blob/fab1372/src/rendering/RenderView.ts#L23)
 
 ___
 
@@ -131,11 +131,11 @@ ___
 
 • `Optional` **tags**: `string`[]
 
-The tags of the view.
+Tags of the view (optional).
 
 #### Defined in
 
-[src/rendering/RenderView.ts:29](https://github.com/agargaro/three.ez/blob/4f6b61c/src/rendering/RenderView.ts#L29)
+[src/rendering/RenderView.ts:29](https://github.com/agargaro/three.ez/blob/fab1372/src/rendering/RenderView.ts#L29)
 
 ___
 
@@ -143,11 +143,11 @@ ___
 
 • `Optional` **viewport**: [`Viewport`](Rendering.Viewport.md)
 
-The normalized viewport defining the dimensions and position of the view (optional). Values range from 0 to 1.
+Normalized viewport defining dimensions and position of the view (optional). Values range from 0 to 1.
 
 #### Defined in
 
-[src/rendering/RenderView.ts:27](https://github.com/agargaro/three.ez/blob/4f6b61c/src/rendering/RenderView.ts#L27)
+[src/rendering/RenderView.ts:27](https://github.com/agargaro/three.ez/blob/fab1372/src/rendering/RenderView.ts#L27)
 
 ___
 
@@ -159,4 +159,4 @@ Determines if the view is visible (optional, default: true).
 
 #### Defined in
 
-[src/rendering/RenderView.ts:31](https://github.com/agargaro/three.ez/blob/4f6b61c/src/rendering/RenderView.ts#L31)
+[src/rendering/RenderView.ts:31](https://github.com/agargaro/three.ez/blob/fab1372/src/rendering/RenderView.ts#L31)

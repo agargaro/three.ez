@@ -9,27 +9,32 @@ import { TweenManager } from "../tweening/TweenManager";
 import { Stats } from "../utils/Stats";
 import { RaycasterSortComparer } from "../events/RaycasterManager";
 
+/** @internal */
+export function setup() {
+    // Script loaded for test.
+}
+
 /**
- * Represents the configuration parameters for initializing the Main class.
+ * Configuration parameters for initializing the Main class.
  */
 export interface MainParameters {
-    /** A Boolean flag indicating whether to enable full-screen mode and perform automatic resizing of the canvas (default: true). */
+    /** Enable full-screen mode and automatic canvas resizing (default: true). */
     fullscreen?: boolean;
-    /** A boolean flag indicating whether to display performance statistics (default: true). */
+    /** Display performance statistics (default: true). */
     showStats?: boolean;
-    /** A boolean flag indicating whether to disable the context menu on right-click (default: true). */
+    /** Disable the context menu on right-click (default: true). */
     disableContextMenu?: boolean;
-    /** The default background color (default: black). */
+    /** Default background color (default: 'black'). */
     backgroundColor?: ColorRepresentation;
-    /** The default alpha (transparency) value for the background (default: 1). */
+    /** Default background alpha (transparency) value (default: 1). */
     backgroundAlpha?: number;
-    /** A callback function executed for each frame. */
-    animate?: XRFrameRequestCallback;
+    /** Callback function executed for each frame. */
+    animate?: (delta: number, total: number) => void;
     /** Configuration parameters for the WebGLRenderer. */
     rendererParameters?: WebGLRendererParameters;
-    /** A boolean flag indicating whether to enable cursor handling in the application (default: true). */
+    /** Enable cursor handling in the application (default: true). */
     enableCursor?: boolean;
-    /** A boolean flag indicating whether to enable multitouch interactions (default: false). */
+    /** Enable multitouch interactions (default: false). */
     multitouch?: boolean;
 }
 
@@ -43,7 +48,7 @@ export class Main {
     private _renderManager: RenderManager;
     private _interactionManager: InteractionManager;
     private _stats: Stats;
-    private _animate: XRFrameRequestCallback;
+    private _animate: (delta: number, total: number) => void;
     private _clock = new Clock();
     private _showStats: boolean;
 
@@ -79,7 +84,7 @@ export class Main {
     public get activeComposer(): EffectComposer { return this._renderManager.activeView?.composer }
 
     /**
-     * A boolean flag indicating whether to display performance statistics.
+     * Indicates whether to display performance statistics.
      * If set to true, statistics will be shown; otherwise, they will be hidden.
      */
     public get showStats(): boolean { return this._showStats }
@@ -94,13 +99,20 @@ export class Main {
     }
 
     /**
-     * A boolean flag indicating whether to enable multitouch interactions.
+     * Indicates whether to enable multitouch interactions.
      */
     public get multitouch(): boolean { return this._interactionManager.queue.multitouch }
     public set multitouch(value: boolean) { this._interactionManager.queue.multitouch = value }
 
     /**
-     * A boolean flag indicating whether to enable cursor handling in the application.
+     * Defines the mouse buttons that can be used for dragging objects.
+     * Specify the button values as an array of PointerEvent button values.
+     */
+    public get dragButtons(): number[] { return this._interactionManager.dragManager.dragButtons }
+    public set dragButtons(value: number[]) { this._interactionManager.dragManager.dragButtons = value }
+
+    /**
+     * Indicates whether to enable cursor handling in the application.
      */
     public get enableCursor(): boolean { return this._interactionManager.cursorManager.enabled }
     public set enableCursor(value: boolean) { this._interactionManager.cursorManager.enabled = value }
@@ -134,8 +146,13 @@ export class Main {
      */
     public get mousePosition(): Vector2 { return this._interactionManager.raycasterManager.pointer }
 
+    /** 
+     * Indicates if the pointer is over the canvas.
+     */
+    public get pointerOnCanvas(): boolean { return this._interactionManager.raycasterManager.pointerOnCanvas }
+
     /**
-     * @param parameters Represents the configuration parameters for initializing the Main class.
+     * @param parameters Configuration parameters for initializing the Main class.
      */
     constructor(parameters: MainParameters = {}) {
         this._renderManager = new RenderManager(parameters.rendererParameters, parameters.fullscreen, parameters.backgroundColor, parameters.backgroundAlpha);
@@ -162,7 +179,7 @@ export class Main {
             this._interactionManager.update();
             TweenManager.update(currentDelta * 1000);
 
-            this.animate(time, frame);
+            this.animate(currentDelta, this._clock.elapsedTime);
 
             let rendered = false;
             const visibleScenes = this._renderManager.getVisibleScenes();
@@ -190,9 +207,9 @@ export class Main {
         });
     }
 
-    private animate(time: DOMHighResTimeStamp, frame: XRFrame): void {
+    public animate(delta: number, total: number): void {
         if (this._animate) {
-            this._animate(time, frame);
+            this._animate(delta, total);
         }
     }
 

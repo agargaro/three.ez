@@ -3,58 +3,55 @@ import { EventsCache } from "../events/MiscEventsManager";
 import { activeSmartRendering, applySmartRenderingPatch, removeSmartRenderingPatch } from "./SmartRendering";
 import { Binding } from "../binding/Binding";
 import { FocusEventExt, IntersectionExt } from "../events/Events";
-import { addBase, removeBase } from "./Object3D";
+import { DEFAULT_DRAGGABLE, DEFAULT_INTERCEPT_BY_RAYCASTER, addBase, removeBase } from "./Object3D";
 import { EventsDispatcher } from "../events/EventsDispatcher";
 
-/** @internal */
-export interface SceneExtPrototypeInternal extends SceneExtPrototype {
-    __boundObjects: Set<Object3D>;
-    __smartRendering: boolean;
-}
-
 /**
- * Represents the prototype for extended Scene functionality.
+ * Represents the prototype for extending Scene functionality.
  */
 export interface SceneExtPrototype {
+    /** @internal */ __boundObjects: Set<Object3D>;
+    /** @internal */ __smartRendering: boolean;
     /**
-     * Flag indicating whether continuous raycasting is enabled (default: false).
-     * If set to true, raycasting will occur every frame, otherwise it will occur only upon mouse movement. 
-     * Also, if set to true, the 'pointerintersection' event will be triggered every frame.
+     * A flag indicating whether continuous raycasting is enabled (default: false).
+     * When set to true, main raycasting occurs every frame, while false triggers raycasting only upon mouse movement.
+     * Additionally, if set to true, the 'pointerintersection' event will be fired every frame.
      */
-    continousRaycasting: boolean;
+    continuousRaycasting: boolean;
     /** 
-     * Flag indicating whether continuous raycasting when searching for drop targets is enabled (default: false).
-     * If set to true, raycasting will occur every frame, otherwise it will occur only upon mouse movement. 
-     * Also, if set to true, the 'dragover' event will be triggered every frame.
+     * A flag indicating whether continuous raycasting is enabled when searching for drop targets (default: false).
+     * When set to true, main raycasting for drop targets occurs every frame, while false triggers it only upon mouse movement. 
+     * Additionally, if set to true, the 'dragover' event will be fired every frame.
      */
-    continousRaycastingDropTarget: boolean;
+    continuousRaycastingDropTarget: boolean;
     /** An array of intersections computed from the pointer (primary pointer only). */
     intersections: IntersectionExt[];
-    /** An array of intersections computed from the pointer if an object is dragged and has 'findDropTarget' to true (primary pointer only). */
+    /** An array of intersections computed from the pointer if an object is dragged and has 'findDropTarget' set to true (primary pointer only). */
     intersectionsDropTarget: IntersectionExt[];
     /** A reference to the currently focused Object3D within the scene. */
     focusedObject: Object3D;
-    /** Flag indicating whether to blur focused object3D when clicking outside of any object. */
+    /** 
+     * A flag indicating whether to blur the focused Object3D when clicking outside of any object.
+     */
     blurOnClickOut: boolean;
     /** The time scale for scene animations. */
     timeScale: number;
     /** The total time elapsed in the scene. */
     totalTime: number;
     /** 
-     * Activate smart rendering for the scene.
+     * Activates smart rendering for the scene.
      * @returns The updated instance of the scene.
      */
     activeSmartRendering(): this;
     /** 
-     * Set the focus to the specified Object3D within the scene, or clears the focus if no target is provided.
+     * Sets the focus to the specified Object3D within the scene, or clears the focus if no target is provided.
      * @param target Optional. The Object3D to focus on. If not provided, the focus is cleared.
      */
     focus(target?: Object3D): void;
 }
 
-Scene.prototype.continousRaycasting = false;
-Scene.prototype.continousRaycastingDropTarget = false;
-Scene.prototype.focusable = false;
+Scene.prototype.continuousRaycasting = false;
+Scene.prototype.continuousRaycastingDropTarget = false;
 Scene.prototype.needsRender = true;
 Scene.prototype.blurOnClickOut = false;
 Scene.prototype.timeScale = 1;
@@ -74,13 +71,13 @@ Scene.prototype.focus = function (target?: Object3D): void {
         this.focusedObject = focusableObj;
 
         if (oldFocusedObj?.enabledState) {
-            oldFocusedObj.focused = false;
+            oldFocusedObj.__focused = false;
             oldFocusedObj.__eventsDispatcher.dispatchDOMAncestor("blur", new FocusEventExt(focusableObj));
             oldFocusedObj.__eventsDispatcher.dispatchDOM("focusout", new FocusEventExt(focusableObj));
         }
 
         if (focusableObj) {
-            focusableObj.focused = true
+            focusableObj.__focused = true
             focusableObj.__eventsDispatcher.dispatchDOMAncestor("focus", new FocusEventExt(oldFocusedObj));
             focusableObj.__eventsDispatcher.dispatchDOM("focusin", new FocusEventExt(oldFocusedObj));
         }
@@ -110,12 +107,18 @@ Scene.prototype.remove = function (object: Object3D) {
 
 Object.defineProperty(Scene.prototype, "userData", { // needed to inject code in constructor
     set: function (this: Scene, value) {
-        this.intersections = [];
-        this.intersectionsDropTarget = [];
-        this.__boundObjects = new Set();
+        this.focusable = false;
+        this.draggable = DEFAULT_DRAGGABLE;
+        this.interceptByRaycaster = DEFAULT_INTERCEPT_BY_RAYCASTER;
+        this.tags = new Set();
         this.__boundCallbacks = [];
         this.__eventsDispatcher = new EventsDispatcher(this);
+
+        this.intersections = [];
+        this.intersectionsDropTarget = [];
         this.scene = this;
+        this.__boundObjects = new Set();
+
         Object.defineProperty(this, "userData", {
             value, writable: true, configurable: true
         });

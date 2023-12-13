@@ -4,24 +4,12 @@
 		"target": "ES2020",
 		"strict": true,
 		"noImplicitOverride": true,
-		"moduleResolution":"node",
+		"moduleResolution": "node",
 		"declaration": true,
 		"strictNullChecks": false,
 		"stripInternal": true,
 		"outDir": "build",
 		"esModuleInterop": true,
-		"noImplicitAny": false,
-		"paths": {
-			"three": [
-				"./typesDev/index.d.ts"
-			]
-		}
-	},
-	"include": [
-		"src/**/*.ts"
-, "docs/index copy.ts"	],
-	"exclude": [
-		"src/types",
-		"src/example.ts"
-	]
+		"noImplicitAny": false
+	}
 }

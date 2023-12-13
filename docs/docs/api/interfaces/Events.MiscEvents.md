@@ -19,7 +19,7 @@ Event triggered every frame, after 'animate'. Usually used if you want to operat
 
 #### Defined in
 
-[src/events/Events.ts:34](https://github.com/agargaro/three.ez/blob/4f6b61c/src/events/Events.ts#L34)
+[src/events/Events.ts:34](https://github.com/agargaro/three.ez/blob/fab1372/src/events/Events.ts#L34)
 
 ___
 
@@ -31,7 +31,7 @@ Event triggered every frame. Used to animate objects.
 
 #### Defined in
 
-[src/events/Events.ts:32](https://github.com/agargaro/three.ez/blob/4f6b61c/src/events/Events.ts#L32)
+[src/events/Events.ts:32](https://github.com/agargaro/three.ez/blob/fab1372/src/events/Events.ts#L32)
 
 ___
 
@@ -43,16 +43,16 @@ Event triggered every frame, before 'animate'. Usually used to prepare object an
 
 #### Defined in
 
-[src/events/Events.ts:30](https://github.com/agargaro/three.ez/blob/4f6b61c/src/events/Events.ts#L30)
+[src/events/Events.ts:30](https://github.com/agargaro/three.ez/blob/fab1372/src/events/Events.ts#L30)
 
 ___
 
-### rendererresize
+### viewportresize
 
-• **rendererresize**: [`RendererResizeEvent`](Events.RendererResizeEvent.md)
+• **viewportresize**: [`ViewportResizeEvent`](Events.ViewportResizeEvent.md)
 
 Event triggered on first render and every time an object is rendered with a different viewport size from the previous one.
 
 #### Defined in
 
-[src/events/Events.ts:28](https://github.com/agargaro/three.ez/blob/4f6b61c/src/events/Events.ts#L28)
+[src/events/Events.ts:28](https://github.com/agargaro/three.ez/blob/fab1372/src/events/Events.ts#L28)

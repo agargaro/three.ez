@@ -7,7 +7,7 @@ custom_edit_url: null
 
 [Core](../namespaces/Core.md).MainParameters
 
-Represents the configuration parameters for initializing the Main class.
+Configuration parameters for initializing the Main class.
 
 ## Properties
 
@@ -15,11 +15,11 @@ Represents the configuration parameters for initializing the Main class.
 
 • `Optional` **animate**: `XRFrameRequestCallback`
 
-A callback function executed for each frame.
+Callback function executed for each frame.
 
 #### Defined in
 
-[src/core/Main.ts:27](https://github.com/agargaro/three.ez/blob/4f6b61c/src/core/Main.ts#L27)
+[src/core/Main.ts:27](https://github.com/agargaro/three.ez/blob/fab1372/src/core/Main.ts#L27)
 
 ___
 
@@ -27,11 +27,11 @@ ___
 
 • `Optional` **backgroundAlpha**: `number`
 
-The default alpha (transparency) value for the background (default: 1).
+Default background alpha (transparency) value (default: 1).
 
 #### Defined in
 
-[src/core/Main.ts:25](https://github.com/agargaro/three.ez/blob/4f6b61c/src/core/Main.ts#L25)
+[src/core/Main.ts:25](https://github.com/agargaro/three.ez/blob/fab1372/src/core/Main.ts#L25)
 
 ___
 
@@ -39,11 +39,11 @@ ___
 
 • `Optional` **backgroundColor**: `ColorRepresentation`
 
-The default background color (default: black).
+Default background color (default: 'black').
 
 #### Defined in
 
-[src/core/Main.ts:23](https://github.com/agargaro/three.ez/blob/4f6b61c/src/core/Main.ts#L23)
+[src/core/Main.ts:23](https://github.com/agargaro/three.ez/blob/fab1372/src/core/Main.ts#L23)
 
 ___
 
@@ -51,11 +51,11 @@ ___
 
 • `Optional` **disableContextMenu**: `boolean`
 
-A boolean flag indicating whether to disable the context menu on right-click (default: true).
+Disable the context menu on right-click (default: true).
 
 #### Defined in
 
-[src/core/Main.ts:21](https://github.com/agargaro/three.ez/blob/4f6b61c/src/core/Main.ts#L21)
+[src/core/Main.ts:21](https://github.com/agargaro/three.ez/blob/fab1372/src/core/Main.ts#L21)
 
 ___
 
@@ -63,11 +63,11 @@ ___
 
 • `Optional` **enableCursor**: `boolean`
 
-A boolean flag indicating whether to enable cursor handling in the application (default: true).
+Enable cursor handling in the application (default: true).
 
 #### Defined in
 
-[src/core/Main.ts:31](https://github.com/agargaro/three.ez/blob/4f6b61c/src/core/Main.ts#L31)
+[src/core/Main.ts:31](https://github.com/agargaro/three.ez/blob/fab1372/src/core/Main.ts#L31)
 
 ___
 
@@ -75,11 +75,11 @@ ___
 
 • `Optional` **fullscreen**: `boolean`
 
-A Boolean flag indicating whether to enable full-screen mode and perform automatic resizing of the canvas (default: true).
+Enable full-screen mode and automatic canvas resizing (default: true).
 
 #### Defined in
 
-[src/core/Main.ts:17](https://github.com/agargaro/three.ez/blob/4f6b61c/src/core/Main.ts#L17)
+[src/core/Main.ts:17](https://github.com/agargaro/three.ez/blob/fab1372/src/core/Main.ts#L17)
 
 ___
 
@@ -87,11 +87,11 @@ ___
 
 • `Optional` **multitouch**: `boolean`
 
-A boolean flag indicating whether to enable multitouch interactions (default: false).
+Enable multitouch interactions (default: false).
 
 #### Defined in
 
-[src/core/Main.ts:33](https://github.com/agargaro/three.ez/blob/4f6b61c/src/core/Main.ts#L33)
+[src/core/Main.ts:33](https://github.com/agargaro/three.ez/blob/fab1372/src/core/Main.ts#L33)
 
 ___
 
@@ -103,7 +103,7 @@ Configuration parameters for the WebGLRenderer.
 
 #### Defined in
 
-[src/core/Main.ts:29](https://github.com/agargaro/three.ez/blob/4f6b61c/src/core/Main.ts#L29)
+[src/core/Main.ts:29](https://github.com/agargaro/three.ez/blob/fab1372/src/core/Main.ts#L29)
 
 ___
 
@@ -111,8 +111,8 @@ ___
 
 • `Optional` **showStats**: `boolean`
 
-A boolean flag indicating whether to display performance statistics (default: true).
+Display performance statistics (default: true).
 
 #### Defined in
 
-[src/core/Main.ts:19](https://github.com/agargaro/three.ez/blob/4f6b61c/src/core/Main.ts#L19)
+[src/core/Main.ts:19](https://github.com/agargaro/three.ez/blob/fab1372/src/core/Main.ts#L19)
