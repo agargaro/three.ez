@@ -25,7 +25,7 @@ export interface Resource {
   /**
    * The type of loader to use for this resource.
    */
-  loader: typeof Loader<any, any>;
+  loader: typeof Loader<any>;
   /**
    * An array of resource paths or configurations to be loaded by the loader.
    */
@@ -61,7 +61,7 @@ export class Asset {
    * This function is called with an `error` object in case of loading errors.
    */
   public static onError: (error: unknown) => void;
-  protected static _loaders: { [x: string]: Loader } = {};
+  protected static _loaders = new Map<new () => Loader, Loader>();
   protected static _results: { [x: string]: any } = {};
   protected static _pending: Resource[] = [];
 
@@ -92,11 +92,11 @@ export class Asset {
    * @param loaderType The desired loader type.
    * @returns The loader associated with the resource type.
    */
-  public static getLoader<T extends Loader>(loaderType: typeof Loader<any>): T {
-    if (!this._loaders[loaderType.name]) {
-      this._loaders[loaderType.name] = new loaderType();
+  public static getLoader<T extends Loader>(loaderType: new () => T): T {
+    if (!this._loaders.has(loaderType)) {
+      this._loaders.set(loaderType, new loaderType());
     }
-    return this._loaders[loaderType.name] as T;
+    return this._loaders.get(loaderType) as T;
   }
 
   /**
