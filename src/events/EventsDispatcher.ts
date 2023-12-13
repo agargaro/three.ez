@@ -15,7 +15,6 @@ export class EventsDispatcher {
     public add<K extends keyof Events>(type: K, listener: (event: Events[K]) => void): (event: Events[K]) => void {
         if (!this.listeners[type]) {
             this.listeners[type] = [];
-            EventsCache.push(type, this.parent);
             if (type === "positionchange" || type === "scalechange") {
                 applyObject3DVector3Patch(this.parent);
             } else if (type === "rotationchange") {
@@ -27,6 +26,7 @@ export class EventsDispatcher {
         if (this.listeners[type].indexOf(listener) < 0) {
             this.listeners[type].push(listener);
         }
+        EventsCache.push(type, this.parent);
         return listener;
     }
 
