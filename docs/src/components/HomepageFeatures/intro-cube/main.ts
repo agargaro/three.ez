@@ -3,10 +3,16 @@ import { AmbientLight, DirectionalLight, Mesh, PlaneGeometry, Scene as SceneBase
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer.js';
 import { Cube } from './cube';
-import { fragment, vertex } from './plane';
 import { CustomShaderMaterial } from './shaderMaterial';
+import { Gradient } from './gradientMesh';
 
-const meshCount = 192;
+
+
+
+
+
+
+
 
 class Scene extends SceneBase {
   public composer: EffectComposer;
@@ -17,35 +23,12 @@ class Scene extends SceneBase {
 
   constructor() {
     super();
-    this.add(new AmbientLight(), this.directionalLight);
+    this.add(new AmbientLight(), this.directionalLight,new Gradient());
     this.directionalLight.matrixAutoUpdate = false;
     this.directionalLight.matrix = this.camera.matrix;
 
-    const color1 = '#25c2a0';
-    const color2 = '#000000';
-    const color3 = '#d15de8';
-
-    const uniforms = {
-      colors: [color1, color2, color3],
-      uTime: 0,
-      uSpeed: 0.4,
-
-      uLoadingTime: 0,
-
-      uNoiseDensity: 1.3,
-      uNoiseStrength: 4,
-      uFrequency: 2,
-      uAmplitude: 1,
-      uIntensity: 0.5,
-    };
-    var material = new CustomShaderMaterial(uniforms, vertex, fragment);
-    const geometry = new PlaneGeometry(10, 10, 1, meshCount);
-    const plane = new Mesh(geometry, material);
-    plane.translateZ(-7);
-    this.add(plane);
     this.on('animate', (e) => {
-      uniforms.uTime += e.total;
-      uniforms.uLoadingTime += e.total;
+      Gradient.material.setTime(e.total);
     });
   }
 }

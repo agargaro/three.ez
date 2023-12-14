@@ -1,4 +1,4 @@
-import fragment from './fragment.glsl'
-import vertex from './vertex.glsl'
+import fragmentShader from './fragment.glsl'
+import vertexShader from './vertex.glsl'
 
-export { vertex, fragment }
+export { vertexShader, fragmentShader }

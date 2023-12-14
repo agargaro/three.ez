@@ -1,5 +1,6 @@
 import { DoubleSide, MeshPhysicalMaterial, UniformsUtils } from 'three';
 
+
 export class CustomShaderMaterial extends MeshPhysicalMaterial {
   constructor(
     uniforms: {
