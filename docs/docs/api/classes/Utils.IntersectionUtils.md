@@ -33,7 +33,7 @@ Checks if a 3D line intersects an Axis-Aligned Bounding Box (AABB) defined by `b
 
 #### Defined in
 
-[src/utils/IntersectionUtils.ts:103](https://github.com/agargaro/three.ez/blob/fab1372/src/utils/IntersectionUtils.ts#L103)
+[src/utils/IntersectionUtils.ts:103](https://github.com/agargaro/three.ez/blob/a06fa88/src/utils/IntersectionUtils.ts#L103)
 
 ___
 
@@ -65,7 +65,7 @@ The intersection point of the two lines or `undefined` if the lines are parallel
 
 #### Defined in
 
-[src/utils/IntersectionUtils.ts:22](https://github.com/agargaro/three.ez/blob/fab1372/src/utils/IntersectionUtils.ts#L22)
+[src/utils/IntersectionUtils.ts:22](https://github.com/agargaro/three.ez/blob/a06fa88/src/utils/IntersectionUtils.ts#L22)
 
 ___
 
@@ -98,7 +98,7 @@ The intersection point of the two lines or `undefined` if the lines are parallel
 
 #### Defined in
 
-[src/utils/IntersectionUtils.ts:65](https://github.com/agargaro/three.ez/blob/fab1372/src/utils/IntersectionUtils.ts#L65)
+[src/utils/IntersectionUtils.ts:65](https://github.com/agargaro/three.ez/blob/a06fa88/src/utils/IntersectionUtils.ts#L65)
 
 ___
 
@@ -124,7 +124,7 @@ Checks if a 3D line segment defined by points `p1` and `p2` intersects an Axis-A
 
 #### Defined in
 
-[src/utils/IntersectionUtils.ts:160](https://github.com/agargaro/three.ez/blob/fab1372/src/utils/IntersectionUtils.ts#L160)
+[src/utils/IntersectionUtils.ts:160](https://github.com/agargaro/three.ez/blob/a06fa88/src/utils/IntersectionUtils.ts#L160)
 
 ___
 
@@ -156,4 +156,4 @@ The intersection point of the two segments or `undefined` if the segments do not
 
 #### Defined in
 
-[src/utils/IntersectionUtils.ts:42](https://github.com/agargaro/three.ez/blob/fab1372/src/utils/IntersectionUtils.ts#L42)
+[src/utils/IntersectionUtils.ts:42](https://github.com/agargaro/three.ez/blob/a06fa88/src/utils/IntersectionUtils.ts#L42)

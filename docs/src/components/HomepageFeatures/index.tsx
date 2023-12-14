@@ -111,7 +111,7 @@ function Feature({ title, description, code, className }: FeatureProps) {
 
 export default function HomepageFeatures(): JSX.Element {
   let main: Main;
-  let showFeature = false;
+  let showFeature = true;
   const handleIntersection = (entries: IntersectionObserverEntry[]) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
@@ -123,7 +123,7 @@ export default function HomepageFeatures(): JSX.Element {
             } else {
               main.back();
             }
-          }
+            }
         }
       }
     });
