@@ -10,6 +10,7 @@ export * from './events/CursorManager';
 export * from './events/DragAndDropManager';
 export * from './events/Events';
 export * from './events/EventsDispatcher';
+export * from './events/Hitbox';
 export * from './events/InteractionManager';
 export * from './events/InteractionEventsQueue';
 export * from './events/MiscEventsManager';
