@@ -1,4 +1,4 @@
-import { Object3D, Scene, Mesh } from "three";
+import { Object3D, Scene } from "three";
 import { Binding, BindingCallback } from "../binding/Binding";
 import { Cursor } from "../events/CursorManager";
 import { Events, InteractionEvents } from "../events/Events";
@@ -10,6 +10,7 @@ import { removeSceneReference, setSceneReference } from "./Scene";
 import { applyVec3Patch } from "./Vector3";
 import { Tween } from "../tweening/Tween";
 import { querySelector, querySelectorAll } from "../utils/Query";
+import { Hitbox } from "../events/Hitbox";
 
 /**
  * Represents the prototype for extended Object3D functionality.
@@ -39,7 +40,7 @@ export interface Object3DExtPrototype {
     /** Determines if the object can be intercepted by the main raycaster. Default is DEFAULT_INTERCEPT_BY_RAYCASTER (`true`). */
     interceptByRaycaster: boolean;
     /** Array of hitboxes for collision detection. */
-    hitboxes: Mesh[];
+    hitboxes: Hitbox[];
     /** Indicates which object will be dragged instead of this one. */
     dragTarget: Object3D;
     /** Indicates whether the object can receive focus. Default is DEFAULT_FOCUSABLE (`true`). */

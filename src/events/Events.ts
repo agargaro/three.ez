@@ -1,5 +1,6 @@
-import { Camera, Intersection, Mesh, Object3D, Vector3, WebGLRenderer } from "three";
+import { Camera, Intersection, Object3D, Vector3, WebGLRenderer } from "three";
 import { InstancedMeshEntity } from "../instancedMesh/InstancedMeshEntity";
+import { Hitbox } from "./Hitbox";
 
 export type MiscUpdateEvents = MiscEvents & UpdateEvents;
 export type Events = InteractionEvents & MiscUpdateEvents;
@@ -102,7 +103,7 @@ export interface InteractionEvents<T = Object3D, R = Object3D, RD = Object3D | I
 export interface IntersectionExt extends Intersection {
   object: Object3D;
   /** The hitbox hit by the raycaster. */
-  hitbox: Mesh;
+  hitbox: Hitbox;
 }
 
 /** 

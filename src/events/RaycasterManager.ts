@@ -1,6 +1,7 @@
-import { Mesh, Object3D, Raycaster, Vector2 } from "three";
+import { Object3D, Raycaster, Vector2 } from "three";
 import { RenderManager } from "../rendering/RenderManager";
 import { IntersectionExt } from "./Events";
+import { Hitbox } from "./Hitbox";
 
 /**
  * A custom sorting comparison function used for ordering intersections during raycasting.
@@ -72,7 +73,7 @@ export class RaycasterManager {
 
             while (target.length > previousCount) {
                 const intersection = target[previousCount];
-                intersection.hitbox = intersection.object as Mesh;
+                intersection.hitbox = intersection.object as Hitbox;
                 intersection.object = object;
                 previousCount++;
             }
