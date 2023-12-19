@@ -9,9 +9,9 @@ const tempQuaternion = new Quaternion();
 /**
  * Represents an individual instance within an InstancedMesh2, providing properties and methods for interaction and transformation.
  */
-export class InstancedMeshEntity extends EventDispatcher {
-    /** A flag indicating that this is an instance of InstancedMeshEntity. */
-    public isInstancedMeshEntity = true;
+export class InstancedEntity extends EventDispatcher {
+    /** A flag indicating that this is an instance of InstancedEntity. */
+    public isInstancedEntity = true;
     /** The parent InstancedMesh2 that contains this instance. */
     public parent: InstancedMesh2;
     /** An identifier for this individual instance within an InstancedMesh2. */
@@ -226,7 +226,7 @@ export class InstancedMeshEntity extends EventDispatcher {
      * Initiates a Tween animation for the object.
      * @returns A Tween instance for further configuration.
      */
-    public tween(): Tween<InstancedMeshEntity> {
+    public tween(): Tween<InstancedEntity> {
         return new Tween(this);
     }
 }

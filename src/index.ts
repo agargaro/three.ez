@@ -17,7 +17,7 @@ export * from './events/MiscEventsManager';
 export * from './events/RaycasterManager';
 export * from './instancedMesh/EventsDispatcherInstanced';
 export * from './instancedMesh/InstancedMesh2';
-export * from './instancedMesh/InstancedMeshEntity';
+export * from './instancedMesh/InstancedEntity';
 export * from './patch/Euler';
 export * from './patch/Material'
 export * from './patch/Matrix4';

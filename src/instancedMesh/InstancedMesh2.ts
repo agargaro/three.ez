@@ -1,12 +1,12 @@
 import { BufferGeometry, Color, ColorRepresentation, DynamicDrawUsage, InstancedMesh, Material, Matrix4 } from "three";
 import { AnimateEvent, DragEventExt, FocusEventExt, IntersectionExt, KeyboardEventExt, PointerEventExt, PointerIntersectionEvent, WheelEventExt } from "../events/Events";
-import { InstancedMeshEntity } from "./InstancedMeshEntity";
+import { InstancedEntity } from "./InstancedEntity";
 
 function overrideProperty(...names: (keyof InstancedMesh2)[]): void {
     for (const name of names) {
         Object.defineProperty(InstancedMesh2.prototype, name, {
             get: function (this: InstancedMesh2) { return this._hoveredInstance[name] },
-            set: function () { /* console.warn(`Cannot set ${name} in InstancedMesh2. Set it in InstancedMeshEntity instead.`) */ },
+            set: function () { /* console.warn(`Cannot set ${name} in InstancedMesh2. Set it in InstancedEntity instead.`) */ },
             configurable: true
         });
     }
@@ -19,14 +19,14 @@ export class InstancedMesh2 extends InstancedMesh {
     /** A flag indicating that this is an instance of InstancedMesh2. */
     public isInstancedMesh2 = true;
     /** 
-     * An array storing individual InstancedMeshEntity instances associated with this InstancedMesh2.
+     * An array storing individual InstancedEntity instances associated with this InstancedMesh2.
      * Each element represents a separate instance that can be managed individually.
      */
-    public instances: InstancedMeshEntity[] = [];
-    /** @internal */ public _hoveredInstance: InstancedMeshEntity;
-    /** @internal */ public _focusedInstance: InstancedMeshEntity;
-    /** @internal */ public _clickingInstance: InstancedMeshEntity;
-    /** @internal */ public _draggingInstance: InstancedMeshEntity;
+    public instances: InstancedEntity[] = [];
+    /** @internal */ public _hoveredInstance: InstancedEntity;
+    /** @internal */ public _focusedInstance: InstancedEntity;
+    /** @internal */ public _clickingInstance: InstancedEntity;
+    /** @internal */ public _draggingInstance: InstancedEntity;
     /** @internal */ public _tempMatrix = new Matrix4();
     /** @internal */ public _tempColor = new Color();
     /** @internal */ public _animate: boolean;
@@ -37,22 +37,22 @@ export class InstancedMesh2 extends InstancedMesh {
     /**
      * Gets the currently hovered instance.
      */
-    public get hoveredInstance(): InstancedMeshEntity { return this._hoveredInstance }
+    public get hoveredInstance(): InstancedEntity { return this._hoveredInstance }
 
     /**
      * Gets the currently focused instance.
      */
-    public get focusedInstance(): InstancedMeshEntity { return this._focusedInstance }
+    public get focusedInstance(): InstancedEntity { return this._focusedInstance }
 
     /**
      * Gets the currently clicking instance.
      */
-    public get clickingInstance(): InstancedMeshEntity { return this._clickingInstance }
+    public get clickingInstance(): InstancedEntity { return this._clickingInstance }
 
     /**
      * Gets the currently dragging instance.
      */
-    public get draggingInstance(): InstancedMeshEntity { return this._draggingInstance }
+    public get draggingInstance(): InstancedEntity { return this._draggingInstance }
 
     /**
      * @param geometry The geometry for the instanced mesh.
@@ -62,7 +62,7 @@ export class InstancedMesh2 extends InstancedMesh {
      * @param animate A flag indicating whether the 'animate' event will be triggered for each instance (optional, default: false).
      * @param color The default color to apply to each instance (optional).
      */
-    constructor(geometry: BufferGeometry, material: Material, count: number, singleInstanceType: typeof InstancedMeshEntity, animate = false, color?: ColorRepresentation) {
+    constructor(geometry: BufferGeometry, material: Material, count: number, singleInstanceType: typeof InstancedEntity, animate = false, color?: ColorRepresentation) {
         super(geometry, material, count);
         color = this._tempColor.set(color);
 
@@ -97,7 +97,7 @@ export class InstancedMesh2 extends InstancedMesh {
      * Set the focus to the specified instance, if focus is enabled for the InstancedMesh2, or clears the focus if no target is provided.
      * @param target Optional. The instance to focus on. If not provided, the focus is cleared.
      */
-    public focus(target?: InstancedMeshEntity): void {
+    public focus(target?: InstancedEntity): void {
         if (!this.__focused) return;
 
         const focusableObj = target?.focusable ? target : undefined;
@@ -107,12 +107,12 @@ export class InstancedMesh2 extends InstancedMesh {
 
             if (oldFocusedObj?.enabled) {
                 oldFocusedObj.__focused = false;
-                oldFocusedObj.__eventsDispatcher.dispatchDOM("blur", new FocusEventExt<InstancedMeshEntity, InstancedMeshEntity>(focusableObj));
+                oldFocusedObj.__eventsDispatcher.dispatchDOM("blur", new FocusEventExt<InstancedEntity, InstancedEntity>(focusableObj));
             }
 
             if (focusableObj) {
                 focusableObj.__focused = true
-                focusableObj.__eventsDispatcher.dispatchDOM("focus", new FocusEventExt<InstancedMeshEntity, InstancedMeshEntity>(oldFocusedObj));
+                focusableObj.__eventsDispatcher.dispatchDOM("focus", new FocusEventExt<InstancedEntity, InstancedEntity>(oldFocusedObj));
             }
 
             this.needsRender = true;
@@ -132,13 +132,13 @@ export class InstancedMesh2 extends InstancedMesh {
             if (oldHoveredInstance) {
                 oldHoveredInstance.__hovered = false;
                 if (oldHoveredInstance.enabled) {
-                    const event = new PointerEventExt<InstancedMeshEntity, InstancedMeshEntity>(domEvent, intersection, hoveredInstance);
+                    const event = new PointerEventExt<InstancedEntity, InstancedEntity>(domEvent, intersection, hoveredInstance);
                     oldHoveredInstance.__eventsDispatcher.dispatchDOM("pointerout", event);
                 }
             }
 
             if (hoveredInstance.enabled) {
-                const event = new PointerEventExt<InstancedMeshEntity, InstancedMeshEntity>(domEvent, intersection, oldHoveredInstance);
+                const event = new PointerEventExt<InstancedEntity, InstancedEntity>(domEvent, intersection, oldHoveredInstance);
                 hoveredInstance.__eventsDispatcher.dispatchDOM("pointerover", event);
             }
         }
@@ -155,7 +155,7 @@ export class InstancedMesh2 extends InstancedMesh {
     private pointerIntersection(e: PointerIntersectionEvent): void {
         this.pointerOverOut(e.intersection, this._lastPointerMove?.domEvent);
         if (this._hoveredInstance.enabled) {
-            const event = new PointerIntersectionEvent<InstancedMeshEntity>(e.intersection);
+            const event = new PointerIntersectionEvent<InstancedEntity>(e.intersection);
             this._hoveredInstance.__eventsDispatcher.dispatchDOM("pointerintersection", event);
         }
     }
@@ -164,7 +164,7 @@ export class InstancedMesh2 extends InstancedMesh {
         this._lastPointerMove = e;
         this.pointerOverOut(e.intersection, e.domEvent);
         if (this._hoveredInstance.enabled) {
-            const event = new PointerEventExt<InstancedMeshEntity, InstancedMeshEntity>(e.domEvent, e.intersection);
+            const event = new PointerEventExt<InstancedEntity, InstancedEntity>(e.domEvent, e.intersection);
             this._hoveredInstance.__eventsDispatcher.dispatchDOM("pointermove", event);
         }
     }
@@ -174,7 +174,7 @@ export class InstancedMesh2 extends InstancedMesh {
         instance.__hovered = false;
         this._hoveredInstance = undefined;
         if (instance.enabled) {
-            const event = new PointerEventExt<InstancedMeshEntity, InstancedMeshEntity>(e.domEvent, e.intersection);
+            const event = new PointerEventExt<InstancedEntity, InstancedEntity>(e.domEvent, e.intersection);
             instance.__eventsDispatcher.dispatchDOM("pointerout", event);
         }
     }
@@ -190,10 +190,10 @@ export class InstancedMesh2 extends InstancedMesh {
     private click(e: PointerEventExt): void {
         const target = this.instances[e.intersection.instanceId];
         if (target.enabled) {
-            const event = new PointerEventExt<InstancedMeshEntity, InstancedMeshEntity>(e.domEvent, e.intersection);
+            const event = new PointerEventExt<InstancedEntity, InstancedEntity>(e.domEvent, e.intersection);
             target.__eventsDispatcher.dispatchDOM("click", event);
             if (e.intersection.instanceId === this._lastClick?.intersection.instanceId && e.timeStamp - this._lastClick.timeStamp <= 300) {
-                const event = new PointerEventExt<InstancedMeshEntity, InstancedMeshEntity>(e.domEvent, e.intersection);
+                const event = new PointerEventExt<InstancedEntity, InstancedEntity>(e.domEvent, e.intersection);
                 target.__eventsDispatcher.dispatchDOM("dblclick", event);
                 this._lastClick = undefined;
             } else {
@@ -207,7 +207,7 @@ export class InstancedMesh2 extends InstancedMesh {
         if (target.enabled) {
             this._clickingInstance = target;
             target.__clicking = true;
-            const event = new PointerEventExt<InstancedMeshEntity, InstancedMeshEntity>(e.domEvent, e.intersection, undefined, true);
+            const event = new PointerEventExt<InstancedEntity, InstancedEntity>(e.domEvent, e.intersection, undefined, true);
             target.__eventsDispatcher.dispatchDOM("pointerdown", event);
             if (!event._defaultPrevented) {
                 this.focus(target);
@@ -222,7 +222,7 @@ export class InstancedMesh2 extends InstancedMesh {
         if (instance) {
             instance.__clicking = false;
             if (this._clickingInstance.enabled) {
-                const event = new PointerEventExt<InstancedMeshEntity, InstancedMeshEntity>(e.domEvent, e.intersection);
+                const event = new PointerEventExt<InstancedEntity, InstancedEntity>(e.domEvent, e.intersection);
                 instance.__eventsDispatcher.dispatchDOM("pointerup", event);
             }
             this._clickingInstance = undefined;
@@ -231,7 +231,7 @@ export class InstancedMesh2 extends InstancedMesh {
 
     private keyDown(e: KeyboardEventExt): void {
         if (this._focusedInstance.enabled) {
-            const event = new KeyboardEventExt<InstancedMeshEntity>(e.domEvent, true);
+            const event = new KeyboardEventExt<InstancedEntity>(e.domEvent, true);
             this._focusedInstance.__eventsDispatcher.dispatchDOM("keydown", event);
             if (event._defaultPrevented) {
                 e.preventDefault();
@@ -241,20 +241,20 @@ export class InstancedMesh2 extends InstancedMesh {
 
     private keyUp(e: KeyboardEventExt): void {
         if (this._focusedInstance.enabled) {
-            const event = new KeyboardEventExt<InstancedMeshEntity>(e.domEvent, false);
+            const event = new KeyboardEventExt<InstancedEntity>(e.domEvent, false);
             this._focusedInstance.__eventsDispatcher.dispatchDOM("keyup", event);
         }
     }
 
     private wheel(e: WheelEventExt): void {
         if (this._hoveredInstance.enabled) {
-            const event = new WheelEventExt<InstancedMeshEntity>(e.domEvent, e.intersection);
+            const event = new WheelEventExt<InstancedEntity>(e.domEvent, e.intersection);
             this._hoveredInstance.__eventsDispatcher.dispatchDOM("wheel", event);
         }
     }
 
     private drag(e: DragEventExt): void {
-        const event = new DragEventExt<InstancedMeshEntity>(e.domEvent, true, e.dataTransfer, e.position, e.relatedTarget, e.intersection);
+        const event = new DragEventExt<InstancedEntity>(e.domEvent, true, e.dataTransfer, e.position, e.relatedTarget, e.intersection);
         this._draggingInstance.__eventsDispatcher.dispatchDOM("drag", event);
         if (event._defaultPrevented) {
             e.preventDefault();
@@ -264,7 +264,7 @@ export class InstancedMesh2 extends InstancedMesh {
     private dragStart(e: DragEventExt): void {
         this._draggingInstance = this.instances[e.intersection.instanceId];
         this._draggingInstance.__dragging = true;
-        const event = new DragEventExt<InstancedMeshEntity>(e.domEvent, false, e.dataTransfer, e.position, e.relatedTarget, e.intersection);
+        const event = new DragEventExt<InstancedEntity>(e.domEvent, false, e.dataTransfer, e.position, e.relatedTarget, e.intersection);
         this._draggingInstance.__eventsDispatcher.dispatchDOM("dragstart", event);
     }
 
@@ -272,13 +272,13 @@ export class InstancedMesh2 extends InstancedMesh {
         const instance = this._draggingInstance;
         instance.__dragging = false;
         this._draggingInstance = undefined;
-        const event = new DragEventExt<InstancedMeshEntity>(e.domEvent, false, e.dataTransfer, e.position, e.relatedTarget, e.intersection);
+        const event = new DragEventExt<InstancedEntity>(e.domEvent, false, e.dataTransfer, e.position, e.relatedTarget, e.intersection);
         instance.__eventsDispatcher.dispatchDOM("dragend", event);
         this.computeBoundingSphere();
     }
 
     private dragCancel(e: DragEventExt): void {
-        const event = new DragEventExt<InstancedMeshEntity>(e.domEvent, e.cancelable, e.dataTransfer, e.position, e.relatedTarget, e.intersection);
+        const event = new DragEventExt<InstancedEntity>(e.domEvent, e.cancelable, e.dataTransfer, e.position, e.relatedTarget, e.intersection);
         this._draggingInstance.__eventsDispatcher.dispatchDOM("dragcancel", event);
         if (event._defaultPrevented) {
             e.preventDefault();

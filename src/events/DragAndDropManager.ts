@@ -1,7 +1,7 @@
 import { Plane, Matrix4, Vector3, Raycaster, Camera, Object3D } from "three";
 import { DragEventExt, InteractionEvents, IntersectionExt } from "./Events";
 import { InstancedMesh2 } from "../instancedMesh/InstancedMesh2";
-import { InstancedMeshEntity } from "../instancedMesh/InstancedMeshEntity";
+import { InstancedEntity } from "../instancedMesh/InstancedEntity";
 
 /** @internal */
 export class DragAndDropManager {
@@ -15,7 +15,7 @@ export class DragAndDropManager {
     private _startPosition = new Vector3();
     private _originalIntersection = new Vector3();
     private _target: Object3D;
-    private _targetInstanced: InstancedMeshEntity;
+    private _targetInstanced: InstancedEntity;
     private _targetMatrixWorld = new Matrix4();
     private _dataTransfer: { [x: string]: any };
     private _lastDropTarget: Object3D;

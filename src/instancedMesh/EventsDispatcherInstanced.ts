@@ -1,17 +1,17 @@
 import { EventExt, InteractionEvents, MiscEvents } from "../events/Events";
-import { InstancedMeshEntity } from "./InstancedMeshEntity";
+import { InstancedEntity } from "./InstancedEntity";
 
 export type InstancedMiscUpdateEvents = Omit<MiscEvents, "viewportresize" | "beforeanimate" | "afteranimate">;
-export type InstancedInteractionEvents = Omit<InteractionEvents<InstancedMeshEntity, InstancedMeshEntity>,
+export type InstancedInteractionEvents = Omit<InteractionEvents<InstancedEntity, InstancedEntity>,
     "focusout" | "focusin" | "pointerleave" | "pointerenter" | "dragenter" | "dragover" | "dragleave" | "drop">;
 export type InstancedEvents = InstancedMiscUpdateEvents & InstancedInteractionEvents;
 
 /** @internal */
 export class EventsDispatcherInstanced {
-    public parent: InstancedMeshEntity;
+    public parent: InstancedEntity;
     public listeners: { [K in keyof InstancedEvents]?: ((event?: InstancedEvents[K]) => void)[] } = {};
 
-    constructor(parent: InstancedMeshEntity) {
+    constructor(parent: InstancedEntity) {
         this.parent = parent;
     }
 
@@ -62,7 +62,7 @@ export class EventsDispatcherInstanced {
     }
 
     public dispatchManual<T extends keyof InstancedEvents>(type: T, event?: InstancedEvents[T]): void {
-        if ((event as EventExt<InstancedMeshEntity>)?.cancelable !== undefined) {
+        if ((event as EventExt<InstancedEntity>)?.cancelable !== undefined) {
             return this.dispatchDOM(type as keyof InstancedInteractionEvents, event as any);
         }
         this.dispatch(type as keyof InstancedMiscUpdateEvents, event as any);
