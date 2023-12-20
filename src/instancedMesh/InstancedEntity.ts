@@ -4,28 +4,37 @@ import { EventsDispatcherInstanced, InstancedEvents } from "./EventsDispatcherIn
 import { Tween } from "../tweening/Tween";
 import { InstancedMesh2 } from "./InstancedMesh2";
 
-const tempQuaternion = new Quaternion();
+export interface SharedData {
+    position: Vector3;
+    scale: Vector3;
+    quaternion: Quaternion;
+    index: number;
+}
+
+const _q = new Quaternion();
+const _m = new Matrix4();
+const _c = new Color();
 
 /**
  * Represents an individual instance within an InstancedMesh2, providing properties and methods for interaction and transformation.
  */
 export class InstancedEntity extends EventDispatcher {
+    /** A read-only string to check `this` object type. */
+    public declare type: 'InstancedEntity';
     /** A flag indicating that this is an instance of InstancedEntity. */
-    public isInstancedEntity = true;
+    public declare isInstancedEntity: true;
     /** The parent InstancedMesh2 that contains this instance. */
     public parent: InstancedMesh2;
-    /** An identifier for this individual instance within an InstancedMesh2. */
-    public instanceId: number;
     /** A Vector3 representing the object's local position. Default is (0, 0, 0). */
-    public readonly position = new Vector3();
+    public readonly position: Vector3;
     /** The object's local scale. Default is Vector3(1, 1, 1). */
-    public readonly scale = new Vector3(1, 1, 1);
+    public readonly scale: Vector3;
     /** Object's local rotation as a Quaternion. */
-    public readonly quaternion = new Quaternion();
+    public readonly quaternion: Quaternion;
     /**
      * Determines if the object is enabled. (default: true).
      * If set to true, it allows triggering all InteractionEvents; otherwise, events are disabled.
-     */
+    */
     public enabled = true;
     /** Indicates whether the object can receive focus (default: true). */
     public focusable = true;
@@ -39,11 +48,22 @@ export class InstancedEntity extends EventDispatcher {
     public cursorDrag: Cursor;
     /** Cursor style when dropping an object onto this one. */
     public cursorDrop: Cursor;
+    /** @internal */ public _internalId: number;
+    /** @internal */ public _visible: boolean;
+    /** @internal */ public _inFrustum = true;
+    /** @internal */ public _needsUpdate = false;
     /** @internal */ public __eventsDispatcher: EventsDispatcherInstanced;
     /** @internal */ public __hovered = false;
     /** @internal */ public __focused = false;
     /** @internal */ public __clicking = false;
     /** @internal */ public __dragging = false;
+
+    /**  */
+    public get visible(): boolean { return this._visible }
+    public set visible(value: boolean) {
+        this.parent.setInstanceVisibility(this, value);
+        this._visible = value;
+    }
 
     /** Indicates if the primary pointer is over this object. */
     public get hovered(): boolean { return this.__hovered }
@@ -57,28 +77,44 @@ export class InstancedEntity extends EventDispatcher {
     public get enabledState(): boolean { return this.enabled && this.parent.enabledState }
 
     /**
-     * The global transform of the object.
-     */
-    public get matrixWorld(): Matrix4 {
-        const matrix = this.parent._tempMatrix;
-        matrix.compose(this.position, this.quaternion, this.scale);
-        this.parent.updateWorldMatrix(true, false);
-        return matrix.premultiply(this.parent.matrixWorld);
-    }
-
-    /**
      * @param parent - The parent InstancedMesh2 that contains this instance.
      * @param index - The index of this instance within the parent InstancedMesh2.
      * @param color - The initial color representation for this instance (optional).
+     * @param sharedData - 
+     * @param visible - 
      */
-    constructor(parent: InstancedMesh2, index: number, color?: ColorRepresentation) {
+    constructor(parent: InstancedMesh2, index: number, color?: ColorRepresentation, sharedData?: SharedData, visible = true) {
         super();
         this.parent = parent;
-        this.instanceId = index;
+        this._internalId = index;
+        this._visible = visible;
         this.__eventsDispatcher = new EventsDispatcherInstanced(this);
-        if (color !== undefined) {
-            this.setColor(color);
+        if (color !== undefined) this.setColor(color);
+
+        if (sharedData) {
+            // used by InstancedLOD
+            this.position = sharedData.position;
+            this.scale = sharedData.scale;
+            this.quaternion = sharedData.quaternion;
+        } else {
+            this.position = new Vector3();
+            this.scale = new Vector3(1, 1, 1);
+            this.quaternion = new Quaternion();
         }
+    }
+
+    /**
+     * Updates the local transform.
+     */
+    public updateMatrix(): void {
+        this.parent.updateInstanceMatrix(this);
+    }
+
+    /**
+     * 
+     */
+    public forceUpdateMatrix(): void {
+        this.parent.forceUpdateInstanceMatrix(this);
     }
 
     /**
@@ -87,8 +123,7 @@ export class InstancedEntity extends EventDispatcher {
      */
     public setColor(color: ColorRepresentation): void {
         const parent = this.parent;
-        parent.setColorAt(this.instanceId, parent._tempColor.set(color));
-        parent.instanceColor.needsUpdate = true;
+        parent.setColorAt(this._internalId, _c.set(color));
     }
 
     /**
@@ -96,20 +131,9 @@ export class InstancedEntity extends EventDispatcher {
      * @param color - An optional target Color object to store the result (optional).
      * @returns The color representation of this instance.
      */
-    public getColor(color = this.parent._tempColor): Color {
-        this.parent.getColorAt(this.instanceId, color);
+    public getColor(color = _c): Color {
+        this.parent.getColorAt(this._internalId, color);
         return color;
-    }
-
-    /**
-     * Updates the local transform.
-     */
-    public updateMatrix(): void {
-        const parent = this.parent;
-        const matrix = parent._tempMatrix;
-        matrix.compose(this.position, this.quaternion, this.scale);
-        parent.setMatrixAt(this.instanceId, matrix);
-        parent.instanceMatrix.needsUpdate = true;
     }
 
     /**
@@ -118,13 +142,10 @@ export class InstancedEntity extends EventDispatcher {
      * @returns The instance of the object.
      */
     public applyMatrix4(m: Matrix4): this {
-        const parent = this.parent;
-        const matrix = parent._tempMatrix;
-        matrix.compose(this.position, this.quaternion, this.scale);
-        matrix.premultiply(m);
-        matrix.decompose(this.position, this.quaternion, this.scale);
-        parent.setMatrixAt(this.instanceId, matrix);
-        parent.instanceMatrix.needsUpdate = true;
+        _m.compose(this.position, this.quaternion, this.scale); // or get it from array but is not updated
+        _m.premultiply(m);
+        _m.decompose(this.position, this.quaternion, this.scale);
+        this.parent.setMatrixAt(this._internalId, _m);
         return this;
     }
 
@@ -145,8 +166,8 @@ export class InstancedEntity extends EventDispatcher {
      * @returns The instance of the object.
      */
     public rotateOnAxis(axis: Vector3, angle: number): this {
-        tempQuaternion.setFromAxisAngle(axis, angle);
-        this.quaternion.multiply(tempQuaternion);
+        _q.setFromAxisAngle(axis, angle);
+        this.quaternion.multiply(_q);
         return this;
     }
 
@@ -157,8 +178,8 @@ export class InstancedEntity extends EventDispatcher {
      * @returns The instance of the object.
      */
     public rotateOnWorldAxis(axis: Vector3, angle: number): this {
-        tempQuaternion.setFromAxisAngle(axis, angle);
-        this.quaternion.premultiply(tempQuaternion);
+        _q.setFromAxisAngle(axis, angle);
+        this.quaternion.premultiply(_q);
         return this;
     }
 
@@ -230,3 +251,6 @@ export class InstancedEntity extends EventDispatcher {
         return new Tween(this);
     }
 }
+
+InstancedEntity.prototype.isInstancedEntity = true;
+InstancedEntity.prototype.type = 'InstancedEntity';
