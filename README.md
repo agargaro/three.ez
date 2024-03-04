@@ -272,3 +272,9 @@ Any help is highly appreciated. If you would like to contribute to this package 
 ## ❔ Questions?
 
 If you have questions or need assistance, you can ask on our [discord server](https://discord.gg/MVTwrdX3JM).
+
+## ⭐ Like it?
+
+If you find this project helpful, I would greatly appreciate it if you could leave a star on this repository! <br />
+This helps me know that you appreciate my work and encourages me to continue improving it. <br />
+Thank you so much for your support! 🌟
