@@ -22,7 +22,7 @@ The default setting for 'draggable' for newly created Object3Ds.
 
 #### Defined in
 
-[src/patch/Object3D.ts:170](https://github.com/agargaro/three.ez/blob/57919a6/src/patch/Object3D.ts#L170)
+[src/patch/Object3D.ts:170](https://github.com/agargaro/three.ez/blob/935aabc/src/patch/Object3D.ts#L170)
 
 ___
 
@@ -34,7 +34,7 @@ The default setting for 'focusable' for newly created Object3Ds.
 
 #### Defined in
 
-[src/patch/Object3D.ts:168](https://github.com/agargaro/three.ez/blob/57919a6/src/patch/Object3D.ts#L168)
+[src/patch/Object3D.ts:168](https://github.com/agargaro/three.ez/blob/935aabc/src/patch/Object3D.ts#L168)
 
 ___
 
@@ -46,4 +46,4 @@ The default setting for 'interceptByRaycaster' for newly created Object3Ds.
 
 #### Defined in
 
-[src/patch/Object3D.ts:172](https://github.com/agargaro/three.ez/blob/57919a6/src/patch/Object3D.ts#L172)
+[src/patch/Object3D.ts:172](https://github.com/agargaro/three.ez/blob/935aabc/src/patch/Object3D.ts#L172)

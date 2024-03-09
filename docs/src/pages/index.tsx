@@ -21,7 +21,7 @@ function HomepageHeader() {
 export default function Home(): JSX.Element {
   return (
     <Layout>
-      {/* <HomepageHeader /> */}
+      <HomepageHeader />
       <main>
         <HomepageFeatures />
       </main>

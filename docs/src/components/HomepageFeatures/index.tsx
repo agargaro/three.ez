@@ -98,13 +98,22 @@ interface FeatureProps extends FeatureItem {
 function Feature({ title, description, code, className }: FeatureProps) {
   return (
     <div className={className} data-title={title}>
-      <div className="text--center">
+      <div>
         <h3>{title}</h3>
         <p>{description}</p>
       </div>
-      <CodeBlock className={styles.transparentCodeBlock} language="ts">
-        {code}
-      </CodeBlock>
+      <div className={styles.windowsCode}>
+        <div className={styles.windowsCodeHeader}>
+          <div className={styles.windowsCodeHeaderDotContainer}>
+            <div className={styles.windowsCodeHeaderDot}></div>
+            <div className={styles.windowsCodeHeaderDot}></div>
+            <div className={styles.windowsCodeHeaderDot}></div>
+          </div>
+        </div>
+        <CodeBlock className={styles.transparentCodeBlock} language="ts">
+          {code}
+        </CodeBlock>
+      </div>
     </div>
   );
 }
@@ -123,7 +132,7 @@ export default function HomepageFeatures(): JSX.Element {
             } else {
               main.back();
             }
-            }
+          }
         }
       }
     });
@@ -152,7 +161,6 @@ export default function HomepageFeatures(): JSX.Element {
   return (
     <div>
       <canvas id="cubecanvas" className={styles.cubeCanvas}></canvas>
-      <h1 className={styles.mainTitle}>Three.ez</h1>
       {showFeature && (
         <section className={styles.featuresContainer}>
           {FeatureList.map((props) => (

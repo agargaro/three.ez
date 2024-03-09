@@ -12,7 +12,6 @@
 
 .features {
   display: flex;
-  flex-direction: column;
   align-items: flex-start;
   padding: 6rem 0;
   width: 100%;
@@ -21,19 +20,18 @@
   scroll-snap-align: start;
   scroll-behavior: smooth;
   scroll-snap-stop: always;
-  height: calc(100vh - calc(var(--ifm-navbar-height) + var(--ifm-navbar-padding-vertical) * 2));
+  height: calc(100% - calc(var(--ifm-navbar-height) + var(--ifm-navbar-padding-vertical) * 2));
 }
 .featuresContainer {
   scroll-snap-type: y mandatory;
   overflow-y: scroll;
   overflow-x: hidden;
-  max-height: calc(100vh - calc(var(--ifm-navbar-height) + var(--ifm-navbar-padding-vertical) * 2));
+  max-height: calc(100% - calc(var(--ifm-navbar-height) + var(--ifm-navbar-padding-vertical) * 2));
 }
 
 .transparentCodeBlock {
-  --prism-background-color: #15182d36 !important;
+  --prism-background-color: transparent !important;
   backdrop-filter: blur(6px);
-  border: 1px solid #ffffff80;
 }
 
 .cubeCanvas {
@@ -43,7 +41,42 @@
   touch-action: none;
   user-select: none;
   border: 1px solid red;
-  position: absolute;
+  position: relative;
   top: 0;
   z-index: -1;
+}
+
+.windowsCode {
+  --prism-background-color: #15182d36 !important;
+  background-color: var(--prism-background-color);
+  backdrop-filter: blur(6px);
+  border-radius: 10px;
+  box-shadow: 0px 1px 20px 0px #77777770;
+} 
+
+
+.windowsCodeHeader {
+  width: 100%;
+  margin-bottom: -30px;
+}
+
+.windowsCodeHeaderDotContainer{
+  display: inline-flex;
+  gap:8px;
+  padding:10px
+}
+.windowsCodeHeaderDot {
+ border-radius: 50%;
+ width: 10px;
+ height: 10px;
+ background-color: var(--dot-bgcolor);
+}
+.windowsCodeHeaderDot:nth-of-type(1) {
+  --dot-bgcolor: #e05e58
+}
+.windowsCodeHeaderDot:nth-of-type(2) {
+  --dot-bgcolor: #efbc40
+}
+.windowsCodeHeaderDot:nth-of-type(3) {
+  --dot-bgcolor: #75c74d
 }
