@@ -6,7 +6,7 @@ export type ObjVec3 = Vector3 | Object3D;
 const ORIGIN = new Vector3();
 
 export class VectorUtils {
-  public static DEFAULT_NORMAL = new Vector3(0, 0, 1);
+  public static readonly DEFAULT_NORMAL = new Vector3(0, 0, 1);
 
   public static getPositionFromObject3D(item: VectorObject3D): Vector3 {
     return (item as Object3D).isObject3D ? (item as Object3D).position : (item as Vector3);

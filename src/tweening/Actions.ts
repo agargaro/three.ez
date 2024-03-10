@@ -1,9 +1,10 @@
-import { Color, ColorRepresentation, Euler, MathUtils, Quaternion, Vector, Vector2, Vector3, Vector4 } from "three";
-import { DEFAULT_EASING, Easing, EasingFunction, Easings } from "./Easings";
+import { Color, ColorRepresentation, Euler, MathUtils, Quaternion, Vector2, Vector3, Vector4 } from "three";
+import { Easing, EasingFunction, Easings } from "./Easings";
 import { RunningAction } from "./RunningTween";
 import { Tween } from "./Tween";
 
 const easings = new Easings();
+export type Vector = Vector2 | Vector3 | Vector4;
 export type AllowedTypes = number | Vector | Quaternion | Euler | ColorRepresentation;
 export type Omitype<T, U> = { [P in keyof T as T[P] extends U ? never : P]: T[P] };
 export type PickType<T, U> = { [P in keyof T as T[P] extends U ? P : never]: T[P] };
@@ -136,7 +137,7 @@ export class ActionMotion<T> implements IAction<T> {
     }
 
     private getEasing(): EasingFunction {
-        const easing = this.config?.easing ?? DEFAULT_EASING;
+        const easing = this.config?.easing ?? Easings.DEFAULT_EASING;
         return typeof easing === "string" ? (easings[easing].bind(easings) ?? easings.linear) : easing;
     }
 
@@ -149,8 +150,8 @@ export class ActionMotion<T> implements IAction<T> {
                 time: this.time,
                 easing: this.getEasing(),
                 start: targetValue.clone(),
-                end: this.isBy ? value.clone().add(targetValue) : value,
-                callback: (start, end, alpha) => { targetValue.lerpVectors(start, end, alpha) }
+                end: this.isBy ? value.clone().add(targetValue as Vector4) : value,
+                callback: (start, end, alpha) => { targetValue.lerpVectors(start as Vector4, end as Vector4, alpha) }
             };
         }
     }

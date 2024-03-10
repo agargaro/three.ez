@@ -42,13 +42,6 @@ export * from './utils/Stats';
 export * from './utils/Utils';
 export * from './utils/VectorUtils';
 
-/** @internal */
-declare module 'three/src/math/Vector2' {
-    export interface Vector {
-        lerpVectors(v1: Vector, v2: Vector, alpha: number): this;
-    }
-}
-
 declare module 'three/src/core/Object3D' {
     export interface Object3D extends Object3DExtPrototype { }
 }
