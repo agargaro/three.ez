@@ -219,9 +219,9 @@ Or can import it from CDN:
 <script type="importmap">
 {
   "imports": {
-    "three": "https://unpkg.com/three@0.158.0/build/three.module.js",
-    "three/examples/jsm": "https://unpkg.com/three@0.158.0/examples/jsm/",
-    "@three.ez/main": "https://unpkg.com/@three.ez/main@0.4.10/bundle.js"
+    "three": "https://unpkg.com/three@0.162.0/build/three.module.js",
+    "three/examples/jsm": "https://unpkg.com/three@0.162.0/examples/jsm/",
+    "@three.ez/main": "https://unpkg.com/@three.ez/main@0.5.0/bundle.js"
   }
 }
 </script>

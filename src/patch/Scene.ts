@@ -3,8 +3,9 @@ import { EventsCache } from "../events/MiscEventsManager";
 import { activeSmartRendering, applySmartRenderingPatch, removeSmartRenderingPatch } from "./SmartRendering";
 import { Binding } from "../binding/Binding";
 import { FocusEventExt, IntersectionExt } from "../events/Events";
-import { DEFAULT_DRAGGABLE, DEFAULT_INTERCEPT_BY_RAYCASTER, addBase, removeBase } from "./Object3D";
+import { addBase, removeBase } from "./Object3D";
 import { EventsDispatcher } from "../events/EventsDispatcher";
+import { Default } from "../events/Default";
 
 /**
  * Represents the prototype for extending Scene functionality.
@@ -108,8 +109,8 @@ Scene.prototype.remove = function (object: Object3D) {
 Object.defineProperty(Scene.prototype, "userData", { // needed to inject code in constructor
     set: function (this: Scene, value) {
         this.focusable = false;
-        this.draggable = DEFAULT_DRAGGABLE;
-        this.interceptByRaycaster = DEFAULT_INTERCEPT_BY_RAYCASTER;
+        this.draggable = Default.draggable;
+        this.interceptByRaycaster = Default.interceptByRaycaster;
         this.tags = new Set();
         this.__boundCallbacks = [];
         this.__eventsDispatcher = new EventsDispatcher(this);
