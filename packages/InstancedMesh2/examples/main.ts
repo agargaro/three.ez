@@ -1,4 +1,4 @@
-import { Asset, Main, PerspectiveCameraAuto } from '@three.ez/main';
+import { Asset, Main, PerspectiveCameraAuto } from '../../../src/index';
 import { ACESFilmicToneMapping, AmbientLight, BufferGeometry, DirectionalLight, FogExp2, Mesh, MeshLambertMaterial, MeshStandardMaterial, PlaneGeometry, Scene, Vector3 } from 'three';
 import { MapControls } from 'three/examples/jsm/controls/MapControls';
 import { GUI } from 'three/examples/jsm/libs/lil-gui.module.min';
