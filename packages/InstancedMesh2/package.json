@@ -7,7 +7,7 @@
   "main": "bundle.js",
   "types": "index.d.ts",
   "homepage": "https://agargaro.github.io/three.ez",
-  "repository": "https://github.com/agargaro/three.ez",
+  "repository": "https://github.com/agargaro/three.ez/tree/master/packages/InstancedMesh2",
   "keywords": [
     "three",
     "three.js",
