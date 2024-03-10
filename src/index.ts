@@ -7,6 +7,7 @@ export * from './cameras/OrthographicCameraAuto';
 export * from './cameras/PerspectiveCameraAuto';
 export * from './core/Main';
 export * from './events/CursorManager';
+export * from './events/Default';
 export * from './events/DragAndDropManager';
 export * from './events/Events';
 export * from './events/EventsDispatcher';

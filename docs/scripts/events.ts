@@ -1,4 +1,5 @@
 export * from '../../src/events/CursorManager';
+export * from '../../src/events/Default';
 export * from '../../src/events/DragAndDropManager';
 export * from '../../src/events/Events';
 export * from '../../src/events/EventsDispatcher';
