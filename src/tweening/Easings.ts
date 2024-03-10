@@ -2,14 +2,14 @@
 export type EasingFunction = (x: number) => number;
 /** Type representing an easing type, which can be either a predefined easing function or a custom easing function. */
 export type Easing = keyof Easings | EasingFunction;
-/** The default easing function used when no easing is specified. */
-export let DEFAULT_EASING: keyof Easings = "easeInOutExpo";
 
 /**
  * Class that provides various easing functions for tweening animations.
  * For more info on these easing functions, check https://easings.net.
  */
 export class Easings {
+    /** The default easing function used when no easing is specified. */
+    public static DEFAULT_EASING: keyof Easings = "easeInOutExpo";
 
     public linear(x: number): number {
         return x;
