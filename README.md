@@ -29,7 +29,7 @@ This library has only one dependency: `three.js r151+`.
 
 ## ✅ Why three.ez?
 
-- Program the logic of your Object3D more quickly and intuitively
+- Program the logic of your `Object3D` more quickly and intuitively
 - Less code and cleaner
 - Streamlined rendering
 - Declarative and imperative programming
