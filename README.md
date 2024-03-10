@@ -221,7 +221,7 @@ Or can import it from CDN:
   "imports": {
     "three": "https://unpkg.com/three@0.162.0/build/three.module.js",
     "three/examples/jsm": "https://unpkg.com/three@0.162.0/examples/jsm/",
-    "@three.ez/main": "https://unpkg.com/@three.ez/main@0.5.0/bundle.js"
+    "@three.ez/main": "https://unpkg.com/@three.ez/main@0.5.1/bundle.js"
   }
 }
 </script>
