@@ -3,9 +3,9 @@
  */
 export class Default {
     /** The default setting for 'focusable' for newly created Object3Ds. */
-    public static focusable: boolean;
+    public static focusable = true;
     /** The default setting for 'draggable' for newly created Object3Ds. */
-    public static draggable: boolean;
+    public static draggable = false;
     /** The default setting for 'interceptByRaycaster' for newly created Object3Ds. */
-    public static interceptByRaycaster: boolean;
+    public static interceptByRaycaster = true;
 }
