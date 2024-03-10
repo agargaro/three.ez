@@ -288,9 +288,7 @@ export class InstancedMesh2<T = {}, G extends BufferGeometry = BufferGeometry, M
     }
 
     if (_show.length > 0 || _hide.length > 0) {
-      // console.time("swapping");
       this.setInstancesVisibility(_show, _hide);
-      // console.timeEnd("swapping");
 
       if (this._behaviour === CullingStatic) {
         this.needsUpdate();
@@ -307,7 +305,6 @@ export class InstancedMesh2<T = {}, G extends BufferGeometry = BufferGeometry, M
     _projScreenMatrix.multiplyMatrices(camera.projectionMatrix, camera.matrixWorldInverse)
     _frustum.setFromProjectionMatrix(_projScreenMatrix);
 
-    // console.time("culling");
     const instances = this.instances;
     const bSphere = this.geometry.boundingSphere;
     const radius = bSphere.radius;
@@ -330,7 +327,6 @@ export class InstancedMesh2<T = {}, G extends BufferGeometry = BufferGeometry, M
         instance.forceUpdateMatrix();
       }
     }
-    // console.timeEnd("culling");
   }
 
   // this is faster than Math.max(scale.x, scale.y, scale.z)

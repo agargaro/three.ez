@@ -254,33 +254,6 @@ export class InstancedMeshBVH {
     this.verbose && console.timeEnd("culling");
   }
 
-  private traverseVisibility2(node: Node, mask: number, force?: number): void {
-    const visibility = force ?? (mask = this._frustum.intesectsBoxMask(node.bbox, mask));
-
-    if (visibility >= 1 || visibility !== node.visibilityMask) { // 1 = intersect
-
-      if (node.leaves) {
-        if (node.visibilityMask === -1) { // -1 = out
-          const leaves = node.leaves;
-          for (let i = 0, l = leaves.length; i < l; i++) {
-            if (leaves[i]._visible) this._show.push(leaves[i]);
-          }
-        } else if (visibility === -1) { // -1 = out
-          const leaves = node.leaves;
-          for (let i = 0, l = leaves.length; i < l; i++) {
-            if (leaves[i]._visible) this._hide.push(leaves[i]);
-          }
-        }
-      } else {
-        const force = visibility >= 1 ? undefined : visibility;  // 1 = intersect
-        this.traverseVisibility2(node.left, mask, force);
-        this.traverseVisibility2(node.right, mask, force);
-      }
-
-      node.visibilityMask = visibility;
-    }
-  }
-
   private traverseVisibility(node: Node, mask: number): void {
     mask = this._frustum.intesectsBoxMask(node.bbox, mask);
 
