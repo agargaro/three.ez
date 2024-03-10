@@ -1,42 +1,19 @@
 ---
-id: "Cameras.OrthographicCameraAuto"
-title: "Class: OrthographicCameraAuto"
-sidebar_label: "OrthographicCameraAuto"
+id: "Events.Hitbox"
+title: "Class: Hitbox"
+sidebar_label: "Hitbox"
 custom_edit_url: null
 ---
 
-[Cameras](../namespaces/Cameras.md).OrthographicCameraAuto
+[Events](../namespaces/Events.md).Hitbox
 
-Extends the OrthographicCamera to automatically resize based on a fixed width or height dimension.
+Hitbox for collision detection.
 
 ## Hierarchy
 
-- `OrthographicCamera`
+- `Mesh`
 
-  ↳ **`OrthographicCameraAuto`**
-
-## Constructors
-
-### constructor
-
-• **new OrthographicCameraAuto**(`size?`, `fixedWidth?`, `near?`, `far?`)
-
-#### Parameters
-
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `size` | `number` | `2` | Fixed width or height dimension based on the 'fixedWidth' property. Default `2`. |
-| `fixedWidth` | `boolean` | `true` | If true, the 'size' property will refer to the width. If not, to the height. Default `true`. |
-| `near?` | `number` | `undefined` | Camera frustum near plane. Default `0.1`. |
-| `far?` | `number` | `undefined` | Camera frustum far plane. Default `2000`. |
-
-#### Overrides
-
-OrthographicCamera.constructor
-
-#### Defined in
-
-[src/cameras/OrthographicCameraAuto.ts:36](https://github.com/agargaro/three.ez/blob/ddf86ba/src/cameras/OrthographicCameraAuto.ts#L36)
+  ↳ **`Hitbox`**
 
 ## Properties
 
@@ -48,7 +25,7 @@ Cursor style when interacting with the object.
 
 #### Inherited from
 
-OrthographicCamera.cursor
+Mesh.cursor
 
 #### Defined in
 
@@ -64,7 +41,7 @@ Cursor style when dragging the object.
 
 #### Inherited from
 
-OrthographicCamera.cursorDrag
+Mesh.cursorDrag
 
 #### Defined in
 
@@ -80,7 +57,7 @@ Cursor style when dropping an object onto this one.
 
 #### Inherited from
 
-OrthographicCamera.cursorDrop
+Mesh.cursorDrop
 
 #### Defined in
 
@@ -96,7 +73,7 @@ Indicates which object will be dragged instead of this one.
 
 #### Inherited from
 
-OrthographicCamera.dragTarget
+Mesh.dragTarget
 
 #### Defined in
 
@@ -112,7 +89,7 @@ Indicates whether the object is draggable. Default is DEFAULT_DRAGGABLE (`false`
 
 #### Inherited from
 
-OrthographicCamera.draggable
+Mesh.draggable
 
 #### Defined in
 
@@ -129,7 +106,7 @@ If set to true, it allows triggering all InteractionEvents; otherwise, events ar
 
 #### Inherited from
 
-OrthographicCamera.enabled
+Mesh.enabled
 
 #### Defined in
 
@@ -145,7 +122,7 @@ Determines when the object is dragged, whether it will have to search for any dr
 
 #### Inherited from
 
-OrthographicCamera.findDropTarget
+Mesh.findDropTarget
 
 #### Defined in
 
@@ -161,7 +138,7 @@ Indicates whether the object can receive focus. Default is DEFAULT_FOCUSABLE (`t
 
 #### Inherited from
 
-OrthographicCamera.focusable
+Mesh.focusable
 
 #### Defined in
 
@@ -177,7 +154,7 @@ Array of hitboxes for collision detection.
 
 #### Inherited from
 
-OrthographicCamera.hitboxes
+Mesh.hitboxes
 
 #### Defined in
 
@@ -193,7 +170,7 @@ Determines if the object can be intercepted by the main raycaster. Default is DE
 
 #### Inherited from
 
-OrthographicCamera.interceptByRaycaster
+Mesh.interceptByRaycaster
 
 #### Defined in
 
@@ -209,7 +186,7 @@ Indicates whether the scene needs rendering.
 
 #### Inherited from
 
-OrthographicCamera.needsRender
+Mesh.needsRender
 
 #### Defined in
 
@@ -225,7 +202,7 @@ Reference to the scene the object belongs to.
 
 #### Inherited from
 
-OrthographicCamera.scene
+Mesh.scene
 
 #### Defined in
 
@@ -241,7 +218,7 @@ Indicates the tags to be searched using the querySelector and `querySelectorAll`
 
 #### Inherited from
 
-OrthographicCamera.tags
+Mesh.tags
 
 #### Defined in
 
@@ -261,7 +238,7 @@ Indicates if the object is currently being clicked.
 
 #### Inherited from
 
-OrthographicCamera.clicking
+Mesh.clicking
 
 #### Defined in
 
@@ -281,7 +258,7 @@ Indicates if the object is currently being dragged.
 
 #### Inherited from
 
-OrthographicCamera.dragging
+Mesh.dragging
 
 #### Defined in
 
@@ -301,7 +278,7 @@ Retrieves the combined enabled state considering parent objects.
 
 #### Inherited from
 
-OrthographicCamera.enabledState
+Mesh.enabledState
 
 #### Defined in
 
@@ -321,27 +298,11 @@ Retrieves the first possible focusable object.
 
 #### Inherited from
 
-OrthographicCamera.firstFocusable
+Mesh.firstFocusable
 
 #### Defined in
 
 [src/patch/Object3D.ts:78](https://github.com/agargaro/three.ez/blob/ddf86ba/src/patch/Object3D.ts#L78)
-
-___
-
-### fixedWidth
-
-• `get` **fixedWidth**(): `boolean`
-
-Determines whether the 'size' property refers to the width (true) or height (false).
-
-#### Returns
-
-`boolean`
-
-#### Defined in
-
-[src/cameras/OrthographicCameraAuto.ts:24](https://github.com/agargaro/three.ez/blob/ddf86ba/src/cameras/OrthographicCameraAuto.ts#L24)
 
 ___
 
@@ -357,7 +318,7 @@ Indicates if the object is currently focused.
 
 #### Inherited from
 
-OrthographicCamera.focused
+Mesh.focused
 
 #### Defined in
 
@@ -377,27 +338,11 @@ Indicates if the primary pointer is over this object.
 
 #### Inherited from
 
-OrthographicCamera.hovered
+Mesh.hovered
 
 #### Defined in
 
 [src/patch/Object3D.ts:66](https://github.com/agargaro/three.ez/blob/ddf86ba/src/patch/Object3D.ts#L66)
-
-___
-
-### size
-
-• `get` **size**(): `number`
-
-Gets or sets the fixed width or height dimension based on the 'fixedWidth' property.
-
-#### Returns
-
-`number`
-
-#### Defined in
-
-[src/cameras/OrthographicCameraAuto.ts:15](https://github.com/agargaro/three.ez/blob/ddf86ba/src/cameras/OrthographicCameraAuto.ts#L15)
 
 ___
 
@@ -413,7 +358,7 @@ Retrieves the combined visibility state considering parent objects.
 
 #### Inherited from
 
-OrthographicCamera.visibilityState
+Mesh.visibilityState
 
 #### Defined in
 
@@ -433,7 +378,7 @@ Applies blur (removes focus) from the object.
 
 #### Inherited from
 
-OrthographicCamera.applyBlur
+Mesh.applyBlur
 
 #### Defined in
 
@@ -453,7 +398,7 @@ Applies focus to the object.
 
 #### Inherited from
 
-OrthographicCamera.applyFocus
+Mesh.applyFocus
 
 #### Defined in
 
@@ -463,7 +408,7 @@ ___
 
 ### bindProperty
 
-▸ **bindProperty**<`T`\>(`property`, `getCallback`, `renderOnChange?`): [`OrthographicCameraAuto`](Cameras.OrthographicCameraAuto.md)
+▸ **bindProperty**<`T`\>(`property`, `getCallback`, `renderOnChange?`): [`Hitbox`](Events.Hitbox.md)
 
 Binds a property to a callback function for updates.
 
@@ -471,25 +416,25 @@ Binds a property to a callback function for updates.
 
 | Name | Type |
 | :------ | :------ |
-| `T` | extends keyof [`OrthographicCameraAuto`](Cameras.OrthographicCameraAuto.md) |
+| `T` | extends keyof [`Hitbox`](Events.Hitbox.md) |
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `property` | `T` | The name of the property to bind. |
-| `getCallback` | () => [`OrthographicCameraAuto`](Cameras.OrthographicCameraAuto.md)[`T`] | A function that retrieves the property's value. |
+| `getCallback` | () => [`Hitbox`](Events.Hitbox.md)[`T`] | A function that retrieves the property's value. |
 | `renderOnChange?` | `boolean` | Indicates whether to render when the property changes (optional, default: `false`). |
 
 #### Returns
 
-[`OrthographicCameraAuto`](Cameras.OrthographicCameraAuto.md)
+[`Hitbox`](Events.Hitbox.md)
 
 The instance of the object with the binding applied.
 
 #### Inherited from
 
-OrthographicCamera.bindProperty
+Mesh.bindProperty
 
 #### Defined in
 
@@ -516,7 +461,7 @@ If 'recursive' is set to true, it will also calculate bindings for all children.
 
 #### Inherited from
 
-OrthographicCamera.detectChanges
+Mesh.detectChanges
 
 #### Defined in
 
@@ -551,7 +496,7 @@ Checks if the object has a specific event listener.
 
 #### Inherited from
 
-OrthographicCamera.hasEvent
+Mesh.hasEvent
 
 #### Defined in
 
@@ -584,7 +529,7 @@ Removes an event listener from the object.
 
 #### Inherited from
 
-OrthographicCamera.off
+Mesh.off
 
 #### Defined in
 
@@ -609,7 +554,7 @@ Attaches an event listener to the object.
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `type` | `K` \| `K`[] | The type of event to listen for. |
-| `listener` | (`this`: [`OrthographicCameraAuto`](Cameras.OrthographicCameraAuto.md), `event?`: `Events`[`K`]) => `void` | The callback function to execute when the event occurs. |
+| `listener` | (`this`: [`Hitbox`](Events.Hitbox.md), `event?`: `Events`[`K`]) => `void` | The callback function to execute when the event occurs. |
 
 #### Returns
 
@@ -635,7 +580,7 @@ A function to remove the event listener.
 
 #### Inherited from
 
-OrthographicCamera.on
+Mesh.on
 
 #### Defined in
 
@@ -664,7 +609,7 @@ The first Object3D element that matches the query, or undefined if no match is f
 
 #### Inherited from
 
-OrthographicCamera.querySelector
+Mesh.querySelector
 
 #### Defined in
 
@@ -693,7 +638,7 @@ An array of Object3D elements that match the query.
 
 #### Inherited from
 
-OrthographicCamera.querySelectorAll
+Mesh.querySelectorAll
 
 #### Defined in
 
@@ -715,7 +660,7 @@ Instead, they must be manually computed using the 'detectChanges' function.
 
 #### Inherited from
 
-OrthographicCamera.setManualDetectionMode
+Mesh.setManualDetectionMode
 
 #### Defined in
 
@@ -748,7 +693,7 @@ Triggers a specific event on the object.
 
 #### Inherited from
 
-OrthographicCamera.trigger
+Mesh.trigger
 
 #### Defined in
 
@@ -781,7 +726,7 @@ Triggers a specific event on the object and all its ancestors.
 
 #### Inherited from
 
-OrthographicCamera.triggerAncestor
+Mesh.triggerAncestor
 
 #### Defined in
 
@@ -815,7 +760,7 @@ A Tween instance for further configuration.
 
 #### Inherited from
 
-OrthographicCamera.tween
+Mesh.tween
 
 #### Defined in
 
@@ -825,7 +770,7 @@ ___
 
 ### unbindProperty
 
-▸ **unbindProperty**<`T`\>(`property`): [`OrthographicCameraAuto`](Cameras.OrthographicCameraAuto.md)
+▸ **unbindProperty**<`T`\>(`property`): [`Hitbox`](Events.Hitbox.md)
 
 Unbinds a previously bound property from the object.
 
@@ -833,7 +778,7 @@ Unbinds a previously bound property from the object.
 
 | Name | Type |
 | :------ | :------ |
-| `T` | extends keyof [`OrthographicCameraAuto`](Cameras.OrthographicCameraAuto.md) |
+| `T` | extends keyof [`Hitbox`](Events.Hitbox.md) |
 
 #### Parameters
 
@@ -843,13 +788,13 @@ Unbinds a previously bound property from the object.
 
 #### Returns
 
-[`OrthographicCameraAuto`](Cameras.OrthographicCameraAuto.md)
+[`Hitbox`](Events.Hitbox.md)
 
 The instance of the object with the binding removed.
 
 #### Inherited from
 
-OrthographicCamera.unbindProperty
+Mesh.unbindProperty
 
 #### Defined in
 

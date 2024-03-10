@@ -8,9 +8,11 @@ custom_edit_url: null
 
 ## Classes
 
+- [Default](../classes/Events.Default.md)
 - [DragEventExt](../classes/Events.DragEventExt.md)
 - [EventExt](../classes/Events.EventExt.md)
 - [FocusEventExt](../classes/Events.FocusEventExt.md)
+- [Hitbox](../classes/Events.Hitbox.md)
 - [KeyboardEventExt](../classes/Events.KeyboardEventExt.md)
 - [MouseEventExt](../classes/Events.MouseEventExt.md)
 - [PointerEventExt](../classes/Events.PointerEventExt.md)
@@ -37,7 +39,7 @@ Represents a cursor, either by a CSS cursor key or a URL.
 
 #### Defined in
 
-[src/events/CursorManager.ts:18](https://github.com/agargaro/three.ez/blob/fab1372/src/events/CursorManager.ts#L18)
+[src/events/CursorManager.ts:18](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/CursorManager.ts#L18)
 
 ___
 
@@ -49,7 +51,7 @@ Valid cursor values based on the CSS cursor property.
 
 #### Defined in
 
-[src/events/CursorManager.ts:5](https://github.com/agargaro/three.ez/blob/fab1372/src/events/CursorManager.ts#L5)
+[src/events/CursorManager.ts:5](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/CursorManager.ts#L5)
 
 ___
 
@@ -78,4 +80,4 @@ A negative value if `a` should precede `b`, a positive value if `b` should prece
 
 #### Defined in
 
-[src/events/RaycasterManager.ts:11](https://github.com/agargaro/three.ez/blob/fab1372/src/events/RaycasterManager.ts#L11)
+[src/events/RaycasterManager.ts:12](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/RaycasterManager.ts#L12)

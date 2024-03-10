@@ -9,3 +9,15 @@ custom_edit_url: null
 
 Class that provides various easing functions for tweening animations.
 For more info on these easing functions, check https://easings.net.
+
+## Properties
+
+### DEFAULT\_EASING
+
+▪ `Static` **DEFAULT\_EASING**: keyof [`Easings`](Tweening.Easings.md) = `"easeInOutExpo"`
+
+The default easing function used when no easing is specified.
+
+#### Defined in
+
+[src/tweening/Easings.ts:12](https://github.com/agargaro/three.ez/blob/ddf86ba/src/tweening/Easings.ts#L12)

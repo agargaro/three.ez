@@ -27,4 +27,4 @@ Porting of mrdoob statistics, with support if no rendered frame.
 
 #### Defined in
 
-[src/utils/Stats.ts:37](https://github.com/agargaro/three.ez/blob/fab1372/src/utils/Stats.ts#L37)
+[src/utils/Stats.ts:37](https://github.com/agargaro/three.ez/blob/ddf86ba/src/utils/Stats.ts#L37)

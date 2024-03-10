@@ -35,7 +35,7 @@ A Tween represents a series of actions that can be applied to a target object to
 
 #### Defined in
 
-[src/tweening/Tween.ts:23](https://github.com/agargaro/three.ez/blob/fab1372/src/tweening/Tween.ts#L23)
+[src/tweening/Tween.ts:23](https://github.com/agargaro/three.ez/blob/ddf86ba/src/tweening/Tween.ts#L23)
 
 ## Properties
 
@@ -47,7 +47,7 @@ Unique identifier. If specified, the old tween with the same id will be stopped.
 
 #### Defined in
 
-[src/tweening/Tween.ts:18](https://github.com/agargaro/three.ez/blob/fab1372/src/tweening/Tween.ts#L18)
+[src/tweening/Tween.ts:18](https://github.com/agargaro/three.ez/blob/ddf86ba/src/tweening/Tween.ts#L18)
 
 ___
 
@@ -59,7 +59,7 @@ Tags used for filtering and management.
 
 #### Defined in
 
-[src/tweening/Tween.ts:16](https://github.com/agargaro/three.ez/blob/fab1372/src/tweening/Tween.ts#L16)
+[src/tweening/Tween.ts:16](https://github.com/agargaro/three.ez/blob/ddf86ba/src/tweening/Tween.ts#L16)
 
 ___
 
@@ -71,7 +71,7 @@ The object to apply the tween to.
 
 #### Defined in
 
-[src/tweening/Tween.ts:14](https://github.com/agargaro/three.ez/blob/fab1372/src/tweening/Tween.ts#L14)
+[src/tweening/Tween.ts:14](https://github.com/agargaro/three.ez/blob/ddf86ba/src/tweening/Tween.ts#L14)
 
 ## Methods
 
@@ -97,7 +97,7 @@ The updated Tween instance.
 
 #### Defined in
 
-[src/tweening/Tween.ts:76](https://github.com/agargaro/three.ez/blob/fab1372/src/tweening/Tween.ts#L76)
+[src/tweening/Tween.ts:76](https://github.com/agargaro/three.ez/blob/ddf86ba/src/tweening/Tween.ts#L76)
 
 ___
 
@@ -121,7 +121,7 @@ The updated Tween instance.
 
 #### Defined in
 
-[src/tweening/Tween.ts:96](https://github.com/agargaro/three.ez/blob/fab1372/src/tweening/Tween.ts#L96)
+[src/tweening/Tween.ts:96](https://github.com/agargaro/three.ez/blob/ddf86ba/src/tweening/Tween.ts#L96)
 
 ___
 
@@ -145,7 +145,7 @@ The updated Tween instance.
 
 #### Defined in
 
-[src/tweening/Tween.ts:202](https://github.com/agargaro/three.ez/blob/fab1372/src/tweening/Tween.ts#L202)
+[src/tweening/Tween.ts:202](https://github.com/agargaro/three.ez/blob/ddf86ba/src/tweening/Tween.ts#L202)
 
 ___
 
@@ -163,7 +163,7 @@ A new Tween instance with the same configuration.
 
 #### Defined in
 
-[src/tweening/Tween.ts:212](https://github.com/agargaro/three.ez/blob/fab1372/src/tweening/Tween.ts#L212)
+[src/tweening/Tween.ts:212](https://github.com/agargaro/three.ez/blob/ddf86ba/src/tweening/Tween.ts#L212)
 
 ___
 
@@ -187,7 +187,7 @@ The updated Tween instance.
 
 #### Defined in
 
-[src/tweening/Tween.ts:106](https://github.com/agargaro/three.ez/blob/fab1372/src/tweening/Tween.ts#L106)
+[src/tweening/Tween.ts:106](https://github.com/agargaro/three.ez/blob/ddf86ba/src/tweening/Tween.ts#L106)
 
 ___
 
@@ -211,7 +211,7 @@ The updated Tween instance.
 
 #### Defined in
 
-[src/tweening/Tween.ts:178](https://github.com/agargaro/three.ez/blob/fab1372/src/tweening/Tween.ts#L178)
+[src/tweening/Tween.ts:178](https://github.com/agargaro/three.ez/blob/ddf86ba/src/tweening/Tween.ts#L178)
 
 ___
 
@@ -235,7 +235,7 @@ The updated Tween instance.
 
 #### Defined in
 
-[src/tweening/Tween.ts:116](https://github.com/agargaro/three.ez/blob/fab1372/src/tweening/Tween.ts#L116)
+[src/tweening/Tween.ts:116](https://github.com/agargaro/three.ez/blob/ddf86ba/src/tweening/Tween.ts#L116)
 
 ___
 
@@ -253,7 +253,7 @@ The updated Tween instance.
 
 #### Defined in
 
-[src/tweening/Tween.ts:133](https://github.com/agargaro/three.ez/blob/fab1372/src/tweening/Tween.ts#L133)
+[src/tweening/Tween.ts:133](https://github.com/agargaro/three.ez/blob/ddf86ba/src/tweening/Tween.ts#L133)
 
 ___
 
@@ -277,7 +277,7 @@ The updated Tween instance.
 
 #### Defined in
 
-[src/tweening/Tween.ts:189](https://github.com/agargaro/three.ez/blob/fab1372/src/tweening/Tween.ts#L189)
+[src/tweening/Tween.ts:189](https://github.com/agargaro/three.ez/blob/ddf86ba/src/tweening/Tween.ts#L189)
 
 ___
 
@@ -301,7 +301,7 @@ The updated Tween instance.
 
 #### Defined in
 
-[src/tweening/Tween.ts:86](https://github.com/agargaro/three.ez/blob/fab1372/src/tweening/Tween.ts#L86)
+[src/tweening/Tween.ts:86](https://github.com/agargaro/three.ez/blob/ddf86ba/src/tweening/Tween.ts#L86)
 
 ___
 
@@ -325,7 +325,7 @@ The updated Tween instance.
 
 #### Defined in
 
-[src/tweening/Tween.ts:32](https://github.com/agargaro/three.ez/blob/fab1372/src/tweening/Tween.ts#L32)
+[src/tweening/Tween.ts:32](https://github.com/agargaro/three.ez/blob/ddf86ba/src/tweening/Tween.ts#L32)
 
 ___
 
@@ -349,7 +349,7 @@ The updated Tween instance.
 
 #### Defined in
 
-[src/tweening/Tween.ts:42](https://github.com/agargaro/three.ez/blob/fab1372/src/tweening/Tween.ts#L42)
+[src/tweening/Tween.ts:42](https://github.com/agargaro/three.ez/blob/ddf86ba/src/tweening/Tween.ts#L42)
 
 ___
 
@@ -373,7 +373,7 @@ The updated Tween instance.
 
 #### Defined in
 
-[src/tweening/Tween.ts:52](https://github.com/agargaro/three.ez/blob/fab1372/src/tweening/Tween.ts#L52)
+[src/tweening/Tween.ts:52](https://github.com/agargaro/three.ez/blob/ddf86ba/src/tweening/Tween.ts#L52)
 
 ___
 
@@ -391,7 +391,7 @@ A RunningTween instance that controls the execution of the Tween.
 
 #### Defined in
 
-[src/tweening/Tween.ts:224](https://github.com/agargaro/three.ez/blob/fab1372/src/tweening/Tween.ts#L224)
+[src/tweening/Tween.ts:224](https://github.com/agargaro/three.ez/blob/ddf86ba/src/tweening/Tween.ts#L224)
 
 ___
 
@@ -415,7 +415,7 @@ The updated Tween instance.
 
 #### Defined in
 
-[src/tweening/Tween.ts:167](https://github.com/agargaro/three.ez/blob/fab1372/src/tweening/Tween.ts#L167)
+[src/tweening/Tween.ts:167](https://github.com/agargaro/three.ez/blob/ddf86ba/src/tweening/Tween.ts#L167)
 
 ___
 
@@ -441,7 +441,7 @@ The updated Tween instance.
 
 #### Defined in
 
-[src/tweening/Tween.ts:64](https://github.com/agargaro/three.ez/blob/fab1372/src/tweening/Tween.ts#L64)
+[src/tweening/Tween.ts:64](https://github.com/agargaro/three.ez/blob/ddf86ba/src/tweening/Tween.ts#L64)
 
 ___
 
@@ -465,7 +465,7 @@ The updated Tween instance.
 
 #### Defined in
 
-[src/tweening/Tween.ts:142](https://github.com/agargaro/three.ez/blob/fab1372/src/tweening/Tween.ts#L142)
+[src/tweening/Tween.ts:142](https://github.com/agargaro/three.ez/blob/ddf86ba/src/tweening/Tween.ts#L142)
 
 ___
 
@@ -483,4 +483,4 @@ The updated Tween instance.
 
 #### Defined in
 
-[src/tweening/Tween.ts:158](https://github.com/agargaro/three.ez/blob/fab1372/src/tweening/Tween.ts#L158)
+[src/tweening/Tween.ts:158](https://github.com/agargaro/three.ez/blob/ddf86ba/src/tweening/Tween.ts#L158)

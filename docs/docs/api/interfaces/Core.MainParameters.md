@@ -13,13 +13,28 @@ Configuration parameters for initializing the Main class.
 
 ### animate
 
-• `Optional` **animate**: `XRFrameRequestCallback`
+• `Optional` **animate**: (`delta`: `number`, `total`: `number`) => `void`
+
+#### Type declaration
+
+▸ (`delta`, `total`): `void`
 
 Callback function executed for each frame.
 
+##### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `delta` | `number` |
+| `total` | `number` |
+
+##### Returns
+
+`void`
+
 #### Defined in
 
-[src/core/Main.ts:27](https://github.com/agargaro/three.ez/blob/fab1372/src/core/Main.ts#L27)
+[src/core/Main.ts:32](https://github.com/agargaro/three.ez/blob/ddf86ba/src/core/Main.ts#L32)
 
 ___
 
@@ -31,7 +46,7 @@ Default background alpha (transparency) value (default: 1).
 
 #### Defined in
 
-[src/core/Main.ts:25](https://github.com/agargaro/three.ez/blob/fab1372/src/core/Main.ts#L25)
+[src/core/Main.ts:30](https://github.com/agargaro/three.ez/blob/ddf86ba/src/core/Main.ts#L30)
 
 ___
 
@@ -43,7 +58,7 @@ Default background color (default: 'black').
 
 #### Defined in
 
-[src/core/Main.ts:23](https://github.com/agargaro/three.ez/blob/fab1372/src/core/Main.ts#L23)
+[src/core/Main.ts:28](https://github.com/agargaro/three.ez/blob/ddf86ba/src/core/Main.ts#L28)
 
 ___
 
@@ -55,7 +70,7 @@ Disable the context menu on right-click (default: true).
 
 #### Defined in
 
-[src/core/Main.ts:21](https://github.com/agargaro/three.ez/blob/fab1372/src/core/Main.ts#L21)
+[src/core/Main.ts:26](https://github.com/agargaro/three.ez/blob/ddf86ba/src/core/Main.ts#L26)
 
 ___
 
@@ -67,7 +82,7 @@ Enable cursor handling in the application (default: true).
 
 #### Defined in
 
-[src/core/Main.ts:31](https://github.com/agargaro/three.ez/blob/fab1372/src/core/Main.ts#L31)
+[src/core/Main.ts:36](https://github.com/agargaro/three.ez/blob/ddf86ba/src/core/Main.ts#L36)
 
 ___
 
@@ -79,7 +94,7 @@ Enable full-screen mode and automatic canvas resizing (default: true).
 
 #### Defined in
 
-[src/core/Main.ts:17](https://github.com/agargaro/three.ez/blob/fab1372/src/core/Main.ts#L17)
+[src/core/Main.ts:22](https://github.com/agargaro/three.ez/blob/ddf86ba/src/core/Main.ts#L22)
 
 ___
 
@@ -91,7 +106,7 @@ Enable multitouch interactions (default: false).
 
 #### Defined in
 
-[src/core/Main.ts:33](https://github.com/agargaro/three.ez/blob/fab1372/src/core/Main.ts#L33)
+[src/core/Main.ts:38](https://github.com/agargaro/three.ez/blob/ddf86ba/src/core/Main.ts#L38)
 
 ___
 
@@ -103,7 +118,7 @@ Configuration parameters for the WebGLRenderer.
 
 #### Defined in
 
-[src/core/Main.ts:29](https://github.com/agargaro/three.ez/blob/fab1372/src/core/Main.ts#L29)
+[src/core/Main.ts:34](https://github.com/agargaro/three.ez/blob/ddf86ba/src/core/Main.ts#L34)
 
 ___
 
@@ -115,4 +130,4 @@ Display performance statistics (default: true).
 
 #### Defined in
 
-[src/core/Main.ts:19](https://github.com/agargaro/three.ez/blob/fab1372/src/core/Main.ts#L19)
+[src/core/Main.ts:24](https://github.com/agargaro/three.ez/blob/ddf86ba/src/core/Main.ts#L24)

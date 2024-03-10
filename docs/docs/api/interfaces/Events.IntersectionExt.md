@@ -19,10 +19,10 @@ Represents an extended intersection between a ray and 3D objects in a scene.
 
 ### hitbox
 
-• **hitbox**: `Mesh`<`BufferGeometry`<`NormalBufferAttributes`\>, `Material` \| `Material`[], `Object3DEventMap`\>
+• **hitbox**: [`Hitbox`](../classes/Events.Hitbox.md)
 
 The hitbox hit by the raycaster.
 
 #### Defined in
 
-[src/events/Events.ts:105](https://github.com/agargaro/three.ez/blob/fab1372/src/events/Events.ts#L105)
+[src/events/Events.ts:106](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L106)
