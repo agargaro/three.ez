@@ -37,7 +37,7 @@ main.createView({
   }
 });
 
-const controls = new OrbitControls(camera, main.renderer.domElement);
+new OrbitControls(camera, main.renderer.domElement);
 
 const gui = new GUI();
 gui.add(boxes.instances as any, 'length').name("instances total").disable();
