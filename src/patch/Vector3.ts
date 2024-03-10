@@ -39,7 +39,7 @@ function patchVector(vec3: Vector3Ext): void {
     Object.setPrototypeOf(vec3, Vector3Ext.prototype);
 }
 
-/** Updated to r158 */
+/** @LASTREV 162 Vector3 */
 class Vector3Ext {
     public distanceToManhattan: (v: Vector3) => number; //remove when fix deprecated d.ts
     public lengthManhattan: () => number; //remove when fix deprecated d.ts
@@ -561,12 +561,12 @@ class Vector3Ext {
     }
 
     randomDirection() {
-        const u = (Math.random() - 0.5) * 2;
-        const t = Math.random() * Math.PI * 2;
-        const f = Math.sqrt(1 - u ** 2);
-        this._x = f * Math.cos(t);
-        this._y = f * Math.sin(t);
-        this._z = u;
+        const theta = Math.random() * Math.PI * 2;
+        const u = Math.random() * 2 - 1;
+        const c = Math.sqrt(1 - u * u);
+        this.x = c * Math.cos(theta);
+        this.y = u;
+        this.z = c * Math.sin(theta);
         this._onChangeCallback();
         return this;
     }

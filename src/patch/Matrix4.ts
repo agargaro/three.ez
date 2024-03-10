@@ -3,7 +3,6 @@ import { Object3D } from "three";
 /** @internal Override compose method because is called for every rendered object and can be performance critical after Vector3 patch. */
 export function applyMatrix4Patch(parent: Object3D): void {
     parent.matrix.compose = function (position: any, quaternion: any, scale: any) {
-
         const te = this.elements;
 
         const x = quaternion._x, y = quaternion._y, z = quaternion._z, w = quaternion._w;
@@ -35,6 +34,5 @@ export function applyMatrix4Patch(parent: Object3D): void {
         te[15] = 1;
 
         return this;
-
     };
 }
