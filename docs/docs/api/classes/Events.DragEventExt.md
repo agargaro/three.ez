@@ -52,7 +52,7 @@ Represents a custom extended drag event.
 
 #### Defined in
 
-[src/events/Events.ts:269](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L269)
+[src/events/Events.ts:269](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L269)
 
 ## Properties
 
@@ -68,7 +68,7 @@ A boolean value indicating whether the event is cancelable.
 
 #### Defined in
 
-[src/events/Events.ts:116](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L116)
+[src/events/Events.ts:116](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L116)
 
 ___
 
@@ -84,7 +84,7 @@ A reference to the currently registered target for the event. This is the object
 
 #### Defined in
 
-[src/events/Events.ts:118](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L118)
+[src/events/Events.ts:118](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L118)
 
 ___
 
@@ -100,7 +100,7 @@ The data that is transferred during a drag and drop interaction.
 
 #### Defined in
 
-[src/events/Events.ts:257](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L257)
+[src/events/Events.ts:257](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L257)
 
 ___
 
@@ -116,7 +116,7 @@ Returns the intersection information between the mouse event and 3D objects in t
 
 #### Defined in
 
-[src/events/Events.ts:200](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L200)
+[src/events/Events.ts:200](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L200)
 
 ___
 
@@ -128,7 +128,7 @@ Returns the new position of the dragged object.'
 
 #### Defined in
 
-[src/events/Events.ts:259](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L259)
+[src/events/Events.ts:259](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L259)
 
 ___
 
@@ -144,7 +144,7 @@ The secondary target for the event, if there is one.
 
 #### Defined in
 
-[src/events/Events.ts:192](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L192)
+[src/events/Events.ts:192](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L192)
 
 ___
 
@@ -160,7 +160,7 @@ The time at which the event was created (in milliseconds). By specification, thi
 
 #### Defined in
 
-[src/events/Events.ts:124](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L124)
+[src/events/Events.ts:124](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L124)
 
 ## Accessors
 
@@ -180,7 +180,7 @@ PointerEventExt.altKey
 
 #### Defined in
 
-[src/events/Events.ts:166](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L166)
+[src/events/Events.ts:166](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L166)
 
 ___
 
@@ -200,7 +200,7 @@ PointerEventExt.bubbles
 
 #### Defined in
 
-[src/events/Events.ts:114](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L114)
+[src/events/Events.ts:114](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L114)
 
 ___
 
@@ -220,7 +220,7 @@ PointerEventExt.button
 
 #### Defined in
 
-[src/events/Events.ts:168](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L168)
+[src/events/Events.ts:168](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L168)
 
 ___
 
@@ -240,7 +240,7 @@ PointerEventExt.buttons
 
 #### Defined in
 
-[src/events/Events.ts:170](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L170)
+[src/events/Events.ts:170](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L170)
 
 ___
 
@@ -260,7 +260,7 @@ PointerEventExt.clientX
 
 #### Defined in
 
-[src/events/Events.ts:172](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L172)
+[src/events/Events.ts:172](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L172)
 
 ___
 
@@ -280,7 +280,7 @@ PointerEventExt.clientY
 
 #### Defined in
 
-[src/events/Events.ts:174](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L174)
+[src/events/Events.ts:174](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L174)
 
 ___
 
@@ -300,7 +300,7 @@ PointerEventExt.ctrlKey
 
 #### Defined in
 
-[src/events/Events.ts:176](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L176)
+[src/events/Events.ts:176](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L176)
 
 ___
 
@@ -320,7 +320,7 @@ PointerEventExt.defaultPrevented
 
 #### Defined in
 
-[src/events/Events.ts:120](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L120)
+[src/events/Events.ts:120](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L120)
 
 ___
 
@@ -340,7 +340,7 @@ PointerEventExt.height
 
 #### Defined in
 
-[src/events/Events.ts:233](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L233)
+[src/events/Events.ts:233](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L233)
 
 ___
 
@@ -360,7 +360,7 @@ PointerEventExt.isPrimary
 
 #### Defined in
 
-[src/events/Events.ts:247](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L247)
+[src/events/Events.ts:247](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L247)
 
 ___
 
@@ -380,7 +380,7 @@ PointerEventExt.metaKey
 
 #### Defined in
 
-[src/events/Events.ts:178](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L178)
+[src/events/Events.ts:178](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L178)
 
 ___
 
@@ -400,7 +400,7 @@ PointerEventExt.movementX
 
 #### Defined in
 
-[src/events/Events.ts:180](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L180)
+[src/events/Events.ts:180](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L180)
 
 ___
 
@@ -420,7 +420,7 @@ PointerEventExt.movementY
 
 #### Defined in
 
-[src/events/Events.ts:182](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L182)
+[src/events/Events.ts:182](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L182)
 
 ___
 
@@ -440,7 +440,7 @@ PointerEventExt.offsetX
 
 #### Defined in
 
-[src/events/Events.ts:184](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L184)
+[src/events/Events.ts:184](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L184)
 
 ___
 
@@ -460,7 +460,7 @@ PointerEventExt.offsetY
 
 #### Defined in
 
-[src/events/Events.ts:186](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L186)
+[src/events/Events.ts:186](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L186)
 
 ___
 
@@ -480,7 +480,7 @@ PointerEventExt.pageX
 
 #### Defined in
 
-[src/events/Events.ts:188](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L188)
+[src/events/Events.ts:188](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L188)
 
 ___
 
@@ -500,7 +500,7 @@ PointerEventExt.pageY
 
 #### Defined in
 
-[src/events/Events.ts:190](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L190)
+[src/events/Events.ts:190](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L190)
 
 ___
 
@@ -520,7 +520,7 @@ PointerEventExt.pointerId
 
 #### Defined in
 
-[src/events/Events.ts:229](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L229)
+[src/events/Events.ts:229](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L229)
 
 ___
 
@@ -540,7 +540,7 @@ PointerEventExt.pointerType
 
 #### Defined in
 
-[src/events/Events.ts:245](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L245)
+[src/events/Events.ts:245](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L245)
 
 ___
 
@@ -560,7 +560,7 @@ PointerEventExt.pressure
 
 #### Defined in
 
-[src/events/Events.ts:235](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L235)
+[src/events/Events.ts:235](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L235)
 
 ___
 
@@ -580,7 +580,7 @@ PointerEventExt.screenX
 
 #### Defined in
 
-[src/events/Events.ts:194](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L194)
+[src/events/Events.ts:194](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L194)
 
 ___
 
@@ -600,7 +600,7 @@ PointerEventExt.screenY
 
 #### Defined in
 
-[src/events/Events.ts:196](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L196)
+[src/events/Events.ts:196](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L196)
 
 ___
 
@@ -620,7 +620,7 @@ PointerEventExt.shiftKey
 
 #### Defined in
 
-[src/events/Events.ts:198](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L198)
+[src/events/Events.ts:198](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L198)
 
 ___
 
@@ -640,7 +640,7 @@ PointerEventExt.tangentialPressure
 
 #### Defined in
 
-[src/events/Events.ts:237](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L237)
+[src/events/Events.ts:237](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L237)
 
 ___
 
@@ -660,7 +660,7 @@ PointerEventExt.target
 
 #### Defined in
 
-[src/events/Events.ts:122](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L122)
+[src/events/Events.ts:122](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L122)
 
 ___
 
@@ -680,7 +680,7 @@ PointerEventExt.tiltX
 
 #### Defined in
 
-[src/events/Events.ts:239](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L239)
+[src/events/Events.ts:239](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L239)
 
 ___
 
@@ -700,7 +700,7 @@ PointerEventExt.tiltY
 
 #### Defined in
 
-[src/events/Events.ts:241](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L241)
+[src/events/Events.ts:241](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L241)
 
 ___
 
@@ -720,7 +720,7 @@ PointerEventExt.twist
 
 #### Defined in
 
-[src/events/Events.ts:243](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L243)
+[src/events/Events.ts:243](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L243)
 
 ___
 
@@ -740,7 +740,7 @@ PointerEventExt.type
 
 #### Defined in
 
-[src/events/Events.ts:126](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L126)
+[src/events/Events.ts:126](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L126)
 
 ___
 
@@ -760,7 +760,7 @@ PointerEventExt.width
 
 #### Defined in
 
-[src/events/Events.ts:231](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L231)
+[src/events/Events.ts:231](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L231)
 
 ## Methods
 
@@ -786,7 +786,7 @@ Returns the current state of the specified modifier key. See KeyboardEvent.getMo
 
 #### Defined in
 
-[src/events/Events.ts:216](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L216)
+[src/events/Events.ts:216](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L216)
 
 ___
 
@@ -806,7 +806,7 @@ Cancels the event.
 
 #### Defined in
 
-[src/events/Events.ts:142](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L142)
+[src/events/Events.ts:142](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L142)
 
 ___
 
@@ -826,7 +826,7 @@ For this particular event, prevent all other listeners from being called. This i
 
 #### Defined in
 
-[src/events/Events.ts:147](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L147)
+[src/events/Events.ts:147](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L147)
 
 ___
 
@@ -846,4 +846,4 @@ Stops the propagation of events further along in the Object3D hierarchy.
 
 #### Defined in
 
-[src/events/Events.ts:152](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L152)
+[src/events/Events.ts:152](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L152)

@@ -52,7 +52,7 @@ Represents a custom extended pointer event.
 
 #### Defined in
 
-[src/events/Events.ts:208](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L208)
+[src/events/Events.ts:208](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L208)
 
 ## Properties
 
@@ -68,7 +68,7 @@ A boolean value indicating whether the event is cancelable.
 
 #### Defined in
 
-[src/events/Events.ts:116](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L116)
+[src/events/Events.ts:116](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L116)
 
 ___
 
@@ -84,7 +84,7 @@ A reference to the currently registered target for the event. This is the object
 
 #### Defined in
 
-[src/events/Events.ts:118](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L118)
+[src/events/Events.ts:118](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L118)
 
 ___
 
@@ -100,7 +100,7 @@ Returns the intersection information between the mouse event and 3D objects in t
 
 #### Defined in
 
-[src/events/Events.ts:200](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L200)
+[src/events/Events.ts:200](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L200)
 
 ___
 
@@ -116,7 +116,7 @@ The secondary target for the event, if there is one.
 
 #### Defined in
 
-[src/events/Events.ts:192](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L192)
+[src/events/Events.ts:192](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L192)
 
 ___
 
@@ -132,7 +132,7 @@ The time at which the event was created (in milliseconds). By specification, thi
 
 #### Defined in
 
-[src/events/Events.ts:124](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L124)
+[src/events/Events.ts:124](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L124)
 
 ## Accessors
 
@@ -152,7 +152,7 @@ MouseEventExt.altKey
 
 #### Defined in
 
-[src/events/Events.ts:166](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L166)
+[src/events/Events.ts:166](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L166)
 
 ___
 
@@ -172,7 +172,7 @@ MouseEventExt.bubbles
 
 #### Defined in
 
-[src/events/Events.ts:114](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L114)
+[src/events/Events.ts:114](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L114)
 
 ___
 
@@ -192,7 +192,7 @@ MouseEventExt.button
 
 #### Defined in
 
-[src/events/Events.ts:168](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L168)
+[src/events/Events.ts:168](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L168)
 
 ___
 
@@ -212,7 +212,7 @@ MouseEventExt.buttons
 
 #### Defined in
 
-[src/events/Events.ts:170](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L170)
+[src/events/Events.ts:170](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L170)
 
 ___
 
@@ -232,7 +232,7 @@ MouseEventExt.clientX
 
 #### Defined in
 
-[src/events/Events.ts:172](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L172)
+[src/events/Events.ts:172](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L172)
 
 ___
 
@@ -252,7 +252,7 @@ MouseEventExt.clientY
 
 #### Defined in
 
-[src/events/Events.ts:174](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L174)
+[src/events/Events.ts:174](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L174)
 
 ___
 
@@ -272,7 +272,7 @@ MouseEventExt.ctrlKey
 
 #### Defined in
 
-[src/events/Events.ts:176](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L176)
+[src/events/Events.ts:176](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L176)
 
 ___
 
@@ -292,7 +292,7 @@ MouseEventExt.defaultPrevented
 
 #### Defined in
 
-[src/events/Events.ts:120](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L120)
+[src/events/Events.ts:120](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L120)
 
 ___
 
@@ -308,7 +308,7 @@ The height (magnitude on the Y axis), in CSS pixels, of the contact geometry of 
 
 #### Defined in
 
-[src/events/Events.ts:233](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L233)
+[src/events/Events.ts:233](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L233)
 
 ___
 
@@ -324,7 +324,7 @@ Indicates if the pointer represents the primary pointer of this pointer type.
 
 #### Defined in
 
-[src/events/Events.ts:247](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L247)
+[src/events/Events.ts:247](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L247)
 
 ___
 
@@ -344,7 +344,7 @@ MouseEventExt.metaKey
 
 #### Defined in
 
-[src/events/Events.ts:178](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L178)
+[src/events/Events.ts:178](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L178)
 
 ___
 
@@ -364,7 +364,7 @@ MouseEventExt.movementX
 
 #### Defined in
 
-[src/events/Events.ts:180](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L180)
+[src/events/Events.ts:180](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L180)
 
 ___
 
@@ -384,7 +384,7 @@ MouseEventExt.movementY
 
 #### Defined in
 
-[src/events/Events.ts:182](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L182)
+[src/events/Events.ts:182](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L182)
 
 ___
 
@@ -404,7 +404,7 @@ MouseEventExt.offsetX
 
 #### Defined in
 
-[src/events/Events.ts:184](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L184)
+[src/events/Events.ts:184](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L184)
 
 ___
 
@@ -424,7 +424,7 @@ MouseEventExt.offsetY
 
 #### Defined in
 
-[src/events/Events.ts:186](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L186)
+[src/events/Events.ts:186](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L186)
 
 ___
 
@@ -444,7 +444,7 @@ MouseEventExt.pageX
 
 #### Defined in
 
-[src/events/Events.ts:188](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L188)
+[src/events/Events.ts:188](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L188)
 
 ___
 
@@ -464,7 +464,7 @@ MouseEventExt.pageY
 
 #### Defined in
 
-[src/events/Events.ts:190](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L190)
+[src/events/Events.ts:190](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L190)
 
 ___
 
@@ -480,7 +480,7 @@ A unique identifier for the pointer causing the event.
 
 #### Defined in
 
-[src/events/Events.ts:229](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L229)
+[src/events/Events.ts:229](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L229)
 
 ___
 
@@ -496,7 +496,7 @@ Indicates the device type that caused the event (mouse, pen, touch, etc.).
 
 #### Defined in
 
-[src/events/Events.ts:245](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L245)
+[src/events/Events.ts:245](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L245)
 
 ___
 
@@ -512,7 +512,7 @@ The normalized pressure of the pointer input in the range 0 to 1, where 0 and 1 
 
 #### Defined in
 
-[src/events/Events.ts:235](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L235)
+[src/events/Events.ts:235](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L235)
 
 ___
 
@@ -532,7 +532,7 @@ MouseEventExt.screenX
 
 #### Defined in
 
-[src/events/Events.ts:194](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L194)
+[src/events/Events.ts:194](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L194)
 
 ___
 
@@ -552,7 +552,7 @@ MouseEventExt.screenY
 
 #### Defined in
 
-[src/events/Events.ts:196](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L196)
+[src/events/Events.ts:196](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L196)
 
 ___
 
@@ -572,7 +572,7 @@ MouseEventExt.shiftKey
 
 #### Defined in
 
-[src/events/Events.ts:198](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L198)
+[src/events/Events.ts:198](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L198)
 
 ___
 
@@ -588,7 +588,7 @@ The normalized tangential pressure of the pointer input (also known as barrel pr
 
 #### Defined in
 
-[src/events/Events.ts:237](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L237)
+[src/events/Events.ts:237](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L237)
 
 ___
 
@@ -608,7 +608,7 @@ MouseEventExt.target
 
 #### Defined in
 
-[src/events/Events.ts:122](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L122)
+[src/events/Events.ts:122](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L122)
 
 ___
 
@@ -624,7 +624,7 @@ The plane angle (in degrees, in the range of -90 to 90) between the Y–Z plane 
 
 #### Defined in
 
-[src/events/Events.ts:239](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L239)
+[src/events/Events.ts:239](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L239)
 
 ___
 
@@ -640,7 +640,7 @@ The plane angle (in degrees, in the range of -90 to 90) between the X–Z plane 
 
 #### Defined in
 
-[src/events/Events.ts:241](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L241)
+[src/events/Events.ts:241](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L241)
 
 ___
 
@@ -656,7 +656,7 @@ The clockwise rotation of the pointer (e.g. pen stylus) around its major axis in
 
 #### Defined in
 
-[src/events/Events.ts:243](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L243)
+[src/events/Events.ts:243](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L243)
 
 ___
 
@@ -676,7 +676,7 @@ MouseEventExt.type
 
 #### Defined in
 
-[src/events/Events.ts:126](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L126)
+[src/events/Events.ts:126](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L126)
 
 ___
 
@@ -692,7 +692,7 @@ The width (magnitude on the X axis), in CSS pixels, of the contact geometry of t
 
 #### Defined in
 
-[src/events/Events.ts:231](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L231)
+[src/events/Events.ts:231](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L231)
 
 ## Methods
 
@@ -718,7 +718,7 @@ Returns the current state of the specified modifier key. See KeyboardEvent.getMo
 
 #### Defined in
 
-[src/events/Events.ts:216](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L216)
+[src/events/Events.ts:216](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L216)
 
 ___
 
@@ -738,7 +738,7 @@ Cancels the event.
 
 #### Defined in
 
-[src/events/Events.ts:142](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L142)
+[src/events/Events.ts:142](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L142)
 
 ___
 
@@ -758,7 +758,7 @@ For this particular event, prevent all other listeners from being called. This i
 
 #### Defined in
 
-[src/events/Events.ts:147](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L147)
+[src/events/Events.ts:147](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L147)
 
 ___
 
@@ -778,4 +778,4 @@ Stops the propagation of events further along in the Object3D hierarchy.
 
 #### Defined in
 
-[src/events/Events.ts:152](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L152)
+[src/events/Events.ts:152](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L152)

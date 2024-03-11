@@ -20,4 +20,4 @@ The default easing function used when no easing is specified.
 
 #### Defined in
 
-[src/tweening/Easings.ts:12](https://github.com/agargaro/three.ez/blob/ddf86ba/src/tweening/Easings.ts#L12)
+[src/tweening/Easings.ts:12](https://github.com/agargaro/three.ez/blob/0027204/src/tweening/Easings.ts#L12)

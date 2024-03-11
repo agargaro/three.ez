@@ -35,7 +35,7 @@ PerspectiveCamera.constructor
 
 #### Defined in
 
-[src/cameras/PerspectiveCameraAuto.ts:13](https://github.com/agargaro/three.ez/blob/ddf86ba/src/cameras/PerspectiveCameraAuto.ts#L13)
+[src/cameras/PerspectiveCameraAuto.ts:13](https://github.com/agargaro/three.ez/blob/0027204/src/cameras/PerspectiveCameraAuto.ts#L13)
 
 ## Properties
 
@@ -51,7 +51,7 @@ PerspectiveCamera.cursor
 
 #### Defined in
 
-[src/patch/Object3D.ts:56](https://github.com/agargaro/three.ez/blob/ddf86ba/src/patch/Object3D.ts#L56)
+[src/patch/Object3D.ts:56](https://github.com/agargaro/three.ez/blob/0027204/src/patch/Object3D.ts#L56)
 
 ___
 
@@ -67,7 +67,7 @@ PerspectiveCamera.cursorDrag
 
 #### Defined in
 
-[src/patch/Object3D.ts:58](https://github.com/agargaro/three.ez/blob/ddf86ba/src/patch/Object3D.ts#L58)
+[src/patch/Object3D.ts:58](https://github.com/agargaro/three.ez/blob/0027204/src/patch/Object3D.ts#L58)
 
 ___
 
@@ -83,7 +83,7 @@ PerspectiveCamera.cursorDrop
 
 #### Defined in
 
-[src/patch/Object3D.ts:60](https://github.com/agargaro/three.ez/blob/ddf86ba/src/patch/Object3D.ts#L60)
+[src/patch/Object3D.ts:60](https://github.com/agargaro/three.ez/blob/0027204/src/patch/Object3D.ts#L60)
 
 ___
 
@@ -99,7 +99,7 @@ PerspectiveCamera.dragTarget
 
 #### Defined in
 
-[src/patch/Object3D.ts:46](https://github.com/agargaro/three.ez/blob/ddf86ba/src/patch/Object3D.ts#L46)
+[src/patch/Object3D.ts:46](https://github.com/agargaro/three.ez/blob/0027204/src/patch/Object3D.ts#L46)
 
 ___
 
@@ -115,7 +115,7 @@ PerspectiveCamera.draggable
 
 #### Defined in
 
-[src/patch/Object3D.ts:50](https://github.com/agargaro/three.ez/blob/ddf86ba/src/patch/Object3D.ts#L50)
+[src/patch/Object3D.ts:50](https://github.com/agargaro/three.ez/blob/0027204/src/patch/Object3D.ts#L50)
 
 ___
 
@@ -132,7 +132,7 @@ PerspectiveCamera.enabled
 
 #### Defined in
 
-[src/patch/Object3D.ts:40](https://github.com/agargaro/three.ez/blob/ddf86ba/src/patch/Object3D.ts#L40)
+[src/patch/Object3D.ts:40](https://github.com/agargaro/three.ez/blob/0027204/src/patch/Object3D.ts#L40)
 
 ___
 
@@ -148,7 +148,7 @@ PerspectiveCamera.findDropTarget
 
 #### Defined in
 
-[src/patch/Object3D.ts:52](https://github.com/agargaro/three.ez/blob/ddf86ba/src/patch/Object3D.ts#L52)
+[src/patch/Object3D.ts:52](https://github.com/agargaro/three.ez/blob/0027204/src/patch/Object3D.ts#L52)
 
 ___
 
@@ -164,7 +164,7 @@ PerspectiveCamera.focusable
 
 #### Defined in
 
-[src/patch/Object3D.ts:48](https://github.com/agargaro/three.ez/blob/ddf86ba/src/patch/Object3D.ts#L48)
+[src/patch/Object3D.ts:48](https://github.com/agargaro/three.ez/blob/0027204/src/patch/Object3D.ts#L48)
 
 ___
 
@@ -180,7 +180,7 @@ PerspectiveCamera.hitboxes
 
 #### Defined in
 
-[src/patch/Object3D.ts:44](https://github.com/agargaro/three.ez/blob/ddf86ba/src/patch/Object3D.ts#L44)
+[src/patch/Object3D.ts:44](https://github.com/agargaro/three.ez/blob/0027204/src/patch/Object3D.ts#L44)
 
 ___
 
@@ -196,7 +196,7 @@ PerspectiveCamera.interceptByRaycaster
 
 #### Defined in
 
-[src/patch/Object3D.ts:42](https://github.com/agargaro/three.ez/blob/ddf86ba/src/patch/Object3D.ts#L42)
+[src/patch/Object3D.ts:42](https://github.com/agargaro/three.ez/blob/0027204/src/patch/Object3D.ts#L42)
 
 ___
 
@@ -212,7 +212,7 @@ PerspectiveCamera.needsRender
 
 #### Defined in
 
-[src/patch/Object3D.ts:62](https://github.com/agargaro/three.ez/blob/ddf86ba/src/patch/Object3D.ts#L62)
+[src/patch/Object3D.ts:62](https://github.com/agargaro/three.ez/blob/0027204/src/patch/Object3D.ts#L62)
 
 ___
 
@@ -228,7 +228,7 @@ PerspectiveCamera.scene
 
 #### Defined in
 
-[src/patch/Object3D.ts:54](https://github.com/agargaro/three.ez/blob/ddf86ba/src/patch/Object3D.ts#L54)
+[src/patch/Object3D.ts:54](https://github.com/agargaro/three.ez/blob/0027204/src/patch/Object3D.ts#L54)
 
 ___
 
@@ -244,7 +244,7 @@ PerspectiveCamera.tags
 
 #### Defined in
 
-[src/patch/Object3D.ts:64](https://github.com/agargaro/three.ez/blob/ddf86ba/src/patch/Object3D.ts#L64)
+[src/patch/Object3D.ts:64](https://github.com/agargaro/three.ez/blob/0027204/src/patch/Object3D.ts#L64)
 
 ## Accessors
 
@@ -264,7 +264,7 @@ PerspectiveCamera.clicking
 
 #### Defined in
 
-[src/patch/Object3D.ts:70](https://github.com/agargaro/three.ez/blob/ddf86ba/src/patch/Object3D.ts#L70)
+[src/patch/Object3D.ts:70](https://github.com/agargaro/three.ez/blob/0027204/src/patch/Object3D.ts#L70)
 
 ___
 
@@ -284,7 +284,7 @@ PerspectiveCamera.dragging
 
 #### Defined in
 
-[src/patch/Object3D.ts:72](https://github.com/agargaro/three.ez/blob/ddf86ba/src/patch/Object3D.ts#L72)
+[src/patch/Object3D.ts:72](https://github.com/agargaro/three.ez/blob/0027204/src/patch/Object3D.ts#L72)
 
 ___
 
@@ -304,7 +304,7 @@ PerspectiveCamera.enabledState
 
 #### Defined in
 
-[src/patch/Object3D.ts:74](https://github.com/agargaro/three.ez/blob/ddf86ba/src/patch/Object3D.ts#L74)
+[src/patch/Object3D.ts:74](https://github.com/agargaro/three.ez/blob/0027204/src/patch/Object3D.ts#L74)
 
 ___
 
@@ -324,7 +324,7 @@ PerspectiveCamera.firstFocusable
 
 #### Defined in
 
-[src/patch/Object3D.ts:78](https://github.com/agargaro/three.ez/blob/ddf86ba/src/patch/Object3D.ts#L78)
+[src/patch/Object3D.ts:78](https://github.com/agargaro/three.ez/blob/0027204/src/patch/Object3D.ts#L78)
 
 ___
 
@@ -344,7 +344,7 @@ PerspectiveCamera.focused
 
 #### Defined in
 
-[src/patch/Object3D.ts:68](https://github.com/agargaro/three.ez/blob/ddf86ba/src/patch/Object3D.ts#L68)
+[src/patch/Object3D.ts:68](https://github.com/agargaro/three.ez/blob/0027204/src/patch/Object3D.ts#L68)
 
 ___
 
@@ -364,7 +364,7 @@ PerspectiveCamera.hovered
 
 #### Defined in
 
-[src/patch/Object3D.ts:66](https://github.com/agargaro/three.ez/blob/ddf86ba/src/patch/Object3D.ts#L66)
+[src/patch/Object3D.ts:66](https://github.com/agargaro/three.ez/blob/0027204/src/patch/Object3D.ts#L66)
 
 ___
 
@@ -384,7 +384,7 @@ PerspectiveCamera.visibilityState
 
 #### Defined in
 
-[src/patch/Object3D.ts:76](https://github.com/agargaro/three.ez/blob/ddf86ba/src/patch/Object3D.ts#L76)
+[src/patch/Object3D.ts:76](https://github.com/agargaro/three.ez/blob/0027204/src/patch/Object3D.ts#L76)
 
 ## Methods
 
@@ -404,7 +404,7 @@ PerspectiveCamera.applyBlur
 
 #### Defined in
 
-[src/patch/Object3D.ts:86](https://github.com/agargaro/three.ez/blob/ddf86ba/src/patch/Object3D.ts#L86)
+[src/patch/Object3D.ts:86](https://github.com/agargaro/three.ez/blob/0027204/src/patch/Object3D.ts#L86)
 
 ___
 
@@ -424,7 +424,7 @@ PerspectiveCamera.applyFocus
 
 #### Defined in
 
-[src/patch/Object3D.ts:82](https://github.com/agargaro/three.ez/blob/ddf86ba/src/patch/Object3D.ts#L82)
+[src/patch/Object3D.ts:82](https://github.com/agargaro/three.ez/blob/0027204/src/patch/Object3D.ts#L82)
 
 ___
 
@@ -460,7 +460,7 @@ PerspectiveCamera.bindProperty
 
 #### Defined in
 
-[src/patch/Object3D.ts:138](https://github.com/agargaro/three.ez/blob/ddf86ba/src/patch/Object3D.ts#L138)
+[src/patch/Object3D.ts:138](https://github.com/agargaro/three.ez/blob/0027204/src/patch/Object3D.ts#L138)
 
 ___
 
@@ -487,7 +487,7 @@ PerspectiveCamera.detectChanges
 
 #### Defined in
 
-[src/patch/Object3D.ts:130](https://github.com/agargaro/three.ez/blob/ddf86ba/src/patch/Object3D.ts#L130)
+[src/patch/Object3D.ts:130](https://github.com/agargaro/three.ez/blob/0027204/src/patch/Object3D.ts#L130)
 
 ___
 
@@ -522,7 +522,7 @@ PerspectiveCamera.hasEvent
 
 #### Defined in
 
-[src/patch/Object3D.ts:100](https://github.com/agargaro/three.ez/blob/ddf86ba/src/patch/Object3D.ts#L100)
+[src/patch/Object3D.ts:100](https://github.com/agargaro/three.ez/blob/0027204/src/patch/Object3D.ts#L100)
 
 ___
 
@@ -555,7 +555,7 @@ PerspectiveCamera.off
 
 #### Defined in
 
-[src/patch/Object3D.ts:106](https://github.com/agargaro/three.ez/blob/ddf86ba/src/patch/Object3D.ts#L106)
+[src/patch/Object3D.ts:106](https://github.com/agargaro/three.ez/blob/0027204/src/patch/Object3D.ts#L106)
 
 ___
 
@@ -606,7 +606,7 @@ PerspectiveCamera.on
 
 #### Defined in
 
-[src/patch/Object3D.ts:93](https://github.com/agargaro/three.ez/blob/ddf86ba/src/patch/Object3D.ts#L93)
+[src/patch/Object3D.ts:93](https://github.com/agargaro/three.ez/blob/0027204/src/patch/Object3D.ts#L93)
 
 ___
 
@@ -635,7 +635,7 @@ PerspectiveCamera.querySelector
 
 #### Defined in
 
-[src/patch/Object3D.ts:158](https://github.com/agargaro/three.ez/blob/ddf86ba/src/patch/Object3D.ts#L158)
+[src/patch/Object3D.ts:158](https://github.com/agargaro/three.ez/blob/0027204/src/patch/Object3D.ts#L158)
 
 ___
 
@@ -664,7 +664,7 @@ PerspectiveCamera.querySelectorAll
 
 #### Defined in
 
-[src/patch/Object3D.ts:165](https://github.com/agargaro/three.ez/blob/ddf86ba/src/patch/Object3D.ts#L165)
+[src/patch/Object3D.ts:165](https://github.com/agargaro/three.ez/blob/0027204/src/patch/Object3D.ts#L165)
 
 ___
 
@@ -686,7 +686,7 @@ PerspectiveCamera.setManualDetectionMode
 
 #### Defined in
 
-[src/patch/Object3D.ts:124](https://github.com/agargaro/three.ez/blob/ddf86ba/src/patch/Object3D.ts#L124)
+[src/patch/Object3D.ts:124](https://github.com/agargaro/three.ez/blob/0027204/src/patch/Object3D.ts#L124)
 
 ___
 
@@ -719,7 +719,7 @@ PerspectiveCamera.trigger
 
 #### Defined in
 
-[src/patch/Object3D.ts:112](https://github.com/agargaro/three.ez/blob/ddf86ba/src/patch/Object3D.ts#L112)
+[src/patch/Object3D.ts:112](https://github.com/agargaro/three.ez/blob/0027204/src/patch/Object3D.ts#L112)
 
 ___
 
@@ -752,7 +752,7 @@ PerspectiveCamera.triggerAncestor
 
 #### Defined in
 
-[src/patch/Object3D.ts:118](https://github.com/agargaro/three.ez/blob/ddf86ba/src/patch/Object3D.ts#L118)
+[src/patch/Object3D.ts:118](https://github.com/agargaro/three.ez/blob/0027204/src/patch/Object3D.ts#L118)
 
 ___
 
@@ -786,7 +786,7 @@ PerspectiveCamera.tween
 
 #### Defined in
 
-[src/patch/Object3D.ts:151](https://github.com/agargaro/three.ez/blob/ddf86ba/src/patch/Object3D.ts#L151)
+[src/patch/Object3D.ts:151](https://github.com/agargaro/three.ez/blob/0027204/src/patch/Object3D.ts#L151)
 
 ___
 
@@ -820,4 +820,4 @@ PerspectiveCamera.unbindProperty
 
 #### Defined in
 
-[src/patch/Object3D.ts:144](https://github.com/agargaro/three.ez/blob/ddf86ba/src/patch/Object3D.ts#L144)
+[src/patch/Object3D.ts:144](https://github.com/agargaro/three.ez/blob/0027204/src/patch/Object3D.ts#L144)

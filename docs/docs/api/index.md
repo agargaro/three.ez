@@ -37,7 +37,7 @@ This library has only one dependency: `three.js r151+`.
 
 ## ✅ Why three.ez?
 
-- Program the logic of your Object3D more quickly and intuitively
+- Program the logic of your `Object3D` more quickly and intuitively
 - Less code and cleaner
 - Streamlined rendering
 - Declarative and imperative programming
@@ -229,7 +229,7 @@ Or can import it from CDN:
   "imports": {
     "three": "https://unpkg.com/three@0.162.0/build/three.module.js",
     "three/examples/jsm": "https://unpkg.com/three@0.162.0/examples/jsm/",
-    "@three.ez/main": "https://unpkg.com/@three.ez/main@0.5.0/bundle.js"
+    "@three.ez/main": "https://unpkg.com/@three.ez/main@0.5.1/bundle.js"
   }
 }
 </script>

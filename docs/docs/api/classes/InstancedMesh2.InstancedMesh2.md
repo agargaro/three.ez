@@ -1,17 +1,26 @@
 ---
-id: "InstancedMesh.InstancedMesh2"
-title: "Class: InstancedMesh2"
+id: "InstancedMesh2.InstancedMesh2"
+title: "Class: InstancedMesh2<T, G, M>"
 sidebar_label: "InstancedMesh2"
 custom_edit_url: null
 ---
 
-[InstancedMesh](../namespaces/InstancedMesh.md).InstancedMesh2
+[InstancedMesh2](../namespaces/InstancedMesh2.md).InstancedMesh2
 
-Extends the InstancedMesh class to provide individual management of each instance, similar to an Object3D.
+Extends the functionality of `InstancedMesh`, providing streamlined control over instance `transformations` and `visibility`, 
+while also integrating `frustum culling` for each instance to improve performance.
+
+## Type parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `T` | {} | Custom data type. |
+| `G` | extends `BufferGeometry` = `BufferGeometry` | Geometry type. |
+| `M` | extends `Material` = `Material` | Material type. |
 
 ## Hierarchy
 
-- `InstancedMesh`
+- `InstancedMesh`<`G`, `M`\>
 
   ↳ **`InstancedMesh2`**
 
@@ -19,26 +28,32 @@ Extends the InstancedMesh class to provide individual management of each instanc
 
 ### constructor
 
-• **new InstancedMesh2**(`geometry`, `material`, `count`, `singleInstanceType`, `animate?`, `color?`)
+• **new InstancedMesh2**<`T`, `G`, `M`\>(`geometry`, `material`, `count`, `config`)
+
+#### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `T` | {} |
+| `G` | extends `BufferGeometry`<`NormalBufferAttributes`, `G`\> = `BufferGeometry`<`NormalBufferAttributes`\> |
+| `M` | extends `Material`<`M`\> = `Material` |
 
 #### Parameters
 
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `geometry` | `BufferGeometry`<`NormalBufferAttributes`\> | `undefined` | The geometry for the instanced mesh. |
-| `material` | `Material` | `undefined` | The material to apply to the instanced mesh. |
-| `count` | `number` | `undefined` | The number of instances to create. |
-| `singleInstanceType` | typeof [`InstancedMeshEntity`](InstancedMesh.InstancedMeshEntity.md) | `undefined` | The type of individual instance to create. |
-| `animate` | `boolean` | `false` | A flag indicating whether the 'animate' event will be triggered for each instance (optional, default: false). |
-| `color?` | `ColorRepresentation` | `undefined` | The default color to apply to each instance (optional). |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `geometry` | `G` | The geometry for the instanced mesh. |
+| `material` | `M` | The material to apply to the instanced mesh. |
+| `count` | `number` | The number of instances to create. |
+| `config` | [`InstancedMesh2Params`](../interfaces/InstancedMesh2.InstancedMesh2Params.md)<`T`\> | Configuration object. |
 
 #### Overrides
 
-InstancedMesh.constructor
+InstancedMesh&lt;G, M\&gt;.constructor
 
 #### Defined in
 
-[src/instancedMesh/InstancedMesh2.ts:65](https://github.com/agargaro/three.ez/blob/0027204/src/instancedMesh/InstancedMesh2.ts#L65)
+[packages/InstancedMesh2/src/InstancedMesh2.ts:56](https://github.com/agargaro/three.ez/blob/0027204/packages/InstancedMesh2/src/InstancedMesh2.ts#L56)
 
 ## Properties
 
@@ -189,14 +204,14 @@ ___
 
 ### instances
 
-• **instances**: [`InstancedMeshEntity`](InstancedMesh.InstancedMeshEntity.md)[] = `[]`
+• **instances**: [`Entity`](../namespaces/InstancedMesh2.md#entity)<`T`\>[]
 
-An array storing individual InstancedMeshEntity instances associated with this InstancedMesh2.
+An array storing individual InstancedEntity instances associated with this InstancedMesh2.
 Each element represents a separate instance that can be managed individually.
 
 #### Defined in
 
-[src/instancedMesh/InstancedMesh2.ts:25](https://github.com/agargaro/three.ez/blob/0027204/src/instancedMesh/InstancedMesh2.ts#L25)
+[packages/InstancedMesh2/src/InstancedMesh2.ts:43](https://github.com/agargaro/three.ez/blob/0027204/packages/InstancedMesh2/src/InstancedMesh2.ts#L43)
 
 ___
 
@@ -224,7 +239,7 @@ A flag indicating that this is an instance of InstancedMesh2.
 
 #### Defined in
 
-[src/instancedMesh/InstancedMesh2.ts:20](https://github.com/agargaro/three.ez/blob/0027204/src/instancedMesh/InstancedMesh2.ts#L20)
+[packages/InstancedMesh2/src/InstancedMesh2.ts:38](https://github.com/agargaro/three.ez/blob/0027204/packages/InstancedMesh2/src/InstancedMesh2.ts#L38)
 
 ___
 
@@ -296,22 +311,6 @@ InstancedMesh.clicking
 
 ___
 
-### clickingInstance
-
-• `get` **clickingInstance**(): [`InstancedMeshEntity`](InstancedMesh.InstancedMeshEntity.md)
-
-Gets the currently clicking instance.
-
-#### Returns
-
-[`InstancedMeshEntity`](InstancedMesh.InstancedMeshEntity.md)
-
-#### Defined in
-
-[src/instancedMesh/InstancedMesh2.ts:50](https://github.com/agargaro/three.ez/blob/0027204/src/instancedMesh/InstancedMesh2.ts#L50)
-
-___
-
 ### dragging
 
 • `get` **dragging**(): `boolean`
@@ -329,22 +328,6 @@ InstancedMesh.dragging
 #### Defined in
 
 [src/patch/Object3D.ts:72](https://github.com/agargaro/three.ez/blob/0027204/src/patch/Object3D.ts#L72)
-
-___
-
-### draggingInstance
-
-• `get` **draggingInstance**(): [`InstancedMeshEntity`](InstancedMesh.InstancedMeshEntity.md)
-
-Gets the currently dragging instance.
-
-#### Returns
-
-[`InstancedMeshEntity`](InstancedMesh.InstancedMeshEntity.md)
-
-#### Defined in
-
-[src/instancedMesh/InstancedMesh2.ts:55](https://github.com/agargaro/three.ez/blob/0027204/src/instancedMesh/InstancedMesh2.ts#L55)
 
 ___
 
@@ -408,22 +391,6 @@ InstancedMesh.focused
 
 ___
 
-### focusedInstance
-
-• `get` **focusedInstance**(): [`InstancedMeshEntity`](InstancedMesh.InstancedMeshEntity.md)
-
-Gets the currently focused instance.
-
-#### Returns
-
-[`InstancedMeshEntity`](InstancedMesh.InstancedMeshEntity.md)
-
-#### Defined in
-
-[src/instancedMesh/InstancedMesh2.ts:45](https://github.com/agargaro/three.ez/blob/0027204/src/instancedMesh/InstancedMesh2.ts#L45)
-
-___
-
 ### hovered
 
 • `get` **hovered**(): `boolean`
@@ -441,22 +408,6 @@ InstancedMesh.hovered
 #### Defined in
 
 [src/patch/Object3D.ts:66](https://github.com/agargaro/three.ez/blob/0027204/src/patch/Object3D.ts#L66)
-
-___
-
-### hoveredInstance
-
-• `get` **hoveredInstance**(): [`InstancedMeshEntity`](InstancedMesh.InstancedMeshEntity.md)
-
-Gets the currently hovered instance.
-
-#### Returns
-
-[`InstancedMeshEntity`](InstancedMesh.InstancedMeshEntity.md)
-
-#### Defined in
-
-[src/instancedMesh/InstancedMesh2.ts:40](https://github.com/agargaro/three.ez/blob/0027204/src/instancedMesh/InstancedMesh2.ts#L40)
 
 ___
 
@@ -522,7 +473,7 @@ ___
 
 ### bindProperty
 
-▸ **bindProperty**<`T`\>(`property`, `getCallback`, `renderOnChange?`): [`InstancedMesh2`](InstancedMesh.InstancedMesh2.md)
+▸ **bindProperty**<`T`\>(`property`, `getCallback`, `renderOnChange?`): [`InstancedMesh2`](InstancedMesh2.InstancedMesh2.md)<`T`, `G`, `M`\>
 
 Binds a property to a callback function for updates.
 
@@ -530,19 +481,19 @@ Binds a property to a callback function for updates.
 
 | Name | Type |
 | :------ | :------ |
-| `T` | extends keyof [`InstancedMesh2`](InstancedMesh.InstancedMesh2.md) |
+| `T` | extends keyof [`InstancedMesh2`](InstancedMesh2.InstancedMesh2.md)<`T`, `G`, `M`\> |
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `property` | `T` | The name of the property to bind. |
-| `getCallback` | () => [`InstancedMesh2`](InstancedMesh.InstancedMesh2.md)[`T`] | A function that retrieves the property's value. |
+| `getCallback` | () => [`InstancedMesh2`](InstancedMesh2.InstancedMesh2.md)<`T`, `G`, `M`\>[`T`] | A function that retrieves the property's value. |
 | `renderOnChange?` | `boolean` | Indicates whether to render when the property changes (optional, default: `false`). |
 
 #### Returns
 
-[`InstancedMesh2`](InstancedMesh.InstancedMesh2.md)
+[`InstancedMesh2`](InstancedMesh2.InstancedMesh2.md)<`T`, `G`, `M`\>
 
 The instance of the object with the binding applied.
 
@@ -580,28 +531,6 @@ InstancedMesh.detectChanges
 #### Defined in
 
 [src/patch/Object3D.ts:130](https://github.com/agargaro/three.ez/blob/0027204/src/patch/Object3D.ts#L130)
-
-___
-
-### focus
-
-▸ **focus**(`target?`): `void`
-
-Set the focus to the specified instance, if focus is enabled for the InstancedMesh2, or clears the focus if no target is provided.
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `target?` | [`InstancedMeshEntity`](InstancedMesh.InstancedMeshEntity.md) | Optional. The instance to focus on. If not provided, the focus is cleared. |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/instancedMesh/InstancedMesh2.ts:100](https://github.com/agargaro/three.ez/blob/0027204/src/instancedMesh/InstancedMesh2.ts#L100)
 
 ___
 
@@ -690,7 +619,7 @@ Attaches an event listener to the object.
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `type` | `K` \| `K`[] | The type of event to listen for. |
-| `listener` | (`this`: [`InstancedMesh2`](InstancedMesh.InstancedMesh2.md), `event?`: `Events`[`K`]) => `void` | The callback function to execute when the event occurs. |
+| `listener` | (`this`: [`InstancedMesh2`](InstancedMesh2.InstancedMesh2.md)<`T`, `G`, `M`\>, `event?`: `Events`[`K`]) => `void` | The callback function to execute when the event occurs. |
 
 #### Returns
 
@@ -906,7 +835,7 @@ ___
 
 ### unbindProperty
 
-▸ **unbindProperty**<`T`\>(`property`): [`InstancedMesh2`](InstancedMesh.InstancedMesh2.md)
+▸ **unbindProperty**<`T`\>(`property`): [`InstancedMesh2`](InstancedMesh2.InstancedMesh2.md)<`T`, `G`, `M`\>
 
 Unbinds a previously bound property from the object.
 
@@ -914,7 +843,7 @@ Unbinds a previously bound property from the object.
 
 | Name | Type |
 | :------ | :------ |
-| `T` | extends keyof [`InstancedMesh2`](InstancedMesh.InstancedMesh2.md) |
+| `T` | extends keyof [`InstancedMesh2`](InstancedMesh2.InstancedMesh2.md)<`T`, `G`, `M`\> |
 
 #### Parameters
 
@@ -924,7 +853,7 @@ Unbinds a previously bound property from the object.
 
 #### Returns
 
-[`InstancedMesh2`](InstancedMesh.InstancedMesh2.md)
+[`InstancedMesh2`](InstancedMesh2.InstancedMesh2.md)<`T`, `G`, `M`\>
 
 The instance of the object with the binding removed.
 
@@ -935,3 +864,27 @@ InstancedMesh.unbindProperty
 #### Defined in
 
 [src/patch/Object3D.ts:144](https://github.com/agargaro/three.ez/blob/0027204/src/patch/Object3D.ts#L144)
+
+___
+
+### updateCulling
+
+▸ **updateCulling**(`camera`): `void`
+
+Updates the visibility of instances based on the camera's frustum.
+This method is responsible for determining which instances are within the camera's view and should be rendered,
+and which are outside and should be culled to improve performance.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `camera` | `Camera` | Camera used for rendering. |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[packages/InstancedMesh2/src/InstancedMesh2.ts:276](https://github.com/agargaro/three.ez/blob/0027204/packages/InstancedMesh2/src/InstancedMesh2.ts#L276)

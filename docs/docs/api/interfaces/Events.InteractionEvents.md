@@ -39,7 +39,7 @@ Event triggered when target loses focus.
 
 #### Defined in
 
-[src/events/Events.ts:74](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L74)
+[src/events/Events.ts:74](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L74)
 
 ___
 
@@ -51,7 +51,7 @@ Event triggered when a click event occurs.
 
 #### Defined in
 
-[src/events/Events.ts:62](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L62)
+[src/events/Events.ts:62](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L62)
 
 ___
 
@@ -63,7 +63,7 @@ Event triggered when a double click event occurs.
 
 #### Defined in
 
-[src/events/Events.ts:64](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L64)
+[src/events/Events.ts:64](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L64)
 
 ___
 
@@ -75,7 +75,7 @@ Event triggered when the target is dragged.
 
 #### Defined in
 
-[src/events/Events.ts:80](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L80)
+[src/events/Events.ts:80](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L80)
 
 ___
 
@@ -87,7 +87,7 @@ Event triggered when dragging is canceled (Can be canceled pressing 'ESC'). This
 
 #### Defined in
 
-[src/events/Events.ts:86](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L86)
+[src/events/Events.ts:86](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L86)
 
 ___
 
@@ -99,7 +99,7 @@ Event triggered when dragging ends.
 
 #### Defined in
 
-[src/events/Events.ts:84](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L84)
+[src/events/Events.ts:84](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L84)
 
 ___
 
@@ -111,7 +111,7 @@ Event triggered when a draggable object enters a drop target.
 
 #### Defined in
 
-[src/events/Events.ts:88](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L88)
+[src/events/Events.ts:88](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L88)
 
 ___
 
@@ -123,7 +123,7 @@ Event triggered when a draggable object leaves a drop target.
 
 #### Defined in
 
-[src/events/Events.ts:95](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L95)
+[src/events/Events.ts:95](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L95)
 
 ___
 
@@ -136,7 +136,7 @@ Triggers every frame if the scene has 'continuousRaycastingDropTarget' equal to 
 
 #### Defined in
 
-[src/events/Events.ts:93](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L93)
+[src/events/Events.ts:93](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L93)
 
 ___
 
@@ -148,7 +148,7 @@ Event triggered when dragging starts.
 
 #### Defined in
 
-[src/events/Events.ts:82](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L82)
+[src/events/Events.ts:82](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L82)
 
 ___
 
@@ -160,7 +160,7 @@ Event triggered when a draggable object is dropped onto a drop target.
 
 #### Defined in
 
-[src/events/Events.ts:97](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L97)
+[src/events/Events.ts:97](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L97)
 
 ___
 
@@ -172,7 +172,7 @@ Event triggered when target gains focus.
 
 #### Defined in
 
-[src/events/Events.ts:72](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L72)
+[src/events/Events.ts:72](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L72)
 
 ___
 
@@ -184,7 +184,7 @@ Event triggered when target gains focus (no propagation).
 
 #### Defined in
 
-[src/events/Events.ts:68](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L68)
+[src/events/Events.ts:68](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L68)
 
 ___
 
@@ -196,7 +196,7 @@ Event triggered when target loses focus (no propagation).
 
 #### Defined in
 
-[src/events/Events.ts:70](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L70)
+[src/events/Events.ts:70](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L70)
 
 ___
 
@@ -208,7 +208,7 @@ Event triggered on the focused object when a key is pressed.
 
 #### Defined in
 
-[src/events/Events.ts:76](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L76)
+[src/events/Events.ts:76](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L76)
 
 ___
 
@@ -220,7 +220,7 @@ Event triggered on the focused object when a key is released.
 
 #### Defined in
 
-[src/events/Events.ts:78](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L78)
+[src/events/Events.ts:78](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L78)
 
 ___
 
@@ -232,7 +232,7 @@ Event triggered when a pointer button is pressed.
 
 #### Defined in
 
-[src/events/Events.ts:56](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L56)
+[src/events/Events.ts:56](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L56)
 
 ___
 
@@ -244,7 +244,7 @@ Event triggered when a pointer enters the target (no propagation).
 
 #### Defined in
 
-[src/events/Events.ts:48](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L48)
+[src/events/Events.ts:48](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L48)
 
 ___
 
@@ -256,7 +256,7 @@ Event triggered if pointer is on target. Triggers every frame and only works if 
 
 #### Defined in
 
-[src/events/Events.ts:60](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L60)
+[src/events/Events.ts:60](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L60)
 
 ___
 
@@ -268,7 +268,7 @@ Event triggered when a pointer leaves the target (no propagation).
 
 #### Defined in
 
-[src/events/Events.ts:52](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L52)
+[src/events/Events.ts:52](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L52)
 
 ___
 
@@ -280,7 +280,7 @@ Event triggered when a pointer moves over the target.
 
 #### Defined in
 
-[src/events/Events.ts:54](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L54)
+[src/events/Events.ts:54](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L54)
 
 ___
 
@@ -292,7 +292,7 @@ Event triggered when a pointer leaves the target.
 
 #### Defined in
 
-[src/events/Events.ts:50](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L50)
+[src/events/Events.ts:50](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L50)
 
 ___
 
@@ -304,7 +304,7 @@ Event triggered when a pointer enters the target.
 
 #### Defined in
 
-[src/events/Events.ts:46](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L46)
+[src/events/Events.ts:46](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L46)
 
 ___
 
@@ -316,7 +316,7 @@ Event triggered when a pointer button is released.
 
 #### Defined in
 
-[src/events/Events.ts:58](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L58)
+[src/events/Events.ts:58](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L58)
 
 ___
 
@@ -328,4 +328,4 @@ Event triggered when scrolling the mouse wheel.
 
 #### Defined in
 
-[src/events/Events.ts:66](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L66)
+[src/events/Events.ts:66](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L66)

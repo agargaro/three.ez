@@ -19,7 +19,7 @@ Event triggered when the enabledState of the object changes (either its own or t
 
 #### Defined in
 
-[src/events/Events.ts:19](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L19)
+[src/events/Events.ts:19](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L19)
 
 ___
 
@@ -31,7 +31,7 @@ Event triggered when the position of the object changes.
 
 #### Defined in
 
-[src/events/Events.ts:13](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L13)
+[src/events/Events.ts:13](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L13)
 
 ___
 
@@ -43,7 +43,7 @@ Event triggered when the rotation of the object changes.
 
 #### Defined in
 
-[src/events/Events.ts:17](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L17)
+[src/events/Events.ts:17](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L17)
 
 ___
 
@@ -55,7 +55,7 @@ Event triggered when the scale of the object changes.
 
 #### Defined in
 
-[src/events/Events.ts:15](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L15)
+[src/events/Events.ts:15](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L15)
 
 ___
 
@@ -67,4 +67,4 @@ Event triggered when the visibilityState of the object changes (either its own o
 
 #### Defined in
 
-[src/events/Events.ts:21](https://github.com/agargaro/three.ez/blob/ddf86ba/src/events/Events.ts#L21)
+[src/events/Events.ts:21](https://github.com/agargaro/three.ez/blob/0027204/src/events/Events.ts#L21)

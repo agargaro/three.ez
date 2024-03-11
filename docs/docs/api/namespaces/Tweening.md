@@ -27,7 +27,7 @@ Type representing an easing type, which can be either a predefined easing functi
 
 #### Defined in
 
-[src/tweening/Easings.ts:4](https://github.com/agargaro/three.ez/blob/ddf86ba/src/tweening/Easings.ts#L4)
+[src/tweening/Easings.ts:4](https://github.com/agargaro/three.ez/blob/0027204/src/tweening/Easings.ts#L4)
 
 ___
 
@@ -53,4 +53,4 @@ Type representing an easing function that takes a single numeric parameter and r
 
 #### Defined in
 
-[src/tweening/Easings.ts:2](https://github.com/agargaro/three.ez/blob/ddf86ba/src/tweening/Easings.ts#L2)
+[src/tweening/Easings.ts:2](https://github.com/agargaro/three.ez/blob/0027204/src/tweening/Easings.ts#L2)
