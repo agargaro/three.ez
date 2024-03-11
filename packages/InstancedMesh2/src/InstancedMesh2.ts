@@ -59,7 +59,7 @@ export class InstancedMesh2<T = {}, G extends BufferGeometry = BufferGeometry, M
     if (count === undefined) throw (new Error("Count is mandatory."));
     if (config?.behaviour === undefined) throw (new Error("Behaviour is mandatory."));
     if (config.behaviour === CullingStatic && config.onInstanceCreation === undefined) throw (new Error("OnInstanceCreation is mandatory if behaviour is CullingStatic."));
- 
+
     super(geometry, material, count);
 
     const color = config.color !== undefined ? _color.set(config.color) : undefined;
@@ -69,8 +69,6 @@ export class InstancedMesh2<T = {}, G extends BufferGeometry = BufferGeometry, M
 
     this.instances = new Array(count);
     this._sortedInstances = new Array(count);
-
-    this.updateInstancedAttributes(); // move it
 
     console.time("instancing...");
 
@@ -87,6 +85,8 @@ export class InstancedMesh2<T = {}, G extends BufferGeometry = BufferGeometry, M
     }
 
     console.timeEnd("instancing...");
+
+    this.updateInstancedAttributes();
 
     if (this._perObjectFrustumCulled) {
       this.frustumCulled = false; // todo gestire a true solamente quando count è 0 e mettere bbox 
@@ -296,7 +296,7 @@ export class InstancedMesh2<T = {}, G extends BufferGeometry = BufferGeometry, M
     }
 
     if (this._behaviour === CullingDynamic) {
-      //this can be improved
+      //this can be improved, calling it only if matrices updated
       this.needsUpdate();
     }
   }
@@ -314,8 +314,9 @@ export class InstancedMesh2<T = {}, G extends BufferGeometry = BufferGeometry, M
       const instance = instances[i];
       if (!instance._visible) continue;
 
-      // _sphere.center.copy(instance.position); // this works if geometry bsphere center is 0,0,0
-      _sphere.center.copy(center).applyQuaternion(instance.quaternion).add(instance.position);
+      // _sphere.center.copy(instance.position); // this works if geometry bsphere center is 0,0,0 and scale 1
+
+      _sphere.center.copy(center).applyQuaternion(instance.quaternion).multiply(instance.scale).add(instance.position).clone();
       _sphere.radius = radius * this.getMax(instance.scale);
 
       if (instance._inFrustum !== (instance._inFrustum = _frustum.intersectsSphere(_sphere))) {

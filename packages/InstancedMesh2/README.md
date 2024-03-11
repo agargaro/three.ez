@@ -98,7 +98,9 @@ These examples use `vite`, and some mobile devices may run out of memory.
 
 ## 📚 Documentation
 
-The API documentation is available [here](https://agargaro.github.io/three.ez/docs/api). 
+The API documentation is available [here](https://agargaro.github.io/three.ez/docs/api/namespaces/InstancedMesh2). 
+Automatic documentation also included patched properties and methods from other libraries in the repository.
+Please ignore properties and methods not defined within 'InstancedMesh2.ts'.
 
 ## 🤝 Contributing
 
