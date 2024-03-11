@@ -2,6 +2,7 @@ export * as Cameras from './camera';
 export * as Core from './core';
 export * as Events from './events';
 export * as InstancedMesh from './instancedMesh';
+export * as InstancedMesh2 from './instancedMesh2';
 export * as Patch from './patch';
 export * as Rendering from './rendering';
 export * as Tweening from './tweening';

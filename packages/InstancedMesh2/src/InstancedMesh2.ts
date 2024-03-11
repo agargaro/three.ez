@@ -51,7 +51,7 @@ export class InstancedMesh2<T = {}, G extends BufferGeometry = BufferGeometry, M
    * @param geometry The geometry for the instanced mesh.
    * @param material The material to apply to the instanced mesh.
    * @param count The number of instances to create.
-   * @param config Configuration
+   * @param config Configuration object.
    */
   constructor(geometry: G, material: M, count: number, config: InstancedMesh2Params<T>) {
     if (geometry === undefined) throw (new Error("Geometry is mandatory."));
@@ -70,7 +70,7 @@ export class InstancedMesh2<T = {}, G extends BufferGeometry = BufferGeometry, M
     this.instances = new Array(count);
     this._sortedInstances = new Array(count);
 
-    this.updateInstancedAttributes();
+    this.updateInstancedAttributes(); // move it
 
     console.time("instancing...");
 
