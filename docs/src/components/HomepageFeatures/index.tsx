@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import clsx from 'clsx';
-import styles from './styles.module.css';
-import { examples } from './examples';
 import CodeBlock from '@theme/CodeBlock';
+import { HtmlHTMLAttributes, default as React, useEffect, useRef } from 'react';
+import { examples } from './examples';
 import { Main } from './intro-cube/main';
+import styles from './styles.module.css';
+import './style.css';
 
 type FeatureItem = {
   title: string;
@@ -98,11 +98,14 @@ interface FeatureProps extends FeatureItem {
 function Feature({ title, description, code, className }: FeatureProps) {
   return (
     <div className={className} data-title={title}>
-      <div>
+      <div className={styles.featureDesc}>
         <h3>{title}</h3>
         <p>{description}</p>
       </div>
       <div className={styles.windowsCode}>
+        <CodeBlock className={styles.transparentCodeBlock} language="ts">
+          {code}
+        </CodeBlock>
         <div className={styles.windowsCodeHeader}>
           <div className={styles.windowsCodeHeaderDotContainer}>
             <div className={styles.windowsCodeHeaderDot}></div>
@@ -110,9 +113,6 @@ function Feature({ title, description, code, className }: FeatureProps) {
             <div className={styles.windowsCodeHeaderDot}></div>
           </div>
         </div>
-        <CodeBlock className={styles.transparentCodeBlock} language="ts">
-          {code}
-        </CodeBlock>
       </div>
     </div>
   );
@@ -121,25 +121,27 @@ function Feature({ title, description, code, className }: FeatureProps) {
 export default function HomepageFeatures(): JSX.Element {
   let main: Main;
   let showFeature = true;
+  const cardContainerRef = useRef(null);
+
   const handleIntersection = (entries: IntersectionObserverEntry[]) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         const index = FeatureList.findIndex((feature) => feature.title === entry.target.getAttribute('data-title'));
-        if (index !== main.currentStep) {
-          if (index !== -1) {
-            if (index > main.currentStep) {
-              main.next();
-            } else {
-              main.back();
-            }
-          }
-        }
+        // if (index !== main.currentStep) {
+          // if (index !== -1) {
+            // if (index > main.currentStep) {
+              // main.next();
+            // } else {
+              // main.back();
+            // }
+          // }
+        // }
       }
     });
   };
 
   useEffect(() => {
-    main = new Main();
+    // main = new Main();
     showFeature = false;
     const options = {
       root: document.querySelector('#scrollcontainer'),
@@ -153,16 +155,54 @@ export default function HomepageFeatures(): JSX.Element {
         observer.observe(element);
       }
     });
+
+    // Get all card elements as an array
+    const cards = Array.from<HTMLDivElement>(cardContainerRef.current.children);
+
+    const handleMouseMove = (e: MouseEvent) => {
+      // Get all card elements as an array
+
+      cards.forEach((card: HTMLDivElement) => {
+        const rect = card.querySelector('.windowsCode_src-components-HomepageFeatures-styles-module')?.getBoundingClientRect();
+        if (rect) {
+          // get mouse position
+          const x = e.clientX ;
+          const y = e.clientY ;
+          // console.log(x, y)
+
+          // find the middle
+          const middleX = window.innerWidth / 2;
+          const middleY = window.innerHeight / 2;
+          // console.log(middleX, middleY)
+
+          // get offset from middle as a percentage
+          // and tone it down a little
+          const offsetX = ((x - middleX) / middleX) * 15;
+          const offsetY = ((y - middleY) / middleY) * 15;
+          // console.log(offsetX, offsetY);
+
+          // set rotation
+          card.style.setProperty('--rotateX', -1 * offsetX + 'deg');
+          card.style.setProperty('--rotateY', offsetY + 'deg');
+        }
+      });
+    };
+
+    const currentContainer = cardContainerRef.current;
+    // Add mousemove event listener to the card container
+    currentContainer.addEventListener('pointermove', handleMouseMove);
+
     return () => {
+      currentContainer.removeEventListener('pointermove', handleMouseMove);
       observer.disconnect();
     };
   }, []);
 
   return (
     <div>
-      <canvas id="cubecanvas" className={styles.cubeCanvas}></canvas>
+      {/* <canvas id="cubecanvas" className={styles.cubeCanvas}></canvas> */}
       {showFeature && (
-        <section className={styles.featuresContainer}>
+        <section className={styles.featuresContainer} ref={cardContainerRef}>
           {FeatureList.map((props) => (
             <Feature key={props.title} {...props} className={styles.features} />
           ))}

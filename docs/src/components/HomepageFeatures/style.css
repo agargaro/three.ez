@@ -1,0 +1,7 @@
+.token {
+  text-shadow: 0 0 0.3em currentColor;
+}
+
+pre {
+    border-radius: 0px;
+}

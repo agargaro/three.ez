@@ -13,7 +13,9 @@
 .features {
   display: flex;
   align-items: flex-start;
+  flex-wrap: wrap;
   padding: 6rem 0;
+  gap: 4rem;
   width: 100%;
   position: relative;
   z-index: 1;
@@ -25,12 +27,18 @@
 .featuresContainer {
   scroll-snap-type: y mandatory;
   overflow-y: scroll;
+  margin: auto;
+  min-width: 500px;
+  width: 85%;
+  max-width: 100%;
   overflow-x: hidden;
   max-height: calc(100% - calc(var(--ifm-navbar-height) + var(--ifm-navbar-padding-vertical) * 2));
 }
-
+.featureDesc {
+  flex: 1 1 26%;
+}
 .transparentCodeBlock {
-  --prism-background-color: transparent !important;
+  --prism-background-color: #16161cfe !important;
   backdrop-filter: blur(6px);
 }
 
@@ -50,33 +58,61 @@
   --prism-background-color: #15182d36 !important;
   background-color: var(--prism-background-color);
   backdrop-filter: blur(6px);
-  border-radius: 10px;
-  box-shadow: 0px 1px 20px 0px #77777770;
-} 
+  transition: 500ms;
+  margin: 0 66px;
+}
+.windowsCode::before,
+.windowsCode::after {
+  content: '';
+  position: absolute;
+  border-radius: 0px;
+}
 
+/* shadow */
+.windowsCode::before {
+  inset: -1px;
+  z-index: -1;
+  transform: translatez(-50px);
+  background: linear-gradient(-45deg, #00ff14, #00f1ff, #c600ff, #004fff);
+  margin-bottom: 19px;
+}
+
+/* gradient thingy */
+.windowsCode::after {
+  z-index: -2;
+  inset: -10px;
+  background: linear-gradient(-45deg, #00ff14, #00f1ff, #c600ff, #004fff);
+  transform: translatez(-50px);
+  margin-bottom: 20px;
+  transition: 300ms;
+  border-radius: 5px;
+  opacity: 0.1;
+  transform: perspective(5000px) rotateY(var(--rotateX)) rotateX(var(--rotateY));
+}
 
 .windowsCodeHeader {
   width: 100%;
-  margin-bottom: -30px;
+  position: absolute;
+  top: 0;
 }
-
-.windowsCodeHeaderDotContainer{
+.windowsCodeHeaderDotContainer {
   display: inline-flex;
-  gap:8px;
-  padding:10px
+  gap: 8px;
+  padding: 10px;
 }
 .windowsCodeHeaderDot {
- border-radius: 50%;
- width: 10px;
- height: 10px;
- background-color: var(--dot-bgcolor);
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  --dot-bgcolor: #e0e0e061;
+  background-color: var(--dot-bgcolor);
 }
 .windowsCodeHeaderDot:nth-of-type(1) {
-  --dot-bgcolor: #e05e58
+  --dot-bgcolor: #e05e58;
 }
 .windowsCodeHeaderDot:nth-of-type(2) {
-  --dot-bgcolor: #efbc40
+  --dot-bgcolor: #efbc40;
 }
 .windowsCodeHeaderDot:nth-of-type(3) {
-  --dot-bgcolor: #75c74d
+  --dot-bgcolor: #75c74d;
 }
