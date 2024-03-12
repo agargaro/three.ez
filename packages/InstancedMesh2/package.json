@@ -1,13 +1,13 @@
 {
   "name": "@three.ez/instanced-mesh",
   "version": "0.1.1",
-  "description": "InstancedMesh2 enhances Three.js's InstancedMesh by simplifying instance management, including visibility control and transformations. It introduces frustum culling for each instance, improving performance.",
+  "description": "InstancedMesh2 enhances three.js's InstancedMesh by simplifying instance management, including visibility control and transformations. It introduces frustum culling for each instance, improving performance.",
   "author": "agargaro",
   "license": "MIT",
   "main": "bundle.js",
   "types": "index.d.ts",
   "homepage": "https://agargaro.github.io/three.ez",
-  "repository": "https://github.com/agargaro/three.ez/tree/master/packages/InstancedMesh2",
+  "repository": "https://github.com/agargaro/three.ez",
   "keywords": [
     "three",
     "three.js",
@@ -26,7 +26,6 @@
     "start": "npx vite"
   },
   "devDependencies": {
-    "@three.ez/main": "^0.4.12",
     "@types/three": "^0.162.0",
     "copy-pkg-json-webpack-plugin": "^0.0.40",
     "copy-webpack-plugin": "^11.0.0",
