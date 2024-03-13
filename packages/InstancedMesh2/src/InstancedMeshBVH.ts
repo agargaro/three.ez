@@ -22,7 +22,6 @@ export enum SplitType {
 /** @internal */
 export class InstancedMeshBVH {
   public root: Node;
-  public verbose = false;
   protected _target: InstancedMesh2;
   protected _maxLeaves: number;
   protected _maxDepth: number;
@@ -41,15 +40,15 @@ export class InstancedMeshBVH {
     this._maxLeaves = maxLeaves;
     this._maxDepth = maxDepth;
 
-    console.time("setup...");
+    InstancedMesh2.verbose && console.time("setup...");
     const bbox = this.setup();
-    console.timeEnd("setup...");
+    InstancedMesh2.verbose && console.timeEnd("setup...");
 
     this.root = { bbox, visibilityMask: 0 }; // 0 = in
 
-    console.time("bvh...");
+    InstancedMesh2.verbose && console.time("bvh...");
     this.buildNode(this.root, 0, this._target.instances.length, 0);
-    console.timeEnd("bvh...");
+    InstancedMesh2.verbose && console.timeEnd("bvh...");
 
     delete this._bboxData;
     delete this._indexes;
@@ -241,7 +240,7 @@ export class InstancedMeshBVH {
 
     if (this._projScreenMatrixCache.equals(_projScreenMatrix)) return;
     this._projScreenMatrixCache.copy(_projScreenMatrix);
-    this.verbose && console.time("culling");
+    InstancedMesh2.verbose && console.time("culling");
 
     this._show = show;
     this._hide = hide;
@@ -251,7 +250,7 @@ export class InstancedMeshBVH {
 
     this._show = undefined;
     this._hide = undefined;
-    this.verbose && console.timeEnd("culling");
+    InstancedMesh2.verbose && console.timeEnd("culling");
   }
 
   private traverseVisibility(node: Node, mask: number): void {
