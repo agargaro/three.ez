@@ -1,6 +1,6 @@
 {
   "name": "@three.ez/instanced-mesh",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "InstancedMesh2 enhances three.js's InstancedMesh by simplifying instance management, including visibility control and transformations. It introduces frustum culling for each instance, improving performance.",
   "author": "agargaro",
   "license": "MIT",
