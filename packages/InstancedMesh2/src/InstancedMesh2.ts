@@ -46,7 +46,7 @@ export class InstancedMesh2<T = {}, G extends BufferGeometry = BufferGeometry, M
   private _behaviour: number;
   private _instancedAttributes: InstancedBufferAttribute[];
   private _bvh: InstancedMeshBVH;
-
+  public static verbose: boolean;
   /**
    * @param geometry The geometry for the instanced mesh.
    * @param material The material to apply to the instanced mesh.
@@ -69,8 +69,7 @@ export class InstancedMesh2<T = {}, G extends BufferGeometry = BufferGeometry, M
 
     this.instances = new Array(count);
     this._sortedInstances = new Array(count);
-
-    console.time("instancing...");
+    InstancedMesh2.verbose && console.time("instancing...");
 
     for (let i = 0; i < count; i++) {
       const instance = new InstancedEntity(this, i, color) as Entity<T>;
@@ -84,7 +83,7 @@ export class InstancedMesh2<T = {}, G extends BufferGeometry = BufferGeometry, M
       this.instances[i] = instance;
     }
 
-    console.timeEnd("instancing...");
+    InstancedMesh2.verbose && console.timeEnd("instancing...");
 
     this.updateInstancedAttributes();
 
