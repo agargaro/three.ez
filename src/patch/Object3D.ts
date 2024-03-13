@@ -69,7 +69,7 @@ export interface Object3DExtPrototype {
   /** Indicates if the object is currently being clicked. */
   get clicking(): boolean;
   /** Indicates if the object is currently being dragged. */
-  get dragging(): boolean;
+  get isDragging(): boolean;
   /** Retrieves the combined enabled state considering parent objects. */
   get enabledState(): boolean;
   /** Retrieves the combined visibility state considering parent objects. */
@@ -257,7 +257,7 @@ Object.defineProperty(Object3D.prototype, "clicking", {
   }
 });
 
-Object.defineProperty(Object3D.prototype, "dragging", {
+Object.defineProperty(Object3D.prototype, "isDragging", {
   get: function (this: Object3D) {
     return this.__dragging;
   }
