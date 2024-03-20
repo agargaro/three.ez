@@ -1,2 +1,2 @@
-export * from './RenderManager';
-export * from './RenderView';
+export * from './View';
+export * from './ViewManager';

@@ -36,7 +36,7 @@ export interface ViewParameters {
  * Represents a render view with specific parameters. 
  * Don't instantiate this manually.
  */
-export class RenderView implements ViewParameters {
+export class View implements ViewParameters {
   public scene: Scene;
   public camera: Camera;
   public viewport: Viewport;
