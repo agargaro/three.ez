@@ -1,7 +1,7 @@
 import { Object3D, Raycaster, Vector2 } from "three";
 import { IntersectionExt } from "./Events";
 import { Hitbox } from "./Hitbox";
-import { ViewManager } from "../../ViewManager/src/View";
+import { ViewManager } from "@three.ez/view-manager";
 
 /**
  * A custom sorting comparison function used for ordering intersections during raycasting.

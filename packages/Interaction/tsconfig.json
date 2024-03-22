@@ -10,6 +10,9 @@
 		"stripInternal": true,
 		"outDir": "build",
 		"esModuleInterop": true,
-		"noImplicitAny": false
+		"noImplicitAny": false,
+		"paths": {
+			"@three.ez/view-manager": ["../ViewManager/src"]
+		}
 	}
 }

@@ -37,6 +37,6 @@
     "webpack-cli": "^5.1.4"
   },
   "peerDependencies": {
-    "three": ">=0.159.0"
+    "three": ">=0.123.0"
   }
 }

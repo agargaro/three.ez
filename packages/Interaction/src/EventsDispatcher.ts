@@ -1,5 +1,5 @@
 import { InstancedMesh, Object3D } from "three";
-import { applyObject3DRotationPatch, applyObject3DVector3Patch } from "../../../src/patch/Object3D";
+import { applyObject3DRotationPatch, applyObject3DVector3Patch } from "./patch/Object3D";
 import { EventExt, Events, InteractionEvents, MiscUpdateEvents, UpdateEvents } from "./Events";
 import { EventsCache } from "./MiscEventsManager";
 
