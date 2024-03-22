@@ -1,4 +1,4 @@
-import { Object3D, WebGLRenderer } from "three";
+import { Camera, Object3D, Scene, WebGLRenderer } from "three";
 import { CursorHandler } from "./CursorManager";
 import { DragAndDropManager } from "./DragAndDropManager";
 import { InteractionEvents, IntersectionExt, KeyboardEventExt, PointerEventExt, PointerIntersectionEvent, WheelEventExt } from "./Events";
@@ -25,12 +25,20 @@ export class InteractionManager {
     private _mouseDetected = false;
     private _isTapping = false;
 
-    constructor(viewManager: ViewManager) {
-        this._viewManager = viewManager;
-        const renderer = viewManager.renderer;
+    constructor(viewManager: ViewManager);
+    constructor(renderer: WebGLRenderer, scene: Scene, camera: Camera);
+
+    constructor(viewManager: WebGLRenderer | ViewManager, scene?: Scene, camera?: Camera) {
+        if (!(viewManager as ViewManager).isViewManager) {
+            viewManager = new ViewManager(viewManager as WebGLRenderer);
+            viewManager.create({ scene, camera });
+        }
+
+        this._viewManager = viewManager as ViewManager;
+        const renderer = this._viewManager.renderer;
         this.registerRenderer(renderer);
         this.cursorManager = new CursorHandler(renderer.domElement);
-        this.raycasterManager = new RaycasterManager(viewManager);
+        this.raycasterManager = new RaycasterManager(this._viewManager);
         this.dragManager = new DragAndDropManager(this.raycasterManager.raycaster);
     }
 

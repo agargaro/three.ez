@@ -6,6 +6,7 @@ export class ViewManager {
   public activeView: View;
   public hoveredView: View;
   public renderer: WebGLRenderer;
+  public isViewManager = true;
   private _visibleScenes = new Set<Scene>();
   private _rendererSize = new Vector2();
 
