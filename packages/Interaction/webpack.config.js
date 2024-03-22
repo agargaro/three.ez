@@ -9,7 +9,8 @@ module.exports = {
     outputModule: true
   },
   externals: [
-    'three'
+    'three',
+    '@three.ez/view-manager'
   ],
   module: {
     rules: [

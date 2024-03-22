@@ -12,6 +12,7 @@
     "three",
     "three.js",
     "threejs",
+    "3d",
     "interaction",
     "events",
     "event system",
@@ -21,7 +22,6 @@
     "tween",
     "focus management",
     "binding",
-    "3d",
     "helper",
     "toolkit",
     "query"

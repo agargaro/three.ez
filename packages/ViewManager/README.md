@@ -1,3 +1,3 @@
 # three.ez - ViewManager
 
-TODO
+Internal package that manages data and interactions with rendered views.

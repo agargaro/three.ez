@@ -1,13 +1,20 @@
 {
   "name": "@three.ez/view-manager",
   "version": "0.0.1",
-  "description": "",
+  "description": "Internal package that manages data and interactions with rendered views.",
   "author": "agargaro",
   "license": "MIT",
   "main": "bundle.js",
   "types": "index.d.ts",
   "homepage": "https://agargaro.github.io/three.ez",
   "repository": "https://github.com/agargaro/three.ez",
+  "keywords": [
+    "three",
+    "three.js",
+    "threejs",
+    "3d",
+    "views"
+  ],
   "scripts": {
     "publish-beta": "npm version prerelease --preid=beta --git-tag-version false && npx webpack && cd publish && npm publish --tag beta --access public",
     "publish-patch": "npm version patch --git-tag-version false && npx webpack && cd publish && npm publish --access public",
@@ -28,6 +35,6 @@
     "webpack-cli": "^5.1.4"
   },
   "peerDependencies": {
-    "three": ">=0.159.0"
+    "three": ">=0.123.0"
   }
 }
