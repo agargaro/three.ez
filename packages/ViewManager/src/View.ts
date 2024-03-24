@@ -1,118 +1,82 @@
-import { Scene, Vector2, WebGLRenderer } from "three";
-import { View, ViewParameters } from "./ViewManager";
+import { Camera, Scene, Vector2 } from "three";
 
-export class ViewManager {
-  public views: View[] = [];
-  public activeView: View;
-  public hoveredView: View;
-  public renderer: WebGLRenderer;
-  public isViewManager = true;
-  private _visibleScenes = new Set<Scene>();
-  private _rendererSize = new Vector2();
+/**
+ * Represents an object defining the dimensions and position of a viewport.
+ */
+export interface Viewport {
+  /** Left coordinate of the viewport. */
+  left: number;
+  /** Bottom coordinate of the viewport. */
+  bottom: number;
+  /** Width of the viewport. */
+  width: number;
+  /** Height of the viewport. */
+  height: number;
+}
 
-  public get activeScene(): Scene { return this.activeView?.scene }
-  public get hoveredScene(): Scene { return this.hoveredView?.scene }
+/**
+ * Represents a set of parameters for configuring a view.
+ */
+export interface ViewParameters {
+  /** Scene rendered in the view. */
+  scene: Scene;
+  /** Camera used to view the scene (avoid using the same camera for different scenes). */
+  camera: Camera;
+  /** Normalized viewport defining dimensions and position of the view (optional). Values range from 0 to 1. */
+  viewport?: Viewport;
+  /** Tags of the view (optional). */
+  tags?: string[];
+  /** Determines if the view is visible (optional, default: true). */
+  visible?: boolean;
+  /** Determines whether InteractionEvents will be triggered for the view (optional, default: true).  */
+  enabled?: boolean;
+}
 
-  constructor(renderer: WebGLRenderer) {
-    this.renderer = renderer;
+/**
+ * Represents a render view with specific parameters. 
+ * Don't instantiate this manually.
+ */
+export class View implements ViewParameters {
+  public scene: Scene;
+  public camera: Camera;
+  public viewport: Viewport;
+  /** The viewport defining the dimensions and position of the view. */
+  public computedViewport = { left: 0, bottom: 0, width: 0, height: 0, top: 0 };
+  public tags: string[];
+  public visible: boolean;
+  public enabled: boolean;
+  private _rendererSize: Vector2;
 
-    window.addEventListener("resize", this.onResize.bind(this));
+  /**
+   * Don't instantiate this manually.
+   */
+  constructor(parameters: ViewParameters, rendererSize: Vector2) {
+    this._rendererSize = rendererSize;
+    this.scene = parameters.scene;
+    this.camera = parameters.camera;
+    this.viewport = parameters.viewport;
+    this.tags = parameters.tags;
+    this.visible = parameters.visible ?? true;
+    this.enabled = parameters.enabled ?? true;
 
-    this.updateRenderSize();
+    this.scene.add(this.camera); // Mandatory to trigger camera resize event
+    
+    this.update();
   }
 
-  public create(view: ViewParameters): View {
-    const renderView = new View(view, this._rendererSize);
-
-    this.views.push(renderView);
-
-    return renderView;
-  }
-
-  public add(view: View): void {
-    if (this.views.indexOf(view) > -1) return;
-
-    this.views.push(view);
-  }
-
-  public getByTag(tag: string): View {
-    for (const view of this.views) {
-      if (view.tags.indexOf(tag) > -1) {
-        return view;
-      }
-    }
-  }
-
-  public remove(view: View): void {
-    const index = this.views.indexOf(view);
-
-    if (index > -1) {
-      this.views.splice(index, 1);
-    }
-  }
-
-  public removeByTag(tag: string): void {
-    if (this.views.length === 0) return;
-
-    for (let i = this.views.length - 1; i >= 0; i--) {
-      if (this.views[i].tags.indexOf(tag) > -1) {
-        this.views.splice(i, 1);
-      }
-    }
-  }
-
-  public clear(): void {
-    this.views = [];
-  }
-
-  public getVisibleScenes(): Set<Scene> {
-    if (this.views.length === 0) return;
-
-    this._visibleScenes.clear();
-
-    for (const view of this.views) {
-      if (view.visible) {
-        this._visibleScenes.add(view.scene);
-      }
-    }
-
-    return this._visibleScenes;
-  }
-
-  public updateActiveView(mouse: Vector2, pointerOnCanvas: boolean): void {
-    this.hoveredView = pointerOnCanvas ? this.getViewByMouse(mouse) : undefined;
-
-    if (this.hoveredView) {
-      this.activeView = this.hoveredView;
-    }
-  }
-
-  public getViewByMouse(mouse: Vector2): View {
-    for (let i = this.views.length - 1; i >= 0; i--) {
-      const view = this.views[i];
-      const v = view.computedViewport;
-
-      if (view.visible && v.left <= mouse.x && v.left + v.width >= mouse.x && v.top <= mouse.y && v.top + v.height >= mouse.y) {
-        return view;
-      }
-    }
-  }
-
-  private onResize(): void {
-    this.updateRenderSize();
-
-    for (const view of this.views) {
-      view.update();
-    }
-  }
-
-  private updateRenderSize(): void {
-    this.renderer.getSize(this._rendererSize);
-  }
-
-  public setActiveViewsByTag(tag: string): void {
-    for (const view of this.views) {
-      view.visible = view.tags.indexOf(tag) > -1;
+  /**
+   * Updates the dimensions of the viewport based on the renderer size.
+   */
+  public update(): void {
+    if (this.viewport) {
+      this.computedViewport.left = Math.floor(this._rendererSize.x * this.viewport.left);
+      this.computedViewport.bottom = Math.floor(this._rendererSize.y * this.viewport.bottom);
+      this.computedViewport.width = Math.floor(this._rendererSize.x * this.viewport.width);
+      this.computedViewport.height = Math.floor(this._rendererSize.y * this.viewport.height);
+      this.computedViewport.top = Math.floor(this._rendererSize.y - this.computedViewport.bottom - this.computedViewport.height);
+    } else {
+      this.computedViewport.width = this._rendererSize.x;
+      this.computedViewport.height = this._rendererSize.y;
     }
   }
 }

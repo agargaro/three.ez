@@ -43,5 +43,8 @@
   },
   "peerDependencies": {
     "three": ">=0.123.0"
+  },
+  "dependencies": {
+    "@three.ez/view-manager": "^0.0.2"
   }
 }
