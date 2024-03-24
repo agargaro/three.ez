@@ -11,7 +11,7 @@ Simplify your **three.js** application development with **three.ez**!
 
 Enhance 3D scene interactions with **events, drag & drop, and focus management**. Simplify **three.js** development with ease.
 
-### Example using Three.ez/main
+### Example using three.ez/main
 
 ```typescript
 import { Scene, Mesh, BoxGeometry, MeshNormalMaterial } from 'three';
@@ -27,7 +27,7 @@ const main = new Main(); // init inside the renderer, and handle events, resize,
 main.createView({ scene, camera: new PerspectiveCameraAuto(70).translateZ(1) }); // create the view to be rendered
 ```
 
-### Example using Three.ez/main
+### Example using three.js vanilla
 
 ```typescript
 import { BoxGeometry, Mesh, MeshBasicMaterial, PerspectiveCamera, Scene, WebGLRenderer } from 'three';
