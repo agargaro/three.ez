@@ -11,6 +11,8 @@ Simplify your **three.js** application development with **three.ez**!
 
 Enhance 3D scene interactions with **events, drag & drop, and focus management**. Simplify **three.js** development with ease.
 
+### Example using Three.ez/main
+
 ```typescript
 import { Scene, Mesh, BoxGeometry, MeshNormalMaterial } from 'three';
 import { Main, PerspectiveCameraAuto } from '@three.ez/main';
@@ -23,6 +25,49 @@ box.on(['pointerover', 'pointerout'], (e) => box.scale.setScalar(e.type === 'poi
 const scene = new Scene().add(box);
 const main = new Main(); // init inside the renderer, and handle events, resize, etc
 main.createView({ scene, camera: new PerspectiveCameraAuto(70).translateZ(1) }); // create the view to be rendered
+```
+
+### Example using Three.ez/main
+
+```typescript
+import { BoxGeometry, Mesh, MeshBasicMaterial, PerspectiveCamera, Scene, WebGLRenderer } from 'three';
+import { InteractionManager } from '@three.ez/interaction';
+
+const camera = new PerspectiveCamera(70, window.innerWidth / window.innerHeight, 0.1, 100);
+camera.position.z = 2;
+
+const scene = new Scene();
+
+const renderer = new WebGLRenderer({ antialias: true });
+renderer.setPixelRatio(window.devicePixelRatio);
+renderer.setSize(window.innerWidth, window.innerHeight);
+document.body.appendChild(renderer.domElement);
+
+const interactionManager = new InteractionManager(renderer, scene, camera);
+
+camera.on('viewportresize', (e) => {
+  camera.aspect = e.width / e.height;
+  camera.updateProjectionMatrix();
+});
+
+window.addEventListener('resize', () => {
+  renderer.setSize(window.innerWidth, window.innerHeight);
+});
+
+const mesh = new Mesh(new BoxGeometry(), new MeshBasicMaterial({ color: 'white' }));
+scene.add(mesh);
+
+mesh.draggable = true;
+
+mesh.on('animate', (e) => {
+  if (mesh.hovered) return;
+  mesh.rotation.z += e.delta;
+});
+
+renderer.setAnimationLoop((time) => {
+  interactionManager.update(time);
+  renderer.render(scene, camera);
+});
 ```
 
 This library has two dependency: 
@@ -73,7 +118,7 @@ const line = new Line2(geometry, material);
 line.on('viewportresize', (e) => material.resolution.set(e.width, e.height));
 ```
 
-### 💡 [Smart Rendering](https://agargaro.github.io/three.ez/docs/tutorial/rendering/smart-rendering) 
+<!-- ### 💡 [Smart Rendering](https://agargaro.github.io/three.ez/docs/tutorial/rendering/smart-rendering) 
 Optimize performance by rendering frames only when necessary, reducing computational overhead. <br />
 Automatically identifies changes in *position, scale, rotation, visibility, focus, blurring and addition or removal of objects*.
 
@@ -86,7 +131,7 @@ box.draggable = true; // if you drag the frame, it automatically detects changes
 
 box.material.color.set('yellow');
 box.needsRender = true; // necessary because color change cannot be automatically detected
-```
+``` -->
 
 ### ⚙️ Raycasting Customisable
 Choose between continuous or mouse movement-based raycasting, optimizing intersection operations. <br />
@@ -135,11 +180,11 @@ Or can import it from CDN:
 
 These examples use `vite`, and some mobile devices may run out of memory. However, there is one example without it.
 
-### Vanilla three.js
+### Three.js vanilla
 
 - [Template](https://stackblitz.com/edit/three-ez-interaction-template-vanilla?file=src%2Fmain.ts)
 
-### Three.ez
+### Three.ez/main
 
 [Examples Collection](https://stackblitz.com/@agargaro/collections/three-ez)
 
