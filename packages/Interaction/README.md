@@ -43,6 +43,7 @@ renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
+// Add interactionManager to the scene
 const interactionManager = new InteractionManager(renderer, scene, camera);
 
 camera.on('viewportresize', (e) => {
@@ -65,14 +66,16 @@ mesh.on('animate', (e) => {
 });
 
 renderer.setAnimationLoop((time) => {
+  // Update interactions
   interactionManager.update(time);
+
   renderer.render(scene, camera);
 });
 ```
 
 This library has two dependency: 
-- `three.js r123+`.
-- `@three.ez/view-manager`.
+- `three.js r123+`
+- `@three.ez/view-manager`
 
 ## 🔑 Key Features
 
