@@ -25,7 +25,9 @@ const main = new Main(); // init inside the renderer, and handle events, resize,
 main.createView({ scene, camera: new PerspectiveCameraAuto(70).translateZ(1) }); // create the view to be rendered
 ```
 
-This library has only one dependency: `three.js r123+`.
+This library has two dependency: 
+- `three.js r123+`.
+- `@three.ez/view-manager`.
 
 ## 🔑 Key Features
 
@@ -122,7 +124,8 @@ Or can import it from CDN:
   "imports": {
     "three": "https://unpkg.com/three@0.162.0/build/three.module.js",
     "three/examples/jsm": "https://unpkg.com/three@0.162.0/examples/jsm/",
-    "@three.ez/main": "https://unpkg.com/@three.ez/main@0.5.1/bundle.js"
+    "@three.ez/view-manager": "https://unpkg.com/@three.ez/view-manager@0.0.2/bundle.js",
+    "@three.ez/interaction": "https://unpkg.com/@three.ez/interaction@0.0.1/bundle.js"
   }
 }
 </script>
@@ -131,6 +134,12 @@ Or can import it from CDN:
 ## 🧑‍💻 Live Examples
 
 These examples use `vite`, and some mobile devices may run out of memory. However, there is one example without it.
+
+### Vanilla three.js
+
+- [Template](https://stackblitz.com/edit/three-ez-interaction-template-vanilla?file=src%2Fmain.ts)
+
+### Three.ez
 
 [Examples Collection](https://stackblitz.com/@agargaro/collections/three-ez)
 

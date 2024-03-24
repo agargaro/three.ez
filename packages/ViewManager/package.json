@@ -1,6 +1,6 @@
 {
   "name": "@three.ez/view-manager",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Internal package that manages data and interactions with rendered views.",
   "author": "agargaro",
   "license": "MIT",
