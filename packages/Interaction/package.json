@@ -1,7 +1,7 @@
 {
-  "name": "@three.ez/view-manager",
+  "name": "@three.ez/interaction",
   "version": "0.0.2",
-  "description": "Internal package that manages data and interactions with rendered views.",
+  "description": "Enhance 3D scene interactions with events, drag & drop, and focus management. Simplify three.js development with ease.",
   "author": "agargaro",
   "license": "MIT",
   "main": "bundle.js",
@@ -13,7 +13,14 @@
     "three.js",
     "threejs",
     "3d",
-    "views"
+    "interaction",
+    "events",
+    "event system",
+    "drag and drop",
+    "smart rendering",
+    "focus management",
+    "helper",
+    "toolkit"
   ],
   "scripts": {
     "publish-beta": "npm version prerelease --preid=beta --git-tag-version false && npx webpack && cd publish && npm publish --tag beta --access public",
@@ -36,5 +43,8 @@
   },
   "peerDependencies": {
     "three": ">=0.123.0"
+  },
+  "dependencies": {
+    "@three.ez/view-manager": "^0.0.2"
   }
 }

@@ -7,6 +7,8 @@
 [![BundlePhobia](https://badgen.net/bundlephobia/min/@three.ez/instanced-mesh)](https://bundlephobia.com/package/@three.ez/instanced-mesh)
 [![Discord](https://img.shields.io/discord/1150091562227859457)](https://discord.gg/MVTwrdX3JM)
 
+Simplify your **three.js** application development with **three.ez**! 
+
 `InstancedMesh2` extends the functionality of `InstancedMesh`, providing streamlined control over instance `transformations` and `visibility`, while also integrating `frustum culling` for each instance to improve performance.
 
 ```typescript
@@ -82,7 +84,7 @@ Or you can import it from CDN:
   "imports": {
     "three": "https://unpkg.com/three@0.162.0/build/three.module.js",
     "three/examples/jsm": "https://unpkg.com/three@0.162.0/examples/jsm/",
-    "@three.ez/instanced-mesh": "https://unpkg.com/@three.ez/instanced-mesh@0.0.1/bundle.js"
+    "@three.ez/instanced-mesh": "https://unpkg.com/@three.ez/instanced-mesh@0.1.2/bundle.js"
   }
 }
 </script>

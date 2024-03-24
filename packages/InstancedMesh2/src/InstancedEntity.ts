@@ -41,6 +41,11 @@ export class InstancedEntity {
     return _m;
   }
 
+  /** The world transform matrix. */
+  public get matrixWorld(): Matrix4 {
+    return this.matrix.premultiply(this.parent.matrixWorld);
+  }
+
   /**
    * @param parent The parent InstancedMesh2 that contains this instance.
    * @param index The index of this instance within the parent InstancedMesh2.

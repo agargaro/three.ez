@@ -1,15 +1,17 @@
-# three.ez
+# three.ez - Interaction
 
-[![npm](https://img.shields.io/npm/v/@three.ez/main)](https://www.npmjs.com/package/@three.ez/main)
+[![npm](https://img.shields.io/npm/v/@three.ez/interaction)](https://www.npmjs.com/package/@three.ez/interaction)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=agargaro_three.ez&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=agargaro_three.ez)
 [![DeepScan grade](https://deepscan.io/api/teams/21196/projects/25445/branches/796375/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=21196&pid=25445&bid=796375)
 [![Stars](https://badgen.net/github/stars/agargaro/three.ez)](https://github.com/agargaro/three.ez)
-[![BundlePhobia](https://badgen.net/bundlephobia/min/@three.ez/main)](https://bundlephobia.com/package/@three.ez/main)
+[![BundlePhobia](https://badgen.net/bundlephobia/min/@three.ez/interaction)](https://bundlephobia.com/package/@three.ez/interaction)
 [![Discord](https://img.shields.io/discord/1150091562227859457)](https://discord.gg/MVTwrdX3JM)
 
 Simplify your **three.js** application development with **three.ez**! 
 
-Extend the functionalities of `Object3D` and `Scene` classes, making their usage more straightforward, and introduce utility classes.
+Enhance 3D scene interactions with **events, drag & drop, and focus management**. Simplify **three.js** development with ease.
+
+### Example using three.ez/main
 
 ```typescript
 import { Scene, Mesh, BoxGeometry, MeshNormalMaterial } from 'three';
@@ -25,17 +27,55 @@ const main = new Main(); // init inside the renderer, and handle events, resize,
 main.createView({ scene, camera: new PerspectiveCameraAuto(70).translateZ(1) }); // create the view to be rendered
 ```
 
-This library has only one dependency: `three.js r151+`.
+### Example using three.js vanilla
 
-## ✅ Why three.ez?
+```typescript
+import { BoxGeometry, Mesh, MeshBasicMaterial, PerspectiveCamera, Scene, WebGLRenderer } from 'three';
+import { InteractionManager } from '@three.ez/interaction';
 
-- Program the logic of your `Object3D` more quickly and intuitively
-- Less code and cleaner
-- Streamlined rendering
-- Declarative and imperative programming
-- Compatible with your three.js code and external libraries
-- Easy to learn
-- High performance
+const camera = new PerspectiveCamera(70, window.innerWidth / window.innerHeight, 0.1, 100);
+camera.position.z = 2;
+
+const scene = new Scene();
+
+const renderer = new WebGLRenderer({ antialias: true });
+renderer.setPixelRatio(window.devicePixelRatio);
+renderer.setSize(window.innerWidth, window.innerHeight);
+document.body.appendChild(renderer.domElement);
+
+// Add interactionManager to the scene
+const interactionManager = new InteractionManager(renderer, scene, camera);
+
+camera.on('viewportresize', (e) => {
+  camera.aspect = e.width / e.height;
+  camera.updateProjectionMatrix();
+});
+
+window.addEventListener('resize', () => {
+  renderer.setSize(window.innerWidth, window.innerHeight);
+});
+
+const mesh = new Mesh(new BoxGeometry(), new MeshBasicMaterial({ color: 'white' }));
+scene.add(mesh);
+
+mesh.draggable = true;
+
+mesh.on('animate', (e) => {
+  if (mesh.hovered) return;
+  mesh.rotation.z += e.delta;
+});
+
+renderer.setAnimationLoop((time) => {
+  // Update interactions
+  interactionManager.update(time);
+
+  renderer.render(scene, camera);
+});
+```
+
+This library has two dependency: 
+- `three.js r123+`
+- `@three.ez/view-manager`
 
 ## 🔑 Key Features
 
@@ -73,16 +113,7 @@ box.on('focus', (e) => console.log('focused'));
 box.on('blur', (e) => console.log('focus lost'));
 ```     
 
-### 🏅 [Object3D Property Binding](https://agargaro.github.io/three.ez/docs/tutorial/binding)
-Streamline the management of `Object3D` properties.
-
-```typescript
-const box = new Mesh(geometry, material);
-box.bindProperty('visible', () => box.parent?.enabled); 
-```
-
-### ✂️ Automatic Resize Handling
-Automatically resizes the `Renderer`, `Camera`, and `EffectComposer`. <br />
+### ✂️ Resize Handling
 Utilize the `viewportResize` event to easily set the resolution for custom shaders.
 
 ```typescript
@@ -90,7 +121,7 @@ const line = new Line2(geometry, material);
 line.on('viewportresize', (e) => material.resolution.set(e.width, e.height));
 ```
 
-### 💡 [Smart Rendering](https://agargaro.github.io/three.ez/docs/tutorial/rendering/smart-rendering) 
+<!-- ### 💡 [Smart Rendering](https://agargaro.github.io/three.ez/docs/tutorial/rendering/smart-rendering) 
 Optimize performance by rendering frames only when necessary, reducing computational overhead. <br />
 Automatically identifies changes in *position, scale, rotation, visibility, focus, blurring and addition or removal of objects*.
 
@@ -103,56 +134,7 @@ box.draggable = true; // if you drag the frame, it automatically detects changes
 
 box.material.color.set('yellow');
 box.needsRender = true; // necessary because color change cannot be automatically detected
-```
-
-### 🏆 [Simplified Multiple Rendering](https://agargaro.github.io/three.ez/docs/tutorial/rendering/multiple-rendering)
-Effortlessly manage rendering for multiple scenes or viewports within a single canvas.
-
-```typescript
-const main = new Main(); 
-main.createView({ scene, camera, viewport: { left: 0, bottom: 0, width: 0.5, height: 1 } });
-main.createView({ scene, camera, viewport: { left: 0.5, bottom: 0, width: 0.5, height: 1 } });
-```
-
-### 🛠️ [Asset Management](https://agargaro.github.io/three.ez/docs/tutorial/asset-management)
-Efficiently load and preload the assets for your 3D projects.
-
-*load:*
-```typescript
-const audioBuffer = await Asset.load(AudioLoader, 'audio.mp3', onProgressCallback, onErrorCallback);
-```
-
-*preload:*
-```typescript
-// soldier.js
-Asset.preload(GLTFLoader, 'https://threejs.org/examples/models/gltf/Soldier.glb');
-
-export class Soldier extends Group {
-  constructor() {
-    super();
-    const gltf = Asset.get('https://threejs.org/examples/models/gltf/Soldier.glb');
-    this.add(...gltf.scene.children);
-  }
-}
-
-// main.js
-await Asset.preloadAllPending({ onProgress: (e) => console.log(e * 100 + '%'), onError: (e) => console.error(e) });
-const main = new Main();
-const soldier = new Soldier();
-```
-
-### 🎥 Tweening
-Create smooth animations effortlessly with built-in tweening.
-
-```typescript
-box.tween().by(1000, { position: new Vector3(0, 0.5, 0) }, { easing: 'easeInOutBack' }).yoyoForever().start();
-
-new Tween(box)
-  .by(2000, { scale: 1, rotation: new Euler(Math.PI * 2, Math.PI, 0) }, { easing: 'easeOutElastic' })
-  .delay(200)
-  .to(1000, { scale: 1 }, { easing: 'easeOutBounce' })
-  .start();
-```
+``` -->
 
 ### ⚙️ Raycasting Customisable
 Choose between continuous or mouse movement-based raycasting, optimizing intersection operations. <br />
@@ -174,43 +156,12 @@ const ring = new Mesh(new RingGeometry(1, 1.5), new MeshBasicMaterial());
 ring.hitboxes = [new Hitbox(new CircleGeometry(1.5))]; // intercept also inside the ring
 ```
 
-### 💯 Simplified InstancedMesh
-Manage `InstancedMesh` instances with the ease of working with `Object3D`, simplifying creation and manipulation, including frustum culling.
-
-```typescript
-const myInstancedMesh = new InstancedMesh2(geometry, material, count, (obj, index) => {
-  obj.position.x += index;
-  obj.scale.setScalar(2);
-  obj.quaternion.random();
-  obj.forceUpdateMatrix();
-});
-
-// How to handle instances
-myInstancedMesh.instances[0].visible = false;
-myInstancedMesh.instances[1].draggable = true;
-myInstancedMesh.instances[2].rotateOnWorldAxis(xAxis, Math.PI);
-myInstancedMesh.instances[2].updateMatrix();
-```
-
-### 🔍 Query
-Find and select `Object3D` using powerful query selectors.
-
-```typescript
-scene.querySelectorAll('Mesh'); // Selects all the meshes in the scene.
-scene.querySelectorAll('[name=box]'); // Selects all Object3D that have 'box' as their name.
-scene.querySelectorAll('[name*=box]'); // Selects all Object3D that have 'box' anywhere in their name.
-scene.querySelectorAll('Mesh.even'); // Selects meshes with both 'Mesh' type and 'even' tag.
-scene.querySelectorAll('Group .even'); // Selects all Object3D with 'even' tag that are children of a 'Group'.
-scene.querySelectorAll('Group > .even'); // Selects all direct children with 'even' tag under a 'Group'.
-scene.querySelectorAll('Mesh, SkinnedMesh'); // Selects all meshes and skinned meshes in the scene.
-```
-
 ## ⬇️ Installation
 
 You can install it via npm using the following command:
 
 ```bash
-npm install @three.ez/main
+npm install @three.ez/interaction
 ```
 
 Or can import it from CDN:
@@ -221,7 +172,8 @@ Or can import it from CDN:
   "imports": {
     "three": "https://unpkg.com/three@0.162.0/build/three.module.js",
     "three/examples/jsm": "https://unpkg.com/three@0.162.0/examples/jsm/",
-    "@three.ez/main": "https://unpkg.com/@three.ez/main@0.5.3/bundle.js"
+    "@three.ez/view-manager": "https://unpkg.com/@three.ez/view-manager@0.0.2/bundle.js",
+    "@three.ez/interaction": "https://unpkg.com/@three.ez/interaction@0.0.2/bundle.js"
   }
 }
 </script>
@@ -231,18 +183,18 @@ Or can import it from CDN:
 
 These examples use `vite`, and some mobile devices may run out of memory. However, there is one example without it.
 
+### Three.js vanilla
+
+- [Template](https://stackblitz.com/edit/three-ez-interaction-template-vanilla?file=src%2Fmain.ts)
+
+### Three.ez/main
+
 [Examples Collection](https://stackblitz.com/@agargaro/collections/three-ez)
 
 - [Template](https://stackblitz.com/edit/three-ez-template?file=src%2Fmain.ts)
 — [Template Extended](https://stackblitz.com/edit/three-ez-template-extended?file=src%2Fmain.ts)
 — [Template No Vite](https://stackblitz.com/edit/three-ez-template-no-vite?file=index.ts)
 - [Smart Rendering](https://stackblitz.com/edit/three-ez-smart-rendering?file=src%2Fmain.ts)
-- [Multiple Views](https://stackblitz.com/edit/three-ez-multiple-views?file=src%2Fmain.ts)
-— [Multiple Views Wireframe](https://stackblitz.com/edit/three-ez-multiple-views-wireframe?file=src%2Fmain.ts)
-— [Multiple Views Switch](https://stackblitz.com/edit/three-ez-multiple-views-switch?file=src%2Fmain.ts)
-- [Asset Management](https://stackblitz.com/edit/three-ez-asset-management?file=src%2Fmain.ts)
-- [Binding](https://stackblitz.com/edit/three-ez-binding?file=src%2Fmain.ts)
-— [Binding Collisions](https://stackblitz.com/edit/three-ez-binding-collisions?file=src%2Fmain.ts)
 - [Events](https://stackblitz.com/edit/three-ez-events?file=src%2Fmain.ts)
 — [Click On Scene To Add Box](https://stackblitz.com/edit/three-ez-click-on-scene-to-add-box?file=src%2Fmain.ts)
 - [Focus](https://stackblitz.com/edit/three-ez-focus?file=src%2Fmain.ts)
@@ -252,13 +204,7 @@ These examples use `vite`, and some mobile devices may run out of memory. Howeve
 — [Drag Limits](https://stackblitz.com/edit/three-ez-drag-limits?file=src%2Fmain.ts)
 - [Continuous Raycasting](https://stackblitz.com/edit/three-ez-continuous-raycasting?file=src%2Fmain.ts)
 - [Hitbox](https://stackblitz.com/edit/three-ez-hitbox?file=src%2Fmain.ts)
-- [Tweening](https://stackblitz.com/edit/three-ez-tweening?file=src%2Fmain.ts)
-— [Tweening Custom Progress](https://stackblitz.com/edit/three-ez-tweening-custom-progress?file=src%2Fmain.ts)
-- [InstancedMeshEntity](https://stackblitz.com/edit/three-ez-instancedmeshentity?file=src%2Fmain.ts)
-— [InstancedMeshEntity Performance](https://stackblitz.com/edit/three-ez-instancedmeshentity-performance?file=src%2Fmain.ts)
 - [Draggable Box OrbitControls](https://stackblitz.com/edit/three-ez-draggable-box-orbitcontrols?file=src%2Fmain.ts)
-- [Textbox (troika-three-text)](https://stackblitz.com/edit/three-ez-textbox?file=src%2Fmain.ts)
-- [Bubble Refraction](https://stackblitz.com/edit/three-ez-bubble-refraction?file=src%2Fmain.ts,src%2Ftext.ts,src%2Fparticles.ts,src%2Fbubble.ts,src%2FbubbleMaterial.ts,src%2Fscene.ts)
 
 ## 📚 Documentation
 
@@ -272,6 +218,12 @@ Any help is highly appreciated. If you would like to contribute to this package 
 ## ❔ Questions?
 
 If you have questions or need assistance, you can ask on our [discord server](https://discord.gg/MVTwrdX3JM).
+
+## 👀 Future Work
+
+- Evaluate if pointerup event needs rework.
+- Raycasting optimization on static scene.
+- Raycasting optimization if there are no events on pointer movement.
 
 ## ⭐ Like it?
 

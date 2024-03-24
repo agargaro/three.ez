@@ -1,6 +1,6 @@
 import { Camera, Scene, Vector4, WebGLRenderer } from "three";
-import { ViewportResizeEvent } from "../events/Events";
-import { EventsCache } from "../events/MiscEventsManager";
+import { ViewportResizeEvent } from "../Events";
+import { EventsCache } from "../MiscEventsManager";
 
 const viewportSize = new Vector4();
 const lastViewportSizes: { [x: number]: Vector4 } = {};
@@ -23,6 +23,7 @@ function handleViewportResize(renderer: WebGLRenderer, scene: Scene, camera: Cam
     }
 
     const lastSceneSize = lastViewportSizes[scene.id];
+    
     if (lastSceneSize.z !== viewportSize.z || lastSceneSize.w !== viewportSize.w) {
         lastSceneSize.copy(viewportSize);
         event = { renderer, camera, width: viewportSize.z, height: viewportSize.w };
@@ -34,6 +35,7 @@ function handleViewportResize(renderer: WebGLRenderer, scene: Scene, camera: Cam
     }
 
     const lastCameraSize = lastViewportSizes[camera.id];
+
     if (lastCameraSize.z !== viewportSize.z || lastCameraSize.w !== viewportSize.w) {
         lastCameraSize.copy(viewportSize);
         camera.__eventsDispatcher?.dispatch("viewportresize", event ?? { renderer, camera, width: viewportSize.z, height: viewportSize.w });
