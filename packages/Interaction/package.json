@@ -1,6 +1,6 @@
 {
   "name": "@three.ez/interaction",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Enhance 3D scene interactions with events, drag & drop, and focus management. Simplify three.js development with ease.",
   "author": "agargaro",
   "license": "MIT",

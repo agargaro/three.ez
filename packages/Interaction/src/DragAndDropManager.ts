@@ -1,6 +1,5 @@
 import { Plane, Matrix4, Vector3, Raycaster, Camera, Object3D } from "three";
 import { DragEventExt, InteractionEvents, IntersectionExt, Object3DLike } from "./Events";
-import { InstancedMesh2 } from "../../../packages/InstancedMesh2/src/InstancedMesh2";
 
 /** @internal */
 export class DragAndDropManager {
@@ -66,8 +65,8 @@ export class DragAndDropManager {
     public initDrag(event: PointerEvent, target: Object3D, instanceId: number, intersection: IntersectionExt): void {
         if (this.isDragButton(event) && target?.draggable && target.enabledState) {
             
-            if (instanceId >= 0 && (target as InstancedMesh2).isInstancedMesh2) {
-                this._targetInstanced = (target as InstancedMesh2).instances[instanceId];
+            if (instanceId >= 0 && (target as any).isInstancedMesh2) { // TODO fix this d.ts
+                this._targetInstanced = (target as any).instances[instanceId];
                 this._target = target;
             } else {
                 this._target = target.dragTarget ?? target;

@@ -173,7 +173,7 @@ Or can import it from CDN:
     "three": "https://unpkg.com/three@0.162.0/build/three.module.js",
     "three/examples/jsm": "https://unpkg.com/three@0.162.0/examples/jsm/",
     "@three.ez/view-manager": "https://unpkg.com/@three.ez/view-manager@0.0.2/bundle.js",
-    "@three.ez/interaction": "https://unpkg.com/@three.ez/interaction@0.0.1/bundle.js"
+    "@three.ez/interaction": "https://unpkg.com/@three.ez/interaction@0.0.2/bundle.js"
   }
 }
 </script>
