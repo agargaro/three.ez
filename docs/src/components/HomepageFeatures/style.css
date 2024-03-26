@@ -10,4 +10,15 @@ pre {
   background-image: linear-gradient(-45deg, #00ff14, #00f1ff, #c600ff, #004fff);
   color: white;
   text-shadow: 0px 0px 3px hsl(0 0% 50%);
+  position: relative;
+}
+
+.heroBanner_src-pages-index-module::after {
+  content: "";
+  position: absolute;
+  bottom:0;
+  top:0;
+  left: 0;
+  right: 0;
+  background-image: url('/img/noise.png');
 }

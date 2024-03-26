@@ -69,16 +69,20 @@
 }
 
 /* shadow */
-.windowsCode::before {
+.windowsCode::after {
   inset: -1px;
-  z-index: -1;
+  opacity: 0.1;
+  user-select: none;
+  pointer-events: none;
+  /* z-index: -1; */
+  border-radius: var(--ifm-code-border-radius);
   transform: translatez(-50px);
-  background: linear-gradient(-45deg, #00ff14, #00f1ff, #c600ff, #004fff);
+  background-image: url('/img/noise.png');
   margin-bottom: 19px;
 }
 
 /* gradient thingy */
-.windowsCode::after {
+.windowsCode::before {
   z-index: -2;
   inset: -10px;
   background: linear-gradient(-45deg, #00ff14, #00f1ff, #c600ff, #004fff);
