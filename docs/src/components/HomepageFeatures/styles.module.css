@@ -56,7 +56,7 @@
 
 .windowsCode {
   --prism-background-color: #15182d36 !important;
-  background-color: var(--prism-background-color);
+  background-image: linear-gradient(71deg, var(--prism-background-color), #1a171c, var(--prism-background-color));
   backdrop-filter: blur(6px);
   transition: 500ms;
   margin: 0 66px;

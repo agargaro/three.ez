@@ -3,7 +3,25 @@
 }
 
 pre {
-  border-radius: 0px;
+  border-radius: 8px;
+  box-shadow: 1px 1px 1px solid #b0afb073;
+}
+
+pre code {
+  /* border: 1px solid var(--ifm-color-emphasis-300); */
+  background-image: linear-gradient(71deg, var(--prism-background-color), #1a171c, var(--prism-background-color));
+  position: relative;
+}
+
+pre::before {
+  border-radius: 8px;
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: -1px;
+  background-image: linear-gradient(71deg, #12101377, #b0afb073, #12101382);
+  background-clip: padding-box;
+  opacity: 0.4;
 }
 
 .heroBanner_src-pages-index-module {
@@ -14,10 +32,10 @@ pre {
 }
 
 .heroBanner_src-pages-index-module::after {
-  content: "";
+  content: '';
   position: absolute;
-  bottom:0;
-  top:0;
+  bottom: 0;
+  top: 0;
   left: 0;
   right: 0;
   background-image: url('/img/noise.png');
