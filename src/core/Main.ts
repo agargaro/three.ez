@@ -155,6 +155,7 @@ export class Main {
      * @param parameters Configuration parameters for initializing the Main class.
      */
     constructor(parameters: MainParameters = {}) {
+        this.setDefaultRendererParameters(parameters);
         this._renderManager = new RenderManager(parameters.rendererParameters, parameters.fullscreen, parameters.backgroundColor, parameters.backgroundAlpha);
         this._interactionManager = new InteractionManager(this._renderManager);
         this.multitouch = parameters.multitouch ?? false;
@@ -163,6 +164,11 @@ export class Main {
         this.setAnimationLoop();
         this.enableCursor = parameters.enableCursor ?? true;
         this._animate = parameters.animate;
+    }
+
+    private setDefaultRendererParameters(parameters: MainParameters): void {
+        if (!parameters.rendererParameters) parameters.rendererParameters = {};
+        parameters.rendererParameters.antialias ??= true;
     }
 
     private handleContextMenu(disableContextMenu = true): void {
