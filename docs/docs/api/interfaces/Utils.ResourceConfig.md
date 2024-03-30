@@ -33,7 +33,7 @@ A callback function to be called when the resource is successfully loaded.
 
 #### Defined in
 
-[src/utils/Asset.ts:46](https://github.com/agargaro/three.ez/blob/78b6b77/src/utils/Asset.ts#L46)
+[src/utils/Asset.ts:46](https://github.com/agargaro/three.ez/blob/dc547c7/src/utils/Asset.ts#L46)
 
 ___
 
@@ -45,4 +45,4 @@ The path to the resource that needs to be loaded.
 
 #### Defined in
 
-[src/utils/Asset.ts:42](https://github.com/agargaro/three.ez/blob/78b6b77/src/utils/Asset.ts#L42)
+[src/utils/Asset.ts:42](https://github.com/agargaro/three.ez/blob/dc547c7/src/utils/Asset.ts#L42)

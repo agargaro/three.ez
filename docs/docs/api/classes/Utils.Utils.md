@@ -29,7 +29,7 @@ Computes bounding spheres for child objects within the specified Object3D hierar
 
 #### Defined in
 
-[src/utils/Utils.ts:45](https://github.com/agargaro/three.ez/blob/78b6b77/src/utils/Utils.ts#L45)
+[src/utils/Utils.ts:45](https://github.com/agargaro/three.ez/blob/dc547c7/src/utils/Utils.ts#L45)
 
 ___
 
@@ -54,7 +54,7 @@ An object containing objects mapped by their names.
 
 #### Defined in
 
-[src/utils/Utils.ts:60](https://github.com/agargaro/three.ez/blob/78b6b77/src/utils/Utils.ts#L60)
+[src/utils/Utils.ts:60](https://github.com/agargaro/three.ez/blob/dc547c7/src/utils/Utils.ts#L60)
 
 ___
 
@@ -80,7 +80,7 @@ The intersection point as Vector3.
 
 #### Defined in
 
-[src/utils/Utils.ts:23](https://github.com/agargaro/three.ez/blob/78b6b77/src/utils/Utils.ts#L23)
+[src/utils/Utils.ts:23](https://github.com/agargaro/three.ez/blob/dc547c7/src/utils/Utils.ts#L23)
 
 ___
 
@@ -103,4 +103,4 @@ Set for all children of the target, the draggable flag to true and a dragTarget.
 
 #### Defined in
 
-[src/utils/Utils.ts:34](https://github.com/agargaro/three.ez/blob/78b6b77/src/utils/Utils.ts#L34)
+[src/utils/Utils.ts:34](https://github.com/agargaro/three.ez/blob/dc547c7/src/utils/Utils.ts#L34)

@@ -42,6 +42,10 @@
   backdrop-filter: blur(6px);
 }
 
+.transparentCodeBlock code {
+  box-shadow: inset 0px 1px 0px 0px #ffffff3b;
+}
+
 .cubeCanvas {
   width: 100%;
   height: 100%;
@@ -56,20 +60,26 @@
 
 .windowsCode {
   --prism-background-color: #15182d36 !important;
-  background-image: linear-gradient(71deg, var(--prism-background-color), #1a171c, var(--prism-background-color));
   backdrop-filter: blur(6px);
   transition: 500ms;
   margin: 0 66px;
+  transform: perspective(5000px) rotateY(var(--rotateX)) rotateX(var(--rotateY));
+  animation-duration: 300ms;
+  transition-duration: 300ms;
 }
-.windowsCode::before,
-.windowsCode::after {
+.windowsCode::before {
   content: '';
   position: absolute;
   border-radius: 0px;
 }
-
+.windowsCode code {
+  background-image: linear-gradient(71deg, var(--prism-background-color), #1a171c, var(--prism-background-color));
+}
 /* shadow */
-.windowsCode::after {
+.windowsCode code::after {
+  content: '';
+  position: absolute;
+  border-radius: 0px;
   inset: -1px;
   opacity: 0.1;
   user-select: none;
@@ -78,20 +88,20 @@
   border-radius: var(--ifm-code-border-radius);
   transform: translatez(-50px);
   background-image: url('/img/noise.png');
-  margin-bottom: 19px;
 }
 
 /* gradient thingy */
 .windowsCode::before {
-  z-index: -2;
-  inset: -10px;
-  background: linear-gradient(-45deg, #00ff14, #00f1ff, #c600ff, #004fff);
-  transform: translatez(-50px);
-  margin-bottom: 20px;
-  transition: 300ms;
-  border-radius: 5px;
-  opacity: 0.1;
-  transform: perspective(5000px) rotateY(var(--rotateX)) rotateX(var(--rotateY));
+  z-index: 0;
+  width: 100%;
+  bottom: 50px;
+  left: 0;
+  height: 20px;
+  border-radius: 50%;
+  /* background-color: black; */
+  box-shadow: 0px 162px 24px 20px #0000004d;
+  transform: rotateX(60deg);
+
 }
 
 .windowsCodeHeader {

@@ -45,7 +45,7 @@ Represents a pointer intersection event.
 
 #### Defined in
 
-[src/events/Events.ts:303](https://github.com/agargaro/three.ez/blob/78b6b77/src/events/Events.ts#L303)
+[src/events/Events.ts:303](https://github.com/agargaro/three.ez/blob/dc547c7/src/events/Events.ts#L303)
 
 ## Properties
 
@@ -61,7 +61,7 @@ A boolean value indicating whether the event is cancelable.
 
 #### Defined in
 
-[src/events/Events.ts:115](https://github.com/agargaro/three.ez/blob/78b6b77/src/events/Events.ts#L115)
+[src/events/Events.ts:115](https://github.com/agargaro/three.ez/blob/dc547c7/src/events/Events.ts#L115)
 
 ___
 
@@ -77,7 +77,7 @@ A reference to the currently registered target for the event. This is the object
 
 #### Defined in
 
-[src/events/Events.ts:117](https://github.com/agargaro/three.ez/blob/78b6b77/src/events/Events.ts#L117)
+[src/events/Events.ts:117](https://github.com/agargaro/three.ez/blob/dc547c7/src/events/Events.ts#L117)
 
 ___
 
@@ -89,7 +89,7 @@ Returns the intersection information between the mouse event and 3D objects in t
 
 #### Defined in
 
-[src/events/Events.ts:298](https://github.com/agargaro/three.ez/blob/78b6b77/src/events/Events.ts#L298)
+[src/events/Events.ts:298](https://github.com/agargaro/three.ez/blob/dc547c7/src/events/Events.ts#L298)
 
 ___
 
@@ -105,7 +105,7 @@ The time at which the event was created (in milliseconds). By specification, thi
 
 #### Defined in
 
-[src/events/Events.ts:123](https://github.com/agargaro/three.ez/blob/78b6b77/src/events/Events.ts#L123)
+[src/events/Events.ts:123](https://github.com/agargaro/three.ez/blob/dc547c7/src/events/Events.ts#L123)
 
 ## Accessors
 
@@ -125,7 +125,7 @@ EventExt.bubbles
 
 #### Defined in
 
-[src/events/Events.ts:113](https://github.com/agargaro/three.ez/blob/78b6b77/src/events/Events.ts#L113)
+[src/events/Events.ts:113](https://github.com/agargaro/three.ez/blob/dc547c7/src/events/Events.ts#L113)
 
 ___
 
@@ -145,7 +145,7 @@ EventExt.defaultPrevented
 
 #### Defined in
 
-[src/events/Events.ts:119](https://github.com/agargaro/three.ez/blob/78b6b77/src/events/Events.ts#L119)
+[src/events/Events.ts:119](https://github.com/agargaro/three.ez/blob/dc547c7/src/events/Events.ts#L119)
 
 ___
 
@@ -165,7 +165,7 @@ EventExt.target
 
 #### Defined in
 
-[src/events/Events.ts:121](https://github.com/agargaro/three.ez/blob/78b6b77/src/events/Events.ts#L121)
+[src/events/Events.ts:121](https://github.com/agargaro/three.ez/blob/dc547c7/src/events/Events.ts#L121)
 
 ___
 
@@ -185,7 +185,7 @@ EventExt.type
 
 #### Defined in
 
-[src/events/Events.ts:125](https://github.com/agargaro/three.ez/blob/78b6b77/src/events/Events.ts#L125)
+[src/events/Events.ts:125](https://github.com/agargaro/three.ez/blob/dc547c7/src/events/Events.ts#L125)
 
 ## Methods
 
@@ -205,7 +205,7 @@ Cancels the event.
 
 #### Defined in
 
-[src/events/Events.ts:141](https://github.com/agargaro/three.ez/blob/78b6b77/src/events/Events.ts#L141)
+[src/events/Events.ts:141](https://github.com/agargaro/three.ez/blob/dc547c7/src/events/Events.ts#L141)
 
 ___
 
@@ -225,7 +225,7 @@ For this particular event, prevent all other listeners from being called. This i
 
 #### Defined in
 
-[src/events/Events.ts:146](https://github.com/agargaro/three.ez/blob/78b6b77/src/events/Events.ts#L146)
+[src/events/Events.ts:146](https://github.com/agargaro/three.ez/blob/dc547c7/src/events/Events.ts#L146)
 
 ___
 
@@ -245,4 +245,4 @@ Stops the propagation of events further along in the Object3D hierarchy.
 
 #### Defined in
 
-[src/events/Events.ts:151](https://github.com/agargaro/three.ez/blob/78b6b77/src/events/Events.ts#L151)
+[src/events/Events.ts:151](https://github.com/agargaro/three.ez/blob/dc547c7/src/events/Events.ts#L151)

@@ -177,12 +177,12 @@ export default function HomepageFeatures(): JSX.Element {
 
           // get offset from middle as a percentage
           // and tone it down a little
-          const offsetX = ((x - middleX) / middleX) * 15;
-          const offsetY = ((y - middleY) / middleY) * 15;
+          const offsetX = (((x - middleX) / middleX) * 10);
+          const offsetY = (((y - middleY) / middleY) * 10) * -1;
           // console.log(offsetX, offsetY);
 
           // set rotation
-          card.style.setProperty('--rotateX', -1 * offsetX + 'deg');
+          card.style.setProperty('--rotateX', offsetX + 'deg');
           card.style.setProperty('--rotateY', offsetY + 'deg');
         }
       });
