@@ -1,15 +1,35 @@
-# three.ez
+<h1 align="center">three.ez – Powering Three.js Development, Effortlessly</h1> 
+<p align="center">
+  <!-- <img src="docs/static/images/logos/logo.png" alt="tree-ez-logo" width="120px" height="120px"/>  -->
+  <em>
+  Simplify your <b>three.js</b> application development with <b>three.ez</b>!</em>
+</p>
+<div align="center">
 
-[![npm](https://img.shields.io/npm/v/@three.ez/main)](https://www.npmjs.com/package/@three.ez/main)
+[![three.ez on npm](https://img.shields.io/npm/v/@three.ez/main.svg?logo=npm&logoColor=fff&label=NPM+package&color=ligthgeen)](https://www.npmjs.com/package/@three.ez/main)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=agargaro_three.ez&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=agargaro_three.ez)
 [![DeepScan grade](https://deepscan.io/api/teams/21196/projects/25445/branches/796375/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=21196&pid=25445&bid=796375)
-[![Stars](https://badgen.net/github/stars/agargaro/three.ez)](https://github.com/agargaro/three.ez)
 [![BundlePhobia](https://badgen.net/bundlephobia/min/@three.ez/main)](https://bundlephobia.com/package/@three.ez/main)
-[![Discord](https://img.shields.io/discord/1150091562227859457)](https://discord.gg/MVTwrdX3JM)
+[![Discord conversation](https://img.shields.io/discord/1150091562227859457.svg?logo=discord&logoColor=fff&label=Discord&color=7389d8)](https://discord.gg/MVTwrdX3JM)
 
-Simplify your **three.js** application development with **three.ez**! 
+</div>
+
+ <!-- <p align="center">
+  <a href="https://agargaro.github.io/three.ez/docs"><strong>three.ez docs</strong></a>
+  <br>
+</p> -->
+
+
+<p align="center">
+
+ <span>With three.ez, turn complexity into creativity. This <b>lightweight</b> yet <b>powerful</b>
+ library allows you to make the most of Three.js with a <b>reduced learning curve</b>, making the creation of interactive 3D scenes a breeze. Perfect for developers of all levels, three.ez is your pass to explore the dimensions of 3D web with ease and speed, keeping <code>three.js r151+</code> <b>as the only dependency</b>.</span>
+ 
+</p>
 
 Extend the functionalities of `Object3D` and `Scene` classes, making their usage more straightforward, and introduce utility classes.
+
+<br>
 
 ```typescript
 import { Scene, Mesh, BoxGeometry, MeshNormalMaterial } from 'three';
@@ -25,7 +45,9 @@ const main = new Main(); // init inside the renderer, and handle events, resize,
 main.createView({ scene, camera: new PerspectiveCameraAuto(70).translateZ(1) }); // create the view to be rendered
 ```
 
-This library has only one dependency: `three.js r151+`.
+<!--
+This l ibrary has only one dependency: `three.js r151+`. 
+-->
 
 ## ✅ Why three.ez?
 
