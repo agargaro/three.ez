@@ -1,4 +1,4 @@
-import { Asset, Main, PerspectiveCameraAuto } from '../../../src/index';
+import { Asset, Main, PerspectiveCameraAuto } from '../../../src';
 import { ACESFilmicToneMapping, AmbientLight, BufferGeometry, DirectionalLight, FogExp2, Mesh, MeshLambertMaterial, MeshStandardMaterial, PlaneGeometry, Scene, Vector3 } from 'three';
 import { MapControls } from 'three/examples/jsm/controls/MapControls';
 import { GUI } from 'three/examples/jsm/libs/lil-gui.module.min';
@@ -20,6 +20,9 @@ const treeGLTF = (await Asset.load<GLTF>(GLTFLoader, '../tree.glb')).scene.child
 
 const trees = new InstancedMesh2(treeGLTF.geometry, treeGLTF.material, count, {
   behaviour: CullingStatic,
+  // createEntities: false,
+  verbose: true,
+  bvhParams: { maxDepth: 30, maxLeaves: 5 },
   onInstanceCreation: (obj, index) => {
     obj.position.setX(Math.random() * terrainSize - terrainSize / 2).setZ(Math.random() * terrainSize - terrainSize / 2);
     obj.scale.setScalar(Math.random() * 0.1 + 0.1);
@@ -55,7 +58,7 @@ scene.fog = new FogExp2('white', 0.0004);
 scene.on('animate', (e) => scene.fog.color.setHSL(0, 0, sun.y));
 
 main.createView({
-  scene, camera, enabled: false, onBeforeRender: () => {
+  scene, camera, onBeforeRender: () => {
     camera.updateMatrixWorld(true);
     trees.updateCulling(camera);
     treeCount.updateDisplay();
@@ -66,6 +69,10 @@ const controls = new MapControls(camera, main.renderer.domElement);
 controls.maxPolarAngle = Math.PI / 2.1;
 controls.minDistance = 100;
 controls.maxDistance = 1000;
+
+scene.on("pointermove", (e) => console.log(e.intersection));
+sky.interceptByRaycaster = false;
+terrain.interceptByRaycaster = false;
 
 const gui = new GUI();
 gui.add(trees.instances as any, 'length').name("instances total").disable();

@@ -39,7 +39,7 @@ export class Frustum {
     let xMin: number, yMin: number, zMin: number, xMax: number, yMax: number, zMax: number;
 
     for (let i = 0; i < 6; i++) {
-      if ((mask & (0b100000 >> i)) === 0) continue; // if byte i is 0
+      if ((mask & (0b100000 >> i)) === 0) continue; // if bit i is 0
 
       const planeNormal = planes[i].normal;
       const planeConstant = planes[i].constant;
@@ -74,7 +74,7 @@ export class Frustum {
       }
 
       if ((px * xMax) + (py * yMax) + (pz * zMax) > -planeConstant) {
-        mask ^= 0b100000 >> i; // is full in, set byte i to 0
+        mask ^= 0b100000 >> i; // is full in, set bit i to 0
       }
     }
 
