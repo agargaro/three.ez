@@ -1,7 +1,14 @@
-import { Box3, Camera, Matrix4 } from 'three';
+import { Box3, Camera, Intersection, Matrix4, Mesh, Raycaster } from 'three';
+import { intersectRayBox } from './BoxIntersection';
+import { Frustum } from './Frustum';
 import { InstancedEntity } from './InstancedEntity';
 import { InstancedMesh2 } from './InstancedMesh2';
-import { Frustum } from './Frustum';
+
+export interface BVHParams {
+  maxLeaves?: number;
+  maxDepth?: number;
+  // strategy: SplitType;
+}
 
 /** @internal */
 export interface Node {
@@ -22,6 +29,7 @@ export enum SplitType {
 /** @internal */
 export class InstancedMeshBVH {
   public root: Node;
+  public verbose: boolean;
   protected _target: InstancedMesh2;
   protected _maxLeaves: number;
   protected _maxDepth: number;
@@ -36,22 +44,23 @@ export class InstancedMeshBVH {
     this._target = instancedMesh;
   }
 
-  public build(strategy = SplitType.center, maxLeaves = 10, maxDepth = 40): this {
-    this._maxLeaves = maxLeaves;
-    this._maxDepth = maxDepth;
+  public build(verbose: boolean, params: BVHParams = {}): this {
+    this.verbose = verbose;
+    this._maxLeaves = params.maxLeaves ?? 5;
+    this._maxDepth = params.maxDepth ?? 30;
 
-    InstancedMesh2.verbose && console.time("setup...");
+    verbose && console.time("Setup BVH data");
     const bbox = this.setup();
-    InstancedMesh2.verbose && console.timeEnd("setup...");
+    verbose && console.timeEnd("Setup BVH data");
 
     this.root = { bbox, visibilityMask: 0 }; // 0 = in
 
-    InstancedMesh2.verbose && console.time("bvh...");
+    verbose && console.time("Building BVH");
     this.buildNode(this.root, 0, this._target.instances.length, 0);
-    InstancedMesh2.verbose && console.timeEnd("bvh...");
+    verbose && console.timeEnd("Building BVH");
 
     delete this._bboxData;
-    delete this._indexes;
+    delete this._indexes; // todo remove delete
 
     return this;
   }
@@ -109,7 +118,13 @@ export class InstancedMeshBVH {
   }
 
   private buildNode(node: Node, offset: number, count: number, depth: number): void {
-    if (depth++ >= this._maxDepth || count <= this._maxLeaves) {
+    if (count <= this._maxLeaves) {
+      node.leaves = this.getLeaves(offset, count);
+      return;
+    }
+    
+    if (depth++ >= this._maxDepth) {
+      if (this.verbose) console.warn("Maximum depth reached. It is recommended to increase 'maxDepth'.");
       node.leaves = this.getLeaves(offset, count);
       return;
     }
@@ -118,7 +133,7 @@ export class InstancedMeshBVH {
     const axis = this.getLongestAxis(bbox);
     const bboxLeft = new Float32Array(6);
     const bboxRight = new Float32Array(6);
-    const center = (bbox[axis] + bbox[axis + 3]) / 2;
+    const center = (bbox[axis] + bbox[axis + 3]) / 2; // opt location?
 
     this.createNodes(bboxLeft, bboxRight);
 
@@ -240,7 +255,7 @@ export class InstancedMeshBVH {
 
     if (this._projScreenMatrixCache.equals(_projScreenMatrix)) return;
     this._projScreenMatrixCache.copy(_projScreenMatrix);
-    InstancedMesh2.verbose && console.time("culling");
+    this.verbose && console.time("Culling");
 
     this._show = show;
     this._hide = hide;
@@ -250,7 +265,7 @@ export class InstancedMeshBVH {
 
     this._show = undefined;
     this._hide = undefined;
-    InstancedMesh2.verbose && console.timeEnd("culling");
+    this.verbose && console.timeEnd("Culling");
   }
 
   private traverseVisibility(node: Node, mask: number): void {
@@ -313,7 +328,70 @@ export class InstancedMeshBVH {
 
     node.visibilityMask = -1; // -1 = out
   }
+
+  public raycast(raycaster: Raycaster, intersects: Intersection[]): void {
+    this.verbose && console.time("raycast");
+
+    const origin = new Float32Array(3); // cache it?
+    const dirInv = new Float32Array(3); // cache it?
+    const sign = new Uint8Array(3);
+
+    const ray = raycaster.ray;
+    const distance = raycaster.far;
+
+    origin[0] = ray.origin.x;
+    origin[1] = ray.origin.y;
+    origin[2] = ray.origin.z;
+
+    dirInv[0] = 1 / ray.direction.x;
+    dirInv[1] = 1 / ray.direction.y;
+    dirInv[2] = 1 / ray.direction.z;
+
+    sign[0] = dirInv[0] < 0 ? 1 : 0;
+    sign[1] = dirInv[1] < 0 ? 1 : 0;
+    sign[2] = dirInv[2] < 0 ? 1 : 0;
+
+    _mesh.geometry = this._target.geometry;
+    _mesh.material = this._target.material;
+
+    this.checkIntersection(raycaster, this.root, origin, dirInv, sign, distance, intersects);
+  
+    this.verbose && console.timeEnd("raycast");
+  }
+
+  private checkIntersection(raycaster: Raycaster, node: Node, origin: Float32Array, dirInv: Float32Array, sign: Uint8Array, distance: number, intersects: Intersection[]): void {
+    if (!intersectRayBox(node.bbox, origin, dirInv, sign, distance)) return;
+    
+    if (node.leaves !== undefined) {
+      const leaves = node.leaves;
+      const matrixWorld = this._target.matrixWorld;
+
+      for (let i = 0, l = leaves.length; i < l; i++) {
+        if (!leaves[i]._visible) continue;
+
+        _instanceWorldMatrix.multiplyMatrices(matrixWorld, leaves[i].matrix);
+        _mesh.matrixWorld = _instanceWorldMatrix;
+
+        _mesh.raycast(raycaster, _instanceIntersects);
+
+        for (let j = 0, l = _instanceIntersects.length; j < l; j++) {
+          const intersect = _instanceIntersects[j];
+          intersect.instanceId = leaves[i]._id;
+          intersect.object = this._target;
+          intersects.push(intersect);
+        }
+
+        _instanceIntersects.length = 0;
+      }
+    } else {
+      this.checkIntersection(raycaster, node.left, origin, dirInv, sign, distance, intersects);
+      this.checkIntersection(raycaster, node.right, origin, dirInv, sign, distance, intersects);
+    }
+  }
 }
 
 const _box = new Box3();
 const _projScreenMatrix = new Matrix4();
+const _instanceWorldMatrix = new Matrix4();
+const _mesh = new Mesh();
+const _instanceIntersects: Intersection[] = []; // remove?

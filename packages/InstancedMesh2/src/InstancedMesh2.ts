@@ -1,11 +1,13 @@
 import { BufferGeometry, Camera, Color, ColorRepresentation, DynamicDrawUsage, Frustum, InstancedBufferAttribute, InstancedMesh, Intersection, Material, Matrix4, Mesh, Raycaster, Sphere, Vector3 } from 'three';
 import { InstancedEntity } from './InstancedEntity';
-import { InstancedMeshBVH } from './InstancedMeshBVH';
+import { BVHParams, InstancedMeshBVH } from './InstancedMeshBVH';
 
 /** InstancedEntity with custom T data. */
 export type Entity<T> = InstancedEntity & T;
 /** Type of callback invoked after creation of each instance. */
 export type CreateEntityCallback<T> = (obj: Entity<T>, index: number) => void;
+/** Determine which strategy to use for frustum culling (can be `CullingNone`, `CullingStatic`, `CullingDynamic`). */
+export type CullingMode = typeof CullingNone | typeof CullingStatic | typeof CullingDynamic;
 
 /** Frustum culling is disabled, suitable if all instances are always visible in the camera's frustum. */
 export const CullingNone = 0;
@@ -17,12 +19,17 @@ export const CullingDynamic = 2;
 /** Configuration for creating an InstancedMesh2 */
 export interface InstancedMesh2Params<T> {
   /** Determine which strategy to use for frustum culling (can be `CullingNone`, `CullingStatic`, `CullingDynamic`). */
-  behaviour: number;
+  behaviour: CullingMode;
   /** Callback invoked after creation of each instance (optional if behaviour is not `CullingStatic`). */
   onInstanceCreation?: CreateEntityCallback<Entity<T>>;
   /** The default color to apply to each instance (optional). */
   color?: ColorRepresentation;
-  // createEntities?: boolean;
+  /** TODO */
+  verbose?: boolean;
+  /** TODO */
+  bvhParams?: BVHParams;
+  /** TODO */
+  createEntities?: boolean;
 }
 
 /** 
@@ -41,12 +48,15 @@ export class InstancedMesh2<T = {}, G extends BufferGeometry = BufferGeometry, M
    * Each element represents a separate instance that can be managed individually.
    */
   public instances: Entity<T>[];
+  /** TODO */
+  public verbose: boolean;
   private _sortedInstances: Entity<T>[];
   /** @internal */ public readonly _perObjectFrustumCulled: boolean;
   private _behaviour: number;
   private _instancedAttributes: InstancedBufferAttribute[];
+  private _matricesUpdated = false;
   private _bvh: InstancedMeshBVH;
-  public static verbose: boolean;
+
   /**
    * @param geometry The geometry for the instanced mesh.
    * @param material The material to apply to the instanced mesh.
@@ -54,22 +64,50 @@ export class InstancedMesh2<T = {}, G extends BufferGeometry = BufferGeometry, M
    * @param config Configuration object.
    */
   constructor(geometry: G, material: M, count: number, config: InstancedMesh2Params<T>) {
-    if (geometry === undefined) throw (new Error("Geometry is mandatory."));
-    if (material === undefined) throw (new Error("Material is mandatory."));
-    if (count === undefined) throw (new Error("Count is mandatory."));
-    if (config?.behaviour === undefined) throw (new Error("Behaviour is mandatory."));
-    if (config.behaviour === CullingStatic && config.onInstanceCreation === undefined) throw (new Error("OnInstanceCreation is mandatory if behaviour is CullingStatic."));
+    if (geometry === undefined) throw new Error("'geometry' is mandatory.");
+    if (material === undefined) throw new Error("'material' is mandatory.");
+    if (count === undefined) throw new Error("'count' is mandatory.");
+    if (config?.behaviour === undefined) throw new Error("'behaviour' is mandatory.");
+    if (config.behaviour === CullingStatic && config.onInstanceCreation === undefined) throw new Error("'onInstanceCreation' is mandatory if behaviour is 'CullingStatic'.");
 
     super(geometry, material, count);
 
+    if (config.createEntities === true && config.behaviour === CullingDynamic) console.warn("'createEntities' is ignored if 'CullingDynamic'.");
+
+    this.verbose = config.verbose === true;
     const color = config.color !== undefined ? _color.set(config.color) : undefined;
-    const onInstanceCreation = config.onInstanceCreation;
     this._behaviour = config.behaviour;
     this._perObjectFrustumCulled = this._behaviour !== CullingNone;
 
+    this.verbose && console.time("Instancing");
+
+    if (config.createEntities === false && this._behaviour === CullingNone) {
+      this.updateMatrices(config.onInstanceCreation, color);
+    } else {
+      this.updateMatrices_createInstances(config.onInstanceCreation, color);
+    }
+
+    this.verbose && console.timeEnd("Instancing");
+
+    this.updateInstancedAttributes();
+
+    if (this._perObjectFrustumCulled) {
+      this.frustumCulled = false; // TODO handle to true only when count is 0 and put bbox 
+
+      if (this._behaviour === CullingStatic) {
+        this._bvh = new InstancedMeshBVH(this).build(this.verbose, config.bvhParams);
+        if (config.createEntities === false) this.deleteInstancesData();
+      } else if (!this.geometry.boundingSphere) {
+        this.geometry.computeBoundingSphere();
+      }
+    }
+  }
+
+  private updateMatrices_createInstances(onInstanceCreation: CreateEntityCallback<Entity<T>>, color: Color): void {
+    const count = this.count;
+
     this.instances = new Array(count);
     this._sortedInstances = new Array(count);
-    InstancedMesh2.verbose && console.time("instancing...");
 
     for (let i = 0; i < count; i++) {
       const instance = new InstancedEntity(this, i, color) as Entity<T>;
@@ -82,20 +120,35 @@ export class InstancedMesh2<T = {}, G extends BufferGeometry = BufferGeometry, M
       this._sortedInstances[i] = instance;
       this.instances[i] = instance;
     }
+  }
 
-    InstancedMesh2.verbose && console.timeEnd("instancing...");
+  private updateMatrices(onInstanceCreation: CreateEntityCallback<Entity<T>>, color: Color): void {
+    const count = this.count;
+    const instance = new InstancedEntity(this, 0) as Entity<T>;
 
-    this.updateInstancedAttributes();
+    for (let i = 0; i < count; i++) {
+      instance._id = i;
+      instance._internalId = i;
+      if (color !== undefined) instance.setColor(color);
 
-    if (this._perObjectFrustumCulled) {
-      this.frustumCulled = false; // todo gestire a true solamente quando count è 0 e mettere bbox 
-
-      if (this._behaviour === CullingStatic) {
-        this._bvh = new InstancedMeshBVH(this).build();
-      } else if (!this.geometry.boundingSphere) {
-        this.geometry.computeBoundingSphere();
+      if (onInstanceCreation) {
+        onInstanceCreation(instance, i);
+        instance.forceUpdateMatrix();
       }
     }
+  }
+
+  private deleteInstancesData(): void {
+    const instances = this.instances;
+
+    for (let i = 0, l = instances.length; i < l; i++) {
+      const instance = instances[i];
+      instance.position = undefined;
+      instance.quaternion = undefined;
+      instance.scale = undefined;
+    }
+
+    this.instances = undefined;
   }
 
   private updateInstancedAttributes(): void {
@@ -121,8 +174,7 @@ export class InstancedMesh2<T = {}, G extends BufferGeometry = BufferGeometry, M
 
   /** @internal */
   public setInstanceVisibility(instance: Entity<T>, value: boolean): void {
-    // could be only !instance._inFrustum but can be slower due to memory location?
-    if (this._perObjectFrustumCulled && !instance._inFrustum) return;
+    if (!instance._inFrustum) return;
 
     if (value) {
       this.swapInstances(instance, this.count);
@@ -277,54 +329,79 @@ export class InstancedMesh2<T = {}, G extends BufferGeometry = BufferGeometry, M
 
     if (this._perObjectFrustumCulled === false) return;
 
-    _show.length = 0;
-    _hide.length = 0;
-
     if (this._behaviour === CullingStatic) {
       this._bvh.updateCulling(camera, _show, _hide);
     } else {
-      this.checkDynamicFrustum(camera, _show, _hide);
+      this.updateDynamicCulling(camera);
     }
 
     if (_show.length > 0 || _hide.length > 0) {
       this.setInstancesVisibility(_show, _hide);
-
-      if (this._behaviour === CullingStatic) {
-        this.needsUpdate();
-      }
-    }
-
-    if (this._behaviour === CullingDynamic) {
-      //this can be improved, calling it only if matrices updated
+      this.needsUpdate();
+    } else if (this._matricesUpdated) {
       this.needsUpdate();
     }
+
+    this._matricesUpdated = false;
+    _show.length = 0;
+    _hide.length = 0;
   }
 
-  private checkDynamicFrustum(camera: Camera, show: Entity<T>[], hide: Entity<T>[]): void {
+  private updateDynamicCulling(camera: Camera): void {
     _projScreenMatrix.multiplyMatrices(camera.projectionMatrix, camera.matrixWorldInverse)
     _frustum.setFromProjectionMatrix(_projScreenMatrix);
 
+    const radius = this.geometry.boundingSphere.radius;
+    const center = this.geometry.boundingSphere.center;
+
+    if (center.x === 0 && center.y === 0 && center.z === 0) {
+      this.cullingDynamicOrigin(radius);
+    } else {
+      this.cullingDynamic(radius, center);
+    }
+  }
+
+  private cullingDynamicOrigin(radius: number): void {
     const instances = this.instances;
-    const bSphere = this.geometry.boundingSphere;
-    const radius = bSphere.radius;
-    const center = bSphere.center;
 
     for (let i = 0, l = this.instances.length; i < l; i++) {
       const instance = instances[i];
       if (!instance._visible) continue;
 
-      // _sphere.center.copy(instance.position); // this works if geometry bsphere center is 0,0,0 and scale 1
-
-      _sphere.center.copy(center).applyQuaternion(instance.quaternion).multiply(instance.scale).add(instance.position).clone();
+      _sphere.center.copy(instance.position);
       _sphere.radius = radius * this.getMax(instance.scale);
 
       if (instance._inFrustum !== (instance._inFrustum = _frustum.intersectsSphere(_sphere))) {
-        if (instance._inFrustum) show.push(instance);
-        else hide.push(instance);
+        if (instance._inFrustum) _show.push(instance);
+        else _hide.push(instance);
       }
 
       if (instance._inFrustum && instance._matrixNeedsUpdate) {
         instance.forceUpdateMatrix();
+        this._matricesUpdated = true;
+      }
+    }
+  }
+
+  private cullingDynamic(radius: number, center: Vector3): void {
+    const instances = this.instances;
+
+    for (let i = 0, l = this.instances.length; i < l; i++) {
+      const instance = instances[i];
+      if (!instance._visible) continue;
+
+      // TODO get matrix instead of this
+      _sphere.center.copy(center).applyQuaternion(instance.quaternion).multiply(instance.scale).add(instance.position);
+      _sphere.radius = radius * this.getMax(instance.scale);
+
+      if (instance._inFrustum !== (instance._inFrustum = _frustum.intersectsSphere(_sphere))) {
+        if (instance._inFrustum) _show.push(instance);
+        else _hide.push(instance);
+      }
+
+      if (instance._inFrustum && instance._matrixNeedsUpdate) {
+        instance.forceUpdateMatrix();
+        this._matricesUpdated = true;
       }
     }
   }
@@ -337,15 +414,20 @@ export class InstancedMesh2<T = {}, G extends BufferGeometry = BufferGeometry, M
 
   private needsUpdate(): void {
     for (const attr of this._instancedAttributes) {
-      attr.clearUpdateRanges(); // TODO this can be improved
+      attr.clearUpdateRanges(); // TODO this can be improved updating only right data
       attr.needsUpdate = true;
       attr.addUpdateRange(0, this.count * attr.itemSize);
     }
   }
 
   public override raycast(raycaster: Raycaster, intersects: Intersection[]): void {
-    // this can be opt a lot, use frustum if dynamic to check if ray is in there
     if (this.material === undefined) return;
+
+    if (this._behaviour === CullingStatic) {
+      return this._bvh.raycast(raycaster, intersects);
+    } 
+    
+    this.verbose && console.time("raycast");
 
     if (this.boundingSphere === null) this.computeBoundingSphere();
 
@@ -367,7 +449,7 @@ export class InstancedMesh2<T = {}, G extends BufferGeometry = BufferGeometry, M
 
       _mesh.raycast(raycaster, _instanceIntersects);
 
-      for (let j = 0, l = _instanceIntersects.length; j < l; j++) {
+      for (let j = 0, l = _instanceIntersects.length; j < l; j++) { //todo opt this
         const intersect = _instanceIntersects[j];
         intersect.instanceId = i;
         intersect.object = this;
@@ -376,6 +458,8 @@ export class InstancedMesh2<T = {}, G extends BufferGeometry = BufferGeometry, M
 
       _instanceIntersects.length = 0;
     }
+
+    this.verbose && console.timeEnd("raycast");
   }
 }
 
@@ -385,7 +469,7 @@ const _projScreenMatrix = new Matrix4();
 const _instanceWorldMatrix = new Matrix4();
 const _sphere = new Sphere();
 const _mesh = new Mesh();
-const _instanceIntersects: Intersection[] = [];
+const _instanceIntersects: Intersection[] = []; // remove
 const _show: Entity<any>[] = [];
 const _hide: Entity<any>[] = [];
 

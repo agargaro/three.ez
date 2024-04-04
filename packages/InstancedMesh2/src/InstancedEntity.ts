@@ -9,18 +9,20 @@ export class InstancedEntity {
   public isInstanceEntity = true;
   /** The parent InstancedMesh2 that contains this instance. */
   public readonly parent: InstancedMesh2;
-  /** An identifier for this individual instance within an InstancedMesh2. */
-  public readonly id: number;
   /** Object's local position. */
-  public readonly position: Vector3;
+  public position: Vector3;
   /** Object's local scale. */
-  public readonly scale: Vector3;
+  public scale: Vector3;
   /** Object's local rotation as a Quaternion. */
-  public readonly quaternion: Quaternion;
+  public quaternion: Quaternion;
+  /** @internal */ public _id: number;
   /** @internal */ public _internalId: number;
   /** @internal */ public _visible = true;
   /** @internal */ public _inFrustum = true;
   /** @internal */ public _matrixNeedsUpdate = false;
+
+  /** An identifier for this individual instance within an InstancedMesh2. */
+  public get id(): number { return this._id }
 
   /** Index in the array of InstanceMatrix. */
   public get internalId(): number { return this._internalId }
@@ -52,7 +54,7 @@ export class InstancedEntity {
    * @param color The initial color representation for this instance (optional).
    */
   constructor(parent: InstancedMesh2, index: number, color?: ColorRepresentation) {
-    this.id = index;
+    this._id = index;
     this._internalId = index;
     this.parent = parent;
 
