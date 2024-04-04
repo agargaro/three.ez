@@ -1,4 +1,4 @@
-import { Object3D, Raycaster, Vector2 } from "three";
+import { Object3D, PerspectiveCamera, Raycaster, Vector2 } from "three";
 import { RenderManager } from "../rendering/RenderManager";
 import { IntersectionExt } from "./Events";
 import { Hitbox } from "./Hitbox";
@@ -31,6 +31,7 @@ export class RaycasterManager {
             const scene = this._renderManager.activeScene;
             const camera = this._renderManager.activeView.camera;
             this.raycaster.setFromCamera(this._computedPointer, camera);
+            this.raycaster.far = (camera as PerspectiveCamera).far ?? Infinity;
             if (!isDragging || excluded) {
                 this.raycastObjects(scene, intersections, excluded);
             }
