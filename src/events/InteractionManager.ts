@@ -153,8 +153,12 @@ export class InteractionManager {
         if (event.pointerType !== "mouse") {
             this.pointerMove(event);
         }
+        
         const intersection = this._intersection[event.pointerId];
         const target = intersection?.object ?? this._renderManager.activeScene;
+
+        if (target === undefined) return;
+
         const pointerDownEvent = this.triggerAncestorPointer("pointerdown", event, target, undefined, true);
         this._lastPointerDown[event.pointerId] = event;
         this._pointerDownTarget[event.pointerId] = target;
