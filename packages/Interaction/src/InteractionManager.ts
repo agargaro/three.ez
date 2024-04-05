@@ -192,6 +192,9 @@ export class InteractionManager {
 
     const intersection = this._intersection[event.pointerId];
     const target = intersection?.object ?? this._viewManager.activeScene;
+    
+    if (target === undefined) return;
+
     const pointerDownEvent = this.triggerAncestorPointer("pointerdown", event, target, undefined, true);
     this._lastPointerDown[event.pointerId] = event;
     this._pointerDownTarget[event.pointerId] = target;
