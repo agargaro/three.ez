@@ -1,4 +1,4 @@
-import { BufferGeometry, Camera, Color, ColorRepresentation, DynamicDrawUsage, Frustum, InstancedBufferAttribute, InstancedMesh, Intersection, Material, Matrix4, Mesh, Raycaster, Sphere, Vector3 } from 'three';
+import { BufferGeometry, Camera, Color, ColorRepresentation, DynamicDrawUsage, Frustum, InstancedBufferAttribute, InstancedMesh, Intersection, Material, Matrix4, Mesh, PerspectiveCamera, Raycaster, Sphere, Vector3 } from 'three';
 import { InstancedEntity } from './InstancedEntity';
 import { BVHParams, InstancedMeshBVH } from './InstancedMeshBVH';
 
@@ -52,9 +52,9 @@ export class InstancedMesh2<T = {}, G extends BufferGeometry = BufferGeometry, M
   public verbose: boolean;
   private _sortedInstances: Entity<T>[];
   /** @internal */ public readonly _perObjectFrustumCulled: boolean;
+  /** @internal */ public _matricesUpdated = false;
   private _behaviour: number;
   private _instancedAttributes: InstancedBufferAttribute[];
-  private _matricesUpdated = false;
   private _bvh: InstancedMeshBVH;
 
   /**
@@ -355,21 +355,33 @@ export class InstancedMesh2<T = {}, G extends BufferGeometry = BufferGeometry, M
     const center = this.geometry.boundingSphere.center;
 
     if (center.x === 0 && center.y === 0 && center.z === 0) {
-      this.cullingDynamicOrigin(radius);
+      // transform camera position
+      this.cullingDynamicOrigin(radius/* , camera.position, (camera as PerspectiveCamera).far ?? Infinity */);
     } else {
       this.cullingDynamic(radius, center);
     }
   }
 
-  private cullingDynamicOrigin(radius: number): void {
+  private cullingDynamicOrigin(radius: number/* , cameraPos: Vector3, cameraFar: number */): void {
     const instances = this.instances;
 
     for (let i = 0, l = this.instances.length; i < l; i++) {
       const instance = instances[i];
       if (!instance._visible) continue;
 
+      /* const maxRadius = radius * this.getMax(instance.scale);
+
+      if (cameraFar !== Infinity && instance.position.distanceTo(cameraPos) + maxRadius > cameraFar) {
+        if (instance._inFrustum) {
+          instance._inFrustum = false;
+          _hide.push(instance);
+        }
+        continue;
+      } */
+
       _sphere.center.copy(instance.position);
       _sphere.radius = radius * this.getMax(instance.scale);
+      // _sphere.radius = maxRadius;
 
       if (instance._inFrustum !== (instance._inFrustum = _frustum.intersectsSphere(_sphere))) {
         if (instance._inFrustum) _show.push(instance);
@@ -390,7 +402,7 @@ export class InstancedMesh2<T = {}, G extends BufferGeometry = BufferGeometry, M
       const instance = instances[i];
       if (!instance._visible) continue;
 
-      // TODO get matrix instead of this
+      // TODO get matrix instead of this but can be not updated if cullingDynamic
       _sphere.center.copy(center).applyQuaternion(instance.quaternion).multiply(instance.scale).add(instance.position);
       _sphere.radius = radius * this.getMax(instance.scale);
 

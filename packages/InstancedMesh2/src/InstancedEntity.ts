@@ -83,6 +83,7 @@ export class InstancedEntity {
   public forceUpdateMatrix(): void {
     this.parent.composeToArray(this.position, this.scale, this.quaternion, this._internalId);
     this._matrixNeedsUpdate = false;
+    this.parent._matricesUpdated = true;
   }
 
   /**
