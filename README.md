@@ -1,15 +1,36 @@
-# three.ez
+<h1 align="center">Three.ez</h1>
+<p align="center">
+  <!-- <img src="docs/static/images/logos/logo.png" alt="tree-ez-logo" width="120px" height="120px"/>  -->
+  <em>
+  Simplify your <b>three.js</b> application development with <b>three.ez</b>!</em>
+</p>
+<div align="center">
 
-[![npm](https://img.shields.io/npm/v/@three.ez/main)](https://www.npmjs.com/package/@three.ez/main)
+[![three.ez on npm](https://img.shields.io/npm/v/@three.ez/main.svg?logo=npm&label=NPM+package&color=ligthgeen)](https://www.npmjs.com/package/@three.ez/main)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=agargaro_three.ez&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=agargaro_three.ez)
 [![DeepScan grade](https://deepscan.io/api/teams/21196/projects/25445/branches/796375/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=21196&pid=25445&bid=796375)
-[![Stars](https://badgen.net/github/stars/agargaro/three.ez)](https://github.com/agargaro/three.ez)
+![GitHub Repo stars](https://img.shields.io/github/stars/agargaro/three.ez?style=flat&logo=data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPHN2ZyBoZWlnaHQ9IjgwMHB4IiB3aWR0aD0iODAwcHgiIHZlcnNpb249IjEuMSIgaWQ9IkNhcGFfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgDQoJIHZpZXdCb3g9IjAgMCA0Ny45NCA0Ny45NCIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8cGF0aCBzdHlsZT0iZmlsbDp3aGl0ZTsiIGQ9Ik0yNi4yODUsMi40ODZsNS40MDcsMTAuOTU2YzAuMzc2LDAuNzYyLDEuMTAzLDEuMjksMS45NDQsMS40MTJsMTIuMDkxLDEuNzU3DQoJYzIuMTE4LDAuMzA4LDIuOTYzLDIuOTEsMS40MzEsNC40MDNsLTguNzQ5LDguNTI4Yy0wLjYwOCwwLjU5My0wLjg4NiwxLjQ0OC0wLjc0MiwyLjI4NWwyLjA2NSwxMi4wNDINCgljMC4zNjIsMi4xMDktMS44NTIsMy43MTctMy43NDYsMi43MjJsLTEwLjgxNC01LjY4NWMtMC43NTItMC4zOTUtMS42NTEtMC4zOTUtMi40MDMsMGwtMTAuODE0LDUuNjg1DQoJYy0xLjg5NCwwLjk5Ni00LjEwOC0wLjYxMy0zLjc0Ni0yLjcyMmwyLjA2NS0xMi4wNDJjMC4xNDQtMC44MzctMC4xMzQtMS42OTItMC43NDItMi4yODVsLTguNzQ5LTguNTI4DQoJYy0xLjUzMi0xLjQ5NC0wLjY4Ny00LjA5NiwxLjQzMS00LjQwM2wxMi4wOTEtMS43NTdjMC44NDEtMC4xMjIsMS41NjgtMC42NSwxLjk0NC0xLjQxMmw1LjQwNy0xMC45NTYNCglDMjIuNjAyLDAuNTY3LDI1LjMzOCwwLjU2NywyNi4yODUsMi40ODZ6Ii8+DQo8L3N2Zz4=)
 [![BundlePhobia](https://badgen.net/bundlephobia/min/@three.ez/main)](https://bundlephobia.com/package/@three.ez/main)
-[![Discord](https://img.shields.io/discord/1150091562227859457)](https://discord.gg/MVTwrdX3JM)
+[![Discord conversation](https://img.shields.io/discord/1150091562227859457.svg?logo=discord&logoColor=fff&label=Discord&color=7389d8)](https://discord.gg/MVTwrdX3JM)
 
-Simplify your **three.js** application development with **three.ez**! 
+</div>
+
+ <!-- <p align="center">
+  <a href="https://agargaro.github.io/three.ez/docs"><strong>three.ez docs</strong></a>
+  <br>
+</p> -->
+
+<p align="center">
+
+ <span>With three.ez, turn complexity into creativity. This <b>lightweight</b> yet <b>powerful</b>
+ library allows you to make the most of Three.js with a <b>reduced learning curve</b>, making the creation of interactive 3D scenes a breeze. Perfect for developers of all levels.
+
+</p>
+
 
 Extend the functionalities of `Object3D` and `Scene` classes, making their usage more straightforward, and introduce utility classes.
+
+The **only** one dependency is `three.js r151+`.
 
 ```typescript
 import { Scene, Mesh, BoxGeometry, MeshNormalMaterial } from 'three';
@@ -25,8 +46,6 @@ const main = new Main(); // init inside the renderer, and handle events, resize,
 main.createView({ scene, camera: new PerspectiveCameraAuto(70).translateZ(1) }); // create the view to be rendered
 ```
 
-This library has only one dependency: `three.js r151+`.
-
 ## ✅ Why three.ez?
 
 - Program the logic of your `Object3D` more quickly and intuitively
@@ -40,6 +59,7 @@ This library has only one dependency: `three.js r151+`.
 ## 🔑 Key Features
 
 ### ✨ [Event Programming](https://stackblitz.com/edit/three-ez-events?file=src%2Fmain.ts)
+
 Add interactions to `Object3D` through programmable events, similar to `DOM events`, including a propagation system. <br />
 See events list here: [Interaction](https://agargaro.github.io/three.ez/docs/tutorial/events/interaction), [Miscellaneous](https://agargaro.github.io/three.ez/docs/tutorial/events/misc), [Update](https://agargaro.github.io/three.ez/docs/tutorial/events/update).
 
@@ -48,9 +68,10 @@ const box = new Mesh(geometry, material);
 box.on('click', (e) => e.stopPropagation());
 box.on('animate', (e) => console.log('animate'));
 box.on('positionchange', () => console.log('position changed'));
-```     
+```
 
 ### 🔥 Drag and Drop
+
 Integrate drag and drop functionality. The drag is cancelled by pressing *ESC*.
 
 ```typescript
@@ -61,19 +82,21 @@ box.on('drag', (e) => console.log(`new position: ${e.position}`));
 
 const plane = new Mesh(geometry, material);
 plane.on('drop', (e) => console.log(`obj dropped on this: ${e.relatedTarget}`));
-```     
+```
 
 ### 🚀 Focus and Blur
-Enhance interactivity with focus and blur events.   
+
+Enhance interactivity with focus and blur events.
 
 ```typescript
 const box = new Mesh(geometry, material);
 box.focusable = true; // default is true
 box.on('focus', (e) => console.log('focused'));
 box.on('blur', (e) => console.log('focus lost'));
-```     
+```
 
 ### 🏅 [Object3D Property Binding](https://agargaro.github.io/three.ez/docs/tutorial/binding)
+
 Streamline the management of `Object3D` properties.
 
 ```typescript
@@ -82,6 +105,7 @@ box.bindProperty('visible', () => box.parent?.enabled);
 ```
 
 ### ✂️ Automatic Resize Handling
+
 Automatically resizes the `Renderer`, `Camera`, and `EffectComposer`. <br />
 Utilize the `viewportResize` event to easily set the resolution for custom shaders.
 
@@ -90,7 +114,8 @@ const line = new Line2(geometry, material);
 line.on('viewportresize', (e) => material.resolution.set(e.width, e.height));
 ```
 
-### 💡 [Smart Rendering](https://agargaro.github.io/three.ez/docs/tutorial/rendering/smart-rendering) 
+### 💡 [Smart Rendering](https://agargaro.github.io/three.ez/docs/tutorial/rendering/smart-rendering)
+
 Optimize performance by rendering frames only when necessary, reducing computational overhead. <br />
 Automatically identifies changes in *position, scale, rotation, visibility, focus, blurring and addition or removal of objects*.
 
@@ -106,6 +131,7 @@ box.needsRender = true; // necessary because color change cannot be automaticall
 ```
 
 ### 🏆 [Simplified Multiple Rendering](https://agargaro.github.io/three.ez/docs/tutorial/rendering/multiple-rendering)
+
 Effortlessly manage rendering for multiple scenes or viewports within a single canvas.
 
 ```typescript
@@ -115,14 +141,17 @@ main.createView({ scene, camera, viewport: { left: 0.5, bottom: 0, width: 0.5, h
 ```
 
 ### 🛠️ [Asset Management](https://agargaro.github.io/three.ez/docs/tutorial/asset-management)
+
 Efficiently load and preload the assets for your 3D projects.
 
 *load:*
+
 ```typescript
 const audioBuffer = await Asset.load(AudioLoader, 'audio.mp3', onProgressCallback, onErrorCallback);
 ```
 
 *preload:*
+
 ```typescript
 // soldier.js
 Asset.preload(GLTFLoader, 'https://threejs.org/examples/models/gltf/Soldier.glb');
@@ -142,6 +171,7 @@ const soldier = new Soldier();
 ```
 
 ### 🎥 Tweening
+
 Create smooth animations effortlessly with built-in tweening.
 
 ```typescript
@@ -155,6 +185,7 @@ new Tween(box)
 ```
 
 ### ⚙️ Raycasting Customisable
+
 Choose between continuous or mouse movement-based raycasting, optimizing intersection operations. <br />
 Set which objects to intersect from the main raycasting.
 
@@ -167,6 +198,7 @@ box.interceptByRaycaster = false; // default is true
 ```
 
 ### 🎯 Hitbox Functionality
+
 Leverage hitboxes for customized intersections or simplified calculations.
 
 ```typescript
@@ -175,6 +207,7 @@ ring.hitboxes = [new Hitbox(new CircleGeometry(1.5))]; // intercept also inside 
 ```
 
 ### 💯 Simplified InstancedMesh
+
 Manage `InstancedMesh` instances with the ease of working with `Object3D`, simplifying creation and manipulation, including frustum culling.
 
 ```typescript
@@ -193,6 +226,7 @@ myInstancedMesh.instances[2].updateMatrix();
 ```
 
 ### 🔍 Query
+
 Find and select `Object3D` using powerful query selectors.
 
 ```typescript
@@ -263,7 +297,7 @@ These examples use `vite`, and some mobile devices may run out of memory. Howeve
 ## 📚 Documentation
 
 The tutorial is available [here](https://agargaro.github.io/three.ez/docs/tutorial) *(work in progress)*. <br />
-The API documentation is available [here](https://agargaro.github.io/three.ez/docs/api). 
+The API documentation is available [here](https://agargaro.github.io/three.ez/docs/api).
 
 ## 🤝 Contributing
 
