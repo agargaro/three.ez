@@ -355,33 +355,35 @@ export class InstancedMesh2<T = {}, G extends BufferGeometry = BufferGeometry, M
     const center = this.geometry.boundingSphere.center;
 
     if (center.x === 0 && center.y === 0 && center.z === 0) {
-      // transform camera position
-      this.cullingDynamicOrigin(radius/* , camera.position, (camera as PerspectiveCamera).far ?? Infinity */);
+      this.cullingDynamicOrigin(radius, camera);
     } else {
       this.cullingDynamic(radius, center);
     }
   }
 
-  private cullingDynamicOrigin(radius: number/* , cameraPos: Vector3, cameraFar: number */): void {
+  private cullingDynamicOrigin(radius: number, camera: Camera): void {
     const instances = this.instances;
+    const cameraFar = (camera as PerspectiveCamera).far ?? Infinity; // check also near?
+    
+    _invMatrixWorld.copy( this.matrixWorld ).invert();
+    _cameraPos.setFromMatrixPosition( camera.matrixWorld ).applyMatrix4( _invMatrixWorld );
 
     for (let i = 0, l = this.instances.length; i < l; i++) {
       const instance = instances[i];
       if (!instance._visible) continue;
 
-      /* const maxRadius = radius * this.getMax(instance.scale);
+      const maxRadius = radius * this.getMax(instance.scale);
 
-      if (cameraFar !== Infinity && instance.position.distanceTo(cameraPos) + maxRadius > cameraFar) {
+      if (cameraFar !== Infinity && instance.position.distanceTo(_cameraPos) + maxRadius > cameraFar) {
         if (instance._inFrustum) {
           instance._inFrustum = false;
           _hide.push(instance);
         }
         continue;
-      } */
+      }
 
       _sphere.center.copy(instance.position);
-      _sphere.radius = radius * this.getMax(instance.scale);
-      // _sphere.radius = maxRadius;
+      _sphere.radius = maxRadius;
 
       if (instance._inFrustum !== (instance._inFrustum = _frustum.intersectsSphere(_sphere))) {
         if (instance._inFrustum) _show.push(instance);
@@ -479,6 +481,8 @@ const _color = new Color();
 const _frustum = new Frustum();
 const _projScreenMatrix = new Matrix4();
 const _instanceWorldMatrix = new Matrix4();
+const _invMatrixWorld = new Matrix4();
+const _cameraPos = new Vector3();
 const _sphere = new Sphere();
 const _mesh = new Mesh();
 const _instanceIntersects: Intersection[] = []; // remove
