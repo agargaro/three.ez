@@ -141,7 +141,7 @@ export default function HomepageFeatures(): JSX.Element {
   };
 
   useEffect(() => {
-    // main = new Main();
+    main = new Main();
     showFeature = false;
     const options = {
       root: document.querySelector('#scrollcontainer'),
@@ -200,7 +200,7 @@ export default function HomepageFeatures(): JSX.Element {
 
   return (
     <div>
-      {/* <canvas id="cubecanvas" className={styles.cubeCanvas}></canvas> */}
+      <canvas id="cubecanvas" className={styles.cubeCanvas}></canvas>
       {showFeature && (
         <section className={styles.featuresContainer} ref={cardContainerRef}>
           {FeatureList.map((props) => (

@@ -54,7 +54,7 @@ Represents a custom extended mouse event.
 
 #### Defined in
 
-[src/events/Events.ts:207](https://github.com/agargaro/three.ez/blob/dc547c7/src/events/Events.ts#L207)
+[src/events/Events.ts:207](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/Events.ts#L207)
 
 ## Properties
 
@@ -70,7 +70,7 @@ A boolean value indicating whether the event is cancelable.
 
 #### Defined in
 
-[src/events/Events.ts:115](https://github.com/agargaro/three.ez/blob/dc547c7/src/events/Events.ts#L115)
+[src/events/Events.ts:115](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/Events.ts#L115)
 
 ___
 
@@ -86,7 +86,7 @@ A reference to the currently registered target for the event. This is the object
 
 #### Defined in
 
-[src/events/Events.ts:117](https://github.com/agargaro/three.ez/blob/dc547c7/src/events/Events.ts#L117)
+[src/events/Events.ts:117](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/Events.ts#L117)
 
 ___
 
@@ -98,7 +98,7 @@ Original dom event.
 
 #### Defined in
 
-[src/events/Events.ts:163](https://github.com/agargaro/three.ez/blob/dc547c7/src/events/Events.ts#L163)
+[src/events/Events.ts:163](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/Events.ts#L163)
 
 ___
 
@@ -110,7 +110,7 @@ Returns the intersection information between the mouse event and 3D objects in t
 
 #### Defined in
 
-[src/events/Events.ts:199](https://github.com/agargaro/three.ez/blob/dc547c7/src/events/Events.ts#L199)
+[src/events/Events.ts:199](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/Events.ts#L199)
 
 ___
 
@@ -122,7 +122,7 @@ The secondary target for the event, if there is one.
 
 #### Defined in
 
-[src/events/Events.ts:191](https://github.com/agargaro/three.ez/blob/dc547c7/src/events/Events.ts#L191)
+[src/events/Events.ts:191](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/Events.ts#L191)
 
 ___
 
@@ -138,7 +138,7 @@ The time at which the event was created (in milliseconds). By specification, thi
 
 #### Defined in
 
-[src/events/Events.ts:123](https://github.com/agargaro/three.ez/blob/dc547c7/src/events/Events.ts#L123)
+[src/events/Events.ts:123](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/Events.ts#L123)
 
 ## Accessors
 
@@ -154,7 +154,7 @@ Returns true if the alt key was down when the mouse event was fired.
 
 #### Defined in
 
-[src/events/Events.ts:165](https://github.com/agargaro/three.ez/blob/dc547c7/src/events/Events.ts#L165)
+[src/events/Events.ts:165](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/Events.ts#L165)
 
 ___
 
@@ -174,7 +174,7 @@ EventExt.bubbles
 
 #### Defined in
 
-[src/events/Events.ts:113](https://github.com/agargaro/three.ez/blob/dc547c7/src/events/Events.ts#L113)
+[src/events/Events.ts:113](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/Events.ts#L113)
 
 ___
 
@@ -190,7 +190,7 @@ The button number that was pressed (if applicable) when the mouse event was fire
 
 #### Defined in
 
-[src/events/Events.ts:167](https://github.com/agargaro/three.ez/blob/dc547c7/src/events/Events.ts#L167)
+[src/events/Events.ts:167](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/Events.ts#L167)
 
 ___
 
@@ -206,7 +206,7 @@ The buttons being pressed (if any) when the mouse event was fired.
 
 #### Defined in
 
-[src/events/Events.ts:169](https://github.com/agargaro/three.ez/blob/dc547c7/src/events/Events.ts#L169)
+[src/events/Events.ts:169](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/Events.ts#L169)
 
 ___
 
@@ -222,7 +222,7 @@ The X coordinate of the mouse pointer in local (DOM content) coordinates.
 
 #### Defined in
 
-[src/events/Events.ts:171](https://github.com/agargaro/three.ez/blob/dc547c7/src/events/Events.ts#L171)
+[src/events/Events.ts:171](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/Events.ts#L171)
 
 ___
 
@@ -238,7 +238,7 @@ The Y coordinate of the mouse pointer in local (DOM content) coordinates.
 
 #### Defined in
 
-[src/events/Events.ts:173](https://github.com/agargaro/three.ez/blob/dc547c7/src/events/Events.ts#L173)
+[src/events/Events.ts:173](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/Events.ts#L173)
 
 ___
 
@@ -254,7 +254,7 @@ Returns true if the control key was down when the mouse event was fired.
 
 #### Defined in
 
-[src/events/Events.ts:175](https://github.com/agargaro/three.ez/blob/dc547c7/src/events/Events.ts#L175)
+[src/events/Events.ts:175](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/Events.ts#L175)
 
 ___
 
@@ -274,7 +274,7 @@ EventExt.defaultPrevented
 
 #### Defined in
 
-[src/events/Events.ts:119](https://github.com/agargaro/three.ez/blob/dc547c7/src/events/Events.ts#L119)
+[src/events/Events.ts:119](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/Events.ts#L119)
 
 ___
 
@@ -290,7 +290,7 @@ Returns true if the meta key was down when the mouse event was fired.
 
 #### Defined in
 
-[src/events/Events.ts:177](https://github.com/agargaro/three.ez/blob/dc547c7/src/events/Events.ts#L177)
+[src/events/Events.ts:177](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/Events.ts#L177)
 
 ___
 
@@ -306,7 +306,7 @@ The X coordinate of the pointer relative to the position of the last event.
 
 #### Defined in
 
-[src/events/Events.ts:179](https://github.com/agargaro/three.ez/blob/dc547c7/src/events/Events.ts#L179)
+[src/events/Events.ts:179](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/Events.ts#L179)
 
 ___
 
@@ -322,7 +322,7 @@ The Y coordinate of the pointer relative to the position of the last event.
 
 #### Defined in
 
-[src/events/Events.ts:181](https://github.com/agargaro/three.ez/blob/dc547c7/src/events/Events.ts#L181)
+[src/events/Events.ts:181](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/Events.ts#L181)
 
 ___
 
@@ -338,7 +338,7 @@ The X coordinate of the mouse pointer relative to the position of the padding ed
 
 #### Defined in
 
-[src/events/Events.ts:183](https://github.com/agargaro/three.ez/blob/dc547c7/src/events/Events.ts#L183)
+[src/events/Events.ts:183](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/Events.ts#L183)
 
 ___
 
@@ -354,7 +354,7 @@ The Y coordinate of the mouse pointer relative to the position of the padding ed
 
 #### Defined in
 
-[src/events/Events.ts:185](https://github.com/agargaro/three.ez/blob/dc547c7/src/events/Events.ts#L185)
+[src/events/Events.ts:185](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/Events.ts#L185)
 
 ___
 
@@ -370,7 +370,7 @@ The X coordinate of the mouse pointer relative to the whole document.
 
 #### Defined in
 
-[src/events/Events.ts:187](https://github.com/agargaro/three.ez/blob/dc547c7/src/events/Events.ts#L187)
+[src/events/Events.ts:187](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/Events.ts#L187)
 
 ___
 
@@ -386,7 +386,7 @@ The Y coordinate of the mouse pointer relative to the whole document.
 
 #### Defined in
 
-[src/events/Events.ts:189](https://github.com/agargaro/three.ez/blob/dc547c7/src/events/Events.ts#L189)
+[src/events/Events.ts:189](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/Events.ts#L189)
 
 ___
 
@@ -402,7 +402,7 @@ The X coordinate of the mouse pointer in global (screen) coordinates.
 
 #### Defined in
 
-[src/events/Events.ts:193](https://github.com/agargaro/three.ez/blob/dc547c7/src/events/Events.ts#L193)
+[src/events/Events.ts:193](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/Events.ts#L193)
 
 ___
 
@@ -418,7 +418,7 @@ The Y coordinate of the mouse pointer in global (screen) coordinates.
 
 #### Defined in
 
-[src/events/Events.ts:195](https://github.com/agargaro/three.ez/blob/dc547c7/src/events/Events.ts#L195)
+[src/events/Events.ts:195](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/Events.ts#L195)
 
 ___
 
@@ -434,7 +434,7 @@ Returns true if the shift key was down when the mouse event was fired.
 
 #### Defined in
 
-[src/events/Events.ts:197](https://github.com/agargaro/three.ez/blob/dc547c7/src/events/Events.ts#L197)
+[src/events/Events.ts:197](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/Events.ts#L197)
 
 ___
 
@@ -454,7 +454,7 @@ EventExt.target
 
 #### Defined in
 
-[src/events/Events.ts:121](https://github.com/agargaro/three.ez/blob/dc547c7/src/events/Events.ts#L121)
+[src/events/Events.ts:121](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/Events.ts#L121)
 
 ___
 
@@ -474,7 +474,7 @@ EventExt.type
 
 #### Defined in
 
-[src/events/Events.ts:125](https://github.com/agargaro/three.ez/blob/dc547c7/src/events/Events.ts#L125)
+[src/events/Events.ts:125](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/Events.ts#L125)
 
 ## Methods
 
@@ -496,7 +496,7 @@ Returns the current state of the specified modifier key. See KeyboardEvent.getMo
 
 #### Defined in
 
-[src/events/Events.ts:215](https://github.com/agargaro/three.ez/blob/dc547c7/src/events/Events.ts#L215)
+[src/events/Events.ts:215](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/Events.ts#L215)
 
 ___
 
@@ -516,7 +516,7 @@ Cancels the event.
 
 #### Defined in
 
-[src/events/Events.ts:141](https://github.com/agargaro/three.ez/blob/dc547c7/src/events/Events.ts#L141)
+[src/events/Events.ts:141](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/Events.ts#L141)
 
 ___
 
@@ -536,7 +536,7 @@ For this particular event, prevent all other listeners from being called. This i
 
 #### Defined in
 
-[src/events/Events.ts:146](https://github.com/agargaro/three.ez/blob/dc547c7/src/events/Events.ts#L146)
+[src/events/Events.ts:146](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/Events.ts#L146)
 
 ___
 
@@ -556,4 +556,4 @@ Stops the propagation of events further along in the Object3D hierarchy.
 
 #### Defined in
 
-[src/events/Events.ts:151](https://github.com/agargaro/three.ez/blob/dc547c7/src/events/Events.ts#L151)
+[src/events/Events.ts:151](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/Events.ts#L151)
