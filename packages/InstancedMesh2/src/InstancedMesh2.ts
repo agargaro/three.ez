@@ -378,7 +378,6 @@ export class InstancedMesh2<T = {}, G extends BufferGeometry = BufferGeometry, M
 
       if (instance._inFrustum && instance._matrixNeedsUpdate) {
         instance.forceUpdateMatrix();
-        this._matricesUpdated = true;
       }
     }
   }
@@ -390,7 +389,6 @@ export class InstancedMesh2<T = {}, G extends BufferGeometry = BufferGeometry, M
       const instance = instances[i];
       if (!instance._visible) continue;
 
-      // TODO get matrix instead of this but can be not updated if cullingDynamic
       _sphere.center.copy(center).applyQuaternion(instance.quaternion).multiply(instance.scale).add(instance.position);
       _sphere.radius = radius * this.getMax(instance.scale);
 
@@ -401,7 +399,6 @@ export class InstancedMesh2<T = {}, G extends BufferGeometry = BufferGeometry, M
 
       if (instance._inFrustum && instance._matrixNeedsUpdate) {
         instance.forceUpdateMatrix();
-        this._matricesUpdated = true;
       }
     }
   }
