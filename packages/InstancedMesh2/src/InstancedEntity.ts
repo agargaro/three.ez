@@ -81,7 +81,9 @@ export class InstancedEntity {
    * Force local transformation update.
    */
   public forceUpdateMatrix(): void {
-    this.parent.composeToArray(this.position, this.scale, this.quaternion, this._internalId);
+    const parent = this.parent;
+    parent.composeToArray(this.position, this.scale, this.quaternion, this._internalId);
+    parent._matricesUpdated = true;
     this._matrixNeedsUpdate = false;
   }
 

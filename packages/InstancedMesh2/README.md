@@ -117,7 +117,7 @@ If you have questions or need assistance, you can ask on our [discord server](ht
 - BVH customization
 - Dynamic BVH
 - Sorting support
-- Improve raycasting if CullingStatic
+- LOD system
 
 ## ⭐ Like it?
 

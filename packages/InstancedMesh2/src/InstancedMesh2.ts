@@ -52,9 +52,9 @@ export class InstancedMesh2<T = {}, G extends BufferGeometry = BufferGeometry, M
   public verbose: boolean;
   private _sortedInstances: Entity<T>[];
   /** @internal */ public readonly _perObjectFrustumCulled: boolean;
+  /** @internal */ public _matricesUpdated = false;
   private _behaviour: number;
   private _instancedAttributes: InstancedBufferAttribute[];
-  private _matricesUpdated = false;
   private _bvh: InstancedMeshBVH;
 
   /**
@@ -378,7 +378,6 @@ export class InstancedMesh2<T = {}, G extends BufferGeometry = BufferGeometry, M
 
       if (instance._inFrustum && instance._matrixNeedsUpdate) {
         instance.forceUpdateMatrix();
-        this._matricesUpdated = true;
       }
     }
   }
@@ -390,7 +389,6 @@ export class InstancedMesh2<T = {}, G extends BufferGeometry = BufferGeometry, M
       const instance = instances[i];
       if (!instance._visible) continue;
 
-      // TODO get matrix instead of this
       _sphere.center.copy(center).applyQuaternion(instance.quaternion).multiply(instance.scale).add(instance.position);
       _sphere.radius = radius * this.getMax(instance.scale);
 
@@ -401,7 +399,6 @@ export class InstancedMesh2<T = {}, G extends BufferGeometry = BufferGeometry, M
 
       if (instance._inFrustum && instance._matrixNeedsUpdate) {
         instance.forceUpdateMatrix();
-        this._matricesUpdated = true;
       }
     }
   }
