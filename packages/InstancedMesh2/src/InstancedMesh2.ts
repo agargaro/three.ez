@@ -1,4 +1,4 @@
-import { BufferGeometry, Camera, Color, ColorRepresentation, DynamicDrawUsage, Frustum, InstancedBufferAttribute, InstancedMesh, Intersection, Material, Matrix4, Mesh, PerspectiveCamera, Raycaster, Sphere, Vector3 } from 'three';
+import { BufferGeometry, Camera, Color, ColorRepresentation, DynamicDrawUsage, Frustum, InstancedBufferAttribute, InstancedMesh, Intersection, Material, Matrix4, Mesh, Raycaster, Sphere, Vector3 } from 'three';
 import { InstancedEntity } from './InstancedEntity';
 import { BVHParams, InstancedMeshBVH } from './InstancedMeshBVH';
 
@@ -355,35 +355,22 @@ export class InstancedMesh2<T = {}, G extends BufferGeometry = BufferGeometry, M
     const center = this.geometry.boundingSphere.center;
 
     if (center.x === 0 && center.y === 0 && center.z === 0) {
-      this.cullingDynamicOrigin(radius, camera);
+      this.cullingDynamicOrigin(radius);
     } else {
       this.cullingDynamic(radius, center);
     }
   }
 
-  private cullingDynamicOrigin(radius: number, camera: Camera): void {
+  private cullingDynamicOrigin(radius: number): void {
     const instances = this.instances;
-    const cameraFar = (camera as PerspectiveCamera).far ?? Infinity; // check also near?
-    
-    _invMatrixWorld.copy( this.matrixWorld ).invert();
-    _cameraPos.setFromMatrixPosition( camera.matrixWorld ).applyMatrix4( _invMatrixWorld );
+
 
     for (let i = 0, l = this.instances.length; i < l; i++) {
       const instance = instances[i];
       if (!instance._visible) continue;
 
-      const maxRadius = radius * this.getMax(instance.scale);
-
-      if (cameraFar !== Infinity && instance.position.distanceTo(_cameraPos) + maxRadius > cameraFar) {
-        if (instance._inFrustum) {
-          instance._inFrustum = false;
-          _hide.push(instance);
-        }
-        continue;
-      }
-
       _sphere.center.copy(instance.position);
-      _sphere.radius = maxRadius;
+      _sphere.radius = radius * this.getMax(instance.scale);
 
       if (instance._inFrustum !== (instance._inFrustum = _frustum.intersectsSphere(_sphere))) {
         if (instance._inFrustum) _show.push(instance);
