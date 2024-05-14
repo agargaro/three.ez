@@ -364,7 +364,6 @@ export class InstancedMesh2<T = {}, G extends BufferGeometry = BufferGeometry, M
   private cullingDynamicOrigin(radius: number): void {
     const instances = this.instances;
 
-
     for (let i = 0, l = this.instances.length; i < l; i++) {
       const instance = instances[i];
       if (!instance._visible) continue;
