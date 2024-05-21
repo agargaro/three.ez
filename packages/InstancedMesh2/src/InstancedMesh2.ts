@@ -458,6 +458,16 @@ export class InstancedMesh2<T = {}, G extends BufferGeometry = BufferGeometry, M
 
     this.verbose && console.timeEnd("raycast");
   }
+
+  /**
+   * Copies position, scale, and rotation properties from an instance to a Mesh.
+   * @param instancedId The instance id from which to copy data.
+   * @param target The Mesh object to which the instance data will be copied.
+   */
+  public copyTo(instancedId: number, target: Mesh): void {
+    const instance = this.instances[instancedId];
+    instance.copyTo(target);
+  }
 }
 
 const _color = new Color();

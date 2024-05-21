@@ -1,4 +1,4 @@
-import { Color, ColorRepresentation, Matrix4, Quaternion, Vector3 } from 'three';
+import { Color, ColorRepresentation, Matrix4, Mesh, Quaternion, Vector3 } from 'three';
 import { InstancedMesh2 } from './InstancedMesh2';
 
 /**
@@ -217,6 +217,18 @@ export class InstancedEntity {
    */
   public translateZ(distance: number): this {
     return this.translateOnAxis(_zAxis, distance);
+  }
+
+  /**
+   * Copies position, scale, and rotation properties from an instance to a Mesh.
+   * @param target The Mesh object to which the instance data will be copied.
+   */
+  public copyTo(target: Mesh): void {
+    target.position.copy(this.position);
+    target.scale.copy(this.scale);
+    target.quaternion.copy(this.quaternion);
+    
+    // check other props
   }
 
   // add other Object3D methods
