@@ -55,5 +55,8 @@
   },
   "peerDependencies": {
     "three": ">=0.151.0"
+  },
+  "dependencies": {
+    "shiny-guacamole": "^0.0.1-alfa.0"
   }
 }

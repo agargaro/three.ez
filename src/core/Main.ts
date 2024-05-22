@@ -6,8 +6,8 @@ import { EventsCache } from "../events/MiscEventsManager";
 import { RenderManager } from "../rendering/RenderManager";
 import { RenderView, ViewParameters } from "../rendering/RenderView";
 import { TweenManager } from "../tweening/TweenManager";
-import { Stats } from "../utils/Stats";
 import { RaycasterSortComparer } from "../events/RaycasterManager";
+import { ThreeEzStats } from "shiny-guacamole";
 
 /** @internal */
 export function setup() {
@@ -47,7 +47,7 @@ export class Main {
     public static ticks = 0;
     private _renderManager: RenderManager;
     private _interactionManager: InteractionManager;
-    private _stats: Stats;
+    private _stats: ThreeEzStats;
     private _animate: (delta: number, total: number) => void;
     private _clock = new Clock();
     private _showStats: boolean;
@@ -90,7 +90,7 @@ export class Main {
     public get showStats(): boolean { return this._showStats }
     public set showStats(value: boolean) {
         if (value) {
-            if (!this._stats) this._stats = new Stats();
+            if (!this._stats) this._stats = new ThreeEzStats(this.renderer);
             document.body.appendChild(this._stats.dom);
         } else if (this._stats) {
             document.body.removeChild(this._stats.dom);

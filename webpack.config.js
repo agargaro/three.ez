@@ -10,7 +10,8 @@ module.exports = {
   },
   externals: [
     'three',
-    'three/examples/jsm/utils/SkeletonUtils'
+    'three/examples/jsm/utils/SkeletonUtils',
+  
   ],
   module: {
     rules: [

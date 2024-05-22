@@ -1,7 +1,6 @@
 import { MaterialExtPrototype } from './patch/Material';
 import { Object3DExtPrototype } from './patch/Object3D';
 import { SceneExtPrototype } from './patch/Scene';
-
 export * from './binding/Binding';
 export * from './cameras/OrthographicCameraAuto';
 export * from './cameras/PerspectiveCameraAuto';
