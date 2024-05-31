@@ -57,6 +57,6 @@
     "three": ">=0.151.0"
   },
   "dependencies": {
-    "shiny-guacamole": "^0.0.1-alfa.2"
+    "@three.ez/stats": "^0.0.1-alfa.1"
   }
 }

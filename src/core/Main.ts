@@ -7,11 +7,11 @@ import { RenderManager } from '../rendering/RenderManager';
 import { RenderView, ViewParameters } from '../rendering/RenderView';
 import { TweenManager } from '../tweening/TweenManager';
 import { RaycasterSortComparer } from '../events/RaycasterManager';
-import { ThreeEzStats } from 'shiny-guacamole';
-import { defineCustomElements, setNonce } from 'shiny-guacamole/loader';
-import 'shiny-guacamole/dist/components/three-ez-gui';
-import 'shiny-guacamole/dist/components/three-ez-stats-box';
-import 'shiny-guacamole/dist/components/three-ez-stats-graph';
+import { ThreeEzStats } from '@three.ez/stats';
+import { defineCustomElements, setNonce } from '@three.ez/stats/loader';
+import '@three.ez/stats/dist/components/three-ez-gui';
+import '@three.ez/stats/dist/components/three-ez-stats-box';
+import '@three.ez/stats/dist/components/three-ez-stats-graph';
 
 /** @internal */
 export function setup() {
@@ -232,6 +232,8 @@ export class Main {
 
   private setAnimationLoop(): void {
     this.renderer.setAnimationLoop((time, frame) => {
+      if (this.showStats) this._stats.begin();
+
       Main.ticks++;
       const currentDelta = this._clock.getDelta();
 
@@ -253,16 +255,22 @@ export class Main {
           Binding.compute(scene);
         }
 
+        if (this._showStats){
+          this._stats.end();
+          this._stats.beginGpu();
+        }
+
         rendered = this._renderManager.render();
 
+        if (this._showStats) {
+          this._stats.endGpu(rendered);
+        }
+        
         for (const scene of visibleScenes) {
           scene.needsRender = !scene.__smartRendering;
         }
       }
 
-      if (this._showStats) {
-        this._stats.update(rendered);
-      }
     });
   }
 
