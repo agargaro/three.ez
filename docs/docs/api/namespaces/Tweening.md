@@ -27,7 +27,7 @@ Type representing an easing type, which can be either a predefined easing functi
 
 #### Defined in
 
-[src/tweening/Easings.ts:4](https://github.com/agargaro/three.ez/blob/b355b0c/src/tweening/Easings.ts#L4)
+[src/tweening/Easings.ts:4](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/tweening/Easings.ts#L4)
 
 ___
 
@@ -35,11 +35,11 @@ ___
 
 Ƭ **EasingFunction**: (`x`: `number`) => `number`
 
+Type representing an easing function that takes a single numeric parameter and returns a numeric result.
+
 #### Type declaration
 
 ▸ (`x`): `number`
-
-Type representing an easing function that takes a single numeric parameter and returns a numeric result.
 
 ##### Parameters
 
@@ -53,7 +53,7 @@ Type representing an easing function that takes a single numeric parameter and r
 
 #### Defined in
 
-[src/tweening/Easings.ts:2](https://github.com/agargaro/three.ez/blob/b355b0c/src/tweening/Easings.ts#L2)
+[src/tweening/Easings.ts:2](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/tweening/Easings.ts#L2)
 
 ## Variables
 
@@ -65,4 +65,4 @@ The default easing function used when no easing is specified.
 
 #### Defined in
 
-[src/tweening/Easings.ts:6](https://github.com/agargaro/three.ez/blob/b355b0c/src/tweening/Easings.ts#L6)
+[src/tweening/Easings.ts:6](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/tweening/Easings.ts#L6)

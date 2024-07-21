@@ -13,13 +13,13 @@ Represents events related to updates. These events do not propagate to parents.
 
 ### enabledchange
 
-• **enabledchange**: [`PropertyChangeEvent`](Events.PropertyChangeEvent.md)<`boolean`\>
+• **enabledchange**: [`PropertyChangeEvent`](Events.PropertyChangeEvent.md)\<`boolean`\>
 
 Event triggered when the enabledState of the object changes (either its own or the parent's `enabled` property).
 
 #### Defined in
 
-[src/events/Events.ts:18](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/Events.ts#L18)
+[src/events/Events.ts:18](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/events/Events.ts#L18)
 
 ___
 
@@ -31,7 +31,7 @@ Event triggered when the position of the object changes.
 
 #### Defined in
 
-[src/events/Events.ts:12](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/Events.ts#L12)
+[src/events/Events.ts:12](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/events/Events.ts#L12)
 
 ___
 
@@ -43,7 +43,7 @@ Event triggered when the rotation of the object changes.
 
 #### Defined in
 
-[src/events/Events.ts:16](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/Events.ts#L16)
+[src/events/Events.ts:16](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/events/Events.ts#L16)
 
 ___
 
@@ -55,16 +55,16 @@ Event triggered when the scale of the object changes.
 
 #### Defined in
 
-[src/events/Events.ts:14](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/Events.ts#L14)
+[src/events/Events.ts:14](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/events/Events.ts#L14)
 
 ___
 
 ### visiblechange
 
-• **visiblechange**: [`PropertyChangeEvent`](Events.PropertyChangeEvent.md)<`boolean`\>
+• **visiblechange**: [`PropertyChangeEvent`](Events.PropertyChangeEvent.md)\<`boolean`\>
 
 Event triggered when the visibilityState of the object changes (either its own or the parent's `visible` property).
 
 #### Defined in
 
-[src/events/Events.ts:20](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/Events.ts#L20)
+[src/events/Events.ts:20](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/events/Events.ts#L20)

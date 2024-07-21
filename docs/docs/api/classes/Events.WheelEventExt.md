@@ -18,7 +18,7 @@ Represents a custom extended wheel event.
 
 ## Hierarchy
 
-- [`MouseEventExt`](Events.MouseEventExt.md)<`T`, `R`\>
+- [`MouseEventExt`](Events.MouseEventExt.md)\<`T`, `R`\>
 
   ↳ **`WheelEventExt`**
 
@@ -26,14 +26,14 @@ Represents a custom extended wheel event.
 
 ### constructor
 
-• **new WheelEventExt**<`T`, `R`\>(`event`, `intersection`, `relatedTarget?`, `cancelable?`)
+• **new WheelEventExt**\<`T`, `R`\>(`event`, `intersection`, `relatedTarget?`, `cancelable?`): [`WheelEventExt`](Events.WheelEventExt.md)\<`T`, `R`\>
 
 #### Type parameters
 
 | Name | Type |
 | :------ | :------ |
-| `T` | `Object3D`<`Object3DEventMap`\> |
-| `R` | `Object3D`<`Object3DEventMap`\> |
+| `T` | `Object3D`\<`Object3DEventMap`\> |
+| `R` | `Object3D`\<`Object3DEventMap`\> |
 
 #### Parameters
 
@@ -44,13 +44,17 @@ Represents a custom extended wheel event.
 | `relatedTarget?` | `R` | The secondary target for the event. |
 | `cancelable?` | `boolean` | A boolean value indicating whether the event is cancelable. |
 
+#### Returns
+
+[`WheelEventExt`](Events.WheelEventExt.md)\<`T`, `R`\>
+
 #### Inherited from
 
 [MouseEventExt](Events.MouseEventExt.md).[constructor](Events.MouseEventExt.md#constructor)
 
 #### Defined in
 
-[src/events/Events.ts:207](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/Events.ts#L207)
+[src/events/Events.ts:207](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/events/Events.ts#L207)
 
 ## Properties
 
@@ -66,7 +70,7 @@ A boolean value indicating whether the event is cancelable.
 
 #### Defined in
 
-[src/events/Events.ts:115](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/Events.ts#L115)
+[src/events/Events.ts:115](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/events/Events.ts#L115)
 
 ___
 
@@ -82,7 +86,7 @@ A reference to the currently registered target for the event. This is the object
 
 #### Defined in
 
-[src/events/Events.ts:117](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/Events.ts#L117)
+[src/events/Events.ts:117](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/events/Events.ts#L117)
 
 ___
 
@@ -98,7 +102,7 @@ Returns the intersection information between the mouse event and 3D objects in t
 
 #### Defined in
 
-[src/events/Events.ts:199](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/Events.ts#L199)
+[src/events/Events.ts:199](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/events/Events.ts#L199)
 
 ___
 
@@ -114,7 +118,7 @@ The secondary target for the event, if there is one.
 
 #### Defined in
 
-[src/events/Events.ts:191](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/Events.ts#L191)
+[src/events/Events.ts:191](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/events/Events.ts#L191)
 
 ___
 
@@ -130,7 +134,7 @@ The time at which the event was created (in milliseconds). By specification, thi
 
 #### Defined in
 
-[src/events/Events.ts:123](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/Events.ts#L123)
+[src/events/Events.ts:123](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/events/Events.ts#L123)
 
 ## Accessors
 
@@ -150,7 +154,7 @@ MouseEventExt.altKey
 
 #### Defined in
 
-[src/events/Events.ts:165](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/Events.ts#L165)
+[src/events/Events.ts:165](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/events/Events.ts#L165)
 
 ___
 
@@ -170,7 +174,7 @@ MouseEventExt.bubbles
 
 #### Defined in
 
-[src/events/Events.ts:113](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/Events.ts#L113)
+[src/events/Events.ts:113](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/events/Events.ts#L113)
 
 ___
 
@@ -190,7 +194,7 @@ MouseEventExt.button
 
 #### Defined in
 
-[src/events/Events.ts:167](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/Events.ts#L167)
+[src/events/Events.ts:167](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/events/Events.ts#L167)
 
 ___
 
@@ -210,7 +214,7 @@ MouseEventExt.buttons
 
 #### Defined in
 
-[src/events/Events.ts:169](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/Events.ts#L169)
+[src/events/Events.ts:169](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/events/Events.ts#L169)
 
 ___
 
@@ -230,7 +234,7 @@ MouseEventExt.clientX
 
 #### Defined in
 
-[src/events/Events.ts:171](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/Events.ts#L171)
+[src/events/Events.ts:171](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/events/Events.ts#L171)
 
 ___
 
@@ -250,7 +254,7 @@ MouseEventExt.clientY
 
 #### Defined in
 
-[src/events/Events.ts:173](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/Events.ts#L173)
+[src/events/Events.ts:173](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/events/Events.ts#L173)
 
 ___
 
@@ -270,7 +274,7 @@ MouseEventExt.ctrlKey
 
 #### Defined in
 
-[src/events/Events.ts:175](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/Events.ts#L175)
+[src/events/Events.ts:175](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/events/Events.ts#L175)
 
 ___
 
@@ -290,7 +294,7 @@ MouseEventExt.defaultPrevented
 
 #### Defined in
 
-[src/events/Events.ts:119](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/Events.ts#L119)
+[src/events/Events.ts:119](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/events/Events.ts#L119)
 
 ___
 
@@ -306,7 +310,7 @@ Returns a double representing the horizontal scroll amount.
 
 #### Defined in
 
-[src/events/Events.ts:285](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/Events.ts#L285)
+[src/events/Events.ts:285](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/events/Events.ts#L285)
 
 ___
 
@@ -322,7 +326,7 @@ Returns a double representing the vertical scroll amount.
 
 #### Defined in
 
-[src/events/Events.ts:287](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/Events.ts#L287)
+[src/events/Events.ts:287](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/events/Events.ts#L287)
 
 ___
 
@@ -338,7 +342,7 @@ Returns a double representing the scroll amount for the z-axis.
 
 #### Defined in
 
-[src/events/Events.ts:289](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/Events.ts#L289)
+[src/events/Events.ts:289](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/events/Events.ts#L289)
 
 ___
 
@@ -358,7 +362,7 @@ MouseEventExt.metaKey
 
 #### Defined in
 
-[src/events/Events.ts:177](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/Events.ts#L177)
+[src/events/Events.ts:177](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/events/Events.ts#L177)
 
 ___
 
@@ -378,7 +382,7 @@ MouseEventExt.movementX
 
 #### Defined in
 
-[src/events/Events.ts:179](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/Events.ts#L179)
+[src/events/Events.ts:179](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/events/Events.ts#L179)
 
 ___
 
@@ -398,7 +402,7 @@ MouseEventExt.movementY
 
 #### Defined in
 
-[src/events/Events.ts:181](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/Events.ts#L181)
+[src/events/Events.ts:181](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/events/Events.ts#L181)
 
 ___
 
@@ -418,7 +422,7 @@ MouseEventExt.offsetX
 
 #### Defined in
 
-[src/events/Events.ts:183](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/Events.ts#L183)
+[src/events/Events.ts:183](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/events/Events.ts#L183)
 
 ___
 
@@ -438,7 +442,7 @@ MouseEventExt.offsetY
 
 #### Defined in
 
-[src/events/Events.ts:185](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/Events.ts#L185)
+[src/events/Events.ts:185](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/events/Events.ts#L185)
 
 ___
 
@@ -458,7 +462,7 @@ MouseEventExt.pageX
 
 #### Defined in
 
-[src/events/Events.ts:187](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/Events.ts#L187)
+[src/events/Events.ts:187](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/events/Events.ts#L187)
 
 ___
 
@@ -478,7 +482,7 @@ MouseEventExt.pageY
 
 #### Defined in
 
-[src/events/Events.ts:189](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/Events.ts#L189)
+[src/events/Events.ts:189](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/events/Events.ts#L189)
 
 ___
 
@@ -498,7 +502,7 @@ MouseEventExt.screenX
 
 #### Defined in
 
-[src/events/Events.ts:193](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/Events.ts#L193)
+[src/events/Events.ts:193](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/events/Events.ts#L193)
 
 ___
 
@@ -518,7 +522,7 @@ MouseEventExt.screenY
 
 #### Defined in
 
-[src/events/Events.ts:195](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/Events.ts#L195)
+[src/events/Events.ts:195](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/events/Events.ts#L195)
 
 ___
 
@@ -538,7 +542,7 @@ MouseEventExt.shiftKey
 
 #### Defined in
 
-[src/events/Events.ts:197](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/Events.ts#L197)
+[src/events/Events.ts:197](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/events/Events.ts#L197)
 
 ___
 
@@ -558,19 +562,19 @@ MouseEventExt.target
 
 #### Defined in
 
-[src/events/Events.ts:121](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/Events.ts#L121)
+[src/events/Events.ts:121](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/events/Events.ts#L121)
 
 ___
 
 ### type
 
-• `get` **type**(): keyof [`MiscEvents`](../interfaces/Events.MiscEvents.md) \| keyof [`InteractionEvents`](../interfaces/Events.InteractionEvents.md)<`Object3D`<`Object3DEventMap`\>, `Object3D`<`Object3DEventMap`\>, `Object3D`<`Object3DEventMap`\> \| [`InstancedMeshEntity`](InstancedMesh.InstancedMeshEntity.md)\> \| keyof [`UpdateEvents`](../interfaces/Events.UpdateEvents.md)
+• `get` **type**(): keyof MiscEvents \| keyof InteractionEvents\<Object3D\<Object3DEventMap\>, Object3D\<Object3DEventMap\>, Object3D\<Object3DEventMap\> \| InstancedMeshEntity\> \| keyof UpdateEvents
 
 The case-insensitive name identifying the type of the event.
 
 #### Returns
 
-keyof [`MiscEvents`](../interfaces/Events.MiscEvents.md) \| keyof [`InteractionEvents`](../interfaces/Events.InteractionEvents.md)<`Object3D`<`Object3DEventMap`\>, `Object3D`<`Object3DEventMap`\>, `Object3D`<`Object3DEventMap`\> \| [`InstancedMeshEntity`](InstancedMesh.InstancedMeshEntity.md)\> \| keyof [`UpdateEvents`](../interfaces/Events.UpdateEvents.md)
+keyof MiscEvents \| keyof InteractionEvents\<Object3D\<Object3DEventMap\>, Object3D\<Object3DEventMap\>, Object3D\<Object3DEventMap\> \| InstancedMeshEntity\> \| keyof UpdateEvents
 
 #### Inherited from
 
@@ -578,7 +582,7 @@ MouseEventExt.type
 
 #### Defined in
 
-[src/events/Events.ts:125](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/Events.ts#L125)
+[src/events/Events.ts:125](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/events/Events.ts#L125)
 
 ## Methods
 
@@ -604,7 +608,7 @@ Returns the current state of the specified modifier key. See KeyboardEvent.getMo
 
 #### Defined in
 
-[src/events/Events.ts:215](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/Events.ts#L215)
+[src/events/Events.ts:215](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/events/Events.ts#L215)
 
 ___
 
@@ -624,7 +628,7 @@ Cancels the event.
 
 #### Defined in
 
-[src/events/Events.ts:141](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/Events.ts#L141)
+[src/events/Events.ts:141](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/events/Events.ts#L141)
 
 ___
 
@@ -644,7 +648,7 @@ For this particular event, prevent all other listeners from being called. This i
 
 #### Defined in
 
-[src/events/Events.ts:146](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/Events.ts#L146)
+[src/events/Events.ts:146](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/events/Events.ts#L146)
 
 ___
 
@@ -664,4 +668,4 @@ Stops the propagation of events further along in the Object3D hierarchy.
 
 #### Defined in
 
-[src/events/Events.ts:151](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/Events.ts#L151)
+[src/events/Events.ts:151](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/events/Events.ts#L151)

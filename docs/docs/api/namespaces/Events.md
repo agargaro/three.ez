@@ -37,7 +37,7 @@ Represents a cursor, either by a CSS cursor key or a URL.
 
 #### Defined in
 
-[src/events/CursorManager.ts:18](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/CursorManager.ts#L18)
+[src/events/CursorManager.ts:18](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/events/CursorManager.ts#L18)
 
 ___
 
@@ -49,7 +49,7 @@ Valid cursor values based on the CSS cursor property.
 
 #### Defined in
 
-[src/events/CursorManager.ts:5](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/CursorManager.ts#L5)
+[src/events/CursorManager.ts:5](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/events/CursorManager.ts#L5)
 
 ___
 
@@ -57,11 +57,11 @@ ___
 
 Ƭ **RaycasterSortComparer**: (`a`: [`IntersectionExt`](../interfaces/Events.IntersectionExt.md), `b`: [`IntersectionExt`](../interfaces/Events.IntersectionExt.md)) => `number`
 
+A custom sorting comparison function used for ordering intersections during raycasting.
+
 #### Type declaration
 
 ▸ (`a`, `b`): `number`
-
-A custom sorting comparison function used for ordering intersections during raycasting.
 
 ##### Parameters
 
@@ -74,8 +74,6 @@ A custom sorting comparison function used for ordering intersections during rayc
 
 `number`
 
-A negative value if `a` should precede `b`, a positive value if `b` should precede `a`, or zero if their order is indeterminate.
-
 #### Defined in
 
-[src/events/RaycasterManager.ts:11](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/RaycasterManager.ts#L11)
+[src/events/RaycasterManager.ts:11](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/events/RaycasterManager.ts#L11)

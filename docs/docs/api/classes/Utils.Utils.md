@@ -13,7 +13,7 @@ A utility class providing helper methods for various operations.
 
 ### computeBoundingSphereChildren
 
-▸ `Static` **computeBoundingSphereChildren**(`target`): `void`
+▸ **computeBoundingSphereChildren**(`target`): `void`
 
 Computes bounding spheres for child objects within the specified Object3D hierarchy.
 
@@ -21,7 +21,7 @@ Computes bounding spheres for child objects within the specified Object3D hierar
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `target` | `Object3D`<`Object3DEventMap`\> | The root Object3D from which to start computing bounding spheres for children. |
+| `target` | `Object3D`\<`Object3DEventMap`\> | The root Object3D from which to start computing bounding spheres for children. |
 
 #### Returns
 
@@ -29,13 +29,13 @@ Computes bounding spheres for child objects within the specified Object3D hierar
 
 #### Defined in
 
-[src/utils/Utils.ts:45](https://github.com/agargaro/three.ez/blob/b355b0c/src/utils/Utils.ts#L45)
+[src/utils/Utils.ts:45](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/utils/Utils.ts#L45)
 
 ___
 
 ### getNodes
 
-▸ `Static` **getNodes**(`target`): [`Nodes`](../namespaces/Utils.md#nodes)
+▸ **getNodes**(`target`): [`Nodes`](../namespaces/Utils.md#nodes)
 
 Retrieves a map of objects in the scene graph (Object3D) starting from a root object.
 Each object is mapped using its unique name as the key in the resulting object.
@@ -44,7 +44,7 @@ Each object is mapped using its unique name as the key in the resulting object.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `target` | `Object3D`<`Object3DEventMap`\> | The root object to begin generating the object map from. |
+| `target` | `Object3D`\<`Object3DEventMap`\> | The root object to begin generating the object map from. |
 
 #### Returns
 
@@ -54,13 +54,13 @@ An object containing objects mapped by their names.
 
 #### Defined in
 
-[src/utils/Utils.ts:60](https://github.com/agargaro/three.ez/blob/b355b0c/src/utils/Utils.ts#L60)
+[src/utils/Utils.ts:60](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/utils/Utils.ts#L60)
 
 ___
 
 ### getSceneIntersection
 
-▸ `Static` **getSceneIntersection**(`ray`, `camera`, `distance`): `Vector3`
+▸ **getSceneIntersection**(`ray`, `camera`, `distance`): `Vector3`
 
 Calculates the intersection point of a ray with a plane in world coordinates.
 
@@ -80,13 +80,13 @@ The intersection point as Vector3.
 
 #### Defined in
 
-[src/utils/Utils.ts:23](https://github.com/agargaro/three.ez/blob/b355b0c/src/utils/Utils.ts#L23)
+[src/utils/Utils.ts:23](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/utils/Utils.ts#L23)
 
 ___
 
 ### setChildrenDragTarget
 
-▸ `Static` **setChildrenDragTarget**(`target`, `dragTarget`): `void`
+▸ **setChildrenDragTarget**(`target`, `dragTarget`): `void`
 
 Set for all children of the target, the draggable flag to true and a dragTarget.
 
@@ -94,8 +94,8 @@ Set for all children of the target, the draggable flag to true and a dragTarget.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `target` | `Object3D`<`Object3DEventMap`\> | The Object3D whose children you want to enable as draggable elements. * |
-| `dragTarget` | `Object3D`<`Object3DEventMap`\> | The Object3D that will act as the drag target for the children. |
+| `target` | `Object3D`\<`Object3DEventMap`\> | The Object3D whose children you want to enable as draggable elements. * |
+| `dragTarget` | `Object3D`\<`Object3DEventMap`\> | The Object3D that will act as the drag target for the children. |
 
 #### Returns
 
@@ -103,4 +103,4 @@ Set for all children of the target, the draggable flag to true and a dragTarget.
 
 #### Defined in
 
-[src/utils/Utils.ts:34](https://github.com/agargaro/three.ez/blob/b355b0c/src/utils/Utils.ts#L34)
+[src/utils/Utils.ts:34](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/utils/Utils.ts#L34)

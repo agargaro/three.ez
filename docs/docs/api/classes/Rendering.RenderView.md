@@ -18,7 +18,7 @@ Don't instantiate this manually.
 
 ### constructor
 
-• **new RenderView**(`parameters`, `rendererSize`)
+• **new RenderView**(`parameters`, `rendererSize`): [`RenderView`](Rendering.RenderView.md)
 
 Don't instantiate this manually.
 
@@ -29,9 +29,13 @@ Don't instantiate this manually.
 | `parameters` | [`ViewParameters`](../interfaces/Rendering.ViewParameters.md) |
 | `rendererSize` | `Vector2` |
 
+#### Returns
+
+[`RenderView`](Rendering.RenderView.md)
+
 #### Defined in
 
-[src/rendering/RenderView.ts:76](https://github.com/agargaro/three.ez/blob/b355b0c/src/rendering/RenderView.ts#L76)
+[src/rendering/RenderView.ts:76](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/rendering/RenderView.ts#L76)
 
 ## Properties
 
@@ -53,7 +57,7 @@ The viewport defining the dimensions and position of the view.
 
 #### Defined in
 
-[src/rendering/RenderView.ts:55](https://github.com/agargaro/three.ez/blob/b355b0c/src/rendering/RenderView.ts#L55)
+[src/rendering/RenderView.ts:55](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/rendering/RenderView.ts#L55)
 
 ## Methods
 
@@ -69,4 +73,4 @@ Updates the dimensions of the viewport based on the renderer size.
 
 #### Defined in
 
-[src/rendering/RenderView.ts:97](https://github.com/agargaro/three.ez/blob/b355b0c/src/rendering/RenderView.ts#L97)
+[src/rendering/RenderView.ts:97](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/rendering/RenderView.ts#L97)

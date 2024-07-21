@@ -18,7 +18,7 @@ Represents a custom extended focus event.
 
 ## Hierarchy
 
-- [`EventExt`](Events.EventExt.md)<`T`\>
+- [`EventExt`](Events.EventExt.md)\<`T`\>
 
   ↳ **`FocusEventExt`**
 
@@ -26,14 +26,14 @@ Represents a custom extended focus event.
 
 ### constructor
 
-• **new FocusEventExt**<`T`, `R`\>(`relatedTarget`)
+• **new FocusEventExt**\<`T`, `R`\>(`relatedTarget`): [`FocusEventExt`](Events.FocusEventExt.md)\<`T`, `R`\>
 
 #### Type parameters
 
 | Name | Type |
 | :------ | :------ |
-| `T` | `Object3D`<`Object3DEventMap`\> |
-| `R` | `Object3D`<`Object3DEventMap`\> |
+| `T` | `Object3D`\<`Object3DEventMap`\> |
+| `R` | `Object3D`\<`Object3DEventMap`\> |
 
 #### Parameters
 
@@ -41,13 +41,17 @@ Represents a custom extended focus event.
 | :------ | :------ | :------ |
 | `relatedTarget` | `R` | The secondary target for the event. |
 
+#### Returns
+
+[`FocusEventExt`](Events.FocusEventExt.md)\<`T`, `R`\>
+
 #### Overrides
 
 [EventExt](Events.EventExt.md).[constructor](Events.EventExt.md#constructor)
 
 #### Defined in
 
-[src/events/Events.ts:360](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/Events.ts#L360)
+[src/events/Events.ts:360](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/events/Events.ts#L360)
 
 ## Properties
 
@@ -63,7 +67,7 @@ A boolean value indicating whether the event is cancelable.
 
 #### Defined in
 
-[src/events/Events.ts:115](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/Events.ts#L115)
+[src/events/Events.ts:115](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/events/Events.ts#L115)
 
 ___
 
@@ -79,7 +83,7 @@ A reference to the currently registered target for the event. This is the object
 
 #### Defined in
 
-[src/events/Events.ts:117](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/Events.ts#L117)
+[src/events/Events.ts:117](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/events/Events.ts#L117)
 
 ___
 
@@ -91,7 +95,7 @@ The secondary target for the event.
 
 #### Defined in
 
-[src/events/Events.ts:355](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/Events.ts#L355)
+[src/events/Events.ts:355](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/events/Events.ts#L355)
 
 ___
 
@@ -107,7 +111,7 @@ The time at which the event was created (in milliseconds). By specification, thi
 
 #### Defined in
 
-[src/events/Events.ts:123](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/Events.ts#L123)
+[src/events/Events.ts:123](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/events/Events.ts#L123)
 
 ## Accessors
 
@@ -127,7 +131,7 @@ EventExt.bubbles
 
 #### Defined in
 
-[src/events/Events.ts:113](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/Events.ts#L113)
+[src/events/Events.ts:113](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/events/Events.ts#L113)
 
 ___
 
@@ -147,7 +151,7 @@ EventExt.defaultPrevented
 
 #### Defined in
 
-[src/events/Events.ts:119](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/Events.ts#L119)
+[src/events/Events.ts:119](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/events/Events.ts#L119)
 
 ___
 
@@ -167,19 +171,19 @@ EventExt.target
 
 #### Defined in
 
-[src/events/Events.ts:121](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/Events.ts#L121)
+[src/events/Events.ts:121](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/events/Events.ts#L121)
 
 ___
 
 ### type
 
-• `get` **type**(): keyof [`MiscEvents`](../interfaces/Events.MiscEvents.md) \| keyof [`InteractionEvents`](../interfaces/Events.InteractionEvents.md)<`Object3D`<`Object3DEventMap`\>, `Object3D`<`Object3DEventMap`\>, `Object3D`<`Object3DEventMap`\> \| [`InstancedMeshEntity`](InstancedMesh.InstancedMeshEntity.md)\> \| keyof [`UpdateEvents`](../interfaces/Events.UpdateEvents.md)
+• `get` **type**(): keyof MiscEvents \| keyof InteractionEvents\<Object3D\<Object3DEventMap\>, Object3D\<Object3DEventMap\>, Object3D\<Object3DEventMap\> \| InstancedMeshEntity\> \| keyof UpdateEvents
 
 The case-insensitive name identifying the type of the event.
 
 #### Returns
 
-keyof [`MiscEvents`](../interfaces/Events.MiscEvents.md) \| keyof [`InteractionEvents`](../interfaces/Events.InteractionEvents.md)<`Object3D`<`Object3DEventMap`\>, `Object3D`<`Object3DEventMap`\>, `Object3D`<`Object3DEventMap`\> \| [`InstancedMeshEntity`](InstancedMesh.InstancedMeshEntity.md)\> \| keyof [`UpdateEvents`](../interfaces/Events.UpdateEvents.md)
+keyof MiscEvents \| keyof InteractionEvents\<Object3D\<Object3DEventMap\>, Object3D\<Object3DEventMap\>, Object3D\<Object3DEventMap\> \| InstancedMeshEntity\> \| keyof UpdateEvents
 
 #### Inherited from
 
@@ -187,7 +191,7 @@ EventExt.type
 
 #### Defined in
 
-[src/events/Events.ts:125](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/Events.ts#L125)
+[src/events/Events.ts:125](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/events/Events.ts#L125)
 
 ## Methods
 
@@ -207,7 +211,7 @@ Cancels the event.
 
 #### Defined in
 
-[src/events/Events.ts:141](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/Events.ts#L141)
+[src/events/Events.ts:141](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/events/Events.ts#L141)
 
 ___
 
@@ -227,7 +231,7 @@ For this particular event, prevent all other listeners from being called. This i
 
 #### Defined in
 
-[src/events/Events.ts:146](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/Events.ts#L146)
+[src/events/Events.ts:146](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/events/Events.ts#L146)
 
 ___
 
@@ -247,4 +251,4 @@ Stops the propagation of events further along in the Object3D hierarchy.
 
 #### Defined in
 
-[src/events/Events.ts:151](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/Events.ts#L151)
+[src/events/Events.ts:151](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/events/Events.ts#L151)

@@ -15,12 +15,12 @@ The Asset class is a manager for loading and handling resources in a scene.
 
 ▪ `Static` **onError**: (`error`: `unknown`) => `void`
 
+Default callback function for handling errors during resource loading.
+This function is called with an `error` object in case of loading errors.
+
 #### Type declaration
 
 ▸ (`error`): `void`
-
-Default callback function for handling errors during resource loading.
-This function is called with an `error` object in case of loading errors.
 
 ##### Parameters
 
@@ -34,7 +34,7 @@ This function is called with an `error` object in case of loading errors.
 
 #### Defined in
 
-[src/utils/Asset.ts:63](https://github.com/agargaro/three.ez/blob/b355b0c/src/utils/Asset.ts#L63)
+[src/utils/Asset.ts:63](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/utils/Asset.ts#L63)
 
 ___
 
@@ -42,12 +42,12 @@ ___
 
 ▪ `Static` **onProgress**: (`ratio`: `number`) => `void`
 
+Default callback function for reporting progress during resource loading.
+This function is called with a ratio (0 to 1) to indicate the loading progress.
+
 #### Type declaration
 
 ▸ (`ratio`): `void`
-
-Default callback function for reporting progress during resource loading.
-This function is called with a ratio (0 to 1) to indicate the loading progress.
 
 ##### Parameters
 
@@ -61,13 +61,13 @@ This function is called with a ratio (0 to 1) to indicate the loading progress.
 
 #### Defined in
 
-[src/utils/Asset.ts:58](https://github.com/agargaro/three.ez/blob/b355b0c/src/utils/Asset.ts#L58)
+[src/utils/Asset.ts:58](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/utils/Asset.ts#L58)
 
 ## Methods
 
 ### get
 
-▸ `Static` **get**<`T`\>(`path`): `T`
+▸ **get**\<`T`\>(`path`): `T`
 
 Get a previously loaded result object for a specific path.
 
@@ -91,9 +91,9 @@ A previously loaded result object.
 
 #### Defined in
 
-[src/utils/Asset.ts:73](https://github.com/agargaro/three.ez/blob/b355b0c/src/utils/Asset.ts#L73)
+[src/utils/Asset.ts:73](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/utils/Asset.ts#L73)
 
-▸ `Static` **get**<`T`\>(`...path`): `T`[]
+▸ **get**\<`T`\>(`...path`): `T`[]
 
 Get a list of previously loaded result objects for a series of specific paths.
 
@@ -117,13 +117,13 @@ An array of previously loaded result objects.
 
 #### Defined in
 
-[src/utils/Asset.ts:79](https://github.com/agargaro/three.ez/blob/b355b0c/src/utils/Asset.ts#L79)
+[src/utils/Asset.ts:79](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/utils/Asset.ts#L79)
 
 ___
 
 ### getLoader
 
-▸ `Static` **getLoader**<`T`\>(`loaderType`): `T`
+▸ **getLoader**\<`T`\>(`loaderType`): `T`
 
 Get a specific loader based on the resource type.
 
@@ -131,13 +131,14 @@ Get a specific loader based on the resource type.
 
 | Name | Type |
 | :------ | :------ |
-| `T` | extends `Loader`<`unknown`, `string`, `T`\> |
+| `T` | extends `Loader`\<`unknown`, `string`, `T`\> |
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `loaderType` | `Object` | The desired loader type. |
+| `loaderType` | (`manager?`: `LoadingManager`) => `Loader`\<`any`, `string`\> | The desired loader type. |
+| `loaderType.prototype` | `Loader`\<`any`, `any`\> | - |
 
 #### Returns
 
@@ -147,13 +148,13 @@ The loader associated with the resource type.
 
 #### Defined in
 
-[src/utils/Asset.ts:95](https://github.com/agargaro/three.ez/blob/b355b0c/src/utils/Asset.ts#L95)
+[src/utils/Asset.ts:95](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/utils/Asset.ts#L95)
 
 ___
 
 ### load
 
-▸ `Static` **load**<`T`\>(`loaderType`, `path`, `onProgress?`, `onError?`): `Promise`<`T`\>
+▸ **load**\<`T`\>(`loaderType`, `path`, `onProgress?`, `onError?`): `Promise`\<`T`\>
 
 Load a resource using a specified loader type and path.
 
@@ -167,26 +168,27 @@ Load a resource using a specified loader type and path.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `loaderType` | `Object` | The type of loader to use for loading the resource. |
+| `loaderType` | (`manager?`: `LoadingManager`) => `Loader`\<`any`, `string`\> | The type of loader to use for loading the resource. |
+| `loaderType.prototype` | `Loader`\<`any`, `any`\> | - |
 | `path` | `string` | The path to the resource to be loaded. |
-| `onProgress?` | (`event`: `ProgressEvent`<`EventTarget`\>) => `void` | (optional) A callback function to report loading progress with a ProgressEvent. |
+| `onProgress?` | (`event`: `ProgressEvent`\<`EventTarget`\>) => `void` | (optional) A callback function to report loading progress with a ProgressEvent. |
 | `onError?` | (`error`: `unknown`) => `void` | - |
 
 #### Returns
 
-`Promise`<`T`\>
+`Promise`\<`T`\>
 
 A Promise that resolves with the loaded resource when loading is complete.
 
 #### Defined in
 
-[src/utils/Asset.ts:109](https://github.com/agargaro/three.ez/blob/b355b0c/src/utils/Asset.ts#L109)
+[src/utils/Asset.ts:109](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/utils/Asset.ts#L109)
 
 ___
 
 ### loadAll
 
-▸ `Static` **loadAll**(`config?`, `...resources`): `Promise`<`void`[]\>
+▸ **loadAll**(`config?`, `...resources`): `Promise`\<`void`[]\>
 
 Load all specified resources and return a promise that resolves when all resources are loaded.
 
@@ -199,19 +201,19 @@ Load all specified resources and return a promise that resolves when all resourc
 
 #### Returns
 
-`Promise`<`void`[]\>
+`Promise`\<`void`[]\>
 
 A promise that resolves when all resources are loaded.
 
 #### Defined in
 
-[src/utils/Asset.ts:149](https://github.com/agargaro/three.ez/blob/b355b0c/src/utils/Asset.ts#L149)
+[src/utils/Asset.ts:149](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/utils/Asset.ts#L149)
 
 ___
 
 ### preload
 
-▸ `Static` **preload**(`loader`, `...paths`): `void`
+▸ **preload**(`loader`, `...paths`): `void`
 
 Preload resources for future use.
 
@@ -219,7 +221,8 @@ Preload resources for future use.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `loader` | `Object` | The loader type to be used for preloading. |
+| `loader` | (`manager?`: `LoadingManager`) => `Loader`\<`any`, `string`\> | The loader type to be used for preloading. |
+| `loader.prototype` | `Loader`\<`any`, `any`\> | - |
 | `...paths` | (`string` \| [`ResourceConfig`](../interfaces/Utils.ResourceConfig.md))[] | An array of resource paths or configurations to preload. |
 
 #### Returns
@@ -228,13 +231,13 @@ Preload resources for future use.
 
 #### Defined in
 
-[src/utils/Asset.ts:128](https://github.com/agargaro/three.ez/blob/b355b0c/src/utils/Asset.ts#L128)
+[src/utils/Asset.ts:128](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/utils/Asset.ts#L128)
 
 ___
 
 ### preloadAllPending
 
-▸ `Static` **preloadAllPending**(`config?`): `Promise`<`void`[]\>
+▸ **preloadAllPending**(`config?`): `Promise`\<`void`[]\>
 
 Preload all pending resources and return a promise that resolves when all resources are loaded.
 
@@ -246,10 +249,10 @@ Preload all pending resources and return a promise that resolves when all resour
 
 #### Returns
 
-`Promise`<`void`[]\>
+`Promise`\<`void`[]\>
 
 A promise that resolves when all pending resources are loaded.
 
 #### Defined in
 
-[src/utils/Asset.ts:137](https://github.com/agargaro/three.ez/blob/b355b0c/src/utils/Asset.ts#L137)
+[src/utils/Asset.ts:137](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/utils/Asset.ts#L137)

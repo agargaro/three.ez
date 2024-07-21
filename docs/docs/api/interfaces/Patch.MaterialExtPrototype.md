@@ -13,7 +13,7 @@ Represents the prototype for extended Material functionality.
 
 ### tween
 
-▸ **tween**<`T`\>(`id?`): [`Tween`](../classes/Tweening.Tween.md)<`T`\>
+▸ **tween**\<`T`\>(`id?`): [`Tween`](../classes/Tweening.Tween.md)\<`T`\>
 
 Initiates a Tween animation for the material.
 
@@ -21,7 +21,7 @@ Initiates a Tween animation for the material.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `T` | extends [`MaterialExtPrototype`](Patch.MaterialExtPrototype.md)<`T`\> | The type of the target. |
+| `T` | extends [`MaterialExtPrototype`](Patch.MaterialExtPrototype.md)\<`T`\> | The type of the target. |
 
 #### Parameters
 
@@ -31,10 +31,10 @@ Initiates a Tween animation for the material.
 
 #### Returns
 
-[`Tween`](../classes/Tweening.Tween.md)<`T`\>
+[`Tween`](../classes/Tweening.Tween.md)\<`T`\>
 
 A Tween instance for further configuration.
 
 #### Defined in
 
-[src/patch/Material.ts:14](https://github.com/agargaro/three.ez/blob/b355b0c/src/patch/Material.ts#L14)
+[src/patch/Material.ts:14](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/patch/Material.ts#L14)

@@ -13,7 +13,7 @@ Class that provides a set of utilities for calculating intersections between 2D 
 
 ### line\_boxAABB
 
-▸ `Static` **line_boxAABB**(`rayOrigin`, `rayDir`, `box`): `boolean`
+▸ **line_boxAABB**(`rayOrigin`, `rayDir`, `box`): `boolean`
 
 Checks if a 3D line intersects an Axis-Aligned Bounding Box (AABB) defined by `box`.
 
@@ -33,13 +33,13 @@ Checks if a 3D line intersects an Axis-Aligned Bounding Box (AABB) defined by `b
 
 #### Defined in
 
-[src/utils/IntersectionUtils.ts:103](https://github.com/agargaro/three.ez/blob/b355b0c/src/utils/IntersectionUtils.ts#L103)
+[src/utils/IntersectionUtils.ts:103](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/utils/IntersectionUtils.ts#L103)
 
 ___
 
 ### line\_line\_2D
 
-▸ `Static` **line_line_2D**(`a1`, `a2`, `b1`, `b2`, `target?`): `Vector3`
+▸ **line_line_2D**(`a1`, `a2`, `b1`, `b2`, `target?`): `Vector3`
 
 Computes the intersection between two 2D lines defined by points `a1` and `a2`, and `b1` and `b2`.
 
@@ -65,13 +65,13 @@ The intersection point of the two lines or `undefined` if the lines are parallel
 
 #### Defined in
 
-[src/utils/IntersectionUtils.ts:22](https://github.com/agargaro/three.ez/blob/b355b0c/src/utils/IntersectionUtils.ts#L22)
+[src/utils/IntersectionUtils.ts:22](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/utils/IntersectionUtils.ts#L22)
 
 ___
 
 ### line\_line\_3D
 
-▸ `Static` **line_line_3D**(`a1`, `a2`, `b1`, `b2`, `target?`, `tolerance?`): `Vector3`
+▸ **line_line_3D**(`a1`, `a2`, `b1`, `b2`, `target?`, `tolerance?`): `Vector3`
 
 Computes the intersection between two 3D lines defined by points `a1` and `a2`, and `b1` and `b2`.
 
@@ -98,13 +98,13 @@ The intersection point of the two lines or `undefined` if the lines are parallel
 
 #### Defined in
 
-[src/utils/IntersectionUtils.ts:65](https://github.com/agargaro/three.ez/blob/b355b0c/src/utils/IntersectionUtils.ts#L65)
+[src/utils/IntersectionUtils.ts:65](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/utils/IntersectionUtils.ts#L65)
 
 ___
 
 ### segment\_boxAABB
 
-▸ `Static` **segment_boxAABB**(`p1`, `p2`, `box`): `boolean`
+▸ **segment_boxAABB**(`p1`, `p2`, `box`): `boolean`
 
 Checks if a 3D line segment defined by points `p1` and `p2` intersects an Axis-Aligned Bounding Box (AABB) defined by `box`.
 
@@ -124,13 +124,13 @@ Checks if a 3D line segment defined by points `p1` and `p2` intersects an Axis-A
 
 #### Defined in
 
-[src/utils/IntersectionUtils.ts:160](https://github.com/agargaro/three.ez/blob/b355b0c/src/utils/IntersectionUtils.ts#L160)
+[src/utils/IntersectionUtils.ts:160](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/utils/IntersectionUtils.ts#L160)
 
 ___
 
 ### segment\_segment\_2D
 
-▸ `Static` **segment_segment_2D**(`a1`, `a2`, `b1`, `b2`, `target?`): `Vector3`
+▸ **segment_segment_2D**(`a1`, `a2`, `b1`, `b2`, `target?`): `Vector3`
 
 Computes the intersection between two 2D line segments defined by points `a1` and `a2`, and `b1` and `b2`.
 
@@ -156,4 +156,4 @@ The intersection point of the two segments or `undefined` if the segments do not
 
 #### Defined in
 
-[src/utils/IntersectionUtils.ts:42](https://github.com/agargaro/three.ez/blob/b355b0c/src/utils/IntersectionUtils.ts#L42)
+[src/utils/IntersectionUtils.ts:42](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/utils/IntersectionUtils.ts#L42)

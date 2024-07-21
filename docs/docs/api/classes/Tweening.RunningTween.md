@@ -21,7 +21,7 @@ Don't instantiate this manually.
 
 ### constructor
 
-• **new RunningTween**<`T`\>(`target`, `tween`)
+• **new RunningTween**\<`T`\>(`target`, `tween`): [`RunningTween`](Tweening.RunningTween.md)\<`T`\>
 
 Don't instantiate this manually.
 
@@ -36,11 +36,15 @@ Don't instantiate this manually.
 | Name | Type |
 | :------ | :------ |
 | `target` | `T` |
-| `tween` | [`Tween`](Tweening.Tween.md)<`T`\> |
+| `tween` | [`Tween`](Tweening.Tween.md)\<`T`\> |
+
+#### Returns
+
+[`RunningTween`](Tweening.RunningTween.md)\<`T`\>
 
 #### Defined in
 
-[src/tweening/RunningTween.ts:68](https://github.com/agargaro/three.ez/blob/b355b0c/src/tweening/RunningTween.ts#L68)
+[src/tweening/RunningTween.ts:68](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/tweening/RunningTween.ts#L68)
 
 ## Properties
 
@@ -53,7 +57,7 @@ If set to `true`, the tween will not progress until it is resumed.
 
 #### Defined in
 
-[src/tweening/RunningTween.ts:52](https://github.com/agargaro/three.ez/blob/b355b0c/src/tweening/RunningTween.ts#L52)
+[src/tweening/RunningTween.ts:52](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/tweening/RunningTween.ts#L52)
 
 ___
 
@@ -67,7 +71,7 @@ A value of `1` represents normal speed, while `0.5` would be half-speed, and `2`
 
 #### Defined in
 
-[src/tweening/RunningTween.ts:58](https://github.com/agargaro/three.ez/blob/b355b0c/src/tweening/RunningTween.ts#L58)
+[src/tweening/RunningTween.ts:58](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/tweening/RunningTween.ts#L58)
 
 ## Accessors
 
@@ -83,7 +87,7 @@ Indicates whether the running tween has finished executing.
 
 #### Defined in
 
-[src/tweening/RunningTween.ts:63](https://github.com/agargaro/three.ez/blob/b355b0c/src/tweening/RunningTween.ts#L63)
+[src/tweening/RunningTween.ts:63](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/tweening/RunningTween.ts#L63)
 
 ## Methods
 
@@ -99,7 +103,7 @@ Complete the running tween, causing it to finish immediately.
 
 #### Defined in
 
-[src/tweening/RunningTween.ts:107](https://github.com/agargaro/three.ez/blob/b355b0c/src/tweening/RunningTween.ts#L107)
+[src/tweening/RunningTween.ts:107](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/tweening/RunningTween.ts#L107)
 
 ___
 
@@ -115,7 +119,7 @@ Pause the execution of the running tween.
 
 #### Defined in
 
-[src/tweening/RunningTween.ts:86](https://github.com/agargaro/three.ez/blob/b355b0c/src/tweening/RunningTween.ts#L86)
+[src/tweening/RunningTween.ts:86](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/tweening/RunningTween.ts#L86)
 
 ___
 
@@ -131,7 +135,7 @@ Resume the execution of the running tween if it was paused.
 
 #### Defined in
 
-[src/tweening/RunningTween.ts:93](https://github.com/agargaro/three.ez/blob/b355b0c/src/tweening/RunningTween.ts#L93)
+[src/tweening/RunningTween.ts:93](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/tweening/RunningTween.ts#L93)
 
 ___
 
@@ -147,13 +151,13 @@ Revert the running tween to its initial state (Not implemented yet).
 
 #### Defined in
 
-[src/tweening/RunningTween.ts:114](https://github.com/agargaro/three.ez/blob/b355b0c/src/tweening/RunningTween.ts#L114)
+[src/tweening/RunningTween.ts:114](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/tweening/RunningTween.ts#L114)
 
 ___
 
 ### setTimeScale
 
-▸ **setTimeScale**(`value`): [`RunningTween`](Tweening.RunningTween.md)<`T`\>
+▸ **setTimeScale**(`value`): `this`
 
 Set the time scale for the running tween.
 
@@ -165,13 +169,13 @@ Set the time scale for the running tween.
 
 #### Returns
 
-[`RunningTween`](Tweening.RunningTween.md)<`T`\>
+`this`
 
 The updated RunningTween instance.
 
 #### Defined in
 
-[src/tweening/RunningTween.ts:78](https://github.com/agargaro/three.ez/blob/b355b0c/src/tweening/RunningTween.ts#L78)
+[src/tweening/RunningTween.ts:78](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/tweening/RunningTween.ts#L78)
 
 ___
 
@@ -187,4 +191,4 @@ Stop the running tween, causing it to finish immediately.
 
 #### Defined in
 
-[src/tweening/RunningTween.ts:100](https://github.com/agargaro/three.ez/blob/b355b0c/src/tweening/RunningTween.ts#L100)
+[src/tweening/RunningTween.ts:100](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/tweening/RunningTween.ts#L100)

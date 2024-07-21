@@ -17,7 +17,7 @@ Represents a custom extended keyboard event.
 
 ## Hierarchy
 
-- [`EventExt`](Events.EventExt.md)<`T`\>
+- [`EventExt`](Events.EventExt.md)\<`T`\>
 
   ↳ **`KeyboardEventExt`**
 
@@ -25,13 +25,13 @@ Represents a custom extended keyboard event.
 
 ### constructor
 
-• **new KeyboardEventExt**<`T`\>(`event`, `cancelable`)
+• **new KeyboardEventExt**\<`T`\>(`event`, `cancelable`): [`KeyboardEventExt`](Events.KeyboardEventExt.md)\<`T`\>
 
 #### Type parameters
 
 | Name | Type |
 | :------ | :------ |
-| `T` | `Object3D`<`Object3DEventMap`\> |
+| `T` | `Object3D`\<`Object3DEventMap`\> |
 
 #### Parameters
 
@@ -40,13 +40,17 @@ Represents a custom extended keyboard event.
 | `event` | `KeyboardEvent` | Original dom event. |
 | `cancelable` | `boolean` | A boolean value indicating whether the event is cancelable. |
 
+#### Returns
+
+[`KeyboardEventExt`](Events.KeyboardEventExt.md)\<`T`\>
+
 #### Overrides
 
 [EventExt](Events.EventExt.md).[constructor](Events.EventExt.md#constructor)
 
 #### Defined in
 
-[src/events/Events.ts:337](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/Events.ts#L337)
+[src/events/Events.ts:337](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/events/Events.ts#L337)
 
 ## Properties
 
@@ -62,7 +66,7 @@ A boolean value indicating whether the event is cancelable.
 
 #### Defined in
 
-[src/events/Events.ts:115](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/Events.ts#L115)
+[src/events/Events.ts:115](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/events/Events.ts#L115)
 
 ___
 
@@ -78,7 +82,7 @@ A reference to the currently registered target for the event. This is the object
 
 #### Defined in
 
-[src/events/Events.ts:117](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/Events.ts#L117)
+[src/events/Events.ts:117](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/events/Events.ts#L117)
 
 ___
 
@@ -90,7 +94,7 @@ Original dom event.
 
 #### Defined in
 
-[src/events/Events.ts:315](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/Events.ts#L315)
+[src/events/Events.ts:315](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/events/Events.ts#L315)
 
 ___
 
@@ -106,7 +110,7 @@ The time at which the event was created (in milliseconds). By specification, thi
 
 #### Defined in
 
-[src/events/Events.ts:123](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/Events.ts#L123)
+[src/events/Events.ts:123](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/events/Events.ts#L123)
 
 ## Accessors
 
@@ -122,7 +126,7 @@ Returns a boolean value that is true if the Alt (Option or ⌥ on macOS) key was
 
 #### Defined in
 
-[src/events/Events.ts:317](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/Events.ts#L317)
+[src/events/Events.ts:317](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/events/Events.ts#L317)
 
 ___
 
@@ -142,7 +146,7 @@ EventExt.bubbles
 
 #### Defined in
 
-[src/events/Events.ts:113](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/Events.ts#L113)
+[src/events/Events.ts:113](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/events/Events.ts#L113)
 
 ___
 
@@ -158,7 +162,7 @@ Returns a string with the code value of the physical key represented by the even
 
 #### Defined in
 
-[src/events/Events.ts:319](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/Events.ts#L319)
+[src/events/Events.ts:319](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/events/Events.ts#L319)
 
 ___
 
@@ -174,7 +178,7 @@ Returns a boolean value that is true if the Ctrl key was active when the key eve
 
 #### Defined in
 
-[src/events/Events.ts:321](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/Events.ts#L321)
+[src/events/Events.ts:321](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/events/Events.ts#L321)
 
 ___
 
@@ -194,7 +198,7 @@ EventExt.defaultPrevented
 
 #### Defined in
 
-[src/events/Events.ts:119](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/Events.ts#L119)
+[src/events/Events.ts:119](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/events/Events.ts#L119)
 
 ___
 
@@ -210,7 +214,7 @@ Returns a string representing the key value of the key represented by the event.
 
 #### Defined in
 
-[src/events/Events.ts:323](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/Events.ts#L323)
+[src/events/Events.ts:323](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/events/Events.ts#L323)
 
 ___
 
@@ -226,7 +230,7 @@ Returns a number representing the location of the key on the keyboard or other i
 
 #### Defined in
 
-[src/events/Events.ts:325](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/Events.ts#L325)
+[src/events/Events.ts:325](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/events/Events.ts#L325)
 
 ___
 
@@ -242,7 +246,7 @@ Returns a boolean value that is true if the Meta key (on Mac keyboards, the ⌘ 
 
 #### Defined in
 
-[src/events/Events.ts:327](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/Events.ts#L327)
+[src/events/Events.ts:327](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/events/Events.ts#L327)
 
 ___
 
@@ -258,7 +262,7 @@ Returns a boolean value that is true if the key is being held down such that it 
 
 #### Defined in
 
-[src/events/Events.ts:329](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/Events.ts#L329)
+[src/events/Events.ts:329](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/events/Events.ts#L329)
 
 ___
 
@@ -274,7 +278,7 @@ Returns a boolean value that is true if the Shift key was active when the key ev
 
 #### Defined in
 
-[src/events/Events.ts:331](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/Events.ts#L331)
+[src/events/Events.ts:331](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/events/Events.ts#L331)
 
 ___
 
@@ -294,19 +298,19 @@ EventExt.target
 
 #### Defined in
 
-[src/events/Events.ts:121](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/Events.ts#L121)
+[src/events/Events.ts:121](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/events/Events.ts#L121)
 
 ___
 
 ### type
 
-• `get` **type**(): keyof [`MiscEvents`](../interfaces/Events.MiscEvents.md) \| keyof [`InteractionEvents`](../interfaces/Events.InteractionEvents.md)<`Object3D`<`Object3DEventMap`\>, `Object3D`<`Object3DEventMap`\>, `Object3D`<`Object3DEventMap`\> \| [`InstancedMeshEntity`](InstancedMesh.InstancedMeshEntity.md)\> \| keyof [`UpdateEvents`](../interfaces/Events.UpdateEvents.md)
+• `get` **type**(): keyof MiscEvents \| keyof InteractionEvents\<Object3D\<Object3DEventMap\>, Object3D\<Object3DEventMap\>, Object3D\<Object3DEventMap\> \| InstancedMeshEntity\> \| keyof UpdateEvents
 
 The case-insensitive name identifying the type of the event.
 
 #### Returns
 
-keyof [`MiscEvents`](../interfaces/Events.MiscEvents.md) \| keyof [`InteractionEvents`](../interfaces/Events.InteractionEvents.md)<`Object3D`<`Object3DEventMap`\>, `Object3D`<`Object3DEventMap`\>, `Object3D`<`Object3DEventMap`\> \| [`InstancedMeshEntity`](InstancedMesh.InstancedMeshEntity.md)\> \| keyof [`UpdateEvents`](../interfaces/Events.UpdateEvents.md)
+keyof MiscEvents \| keyof InteractionEvents\<Object3D\<Object3DEventMap\>, Object3D\<Object3DEventMap\>, Object3D\<Object3DEventMap\> \| InstancedMeshEntity\> \| keyof UpdateEvents
 
 #### Inherited from
 
@@ -314,7 +318,7 @@ EventExt.type
 
 #### Defined in
 
-[src/events/Events.ts:125](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/Events.ts#L125)
+[src/events/Events.ts:125](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/events/Events.ts#L125)
 
 ## Methods
 
@@ -336,7 +340,7 @@ Returns a boolean value indicating if a modifier key such as Alt, Shift, Ctrl, o
 
 #### Defined in
 
-[src/events/Events.ts:343](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/Events.ts#L343)
+[src/events/Events.ts:343](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/events/Events.ts#L343)
 
 ___
 
@@ -356,7 +360,7 @@ Cancels the event.
 
 #### Defined in
 
-[src/events/Events.ts:141](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/Events.ts#L141)
+[src/events/Events.ts:141](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/events/Events.ts#L141)
 
 ___
 
@@ -376,7 +380,7 @@ For this particular event, prevent all other listeners from being called. This i
 
 #### Defined in
 
-[src/events/Events.ts:146](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/Events.ts#L146)
+[src/events/Events.ts:146](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/events/Events.ts#L146)
 
 ___
 
@@ -396,4 +400,4 @@ Stops the propagation of events further along in the Object3D hierarchy.
 
 #### Defined in
 
-[src/events/Events.ts:151](https://github.com/agargaro/three.ez/blob/b355b0c/src/events/Events.ts#L151)
+[src/events/Events.ts:151](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/events/Events.ts#L151)

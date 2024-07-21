@@ -19,7 +19,7 @@ Extends the PerspectiveCamera to automatically adjust its aspect ratio on render
 
 ### constructor
 
-• **new PerspectiveCameraAuto**(`fov?`, `near?`, `far?`)
+• **new PerspectiveCameraAuto**(`fov?`, `near?`, `far?`): [`PerspectiveCameraAuto`](Cameras.PerspectiveCameraAuto.md)
 
 #### Parameters
 
@@ -29,13 +29,17 @@ Extends the PerspectiveCamera to automatically adjust its aspect ratio on render
 | `near?` | `number` | Camera frustum near plane distance. Default `0.1`. |
 | `far?` | `number` | Camera frustum far plane distance. Default `2000`. |
 
+#### Returns
+
+[`PerspectiveCameraAuto`](Cameras.PerspectiveCameraAuto.md)
+
 #### Overrides
 
 PerspectiveCamera.constructor
 
 #### Defined in
 
-[src/cameras/PerspectiveCameraAuto.ts:13](https://github.com/agargaro/three.ez/blob/b355b0c/src/cameras/PerspectiveCameraAuto.ts#L13)
+[src/cameras/PerspectiveCameraAuto.ts:13](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/cameras/PerspectiveCameraAuto.ts#L13)
 
 ## Properties
 
@@ -51,7 +55,7 @@ PerspectiveCamera.cursor
 
 #### Defined in
 
-[src/patch/Object3D.ts:54](https://github.com/agargaro/three.ez/blob/b355b0c/src/patch/Object3D.ts#L54)
+[src/patch/Object3D.ts:54](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/patch/Object3D.ts#L54)
 
 ___
 
@@ -67,7 +71,7 @@ PerspectiveCamera.cursorDrag
 
 #### Defined in
 
-[src/patch/Object3D.ts:56](https://github.com/agargaro/three.ez/blob/b355b0c/src/patch/Object3D.ts#L56)
+[src/patch/Object3D.ts:56](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/patch/Object3D.ts#L56)
 
 ___
 
@@ -83,13 +87,13 @@ PerspectiveCamera.cursorDrop
 
 #### Defined in
 
-[src/patch/Object3D.ts:58](https://github.com/agargaro/three.ez/blob/b355b0c/src/patch/Object3D.ts#L58)
+[src/patch/Object3D.ts:58](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/patch/Object3D.ts#L58)
 
 ___
 
 ### dragTarget
 
-• **dragTarget**: `Object3D`<`Object3DEventMap`\>
+• **dragTarget**: `Object3D`\<`Object3DEventMap`\>
 
 Indicates which object will be dragged instead of this one.
 
@@ -99,7 +103,7 @@ PerspectiveCamera.dragTarget
 
 #### Defined in
 
-[src/patch/Object3D.ts:44](https://github.com/agargaro/three.ez/blob/b355b0c/src/patch/Object3D.ts#L44)
+[src/patch/Object3D.ts:44](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/patch/Object3D.ts#L44)
 
 ___
 
@@ -115,7 +119,7 @@ PerspectiveCamera.draggable
 
 #### Defined in
 
-[src/patch/Object3D.ts:48](https://github.com/agargaro/three.ez/blob/b355b0c/src/patch/Object3D.ts#L48)
+[src/patch/Object3D.ts:48](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/patch/Object3D.ts#L48)
 
 ___
 
@@ -132,7 +136,7 @@ PerspectiveCamera.enabled
 
 #### Defined in
 
-[src/patch/Object3D.ts:38](https://github.com/agargaro/three.ez/blob/b355b0c/src/patch/Object3D.ts#L38)
+[src/patch/Object3D.ts:38](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/patch/Object3D.ts#L38)
 
 ___
 
@@ -148,7 +152,7 @@ PerspectiveCamera.findDropTarget
 
 #### Defined in
 
-[src/patch/Object3D.ts:50](https://github.com/agargaro/three.ez/blob/b355b0c/src/patch/Object3D.ts#L50)
+[src/patch/Object3D.ts:50](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/patch/Object3D.ts#L50)
 
 ___
 
@@ -164,13 +168,13 @@ PerspectiveCamera.focusable
 
 #### Defined in
 
-[src/patch/Object3D.ts:46](https://github.com/agargaro/three.ez/blob/b355b0c/src/patch/Object3D.ts#L46)
+[src/patch/Object3D.ts:46](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/patch/Object3D.ts#L46)
 
 ___
 
 ### hitboxes
 
-• **hitboxes**: `Mesh`<`BufferGeometry`<`NormalBufferAttributes`\>, `Material` \| `Material`[], `Object3DEventMap`\>[]
+• **hitboxes**: `Mesh`\<`BufferGeometry`\<`NormalBufferAttributes`\>, `Material` \| `Material`[], `Object3DEventMap`\>[]
 
 Array of hitboxes for collision detection.
 
@@ -180,7 +184,7 @@ PerspectiveCamera.hitboxes
 
 #### Defined in
 
-[src/patch/Object3D.ts:42](https://github.com/agargaro/three.ez/blob/b355b0c/src/patch/Object3D.ts#L42)
+[src/patch/Object3D.ts:42](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/patch/Object3D.ts#L42)
 
 ___
 
@@ -196,7 +200,7 @@ PerspectiveCamera.interceptByRaycaster
 
 #### Defined in
 
-[src/patch/Object3D.ts:40](https://github.com/agargaro/three.ez/blob/b355b0c/src/patch/Object3D.ts#L40)
+[src/patch/Object3D.ts:40](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/patch/Object3D.ts#L40)
 
 ___
 
@@ -212,7 +216,7 @@ PerspectiveCamera.needsRender
 
 #### Defined in
 
-[src/patch/Object3D.ts:60](https://github.com/agargaro/three.ez/blob/b355b0c/src/patch/Object3D.ts#L60)
+[src/patch/Object3D.ts:60](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/patch/Object3D.ts#L60)
 
 ___
 
@@ -228,13 +232,13 @@ PerspectiveCamera.scene
 
 #### Defined in
 
-[src/patch/Object3D.ts:52](https://github.com/agargaro/three.ez/blob/b355b0c/src/patch/Object3D.ts#L52)
+[src/patch/Object3D.ts:52](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/patch/Object3D.ts#L52)
 
 ___
 
 ### tags
 
-• **tags**: `Set`<`string`\>
+• **tags**: `Set`\<`string`\>
 
 Indicates the tags to be searched using the querySelector and `querySelectorAll` methods.
 
@@ -244,7 +248,7 @@ PerspectiveCamera.tags
 
 #### Defined in
 
-[src/patch/Object3D.ts:62](https://github.com/agargaro/three.ez/blob/b355b0c/src/patch/Object3D.ts#L62)
+[src/patch/Object3D.ts:62](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/patch/Object3D.ts#L62)
 
 ## Accessors
 
@@ -264,7 +268,7 @@ PerspectiveCamera.clicking
 
 #### Defined in
 
-[src/patch/Object3D.ts:68](https://github.com/agargaro/three.ez/blob/b355b0c/src/patch/Object3D.ts#L68)
+[src/patch/Object3D.ts:68](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/patch/Object3D.ts#L68)
 
 ___
 
@@ -284,7 +288,7 @@ PerspectiveCamera.dragging
 
 #### Defined in
 
-[src/patch/Object3D.ts:70](https://github.com/agargaro/three.ez/blob/b355b0c/src/patch/Object3D.ts#L70)
+[src/patch/Object3D.ts:70](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/patch/Object3D.ts#L70)
 
 ___
 
@@ -304,19 +308,19 @@ PerspectiveCamera.enabledState
 
 #### Defined in
 
-[src/patch/Object3D.ts:72](https://github.com/agargaro/three.ez/blob/b355b0c/src/patch/Object3D.ts#L72)
+[src/patch/Object3D.ts:72](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/patch/Object3D.ts#L72)
 
 ___
 
 ### firstFocusable
 
-• `get` **firstFocusable**(): `Object3D`<`Object3DEventMap`\>
+• `get` **firstFocusable**(): `Object3D`\<`Object3DEventMap`\>
 
 Retrieves the first possible focusable object.
 
 #### Returns
 
-`Object3D`<`Object3DEventMap`\>
+`Object3D`\<`Object3DEventMap`\>
 
 #### Inherited from
 
@@ -324,7 +328,7 @@ PerspectiveCamera.firstFocusable
 
 #### Defined in
 
-[src/patch/Object3D.ts:76](https://github.com/agargaro/three.ez/blob/b355b0c/src/patch/Object3D.ts#L76)
+[src/patch/Object3D.ts:76](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/patch/Object3D.ts#L76)
 
 ___
 
@@ -344,7 +348,7 @@ PerspectiveCamera.focused
 
 #### Defined in
 
-[src/patch/Object3D.ts:66](https://github.com/agargaro/three.ez/blob/b355b0c/src/patch/Object3D.ts#L66)
+[src/patch/Object3D.ts:66](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/patch/Object3D.ts#L66)
 
 ___
 
@@ -364,7 +368,7 @@ PerspectiveCamera.hovered
 
 #### Defined in
 
-[src/patch/Object3D.ts:64](https://github.com/agargaro/three.ez/blob/b355b0c/src/patch/Object3D.ts#L64)
+[src/patch/Object3D.ts:64](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/patch/Object3D.ts#L64)
 
 ___
 
@@ -384,7 +388,7 @@ PerspectiveCamera.visibilityState
 
 #### Defined in
 
-[src/patch/Object3D.ts:74](https://github.com/agargaro/three.ez/blob/b355b0c/src/patch/Object3D.ts#L74)
+[src/patch/Object3D.ts:74](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/patch/Object3D.ts#L74)
 
 ## Methods
 
@@ -404,7 +408,7 @@ PerspectiveCamera.applyBlur
 
 #### Defined in
 
-[src/patch/Object3D.ts:84](https://github.com/agargaro/three.ez/blob/b355b0c/src/patch/Object3D.ts#L84)
+[src/patch/Object3D.ts:84](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/patch/Object3D.ts#L84)
 
 ___
 
@@ -424,13 +428,13 @@ PerspectiveCamera.applyFocus
 
 #### Defined in
 
-[src/patch/Object3D.ts:80](https://github.com/agargaro/three.ez/blob/b355b0c/src/patch/Object3D.ts#L80)
+[src/patch/Object3D.ts:80](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/patch/Object3D.ts#L80)
 
 ___
 
 ### bindProperty
 
-▸ **bindProperty**<`T`\>(`property`, `getCallback`, `renderOnChange?`): [`PerspectiveCameraAuto`](Cameras.PerspectiveCameraAuto.md)
+▸ **bindProperty**\<`T`\>(`property`, `getCallback`, `renderOnChange?`): `this`
 
 Binds a property to a callback function for updates.
 
@@ -450,7 +454,7 @@ Binds a property to a callback function for updates.
 
 #### Returns
 
-[`PerspectiveCameraAuto`](Cameras.PerspectiveCameraAuto.md)
+`this`
 
 The instance of the object with the binding applied.
 
@@ -460,7 +464,7 @@ PerspectiveCamera.bindProperty
 
 #### Defined in
 
-[src/patch/Object3D.ts:136](https://github.com/agargaro/three.ez/blob/b355b0c/src/patch/Object3D.ts#L136)
+[src/patch/Object3D.ts:136](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/patch/Object3D.ts#L136)
 
 ___
 
@@ -487,13 +491,13 @@ PerspectiveCamera.detectChanges
 
 #### Defined in
 
-[src/patch/Object3D.ts:128](https://github.com/agargaro/three.ez/blob/b355b0c/src/patch/Object3D.ts#L128)
+[src/patch/Object3D.ts:128](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/patch/Object3D.ts#L128)
 
 ___
 
 ### hasEvent
 
-▸ **hasEvent**<`K`\>(`type`, `listener`): `boolean`
+▸ **hasEvent**\<`K`\>(`type`, `listener`): `boolean`
 
 Checks if the object has a specific event listener.
 
@@ -501,7 +505,7 @@ Checks if the object has a specific event listener.
 
 | Name | Type |
 | :------ | :------ |
-| `K` | extends keyof [`MiscEvents`](../interfaces/Events.MiscEvents.md) \| keyof [`InteractionEvents`](../interfaces/Events.InteractionEvents.md)<`Object3D`<`Object3DEventMap`\>, `Object3D`<`Object3DEventMap`\>, `Object3D`<`Object3DEventMap`\> \| [`InstancedMeshEntity`](InstancedMesh.InstancedMeshEntity.md)\> \| keyof [`UpdateEvents`](../interfaces/Events.UpdateEvents.md) |
+| `K` | extends keyof MiscEvents \| keyof InteractionEvents\<Object3D\<Object3DEventMap\>, Object3D\<Object3DEventMap\>, Object3D\<Object3DEventMap\> \| InstancedMeshEntity\> \| keyof UpdateEvents |
 
 #### Parameters
 
@@ -522,13 +526,13 @@ PerspectiveCamera.hasEvent
 
 #### Defined in
 
-[src/patch/Object3D.ts:98](https://github.com/agargaro/three.ez/blob/b355b0c/src/patch/Object3D.ts#L98)
+[src/patch/Object3D.ts:98](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/patch/Object3D.ts#L98)
 
 ___
 
 ### off
 
-▸ **off**<`K`\>(`type`, `listener`): `void`
+▸ **off**\<`K`\>(`type`, `listener`): `void`
 
 Removes an event listener from the object.
 
@@ -536,7 +540,7 @@ Removes an event listener from the object.
 
 | Name | Type |
 | :------ | :------ |
-| `K` | extends keyof [`MiscEvents`](../interfaces/Events.MiscEvents.md) \| keyof [`InteractionEvents`](../interfaces/Events.InteractionEvents.md)<`Object3D`<`Object3DEventMap`\>, `Object3D`<`Object3DEventMap`\>, `Object3D`<`Object3DEventMap`\> \| [`InstancedMeshEntity`](InstancedMesh.InstancedMeshEntity.md)\> \| keyof [`UpdateEvents`](../interfaces/Events.UpdateEvents.md) |
+| `K` | extends keyof MiscEvents \| keyof InteractionEvents\<Object3D\<Object3DEventMap\>, Object3D\<Object3DEventMap\>, Object3D\<Object3DEventMap\> \| InstancedMeshEntity\> \| keyof UpdateEvents |
 
 #### Parameters
 
@@ -555,13 +559,13 @@ PerspectiveCamera.off
 
 #### Defined in
 
-[src/patch/Object3D.ts:104](https://github.com/agargaro/three.ez/blob/b355b0c/src/patch/Object3D.ts#L104)
+[src/patch/Object3D.ts:104](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/patch/Object3D.ts#L104)
 
 ___
 
 ### on
 
-▸ **on**<`K`\>(`type`, `listener`): (`event?`: `Events`[`K`]) => `void`
+▸ **on**\<`K`\>(`type`, `listener`): (`event?`: `Events`[`K`]) => `void`
 
 Attaches an event listener to the object.
 
@@ -569,14 +573,14 @@ Attaches an event listener to the object.
 
 | Name | Type |
 | :------ | :------ |
-| `K` | extends keyof [`MiscEvents`](../interfaces/Events.MiscEvents.md) \| keyof [`InteractionEvents`](../interfaces/Events.InteractionEvents.md)<`Object3D`<`Object3DEventMap`\>, `Object3D`<`Object3DEventMap`\>, `Object3D`<`Object3DEventMap`\> \| [`InstancedMeshEntity`](InstancedMesh.InstancedMeshEntity.md)\> \| keyof [`UpdateEvents`](../interfaces/Events.UpdateEvents.md) |
+| `K` | extends keyof MiscEvents \| keyof InteractionEvents\<Object3D\<Object3DEventMap\>, Object3D\<Object3DEventMap\>, Object3D\<Object3DEventMap\> \| InstancedMeshEntity\> \| keyof UpdateEvents |
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `type` | `K` \| `K`[] | The type of event to listen for. |
-| `listener` | (`this`: [`PerspectiveCameraAuto`](Cameras.PerspectiveCameraAuto.md), `event?`: `Events`[`K`]) => `void` | The callback function to execute when the event occurs. |
+| `listener` | (`this`: `this`, `event?`: `Events`[`K`]) => `void` | The callback function to execute when the event occurs. |
 
 #### Returns
 
@@ -585,8 +589,6 @@ Attaches an event listener to the object.
 A function to remove the event listener.
 
 ▸ (`event?`): `void`
-
-Attaches an event listener to the object.
 
 ##### Parameters
 
@@ -598,21 +600,19 @@ Attaches an event listener to the object.
 
 `void`
 
-A function to remove the event listener.
-
 #### Inherited from
 
 PerspectiveCamera.on
 
 #### Defined in
 
-[src/patch/Object3D.ts:91](https://github.com/agargaro/three.ez/blob/b355b0c/src/patch/Object3D.ts#L91)
+[src/patch/Object3D.ts:91](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/patch/Object3D.ts#L91)
 
 ___
 
 ### querySelector
 
-▸ **querySelector**(`query`): `Object3D`<`Object3DEventMap`\>
+▸ **querySelector**(`query`): `Object3D`\<`Object3DEventMap`\>
 
 Finds and returns the first Object3D element that matches the specified query string.
 This method follows a similar syntax to CSS selectors.
@@ -625,7 +625,7 @@ This method follows a similar syntax to CSS selectors.
 
 #### Returns
 
-`Object3D`<`Object3DEventMap`\>
+`Object3D`\<`Object3DEventMap`\>
 
 The first Object3D element that matches the query, or undefined if no match is found.
 
@@ -635,13 +635,13 @@ PerspectiveCamera.querySelector
 
 #### Defined in
 
-[src/patch/Object3D.ts:156](https://github.com/agargaro/three.ez/blob/b355b0c/src/patch/Object3D.ts#L156)
+[src/patch/Object3D.ts:156](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/patch/Object3D.ts#L156)
 
 ___
 
 ### querySelectorAll
 
-▸ **querySelectorAll**(`query`): `Object3D`<`Object3DEventMap`\>[]
+▸ **querySelectorAll**(`query`): `Object3D`\<`Object3DEventMap`\>[]
 
 Finds and returns a list of Object3D elements that match the specified query string.
 This method follows a similar syntax to CSS selectors.
@@ -654,7 +654,7 @@ This method follows a similar syntax to CSS selectors.
 
 #### Returns
 
-`Object3D`<`Object3DEventMap`\>[]
+`Object3D`\<`Object3DEventMap`\>[]
 
 An array of Object3D elements that match the query.
 
@@ -664,7 +664,7 @@ PerspectiveCamera.querySelectorAll
 
 #### Defined in
 
-[src/patch/Object3D.ts:163](https://github.com/agargaro/three.ez/blob/b355b0c/src/patch/Object3D.ts#L163)
+[src/patch/Object3D.ts:163](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/patch/Object3D.ts#L163)
 
 ___
 
@@ -686,13 +686,13 @@ PerspectiveCamera.setManualDetectionMode
 
 #### Defined in
 
-[src/patch/Object3D.ts:122](https://github.com/agargaro/three.ez/blob/b355b0c/src/patch/Object3D.ts#L122)
+[src/patch/Object3D.ts:122](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/patch/Object3D.ts#L122)
 
 ___
 
 ### trigger
 
-▸ **trigger**<`K`\>(`type`, `event?`): `void`
+▸ **trigger**\<`K`\>(`type`, `event?`): `void`
 
 Triggers a specific event on the object.
 
@@ -700,7 +700,7 @@ Triggers a specific event on the object.
 
 | Name | Type |
 | :------ | :------ |
-| `K` | extends keyof [`MiscEvents`](../interfaces/Events.MiscEvents.md) \| keyof [`InteractionEvents`](../interfaces/Events.InteractionEvents.md)<`Object3D`<`Object3DEventMap`\>, `Object3D`<`Object3DEventMap`\>, `Object3D`<`Object3DEventMap`\> \| [`InstancedMeshEntity`](InstancedMesh.InstancedMeshEntity.md)\> \| keyof [`UpdateEvents`](../interfaces/Events.UpdateEvents.md) |
+| `K` | extends keyof MiscEvents \| keyof InteractionEvents\<Object3D\<Object3DEventMap\>, Object3D\<Object3DEventMap\>, Object3D\<Object3DEventMap\> \| InstancedMeshEntity\> \| keyof UpdateEvents |
 
 #### Parameters
 
@@ -719,13 +719,13 @@ PerspectiveCamera.trigger
 
 #### Defined in
 
-[src/patch/Object3D.ts:110](https://github.com/agargaro/three.ez/blob/b355b0c/src/patch/Object3D.ts#L110)
+[src/patch/Object3D.ts:110](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/patch/Object3D.ts#L110)
 
 ___
 
 ### triggerAncestor
 
-▸ **triggerAncestor**<`K`\>(`type`, `event?`): `void`
+▸ **triggerAncestor**\<`K`\>(`type`, `event?`): `void`
 
 Triggers a specific event on the object and all its ancestors.
 
@@ -733,14 +733,14 @@ Triggers a specific event on the object and all its ancestors.
 
 | Name | Type |
 | :------ | :------ |
-| `K` | extends keyof [`InteractionEvents`](../interfaces/Events.InteractionEvents.md)<`Object3D`<`Object3DEventMap`\>, `Object3D`<`Object3DEventMap`\>, `Object3D`<`Object3DEventMap`\> \| [`InstancedMeshEntity`](InstancedMesh.InstancedMeshEntity.md)\> |
+| `K` | extends keyof [`InteractionEvents`](../interfaces/Events.InteractionEvents.md)\<`Object3D`\<`Object3DEventMap`\>, `Object3D`\<`Object3DEventMap`\>, `Object3D`\<`Object3DEventMap`\> \| [`InstancedMeshEntity`](InstancedMesh.InstancedMeshEntity.md)\> |
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `type` | `K` | The type of event to trigger. |
-| `event?` | [`InteractionEvents`](../interfaces/Events.InteractionEvents.md)<`Object3D`<`Object3DEventMap`\>, `Object3D`<`Object3DEventMap`\>, `Object3D`<`Object3DEventMap`\> \| [`InstancedMeshEntity`](InstancedMesh.InstancedMeshEntity.md)\>[`K`] | Optional event data to pass to the listeners. |
+| `event?` | [`InteractionEvents`](../interfaces/Events.InteractionEvents.md)\<`Object3D`\<`Object3DEventMap`\>, `Object3D`\<`Object3DEventMap`\>, `Object3D`\<`Object3DEventMap`\> \| [`InstancedMeshEntity`](InstancedMesh.InstancedMeshEntity.md)\>[`K`] | Optional event data to pass to the listeners. |
 
 #### Returns
 
@@ -752,13 +752,13 @@ PerspectiveCamera.triggerAncestor
 
 #### Defined in
 
-[src/patch/Object3D.ts:116](https://github.com/agargaro/three.ez/blob/b355b0c/src/patch/Object3D.ts#L116)
+[src/patch/Object3D.ts:116](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/patch/Object3D.ts#L116)
 
 ___
 
 ### tween
 
-▸ **tween**<`T`\>(`id?`): [`Tween`](Tweening.Tween.md)<`T`\>
+▸ **tween**\<`T`\>(`id?`): [`Tween`](Tweening.Tween.md)\<`T`\>
 
 Initiates a Tween animation for the object.
 
@@ -766,7 +766,7 @@ Initiates a Tween animation for the object.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `T` | extends `Object3D`<`Object3DEventMap`, `T`\> = `Object3D`<`Object3DEventMap`\> | The type of the target. |
+| `T` | extends `Object3D`\<`Object3DEventMap`, `T`\> = `Object3D`\<`Object3DEventMap`\> | The type of the target. |
 
 #### Parameters
 
@@ -776,7 +776,7 @@ Initiates a Tween animation for the object.
 
 #### Returns
 
-[`Tween`](Tweening.Tween.md)<`T`\>
+[`Tween`](Tweening.Tween.md)\<`T`\>
 
 A Tween instance for further configuration.
 
@@ -786,13 +786,13 @@ PerspectiveCamera.tween
 
 #### Defined in
 
-[src/patch/Object3D.ts:149](https://github.com/agargaro/three.ez/blob/b355b0c/src/patch/Object3D.ts#L149)
+[src/patch/Object3D.ts:149](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/patch/Object3D.ts#L149)
 
 ___
 
 ### unbindProperty
 
-▸ **unbindProperty**<`T`\>(`property`): [`PerspectiveCameraAuto`](Cameras.PerspectiveCameraAuto.md)
+▸ **unbindProperty**\<`T`\>(`property`): `this`
 
 Unbinds a previously bound property from the object.
 
@@ -810,7 +810,7 @@ Unbinds a previously bound property from the object.
 
 #### Returns
 
-[`PerspectiveCameraAuto`](Cameras.PerspectiveCameraAuto.md)
+`this`
 
 The instance of the object with the binding removed.
 
@@ -820,4 +820,4 @@ PerspectiveCamera.unbindProperty
 
 #### Defined in
 
-[src/patch/Object3D.ts:142](https://github.com/agargaro/three.ez/blob/b355b0c/src/patch/Object3D.ts#L142)
+[src/patch/Object3D.ts:142](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/patch/Object3D.ts#L142)

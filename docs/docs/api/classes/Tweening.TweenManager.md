@@ -13,7 +13,7 @@ This class is responsible for managing and controlling running tweens.
 
 ### completeAll
 
-▸ `Static` **completeAll**(): `void`
+▸ **completeAll**(): `void`
 
 Complete all running tweens.
 
@@ -23,13 +23,13 @@ Complete all running tweens.
 
 #### Defined in
 
-[src/tweening/TweenManager.ts:123](https://github.com/agargaro/three.ez/blob/b355b0c/src/tweening/TweenManager.ts#L123)
+[src/tweening/TweenManager.ts:123](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/tweening/TweenManager.ts#L123)
 
 ___
 
 ### completeAllByTag
 
-▸ `Static` **completeAllByTag**(`tag`): `void`
+▸ **completeAllByTag**(`tag`): `void`
 
 Complete all running tweens with a specific tag.
 
@@ -45,13 +45,13 @@ Complete all running tweens with a specific tag.
 
 #### Defined in
 
-[src/tweening/TweenManager.ts:133](https://github.com/agargaro/three.ez/blob/b355b0c/src/tweening/TweenManager.ts#L133)
+[src/tweening/TweenManager.ts:133](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/tweening/TweenManager.ts#L133)
 
 ___
 
 ### stopAll
 
-▸ `Static` **stopAll**(): `void`
+▸ **stopAll**(): `void`
 
 Stop all running tweens.
 
@@ -61,13 +61,13 @@ Stop all running tweens.
 
 #### Defined in
 
-[src/tweening/TweenManager.ts:102](https://github.com/agargaro/three.ez/blob/b355b0c/src/tweening/TweenManager.ts#L102)
+[src/tweening/TweenManager.ts:102](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/tweening/TweenManager.ts#L102)
 
 ___
 
 ### stopAllByTag
 
-▸ `Static` **stopAllByTag**(`tag`): `void`
+▸ **stopAllByTag**(`tag`): `void`
 
 Stop all running tweens with a specific tag.
 
@@ -83,13 +83,13 @@ Stop all running tweens with a specific tag.
 
 #### Defined in
 
-[src/tweening/TweenManager.ts:112](https://github.com/agargaro/three.ez/blob/b355b0c/src/tweening/TweenManager.ts#L112)
+[src/tweening/TweenManager.ts:112](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/tweening/TweenManager.ts#L112)
 
 ___
 
 ### stopById
 
-▸ `Static` **stopById**(`id`): `void`
+▸ **stopById**(`id`): `void`
 
 Stop the running tween with a specific id.
 
@@ -105,4 +105,4 @@ Stop the running tween with a specific id.
 
 #### Defined in
 
-[src/tweening/TweenManager.ts:90](https://github.com/agargaro/three.ez/blob/b355b0c/src/tweening/TweenManager.ts#L90)
+[src/tweening/TweenManager.ts:90](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/tweening/TweenManager.ts#L90)

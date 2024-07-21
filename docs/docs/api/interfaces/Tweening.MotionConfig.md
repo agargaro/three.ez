@@ -26,7 +26,7 @@ The easing function to control the animation's progression.
 
 #### Defined in
 
-[src/tweening/Actions.ts:23](https://github.com/agargaro/three.ez/blob/b355b0c/src/tweening/Actions.ts#L23)
+[src/tweening/Actions.ts:23](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/tweening/Actions.ts#L23)
 
 ___
 
@@ -34,11 +34,11 @@ ___
 
 • `Optional` **onComplete**: (`target`: `T`) => `void`
 
+A callback function to execute when the animation completes.
+
 #### Type declaration
 
 ▸ (`target`): `void`
-
-A callback function to execute when the animation completes.
 
 ##### Parameters
 
@@ -52,7 +52,7 @@ A callback function to execute when the animation completes.
 
 #### Defined in
 
-[src/tweening/Actions.ts:28](https://github.com/agargaro/three.ez/blob/b355b0c/src/tweening/Actions.ts#L28)
+[src/tweening/Actions.ts:28](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/tweening/Actions.ts#L28)
 
 ___
 
@@ -60,11 +60,11 @@ ___
 
 • `Optional` **onProgress**: (`target`: `T`, `key`: `string`, `start`: `AllowedTypes`, `end`: `AllowedTypes`, `alpha`: `number`) => `boolean` \| `void`
 
+A callback function to be executed before each property is updated.
+
 #### Type declaration
 
 ▸ (`target`, `key`, `start`, `end`, `alpha`): `boolean` \| `void`
-
-A callback function to be executed before each property is updated.
 
 ##### Parameters
 
@@ -80,11 +80,9 @@ A callback function to be executed before each property is updated.
 
 `boolean` \| `void`
 
-If `false`, will not assign a new value to the property.
-
 #### Defined in
 
-[src/tweening/Actions.ts:48](https://github.com/agargaro/three.ez/blob/b355b0c/src/tweening/Actions.ts#L48)
+[src/tweening/Actions.ts:48](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/tweening/Actions.ts#L48)
 
 ___
 
@@ -92,11 +90,11 @@ ___
 
 • `Optional` **onStart**: (`target`: `T`) => `void`
 
+A callback function to execute when the animation starts.
+
 #### Type declaration
 
 ▸ (`target`): `void`
-
-A callback function to execute when the animation starts.
 
 ##### Parameters
 
@@ -110,7 +108,7 @@ A callback function to execute when the animation starts.
 
 #### Defined in
 
-[src/tweening/Actions.ts:33](https://github.com/agargaro/three.ez/blob/b355b0c/src/tweening/Actions.ts#L33)
+[src/tweening/Actions.ts:33](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/tweening/Actions.ts#L33)
 
 ___
 
@@ -118,11 +116,11 @@ ___
 
 • `Optional` **onUpdate**: (`target`: `T`) => `void`
 
+A callback function to be executed after each property has been updated.
+
 #### Type declaration
 
 ▸ (`target`): `void`
-
-A callback function to be executed after each property has been updated.
 
 ##### Parameters
 
@@ -136,4 +134,4 @@ A callback function to be executed after each property has been updated.
 
 #### Defined in
 
-[src/tweening/Actions.ts:38](https://github.com/agargaro/three.ez/blob/b355b0c/src/tweening/Actions.ts#L38)
+[src/tweening/Actions.ts:38](https://github.com/agargaro/three.ez/blob/c98e2000aba94763fdfaf44f220a0d54ccd99dd1/src/tweening/Actions.ts#L38)
