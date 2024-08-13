@@ -1,7 +1,7 @@
 import { Color, ColorRepresentation, Euler, MathUtils, Quaternion, Vector2, Vector3, Vector4 } from "three";
-import { Easing, EasingFunction, Easings } from "./Easings";
-import { RunningAction } from "./RunningTween";
-import { Tween } from "./Tween";
+import { Easing, EasingFunction, Easings } from "./Easings.js";
+import { RunningAction } from "./RunningTween.js";
+import { Tween } from "./Tween.js";
 
 const easings = new Easings();
 export type Vector = Vector2 | Vector3 | Vector4;

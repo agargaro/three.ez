@@ -1,7 +1,7 @@
 import { Camera, Color, ColorRepresentation, Scene, Vector2, WebGLRenderer, WebGLRendererParameters } from "three";
-import { EffectComposer } from "three/examples/jsm/postprocessing/EffectComposer";
-import { applyWebGLRendererPatch } from "../patch/WebGLRenderer";
-import { RenderView, ViewParameters } from "./RenderView";
+import { EffectComposer } from "three/examples/jsm/postprocessing/EffectComposer.js";
+import { applyWebGLRendererPatch } from "../patch/WebGLRenderer.js";
+import { RenderView, ViewParameters } from "./RenderView.js";
 
 /** @internal */
 export class RenderManager {

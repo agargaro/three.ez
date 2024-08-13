@@ -1,5 +1,5 @@
 import { Material } from "three";
-import { Tween } from "../tweening/Tween";
+import { Tween } from "../tweening/Tween.js";
 
 /**
  * Represents the prototype for extended Material functionality.

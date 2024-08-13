@@ -1,5 +1,5 @@
 import { Object3D } from "three";
-import { InstancedMesh2 } from "../instancedMesh/InstancedMesh2";
+import { InstancedMesh2 } from "../instancedMesh/InstancedMesh2.js";
 
 /** Valid cursor values based on the CSS cursor property. */
 export type CursorsKeys = "auto" | "default" | "none" | "context-menu" | "help" | "pointer" | "progress" | "wait" |

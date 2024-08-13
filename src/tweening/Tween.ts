@@ -1,6 +1,6 @@
-import { ActionCallback, ActionDelay, ActionMotion, ActionRepeat, ActionTween, ActionYoyo, IAction, Motion, MotionConfig, SetMotion } from "./Actions";
-import { RunningTween } from "./RunningTween";
-import { TweenManager } from "./TweenManager";
+import { ActionCallback, ActionDelay, ActionMotion, ActionRepeat, ActionTween, ActionYoyo, IAction, Motion, MotionConfig, SetMotion } from "./Actions.js";
+import { RunningTween } from "./RunningTween.js";
+import { TweenManager } from "./TweenManager.js";
 
 /**
  * A Tween represents a series of actions that can be applied to a target object to create animations or sequences of events.

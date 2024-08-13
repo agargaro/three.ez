@@ -1,13 +1,13 @@
 import { Camera, Clock, ColorRepresentation, Raycaster, Scene, Vector2, WebGLRenderer, WebGLRendererParameters } from "three";
-import { EffectComposer } from "three/examples/jsm/postprocessing/EffectComposer";
-import { Binding } from "../binding/Binding";
-import { InteractionManager } from "../events/InteractionManager";
-import { EventsCache } from "../events/MiscEventsManager";
-import { RenderManager } from "../rendering/RenderManager";
-import { RenderView, ViewParameters } from "../rendering/RenderView";
-import { TweenManager } from "../tweening/TweenManager";
-import { Stats } from "../utils/Stats";
-import { RaycasterSortComparer } from "../events/RaycasterManager";
+import { EffectComposer } from "three/examples/jsm/postprocessing/EffectComposer.js";
+import { Binding } from "../binding/Binding.js";
+import { InteractionManager } from "../events/InteractionManager.js";
+import { EventsCache } from "../events/MiscEventsManager.js";
+import { RenderManager } from "../rendering/RenderManager.js";
+import { RenderView, ViewParameters } from "../rendering/RenderView.js";
+import { TweenManager } from "../tweening/TweenManager.js";
+import { Stats } from "../utils/Stats.js";
+import { RaycasterSortComparer } from "../events/RaycasterManager.js";
 
 /** @internal */
 export function setup() {

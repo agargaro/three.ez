@@ -1,11 +1,11 @@
 import { Object3D, Scene } from "three";
-import { EventsCache } from "../events/MiscEventsManager";
-import { activeSmartRendering, applySmartRenderingPatch, removeSmartRenderingPatch } from "./SmartRendering";
-import { Binding } from "../binding/Binding";
-import { FocusEventExt, IntersectionExt } from "../events/Events";
-import { addBase, removeBase } from "./Object3D";
-import { EventsDispatcher } from "../events/EventsDispatcher";
-import { Default } from "../events/Default";
+import { EventsCache } from "../events/MiscEventsManager.js";
+import { activeSmartRendering, applySmartRenderingPatch, removeSmartRenderingPatch } from "./SmartRendering.js";
+import { Binding } from "../binding/Binding.js";
+import { FocusEventExt, IntersectionExt } from "../events/Events.js";
+import { addBase, removeBase } from "./Object3D.js";
+import { EventsDispatcher } from "../events/EventsDispatcher.js";
+import { Default } from "../events/Default.js";
 
 /**
  * Represents the prototype for extending Scene functionality.

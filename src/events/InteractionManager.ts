@@ -1,10 +1,10 @@
 import { Object3D, WebGLRenderer } from "three";
-import { RenderManager } from "../rendering/RenderManager";
-import { CursorHandler } from "./CursorManager";
-import { DragAndDropManager } from "./DragAndDropManager";
-import { InteractionEvents, IntersectionExt, KeyboardEventExt, PointerEventExt, PointerIntersectionEvent, WheelEventExt } from "./Events";
-import { InteractionEventsQueue } from "./InteractionEventsQueue";
-import { RaycasterManager } from "./RaycasterManager";
+import { RenderManager } from "../rendering/RenderManager.js";
+import { CursorHandler } from "./CursorManager.js";
+import { DragAndDropManager } from "./DragAndDropManager.js";
+import { InteractionEvents, IntersectionExt, KeyboardEventExt, PointerEventExt, PointerIntersectionEvent, WheelEventExt } from "./Events.js";
+import { InteractionEventsQueue } from "./InteractionEventsQueue.js";
+import { RaycasterManager } from "./RaycasterManager.js";
 
 /** @internal */
 export class InteractionManager {

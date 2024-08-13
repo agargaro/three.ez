@@ -1,6 +1,6 @@
 import { Camera, Intersection, Object3D, Vector3, WebGLRenderer } from "three";
-import { InstancedMeshEntity } from "../instancedMesh/InstancedMeshEntity";
-import { Hitbox } from "./Hitbox";
+import { InstancedMeshEntity } from "../instancedMesh/InstancedMeshEntity.js";
+import { Hitbox } from "./Hitbox.js";
 
 export type MiscUpdateEvents = MiscEvents & UpdateEvents;
 export type Events = InteractionEvents & MiscUpdateEvents;

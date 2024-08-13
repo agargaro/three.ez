@@ -1,5 +1,5 @@
 import { Box3, Vector3 } from 'three';
-import { ObjVec3, TEMP, VectorObject3D, VectorUtils } from './VectorUtils';
+import { ObjVec3, TEMP, VectorObject3D, VectorUtils } from './VectorUtils.js';
 
 /**
  * Class that provides a set of utilities for calculating intersections between 2D and 3D geometric objects.

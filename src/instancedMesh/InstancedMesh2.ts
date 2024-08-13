@@ -1,6 +1,6 @@
 import { BufferGeometry, Color, ColorRepresentation, DynamicDrawUsage, InstancedMesh, Material, Matrix4 } from "three";
-import { AnimateEvent, DragEventExt, FocusEventExt, IntersectionExt, KeyboardEventExt, PointerEventExt, PointerIntersectionEvent, WheelEventExt } from "../events/Events";
-import { InstancedMeshEntity } from "./InstancedMeshEntity";
+import { AnimateEvent, DragEventExt, FocusEventExt, IntersectionExt, KeyboardEventExt, PointerEventExt, PointerIntersectionEvent, WheelEventExt } from "../events/Events.js";
+import { InstancedMeshEntity } from "./InstancedMeshEntity.js";
 
 function overrideProperty(...names: (keyof InstancedMesh2)[]): void {
     for (const name of names) {
@@ -14,6 +14,7 @@ function overrideProperty(...names: (keyof InstancedMesh2)[]): void {
 
 /**
  * Extends the InstancedMesh class to provide individual management of each instance, similar to an Object3D.
+ * @deprecated
  */
 export class InstancedMesh2 extends InstancedMesh {
     /** A flag indicating that this is an instance of InstancedMesh2. */

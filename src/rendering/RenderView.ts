@@ -1,5 +1,5 @@
 import { Camera, Color, ColorRepresentation, Scene, Vector2 } from "three";
-import { EffectComposer } from "three/examples/jsm/postprocessing/EffectComposer";
+import { EffectComposer } from "three/examples/jsm/postprocessing/EffectComposer.js";
 
 /**
  * Represents an object defining the dimensions and position of a viewport.

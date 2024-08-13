@@ -1,7 +1,7 @@
 import { Plane, Matrix4, Vector3, Raycaster, Camera, Object3D } from "three";
-import { DragEventExt, InteractionEvents, IntersectionExt } from "./Events";
-import { InstancedMesh2 } from "../instancedMesh/InstancedMesh2";
-import { InstancedMeshEntity } from "../instancedMesh/InstancedMeshEntity";
+import { DragEventExt, InteractionEvents, IntersectionExt } from "./Events.js";
+import { InstancedMesh2 } from "../instancedMesh/InstancedMesh2.js";
+import { InstancedMeshEntity } from "../instancedMesh/InstancedMeshEntity.js";
 
 /** @internal */
 export class DragAndDropManager {
