@@ -1,5 +1,5 @@
-import { EventExt, InteractionEvents, MiscEvents } from "../events/Events";
-import { InstancedMeshEntity } from "./InstancedMeshEntity";
+import { EventExt, InteractionEvents, MiscEvents } from "../events/Events.js";
+import { InstancedMeshEntity } from "./InstancedMeshEntity.js";
 
 export type InstancedMiscUpdateEvents = Omit<MiscEvents, "viewportresize" | "beforeanimate" | "afteranimate">;
 export type InstancedInteractionEvents = Omit<InteractionEvents<InstancedMeshEntity, InstancedMeshEntity>,

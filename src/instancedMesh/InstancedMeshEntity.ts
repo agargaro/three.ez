@@ -1,8 +1,8 @@
 import { Color, ColorRepresentation, EventDispatcher, Matrix4, Quaternion, Vector3 } from "three";
-import { Cursor } from "../events/CursorManager";
-import { EventsDispatcherInstanced, InstancedEvents } from "./EventsDispatcherInstanced";
-import { Tween } from "../tweening/Tween";
-import { InstancedMesh2 } from "./InstancedMesh2";
+import { Cursor } from "../events/CursorManager.js";
+import { EventsDispatcherInstanced, InstancedEvents } from "./EventsDispatcherInstanced.js";
+import { Tween } from "../tweening/Tween.js";
+import { InstancedMesh2 } from "./InstancedMesh2.js";
 
 const tempQuaternion = new Quaternion();
 
@@ -188,7 +188,7 @@ export class InstancedMeshEntity extends EventDispatcher {
         if (typeof types === "string") {
             return this.__eventsDispatcher.add(types, listener) as (event?: InstancedEvents[K]) => void;
         }
-        for (const type of types) {
+        for (const type of types as any) {
             this.__eventsDispatcher.add(type, listener);
         }
         return listener;

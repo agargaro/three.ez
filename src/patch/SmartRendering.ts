@@ -1,8 +1,8 @@
 import { Object3D, Scene } from "three";
-import { applyObject3DRotationPatch, applyObject3DVector3Patch } from "./Object3D";
-import { setVec3ChangeCallback, setVec3ChangeCallbackSR } from "./Vector3";
-import { setQuatChangeCallback, setQuatChangeCallbackSR } from "./Quaternion";
-import { setEulerChangeCallback, setEulerChangeCallbackSR } from "./Euler";
+import { applyObject3DRotationPatch, applyObject3DVector3Patch } from "./Object3D.js";
+import { setVec3ChangeCallback, setVec3ChangeCallbackSR } from "./Vector3.js";
+import { setQuatChangeCallback, setQuatChangeCallbackSR } from "./Quaternion.js";
+import { setEulerChangeCallback, setEulerChangeCallbackSR } from "./Euler.js";
 
 /** @internal */
 export function applySmartRenderingPatch(target: Object3D): void {

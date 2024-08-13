@@ -1,7 +1,7 @@
 import { Object3D, PerspectiveCamera, Raycaster, Vector2 } from "three";
-import { RenderManager } from "../rendering/RenderManager";
-import { IntersectionExt } from "./Events";
-import { Hitbox } from "./Hitbox";
+import { RenderManager } from "../rendering/RenderManager.js";
+import { IntersectionExt } from "./Events.js";
+import { Hitbox } from "./Hitbox.js";
 
 /**
  * A custom sorting comparison function used for ordering intersections during raycasting.

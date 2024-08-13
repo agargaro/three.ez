@@ -1,17 +1,17 @@
 import { Object3D, Scene } from "three";
-import { Binding, BindingCallback } from "../binding/Binding";
-import { Cursor } from "../events/CursorManager";
-import { Default } from "../events/Default";
-import { Events, InteractionEvents } from "../events/Events";
-import { EventsDispatcher } from "../events/EventsDispatcher";
-import { Hitbox } from "../events/Hitbox";
-import { Tween } from "../tweening/Tween";
-import { querySelector, querySelectorAll } from "../utils/Query";
-import { applyEulerPatch } from "./Euler";
-import { applyMatrix4Patch } from "./Matrix4";
-import { applyQuaternionPatch } from "./Quaternion";
-import { removeSceneReference, setSceneReference } from "./Scene";
-import { applyVec3Patch } from "./Vector3";
+import { Binding, BindingCallback } from "../binding/Binding.js";
+import { Cursor } from "../events/CursorManager.js";
+import { Default } from "../events/Default.js";
+import { Events, InteractionEvents } from "../events/Events.js";
+import { EventsDispatcher } from "../events/EventsDispatcher.js";
+import { Hitbox } from "../events/Hitbox.js";
+import { Tween } from "../tweening/Tween.js";
+import { querySelector, querySelectorAll } from "../utils/Query.js";
+import { applyEulerPatch } from "./Euler.js";
+import { applyMatrix4Patch } from "./Matrix4.js";
+import { applyQuaternionPatch } from "./Quaternion.js";
+import { removeSceneReference, setSceneReference } from "./Scene.js";
+import { applyVec3Patch } from "./Vector3.js";
 
 /**
  * Represents the prototype for extended Object3D functionality.

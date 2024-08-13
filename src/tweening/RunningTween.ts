@@ -1,7 +1,7 @@
-import { ActionTween, MotionConfig } from "./Actions";
-import { EasingFunction } from "./Easings";
-import { Tween } from "./Tween";
-import { TweenManager } from "./TweenManager";
+import { ActionTween, MotionConfig } from "./Actions.js";
+import { EasingFunction } from "./Easings.js";
+import { Tween } from "./Tween.js";
+import { TweenManager } from "./TweenManager.js";
 
 type UpdateCallback<T> = (start?: T, end?: T, alpha?: number) => void;
 

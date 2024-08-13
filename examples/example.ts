@@ -1,5 +1,5 @@
 import { Scene, Mesh, BoxGeometry, MeshNormalMaterial } from 'three';
-import { Main, PerspectiveCameraAuto } from '../src';
+import { Main, PerspectiveCameraAuto } from '../src/index.js';
 
 const box = new Mesh(new BoxGeometry(0.1, 0.1, 0.1), new MeshNormalMaterial());
 box.draggable = true;

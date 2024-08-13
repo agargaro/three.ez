@@ -1,6 +1,6 @@
 import { Camera, Scene, Vector4, WebGLRenderer } from "three";
-import { ViewportResizeEvent } from "../events/Events";
-import { EventsCache } from "../events/MiscEventsManager";
+import { ViewportResizeEvent } from "../events/Events.js";
+import { EventsCache } from "../events/MiscEventsManager.js";
 
 const viewportSize = new Vector4();
 const lastViewportSizes: { [x: number]: Vector4 } = {};

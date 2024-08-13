@@ -1,5 +1,5 @@
 import { Camera, Object3D, Scene } from "three";
-import { Events, MiscEvents } from "./Events";
+import { Events, MiscEvents } from "./Events.js";
 
 type SceneEventsCache = { [x: string]: Set<Object3D> };
 

@@ -1,7 +1,7 @@
 import { InstancedMesh, Object3D } from "three";
-import { applyObject3DRotationPatch, applyObject3DVector3Patch } from "../patch/Object3D";
-import { EventExt, Events, InteractionEvents, MiscUpdateEvents, UpdateEvents } from "./Events";
-import { EventsCache } from "./MiscEventsManager";
+import { applyObject3DRotationPatch, applyObject3DVector3Patch } from "../patch/Object3D.js";
+import { EventExt, Events, InteractionEvents, MiscUpdateEvents, UpdateEvents } from "./Events.js";
+import { EventsCache } from "./MiscEventsManager.js";
 
 /** @internal */
 export class EventsDispatcher {

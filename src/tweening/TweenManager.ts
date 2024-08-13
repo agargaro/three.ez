@@ -1,5 +1,5 @@
-import { RunningTween } from "./RunningTween";
-import { Tween } from "./Tween";
+import { RunningTween } from "./RunningTween.js";
+import { Tween } from "./Tween.js";
 
 /**
  * This class is responsible for managing and controlling running tweens.
