@@ -26,7 +26,8 @@ export class RaycasterManager {
 
     public getIntersections(event: PointerEvent, isDragging: boolean, excluded?: Object3D): IntersectionExt[] {
         const intersections: IntersectionExt[] = [];
-        this.pointer.set(event.offsetX, event.offsetY);
+        const canvasBounds = this._renderManager.renderer.domElement.getBoundingClientRect();
+        this.pointer.set(event.clientX - canvasBounds.left, event.clientY - canvasBounds.top);
         if (this.getComputedMousePosition(this.pointer, this._computedPointer, isDragging, event.isPrimary)) {
             const scene = this._renderManager.activeScene;
             const camera = this._renderManager.activeView.camera;
