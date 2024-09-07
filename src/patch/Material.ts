@@ -15,5 +15,5 @@ export interface MaterialExtPrototype {
 }
 
 Material.prototype.tween = function <T extends Material>(id?: string) {
-    return new Tween<T>(this as T).setId(id);
+    return new Tween(this as T).setId(id);
 };

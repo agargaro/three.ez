@@ -334,7 +334,7 @@ Object3D.prototype.unbindProperty = function (property) {
 };
 
 Object3D.prototype.tween = function <T extends Object3D>(id?: string) {
-  return new Tween<T>(this as T).setId(id);
+  return new Tween(this as T).setId(id);
 };
 
 Object3D.prototype.querySelector = function (query: string) {

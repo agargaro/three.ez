@@ -1,6 +1,6 @@
 {
   "name": "@three.ez/main",
-  "version": "0.5.4",
+  "version": "0.5.5",
   "description": "Simplify three.js development, including events, drag & drop, binding, focus management, smart rendering, tweening and more.",
   "author": "Andrea Gargaro <devgargaro@gmail.com>",
   "license": "MIT",
