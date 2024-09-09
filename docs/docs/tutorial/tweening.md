@@ -2,127 +2,134 @@
 sidebar_position: 11
 ---
 
-# Tweening
+# Tweening: Creating Smooth Animations in 3D
 
-In this tutorial, we'll walk through creating smooth animations using the Tweening system from scratch. You'll learn how to create basic tweens, use easing functions, and manage complex animations with delays, looping, and more.
+In this guide, you’ll learn how to create dynamic, smooth animations using the tweening system in your 3D scenes. Tweening enables objects to glide, bounce, and transition seamlessly between states, making your animations look more natural and engaging.
 
-## Setup the Scene
+By the end of this tutorial, you’ll be able to:
+- Animate objects smoothly using both predefined and custom easing functions.
+- Chain multiple animations together for more complex effects.
+- Control timing with delay, looping, and yoyo effects.
+- Customize your own easing functions for unique motion behaviors.
 
-First, set up a simple Three.js scene with a camera, lighting, and a few objects. We'll animate these objects using tweens later.
+---
 
-```typescript
-import { Scene, Mesh, SphereGeometry, MeshLambertMaterial, BoxGeometry, Vector3, AmbientLight, DirectionalLight, Euler } from 'three';
-import { Main, OrthographicCameraAuto, Tween } from '@three.ez/main';
+## Introduction to Tweening
 
-// Create a simple scene
-const scene = new Scene();
-const ambientLight = new AmbientLight();
-const directionalLight = new DirectionalLight();
-directionalLight.position.set(0, 1, 1);
+Tweening allows you to interpolate an object's properties over time. Whether you’re changing position, scale, rotation, or any other property, you can control the rate of change using easing functions, which determine how the animation accelerates or decelerates. 
 
-scene.add(ambientLight, directionalLight);
+### Why Tweening Matters
+In animations, sudden changes feel unnatural. Tweening smooths these transitions, making movements glide from one state to another, adding realism and fluidity.
 
-// Create the main class to start the scene
-const main = new Main();
-const camera = new OrthographicCameraAuto(2, false).translateZ(1);
-main.createView({ scene, camera });
-```
+---
 
-Here, we set up a basic scene with ambient and directional lighting. We've also created a camera that we'll use to view the animations.
+## Moving an Object with Basic Tweening
 
-## Create Objects to Animate
-
-Next, let's create the objects we want to animate. We'll use a sphere and two boxes.
+Let’s start with a simple example. We’ll move an object vertically, and use the `yoyo` effect to reverse the animation and repeat it forever.
 
 ```typescript
-// Create a blue sphere
-const sphere = new Mesh(new SphereGeometry(0.15), new MeshLambertMaterial({ color: 'blue' }));
-sphere.position.set(-0.5, 0, 0);
-
-// Create two boxes: red and green
-const redBox = new Mesh(new BoxGeometry(0.2, 0.2, 0.2), new MeshLambertMaterial({ color: 'red' }));
-const greenBox = new Mesh(new BoxGeometry(0.2, 0.2, 0.2), new MeshLambertMaterial({ color: 'green' }));
-
-// Add objects to the scene
-scene.add(sphere, redBox, greenBox);
-
-// Position the green box
-greenBox.position.set(0.5, 0, 0);
-```
-
-Now, we have a blue sphere and two boxes (red and green) that are placed at different positions in the scene. Next, we'll animate them using tweens.
-
-## Create Your First Tween
-
-Now let’s create a simple tween for the `sphere`. We’ll move the sphere up and down using a `yoyo` animation, where the object will move back and forth forever.
-
-```typescript
-sphere
-  .tween()
+sphere.tween()
   .by(1000, { position: new Vector3(0, 0.5, 0) }, { easing: 'easeInOutBack' })
   .yoyoForever()
   .start();
 ```
 
 ### Explanation:
-- `by(1000, { position: new Vector3(0, 0.5, 0) })`: This moves the `sphere` 0.5 units upwards over 1 second.
-- `easing: 'easeInOutBack'`: Adds a smooth easing effect.
-- `yoyoForever()`: This makes the animation reverse itself after completion and continue forever.
+- **`by(1000, { position: new Vector3(0, 0.5, 0) })`**: Moves the object up by 0.5 units over 1 second.
+- **`easing: 'easeInOutBack'`**: Eases the animation in and out with a slight overshoot, creating a soft transition.
+- **`yoyoForever()`**: Reverses the animation and repeats indefinitely.
 
-## Chain Multiple Tweens
+---
 
-Next, let's create a more complex animation by chaining multiple tweens together for the `redBox`.
+## Custom Easing Functions
+
+While predefined easing functions offer plenty of flexibility, sometimes you need something more specific. Here’s how you can define a **custom easing function** that blends linear movement with a bounce effect at the end.
 
 ```typescript
-const rotationTween = new Tween(redBox)
+// Custom easing function that starts linear and ends with a bounce
+const customEasing: EasingFunction = (x: number): number => {
+  if (x < 0.7) {
+    // Linear easing for the first 70% of the animation
+    return x;
+  } else {
+    // Bounce effect for the last 30%
+    return 1 - Math.pow(1 - (x - 0.7) / 0.3, 2);
+  }
+};
+
+// Applying the custom easing function to a tween
+box.tween()
+  .by(1000, { position: new Vector3(0, 1, 0) }, { easing: customEasing })
+  .start();
+```
+
+### Explanation:
+- **`customEasing(x)`**: For the first 70% of the tween, the object moves linearly. For the last 30%, it bounces to its final position.
+  
+Using custom easing functions allows you to create unique animations tailored to your specific needs.
+
+---
+
+## Advanced Tweens
+
+You can also chain multiple tweens together to create more complex animations. Here, we’ll rotate and scale an object, with delays between each animation.
+
+```typescript
+const rotationTween = new Tween(box)
   .by(2000, { scale: 1, rotation: new Euler(Math.PI * 2, Math.PI, 0) }, { easing: 'easeOutElastic' })
   .delay(200)
   .to(1000, { scale: 1 }, { easing: 'easeOutBounce' })
   .delay(200);
 
-redBox
-  .tween()
+box.tween()
   .then(rotationTween)
   .repeatForever()
   .start();
 ```
 
 ### Explanation:
-- We create a rotation and scale tween for the `redBox` that animates the object’s rotation and scaling with different easing functions.
-- `then(rotationTween)`: After the `redBox` completes its initial animation, it transitions into the `rotationTween`.
-- `repeatForever()`: This repeats the entire sequence forever.
+- **Chaining**: The object first rotates and scales with an elastic easing, then after a delay, it returns to its original size with a bounce effect.
+- **`repeatForever()`**: Loops the entire animation sequence indefinitely.
 
-## Animate the Green Box Rotation
+This technique is perfect for more complex animations that involve multiple steps.
 
-Finally, let’s animate the `greenBox` by rotating it continuously.
+<!-- TODO:  we want to add the Challenges and Exercise section? let me know.
+---
+
+## Challenges and Exercises
+
+Now it’s time to put your new skills to the test! Here’s a challenge to reinforce what you’ve learned:
+
+### Challenge: Spinning and Bouncing Object
+
+Create an object that bounces up and down while rotating continuously. Use `yoyo()` and `repeatForever()` to create the desired effect.
+
+**Hint**: You can combine bouncing and rotating tweens to achieve this:
 
 ```typescript
-new Tween(greenBox.rotation)
+object.tween()
+  .by(1000, { position: new Vector3(0, 1, 0) }, { easing: 'easeOutBounce' })
+  .yoyo()
+  .repeatForever()
+  .start();
+
+object.rotation.tween()
   .by(1000, { z: Math.PI / 2 }, { easing: 'easeOutElastic' })
   .repeatForever()
   .start();
-```
+``` -->
 
-### Explanation:
-- We rotate the `greenBox` along the Z-axis by 90 degrees (`Math.PI / 2`) every second using an elastic easing.
-- `repeatForever()`: The rotation repeats endlessly.
+---
 
-## Bringing It All Together
+## Best Practices:
+- Always remember to call `.start()` to begin a tween, as forgetting this step can lead to confusion when nothing happens.
 
-Now that we have the animations for each object, let's bring them together in the scene.
+---
 
-```typescript
-const main = new Main();
-main.createView({ scene, camera: new OrthographicCameraAuto(2, false).translateZ(1) });
-```
+## Conclusion
 
-You should now see:
-- The `sphere` moving up and down smoothly.
-- The `redBox` scaling and rotating with easing and delays, repeating forever.
-- The `greenBox` rotating continuously.
+You’ve now mastered tweening in your 3D scenes! By combining predefined and custom easing functions, you can create smooth, dynamic animations for any object. Experiment with different easing types and motion patterns to bring your scenes to life.
 
-## Live Example
+Feel free to try out the interactive playground and create your own animations:
 
-You can view a live demo and experiment with the code using the link below:
-
-[⚡ Stackblitz - Tweening Tutorial](https://stackblitz.com/edit/three-ez-tweening?file=src%2Fmain.ts)
+[⚡ Interactive Playground](https://stackblitz.com/edit/three-ez-tweening?file=src%2Fmain.ts)
