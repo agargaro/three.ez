@@ -1,6 +1,6 @@
 {
   "name": "@three.ez/main",
-  "version": "0.5.5",
+  "version": "0.5.7",
   "description": "Simplify three.js development, including events, drag & drop, binding, focus management, smart rendering, tweening and more.",
   "author": "Andrea Gargaro <devgargaro@gmail.com>",
   "license": "MIT",
@@ -38,7 +38,7 @@
     "test": "vitest"
   },
   "devDependencies": {
-    "@types/three": "^0.167.1",
+    "@types/three": "^0.168.0",
     "jsdom": "^22.1.0",
     "typescript": "^5.4.2",
     "vite": "^5.4.0",
