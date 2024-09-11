@@ -1,6 +1,5 @@
-import { Camera, Color, ColorRepresentation, Scene, Vector2, WebGLRenderer, WebGLRendererParameters } from "three";
+import { Camera, Color, ColorRepresentation, Scene, Vector2, WebGLRenderer } from "three";
 import { EffectComposer } from "three/examples/jsm/postprocessing/EffectComposer.js";
-import { applyWebGLRendererPatch } from "../patch/WebGLRenderer.js";
 import { RenderView, ViewParameters } from "./RenderView.js";
 
 /** @internal */
@@ -36,21 +35,20 @@ export class RenderManager {
     this.renderer.setClearColor(this._backgroundColor, this._backgroundAlpha);
   }
 
-  constructor(parameters: WebGLRendererParameters = {}, fullscreen = true, backgroundColor: ColorRepresentation = 0x000000, backgroundAlpha = 1) {
-    this.renderer = new WebGLRenderer(parameters);
-    this.renderer.setPixelRatio(window.devicePixelRatio);
-    applyWebGLRendererPatch(this.renderer);
-    this.appendCanvas(parameters);
+  constructor(renderer: WebGLRenderer, appendCanvas: boolean, fullscreen = true, backgroundColor: ColorRepresentation = 0x000000, backgroundAlpha = 1) {
+    this.renderer = renderer;
+    renderer.setPixelRatio(window.devicePixelRatio);
+    this.appendCanvas(appendCanvas);
     this._fullscreen = fullscreen;
     this._backgroundAlpha = backgroundAlpha;
     this._backgroundColor = new Color(backgroundColor);
     window.addEventListener("resize", this.onResize.bind(this));
     this.updateRenderSize();
-    this.renderer.setClearColor(this._backgroundColor, this._backgroundAlpha);
+    renderer.setClearColor(this._backgroundColor, this._backgroundAlpha);
   }
 
-  private appendCanvas(rendererParameters: WebGLRendererParameters): void {
-    if (!rendererParameters.canvas) {
+  private appendCanvas(appendCanvas: boolean): void {
+    if (appendCanvas) {
       document.body.appendChild(this.renderer.domElement);
     }
   }
@@ -145,8 +143,9 @@ export class RenderManager {
     return false;
   }
 
-  public render(): boolean {
-    if (!this.isRenderNecessary()) return false;
+  public render(): void {
+    if (!this.isRenderNecessary()) return;
+
     for (const view of this.views) {
       if (view.visible) {
         const v = view.computedViewport;
@@ -159,7 +158,6 @@ export class RenderManager {
         view.onAfterRender();
       }
     }
-    return true;
   }
 
   private executeRender(scene?: Scene, camera?: Camera, composer?: EffectComposer): void {

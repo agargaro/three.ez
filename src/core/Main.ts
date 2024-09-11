@@ -8,10 +8,11 @@ import { RenderView, ViewParameters } from "../rendering/RenderView.js";
 import { TweenManager } from "../tweening/TweenManager.js";
 import { Stats } from "../utils/Stats.js";
 import { RaycasterSortComparer } from "../events/RaycasterManager.js";
+import { applyWebGLRendererPatch } from "../patch/WebGLRenderer.js";
 
 /** @internal */
 export function setup() {
-    // Script loaded for test.
+    // Script loaded for test. TODO remove this
 }
 
 /**
@@ -30,12 +31,14 @@ export interface MainParameters {
     backgroundAlpha?: number;
     /** Callback function executed for each frame. */
     animate?: (delta: number, total: number) => void;
-    /** Configuration parameters for the WebGLRenderer. */
+    /** Configuration parameters for the WebGLRenderer. Ignored if renderer is specified. */
     rendererParameters?: WebGLRendererParameters;
     /** Enable cursor handling in the application (default: true). */
     enableCursor?: boolean;
     /** Enable multitouch interactions (default: false). */
     multitouch?: boolean;
+    /** */
+    renderer?: WebGLRenderer;
 }
 
 /**
@@ -44,13 +47,13 @@ export interface MainParameters {
  */
 export class Main {
     /** A static counter representing the number of animation frames elapsed. */
-    public static ticks = 0;
+    public ticks = 0;
     private _renderManager: RenderManager;
     private _interactionManager: InteractionManager;
-    private _stats: Stats;
+    /** @internal **/ public _stats: Stats;
+    /** @internal **/ public _showStats: boolean;
     private _animate: (delta: number, total: number) => void;
     private _clock = new Clock();
-    private _showStats: boolean;
 
     /**
      * The WebGLRenderer instance used for rendering the 3D scene.
@@ -90,7 +93,7 @@ export class Main {
     public get showStats(): boolean { return this._showStats }
     public set showStats(value: boolean) {
         if (value) {
-            if (!this._stats) this._stats = new Stats();
+            if (!this._stats) this._stats = new Stats(this.renderer);
             document.body.appendChild(this._stats.dom);
         } else if (this._stats) {
             document.body.removeChild(this._stats.dom);
@@ -152,18 +155,22 @@ export class Main {
     public get pointerOnCanvas(): boolean { return this._interactionManager.raycasterManager.pointerOnCanvas }
 
     /**
-     * @param parameters Configuration parameters for initializing the Main class.
+     * @param params Configuration parameters for initializing the Main class.
      */
-    constructor(parameters: MainParameters = {}) {
-        this.setDefaultRendererParameters(parameters);
-        this._renderManager = new RenderManager(parameters.rendererParameters, parameters.fullscreen, parameters.backgroundColor, parameters.backgroundAlpha);
+    constructor(params: MainParameters = {}) {
+        if (!params.renderer) this.setDefaultRendererParameters(params);
+        const renderer = params.renderer ?? new WebGLRenderer(params.rendererParameters);
+        const appendCanvas = !params.rendererParameters.canvas;
+
+        this._renderManager = new RenderManager(renderer, appendCanvas, params.fullscreen, params.backgroundColor, params.backgroundAlpha);
         this._interactionManager = new InteractionManager(this._renderManager);
-        this.multitouch = parameters.multitouch ?? false;
-        this.handleContextMenu(parameters.disableContextMenu);
-        this.showStats = parameters.showStats ?? true;
-        this.setAnimationLoop();
-        this.enableCursor = parameters.enableCursor ?? true;
-        this._animate = parameters.animate;
+        this.multitouch = params.multitouch ?? false;
+        this.handleContextMenu(params.disableContextMenu);
+        this.showStats = params.showStats ?? true;
+        this.enableCursor = params.enableCursor ?? true;
+        this._animate = params.animate || null;
+
+        applyWebGLRendererPatch(this);
     }
 
     private setDefaultRendererParameters(parameters: MainParameters): void {
@@ -179,7 +186,9 @@ export class Main {
 
     private setAnimationLoop(): void {
         this.renderer.setAnimationLoop((time, frame) => {
-            Main.ticks++;
+            if (this._showStats) this._stats.begin();
+
+            this.ticks++;
             const currentDelta = this._clock.getDelta();
 
             this._interactionManager.update();
@@ -187,7 +196,6 @@ export class Main {
 
             this.animate(currentDelta, this._clock.elapsedTime);
 
-            let rendered = false;
             const visibleScenes = this._renderManager.getVisibleScenes();
 
             if (visibleScenes) {
@@ -200,7 +208,7 @@ export class Main {
                     Binding.compute(scene);
                 }
 
-                rendered = this._renderManager.render();
+                this._renderManager.render();
 
                 for (const scene of visibleScenes) {
                     scene.needsRender = !scene.__smartRendering;
@@ -208,9 +216,14 @@ export class Main {
             }
 
             if (this._showStats) {
-                this._stats.update(rendered);
+                this._stats.end();
+                this._stats.update();
             }
         });
+    }
+
+    private clearAnimationLoop(): void {
+        this.renderer.setAnimationLoop(null);
     }
 
     public animate(delta: number, total: number): void {
@@ -225,6 +238,7 @@ export class Main {
      * @returns The created RenderView instance.
      */
     public createView(view: ViewParameters): RenderView {
+        if (this._renderManager.views.length === 0) this.setAnimationLoop();
         return this._renderManager.create(view);
     }
 
@@ -233,7 +247,34 @@ export class Main {
      * @param view The RenderView instance to add.
      */
     public addView(view: RenderView): void {
+        if (this._renderManager.views.length === 0) this.setAnimationLoop();
         this._renderManager.add(view);
+    }
+
+    /**
+     * Removes a RenderView from the RenderManager.
+     * @param view The RenderView instance to remove.
+     */
+    public removeView(view: RenderView): void {
+        this._renderManager.remove(view);
+        if (this._renderManager.views.length === 0) this.clearAnimationLoop(); // TODO consider if we want to move it to renderManager
+    }
+
+    /**
+     * Removes a RenderView from the RenderManager by its tag.
+     * @param tag The tag of the RenderView to remove.
+     */
+    public removeViewByTag(tag: string): void {
+        this._renderManager.removeByTag(tag);
+        if (this._renderManager.views.length === 0) this.clearAnimationLoop();
+    }
+
+    /**
+     * Clears all RenderViews from the RenderManager.
+     */
+    public clearViews(): void {
+        this._renderManager.clear();
+        this.clearAnimationLoop();
     }
 
     /**
@@ -243,29 +284,6 @@ export class Main {
      */
     public getViewByTag(tag: string): RenderView {
         return this._renderManager.getByTag(tag);
-    }
-
-    /**
-     * Removes a RenderView from the RenderManager.
-     * @param view The RenderView instance to remove.
-     */
-    public removeView(view: RenderView): void {
-        this._renderManager.remove(view);
-    }
-
-    /**
-     * Removes a RenderView from the RenderManager by its tag.
-     * @param tag The tag of the RenderView to remove.
-     */
-    public removeViewByTag(tag: string): void {
-        this._renderManager.removeByTag(tag);
-    }
-
-    /**
-     * Clears all RenderViews from the RenderManager.
-     */
-    public clearViews(): void {
-        this._renderManager.clear();
     }
 
     /**
