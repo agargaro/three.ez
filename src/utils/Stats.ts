@@ -78,8 +78,8 @@ export class Stats {
   }
 
   public showAllPanels(): void {
-    for (let i = 0; i < this.dom.children.length; i++) {
-      (this.dom.children[i] as HTMLElement).style.display = 'block';
+    for (const element of this.dom.children) {
+      (element as HTMLElement).style.display = 'block';
     }
   }
 
@@ -108,20 +108,22 @@ export class Stats {
 
   public getQueriesTime(): number {
     const gl = this.gl;
+    const ext = this.ext;
     let time = 0;
 
-    this.queries.forEach((query, index) => { // TODO metti for
+    for (let i = this.queries.length - 1; i >= 0; i--) {
+      const query = this.queries[i];
       const available = gl.getQueryParameter(query, gl.QUERY_RESULT_AVAILABLE);
-      const disjoint = gl.getParameter(this.ext.GPU_DISJOINT_EXT);
+      const disjoint = gl.getParameter(ext.GPU_DISJOINT_EXT);
 
       if (available && !disjoint) {
         const elapsed = gl.getQueryParameter(query, gl.QUERY_RESULT);
         const duration = elapsed * 1e-6;  // Convert nanoseconds to milliseconds
         time += duration;
         gl.deleteQuery(query);
-        this.queries.splice(index, 1);  // Remove the processed query, TODO fare for al contrario
+        this.queries.splice(i, 1);
       }
-    });
+    }
 
     return time;
   }
