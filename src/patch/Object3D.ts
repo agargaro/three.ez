@@ -38,7 +38,10 @@ export interface Object3DExtPrototype {
    * If set to true, it allows triggering all InteractionEvents; otherwise, events are disabled.
    */
   enabled: boolean;
-  /** Determines if the object can be intercepted by the main raycaster. Default is DEFAULT_INTERCEPT_BY_RAYCASTER (`true`). */
+  /**
+   * Determines if the **object** and **all of its children** can be intercepted by the main raycaster.
+   * @default DEFAULT_INTERCEPT_BY_RAYCASTER (true).
+   */
   interceptByRaycaster: boolean;
   /** Array of hitboxes for collision detection. */
   hitboxes: Hitbox[];
