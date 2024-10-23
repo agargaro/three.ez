@@ -118,7 +118,7 @@ export class Stats {
 
       if (available && !disjoint) {
         const elapsed = gl.getQueryParameter(query, gl.QUERY_RESULT);
-        const duration = elapsed * 1e-6;  // Convert nanoseconds to milliseconds
+        const duration = elapsed * 1e-6; // Convert nanoseconds to milliseconds
         time += duration;
         gl.deleteQuery(query);
         this.queries.splice(i, 1);
@@ -133,7 +133,7 @@ export class Stats {
     this.cpuPanel.update(time, time - this.beginTime, 33, 2); // we can pass these two params in the constructor
     this.fpsPanel.update(time, 1, 144, 0);
     this.gpuPanel?.update(time, this.getQueriesTime(), 33, 2);
-    this.infoPanel?.update(time, [this.renderer.info.render.calls, this.renderer.info.render.triangles]);
+    this.infoPanel?.update(time, [this.renderer.info.render.calls, this.renderer.info.render.triangles, this.renderer.info.render.points, this.renderer.info.render.lines]);
   }
 }
 
@@ -205,7 +205,6 @@ export class GraphPanel {
     this.context.globalAlpha = 0.9;
     this.context.fillRect(this.GRAPH_X + this.GRAPH_WIDTH - this.PR, this.GRAPH_Y, this.PR, Math.round((1 - (value / maxValue)) * this.GRAPH_HEIGHT));
   }
-
 }
 
 export class TextPanel {
@@ -216,24 +215,25 @@ export class TextPanel {
   private sumCalls = 0;
   private count = 0;
   private PR = Math.round(window.devicePixelRatio || 1);
-  private WIDTH = 90 * this.PR;
+  private WIDTH = 126 * this.PR;
   private HEIGHT = 48 * this.PR;
   private TEXT_X = 3 * this.PR;
   private TEXT_Y = 2 * this.PR;
   private GRAPH_X = 3 * this.PR;
   private GRAPH_Y = 15 * this.PR;
-  private GRAPH_WIDTH = 84 * this.PR;
+  private GRAPH_WIDTH = this.WIDTH - 6 * this.PR;
   private GRAPH_HEIGHT = 30 * this.PR;
   private PADDING_V = 4.3 * this.PR;
   private PADDING_H = 1 * this.PR;
-  private TEXT_SPACE = 14 * this.PR
+  private TEXT_SPACE = 14 * this.PR;
+  private COLUMN_SPACE = this.GRAPH_WIDTH / 2;
 
   // TODO: need to generalize call and triangles in props
   constructor(private name: string, private properties: string[], private fg: string, private bg: string, private updateTime: number) {
     this.dom = document.createElement('canvas');
     this.dom.width = this.WIDTH;
     this.dom.height = this.HEIGHT;
-    this.dom.style.cssText = 'width:90px;height:48px';
+    this.dom.style.cssText = `width:${this.WIDTH / this.PR}px;height:${this.HEIGHT / this.PR}px`;
 
     this.context = this.dom.getContext('2d');
     this.context.font = 'bold ' + (10 * this.PR) + 'px monospace';
@@ -251,7 +251,7 @@ export class TextPanel {
     this.context.fillRect(this.GRAPH_X, this.GRAPH_Y, this.GRAPH_WIDTH, this.GRAPH_HEIGHT);
   }
 
-  public update(time: number, [calls, triangles]): void {
+  public update(time: number, [calls, triangles, points, lines]): void {
     if (this.prevTime === null) {
       this.prevTime = time;
       return;
@@ -298,12 +298,19 @@ export class TextPanel {
 
     this.context.fillStyle = this.fg;
 
-    this.context.fillText(`Calls  ${calls} `, this.GRAPH_X + this.PADDING_H, this.GRAPH_Y + this.PADDING_V);
-    this.context.fillText(trianglesString, this.GRAPH_X + this.PADDING_H, this.GRAPH_Y + this.TEXT_SPACE + this.PADDING_V);
+    const stringOut = [`Calls ${calls}`, trianglesString, `Lines ${lines}`, `Points ${points}`];
+
+    const columns = 2;
+    const rows = Math.ceil(stringOut.length / columns);
+
+    for (let i = 0; i < stringOut.length; i++) {
+      const column = Math.floor(i / rows);
+      const row = i % rows;
+      this.context.fillText(stringOut[i], this.GRAPH_X + this.PADDING_H + this.COLUMN_SPACE * column, this.GRAPH_Y + this.TEXT_SPACE * row + this.PADDING_V);
+    }
 
     this.context.fillStyle = this.bg;
     this.context.globalAlpha = 0.9;
     this.context.fillRect(this.GRAPH_X + this.GRAPH_WIDTH - this.PR, this.GRAPH_Y, this.PR, (0 * this.GRAPH_HEIGHT));
   }
-
 }
