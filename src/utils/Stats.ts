@@ -316,7 +316,7 @@ export class TextPanel {
     for (let i = 0; i < stringOut.length; i++) {
       const column = Math.floor(i / rows);
       const row = i % rows;
-      this.context.fillText(stringOut[i], this.GRAPH_X + this.PADDING_H + this.COLUMN_SPACE * column, this.GRAPH_Y + this.TEXT_SPACE * row + this.PADDING_V);\
+      this.context.fillText(stringOut[i], this.GRAPH_X + this.PADDING_H + this.COLUMN_SPACE * column, this.GRAPH_Y + this.TEXT_SPACE * row + this.PADDING_V);
     }
 
     this.context.fillStyle = this.bg;
