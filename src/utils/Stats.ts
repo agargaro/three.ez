@@ -187,7 +187,7 @@ export class GraphPanel {
 
     if (time < this.prevTime + this.updateTime) return;
 
-    value = this.getAverage ? (this.sum / this.count) : this.sum;
+    value = this.getAverage ? this.sum / this.count : this.sum;
     this.prevTime += this.updateTime * Math.floor((time - this.prevTime) / this.updateTime);
     this.count = 0;
     this.sum = 0;
@@ -266,23 +266,35 @@ export class TextPanel {
     calls = Math.round(this.sumCalls / this.count);
     triangles = Math.round(this.sumTriangles / this.count);
 
-    let numString: string;
-
-    if (triangles >= 1e9) {
-      numString = (triangles / 1e9).toFixed(2) + 'B';
-    } else if (triangles >= 1e6) {
-      numString = (triangles / 1e6).toFixed(2) + 'M';
-    } else if (triangles >= 1e3) {
-      numString = (triangles / 1e3).toFixed(2) + 'K';
-    } else {
-      numString = triangles.toString();
-    }
-
-    const trianglesString = `Tris   ${numString}`;
     this.prevTime += this.updateTime * Math.floor((time - this.prevTime) / this.updateTime);
     this.count = 0;
     this.sumCalls = 0;
     this.sumTriangles = 0;
+
+    const stringOut = [
+      `Calls ${this._formatNumber(calls)}`,
+      `Tris ${this._formatNumber(triangles)}`,
+      `Lines ${this._formatNumber(lines)}`,
+      `Points ${this._formatNumber(points)}`,
+    ];
+
+    let maxRowLenght = 0;
+    for (let i = 0; i < stringOut.length / 2; i++) {
+      maxRowLenght = Math.max((stringOut[i].length + stringOut[i + 2].length) * 8, maxRowLenght);
+    }
+    this.context.clearRect(0, 0, this.WIDTH, this.HEIGHT);
+    this.WIDTH = maxRowLenght * this.PR;
+    this.GRAPH_WIDTH = this.WIDTH - 6 * this.PR;
+    this.COLUMN_SPACE = this.GRAPH_WIDTH / 2;
+
+    this.dom.width = this.WIDTH;
+    this.dom.height = this.HEIGHT;
+    this.dom.style.cssText = `width:${this.WIDTH / this.PR}px;height:${
+      this.HEIGHT / this.PR
+    }px`;
+    
+    this.context.font = "bold " + 10 * this.PR + "px monospace";
+    this.context.textBaseline = "top";
 
     this.context.fillStyle = this.bg;
     this.context.globalAlpha = 1;
@@ -298,8 +310,6 @@ export class TextPanel {
 
     this.context.fillStyle = this.fg;
 
-    const stringOut = [`Calls ${calls}`, trianglesString, `Lines ${lines}`, `Points ${points}`];
-
     const columns = 2;
     const rows = Math.ceil(stringOut.length / columns);
 
@@ -312,5 +322,22 @@ export class TextPanel {
     this.context.fillStyle = this.bg;
     this.context.globalAlpha = 0.9;
     this.context.fillRect(this.GRAPH_X + this.GRAPH_WIDTH - this.PR, this.GRAPH_Y, this.PR, (0 * this.GRAPH_HEIGHT));
+  }
+
+  /**
+   * Adds a suffix (B for billion, M for million, K for thousand) to a large number.
+   * @param {number} input - The numeric value to foment.
+   * @return {string} The number formatted with an appropriate suffix.
+   */
+  private _formatNumber(input: number): string {
+    if (input >= 1e9) {
+      return (input / 1e9).toFixed(2) + "ʙ";
+    } else if (input >= 1e6) {
+      return (input / 1e6).toFixed(2) + "ᴍ";
+    } else if (input >= 1e3) {
+      return (input / 1e3).toFixed(2) + "ᴋ";
+    } else {
+      return input.toString();
+    }
   }
 }
