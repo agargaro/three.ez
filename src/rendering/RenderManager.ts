@@ -8,20 +8,13 @@ export class RenderManager {
   public views: RenderView[] = [];
   public activeView: RenderView;
   public hoveredView: RenderView;
-  /**
-   * Debounce time in ms for resize events.
-   * @default 30
-   */
-  public resizeDebounceTime: number = 1;
   private _visibleScenes = new Set<Scene>();
   private _rendererSize = new Vector2();
   private _fullscreen: boolean;
   private _backgroundColor: Color;
   private _backgroundAlpha: number;
-  private _resizeTimer: Timeout;
-  private _resizeObserver = new ResizeObserver(() => {
-      this.onResize();
-  });
+  private _resized = false;
+  private readonly _resizeObserver = new ResizeObserver(() => this._resized = true);
 
   public get activeScene(): Scene { return this.activeView?.scene }
   public get hoveredScene(): Scene { return this.hoveredView?.scene }
@@ -51,7 +44,7 @@ export class RenderManager {
     this._fullscreen = fullscreen;
     this._backgroundAlpha = backgroundAlpha;
     this._backgroundColor = new Color(backgroundColor);
-    window.addEventListener("resize", this.onResize.bind(this));
+    window.addEventListener("resize", () => this._resized = true);
     this._resizeObserver.observe(this.renderer.domElement);
     this.updateRenderSize();
     renderer.setClearColor(this._backgroundColor, this._backgroundAlpha);
@@ -178,22 +171,18 @@ export class RenderManager {
     }
   }
 
-  private onResize(): void {
-    clearTimeout(this._resizeTimer);
-    this._resizeTimer = setTimeout(() => {
+  public update(): void {
+    if (!this._resized) return;
 
-      console.log('[three.ez]: resize') //TODO: remove before merge 
-
-      this.updateRenderSize();
-      for (const view of this.views) {
-        view.update();
-      }
-    }, this.resizeDebounceTime);
+    this.updateRenderSize();
+    for (const view of this.views) {
+      view.update();
+    }
+    this._resized = false;
   }
 
-  private updateRenderSize(): void {
-    if (this._fullscreen) {
-      // TODO remove this flag
+  public updateRenderSize(): void {
+    if (this._fullscreen) { // TODO remove this flag
       this.renderer.setSize(window.innerWidth, window.innerHeight);
     } else {
       const { width, height } = this.renderer.domElement.getBoundingClientRect();

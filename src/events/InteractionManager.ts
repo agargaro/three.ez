@@ -62,6 +62,7 @@ export class InteractionManager {
     }
 
     public update(): void {
+        this._renderManager.update();
         this._primaryRaycasted = false;
         for (const event of this.queue.dequeue()) {
             this.computeQueuedEvent(event);
