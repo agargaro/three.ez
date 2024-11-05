@@ -26,6 +26,25 @@
 
 <body>
     <script type="module" src="example.ts"></script>
+    <!-- TODO: remove before merge  -->
+    <canvas id="myCanvas" style="height: 40vh; width: 40vw;"></canvas>
+    <button id="resizeButton">resize</button>
+
+    <script>
+        const canvas = document.getElementById('myCanvas');
+        const button = document.getElementById('resizeButton');
+    
+        button.addEventListener('click', () => {
+          // Toggle the canvas size between two different styles
+          if (canvas.style.width === '40vw') {
+            canvas.style.width = '80vw';
+            canvas.style.height = '80vh';
+          } else {
+            canvas.style.width = '40vw';
+            canvas.style.height = '40vh';
+          }
+        });
+      </script>
 </body>
 
 </html>

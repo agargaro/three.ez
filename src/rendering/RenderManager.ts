@@ -8,11 +8,22 @@ export class RenderManager {
   public views: RenderView[] = [];
   public activeView: RenderView;
   public hoveredView: RenderView;
+  /**
+   * Debounce time in ms for resize events.
+   * @default 30
+   */
+  public resizeDebounceTime: number = 1;
   private _visibleScenes = new Set<Scene>();
   private _rendererSize = new Vector2();
   private _fullscreen: boolean;
   private _backgroundColor: Color;
   private _backgroundAlpha: number;
+  private _resizeTimer: Timeout;
+  private _resizeObserver = new ResizeObserver((entries) => {
+    for (let entry of entries) {
+      this.onResize();
+    }
+  });
 
   public get activeScene(): Scene { return this.activeView?.scene }
   public get hoveredScene(): Scene { return this.hoveredView?.scene }
@@ -43,6 +54,7 @@ export class RenderManager {
     this._backgroundAlpha = backgroundAlpha;
     this._backgroundColor = new Color(backgroundColor);
     window.addEventListener("resize", this.onResize.bind(this));
+    this._resizeObserver.observe(this.renderer.domElement);
     this.updateRenderSize();
     renderer.setClearColor(this._backgroundColor, this._backgroundAlpha);
   }
@@ -169,14 +181,21 @@ export class RenderManager {
   }
 
   private onResize(): void {
-    this.updateRenderSize();
-    for (const view of this.views) {
-      view.update();
-    }
+    clearTimeout(this._resizeTimer);
+    this._resizeTimer = setTimeout(() => {
+
+      console.log('[three.ez]: resize') //TODO: remove before merge 
+
+      this.updateRenderSize();
+      for (const view of this.views) {
+        view.update();
+      }
+    }, this.resizeDebounceTime);
   }
 
   private updateRenderSize(): void {
-    if (this._fullscreen) { // TODO remove this flag
+    if (this._fullscreen) {
+      // TODO remove this flag
       this.renderer.setSize(window.innerWidth, window.innerHeight);
     } else {
       const { width, height } = this.renderer.domElement.getBoundingClientRect();
