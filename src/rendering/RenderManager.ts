@@ -19,10 +19,8 @@ export class RenderManager {
   private _backgroundColor: Color;
   private _backgroundAlpha: number;
   private _resizeTimer: Timeout;
-  private _resizeObserver = new ResizeObserver((entries) => {
-    for (let entry of entries) {
+  private _resizeObserver = new ResizeObserver(() => {
       this.onResize();
-    }
   });
 
   public get activeScene(): Scene { return this.activeView?.scene }
