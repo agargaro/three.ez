@@ -181,7 +181,7 @@ export class RenderManager {
     this._resized = false;
   }
 
-  public updateRenderSize(): void {
+  private updateRenderSize(): void {
     if (this._fullscreen) { // TODO remove this flag
       this.renderer.setSize(window.innerWidth, window.innerHeight);
     } else {
