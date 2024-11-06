@@ -13,6 +13,8 @@ export class RenderManager {
   private _fullscreen: boolean;
   private _backgroundColor: Color;
   private _backgroundAlpha: number;
+  private _resized = false;
+  private readonly _resizeObserver = new ResizeObserver(() => this._resized = true);
 
   public get activeScene(): Scene { return this.activeView?.scene }
   public get hoveredScene(): Scene { return this.hoveredView?.scene }
@@ -42,7 +44,8 @@ export class RenderManager {
     this._fullscreen = fullscreen;
     this._backgroundAlpha = backgroundAlpha;
     this._backgroundColor = new Color(backgroundColor);
-    window.addEventListener("resize", this.onResize.bind(this));
+    window.addEventListener("resize", () => this._resized = true);
+    this._resizeObserver.observe(this.renderer.domElement);
     this.updateRenderSize();
     renderer.setClearColor(this._backgroundColor, this._backgroundAlpha);
   }
@@ -168,11 +171,14 @@ export class RenderManager {
     }
   }
 
-  private onResize(): void {
+  public update(): void {
+    if (!this._resized) return;
+
     this.updateRenderSize();
     for (const view of this.views) {
       view.update();
     }
+    this._resized = false;
   }
 
   private updateRenderSize(): void {

@@ -10,5 +10,5 @@ box.on(['pointerover', 'pointerout'], function (e) {
 
 const scene = new Scene().add(box);
 
-const main = new Main();
+const main = new Main({ fullscreen: false });
 main.createView({ scene, camera: new PerspectiveCameraAuto(70).translateZ(1) });
