@@ -10,25 +10,16 @@ export default defineConfig(({ command }) => ({
     sourcemap: true,
     lib: {
       entry: resolve(__dirname, 'src/index.ts'),
-      name: 'Main',
       fileName: 'index',
-      formats: ['es', 'umd'],
+      formats: ['es', 'cjs'],
     },
-  },
-  rollupOptions: {
-    external: ['three'],
-    output: {
-      globals: {
-        three: 'three'
-      }
-    }
   },
   plugins: [
     externalizeDeps(),
     dts({ tsconfigPath: 'tsconfig.build.json' }),
     viteStaticCopy({
       targets: [{
-        src: ['LICENSE', 'package.json', 'README.md'],
+        src: ['LICENSE', 'package.json', 'package-lock.json', 'README.md'],
         dest: './'
       }]
     })

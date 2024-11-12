@@ -23,7 +23,7 @@ export class IntersectionUtils {
         const [a1c, a2c, b1c, b2c] = VectorUtils.getPositionsFromObject3D([a1, a2, b1, b2]);
         const denominator = (b2c.y - b1c.y) * (a2c.x - a1c.x) - (b2c.x - b1c.x) * (a2c.y - a1c.y);
         if (denominator === 0) return; // parallel
-        let ua = ((b2c.x - b1c.x) * (a1c.y - b1c.y) - (b2c.y - b1c.y) * (a1c.x - b1c.x)) / denominator;
+        const ua = ((b2c.x - b1c.x) * (a1c.y - b1c.y) - (b2c.y - b1c.y) * (a1c.x - b1c.x)) / denominator;
         return target.set(a1c.x + ua * (a2c.x - a1c.x), a1c.y + ua * (a2c.y - a1c.y), 0);
     }
 
@@ -43,8 +43,8 @@ export class IntersectionUtils {
         const [a1c, a2c, b1c, b2c] = VectorUtils.getPositionsFromObject3D([a1, a2, b1, b2]);
         const denominator = (b2c.y - b1c.y) * (a2c.x - a1c.x) - (b2c.x - b1c.x) * (a2c.y - a1c.y);
         if (denominator === 0) return; // parallel
-        let ua = ((b2c.x - b1c.x) * (a1c.y - b1c.y) - (b2c.y - b1c.y) * (a1c.x - b1c.x)) / denominator;
-        let ub = ((a2c.x - a1c.x) * (a1c.y - b1c.y) - (a2c.y - a1c.y) * (a1c.x - b1c.x)) / denominator;
+        const ua = ((b2c.x - b1c.x) * (a1c.y - b1c.y) - (b2c.y - b1c.y) * (a1c.x - b1c.x)) / denominator;
+        const ub = ((a2c.x - a1c.x) * (a1c.y - b1c.y) - (a2c.y - a1c.y) * (a1c.x - b1c.x)) / denominator;
         if (ua < 0 || ua > 1 || ub < 0 || ub > 1) return;
         return target.set(a1c.x + ua * (a2c.x - a1c.x), a1c.y + ua * (a2c.y - a1c.y), 0);
     }
