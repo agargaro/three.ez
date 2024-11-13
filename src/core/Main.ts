@@ -10,11 +10,6 @@ import { Stats } from "../utils/Stats.js";
 import { RaycasterSortComparer } from "../events/RaycasterManager.js";
 import { applyWebGLRendererPatch } from "../patch/WebGLRenderer.js";
 
-/** @internal */
-export function setup() {
-    // Script loaded for test. TODO remove this
-}
-
 /**
  * Configuration parameters for initializing the Main class.
  */

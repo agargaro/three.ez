@@ -1,8 +1,6 @@
 import { Group, Mesh, Scene } from 'three';
 import { beforeAll, describe, expect, it } from 'vitest';
-import { setup } from '../../src';
-
-setup();
+import { querySelector, querySelectorAll } from '../../src/index.js';
 
 describe('Query standard cases', () => {
   let scene: Scene;
@@ -29,88 +27,88 @@ describe('Query standard cases', () => {
   });
 
   it('querySelector: no matching name', () => {
-    const result = scene.querySelector('[name=group_10]');
+    const result = querySelector(scene, '[name=group_10]');
     expect(result).toBeUndefined();
   });
 
   it('querySelector: matching name', () => {
-    const result = scene.querySelector('[name=group_3]');
+    const result = querySelector(scene, '[name=group_3]');
     expect(result).toEqual(scene.children[3]);
   });
 
   it('querySelector: matching contains name', () => {
-    const result = scene.querySelector('[name*=_2]');
+    const result = querySelector(scene, '[name*=_2]');
     expect(result).toEqual(scene.children[0].children[2]);
   });
 
   it('querySelector: matching ends with name', () => {
-    const result = scene.querySelector('[name$=_3]');
+    const result = querySelector(scene, '[name$=_3]');
     expect(result).toEqual(scene.children[0].children[3]);
   });
 
   it('querySelector: matching start with name', () => {
-    const result = scene.querySelector('[name^=group]');
+    const result = querySelector(scene, '[name^=group]');
     expect(result).toEqual(scene.children[0]);
   });
 
   it('querySelector: matching type', () => {
-    const result = scene.querySelector('Mesh');
+    const result = querySelector(scene, 'Mesh');
     expect(result).toEqual(scene.children[0].children[0]);
   });
 
   it('querySelector: matching tags', () => {
-    const result = scene.querySelector('.first');
+    const result = querySelector(scene, '.first');
     expect(result).toEqual(scene.children[0]);
   });
 
   it('querySelector: matching multiple tags', () => {
-    const result = scene.querySelector('.last.odd');
+    const result = querySelector(scene, '.last.odd');
     expect(result).toEqual(scene.children[0].children[3]);
   });
 
   it('querySelector: matching type and tags', () => {
-    const result = scene.querySelector('Mesh.first');
+    const result = querySelector(scene, 'Mesh.first');
     expect(result).toEqual(scene.children[0].children[0]);
   });
 
   it('querySelector: matching type, name and tags', () => {
-    const result = scene.querySelector('Mesh.even[name*=_2]');
+    const result = querySelector(scene, 'Mesh.even[name*=_2]');
     expect(result).toEqual(scene.children[0].children[2]);
   });
 
   it('querySelector: matching type parent and recursive type children', () => {
-    const result = scene.querySelector('Scene Mesh.odd');
+    const result = querySelector(scene, 'Scene Mesh.odd');
     expect(result).toEqual(scene.children[0].children[1]);
   });
 
   it('querySelector: no matching type parent and type children', () => {
-    const result = scene.querySelector('Scene > Mesh');
+    const result = querySelector(scene, 'Scene > Mesh');
     expect(result).toBeUndefined();
   });
 
   it('querySelector: matching type parent and type children', () => {
-    const result = scene.querySelector('Group > Mesh');
+    const result = querySelector(scene, 'Group > Mesh');
     expect(result).toEqual(scene.children[0].children[0]);
   });
 
   it('querySelector: matching type 1 or type 2', () => {
-    const result = scene.querySelector('Mesh, Group');
+    const result = querySelector(scene, 'Mesh, Group');
     expect(result).toEqual(scene.children[0]);
   });
 
   it('querySelectorAll: no matching name', () => {
-    const result = scene.querySelectorAll('[name=group_10]');
+    const result = querySelectorAll(scene, '[name=group_10]');
     expect(result.length).toEqual(0);
   });
 
   it('querySelectorAll: matching name', () => {
-    const result = scene.querySelectorAll('[name=group_3]');
+    const result = querySelectorAll(scene, '[name=group_3]');
     expect(result.length).toEqual(1);
     expect(result[0]).toEqual(scene.children[3]);
   });
 
   it('querySelectorAll: matching contains name', () => {
-    const result = scene.querySelectorAll('[name*=_2]');
+    const result = querySelectorAll(scene, '[name*=_2]');
     expect(result.length).toEqual(8);
     expect(result[0]).toEqual(scene.children[0].children[2]);
     expect(result[1]).toEqual(scene.children[1].children[2]);
@@ -121,9 +119,9 @@ describe('Query standard cases', () => {
     expect(result[6]).toEqual(scene.children[2].children[3]);
     expect(result[7]).toEqual(scene.children[3].children[2]);
   });
-  
+
   it('querySelectorAll: matching ends with name', () => {
-    const result = scene.querySelectorAll('[name$=_3]');
+    const result = querySelectorAll(scene, '[name$=_3]');
     expect(result.length).toEqual(5);
     expect(result[0]).toEqual(scene.children[0].children[3]);
     expect(result[1]).toEqual(scene.children[1].children[3]);
@@ -133,7 +131,7 @@ describe('Query standard cases', () => {
   });
 
   it('querySelectorAll: matching start with name', () => {
-    const result = scene.querySelectorAll('[name^=group]');
+    const result = querySelectorAll(scene, '[name^=group]');
     expect(result.length).toEqual(4);
     expect(result[0]).toEqual(scene.children[0]);
     expect(result[1]).toEqual(scene.children[1]);
@@ -142,7 +140,7 @@ describe('Query standard cases', () => {
   });
 
   it('querySelectorAll: matching type', () => {
-    const result = scene.querySelectorAll('Mesh');
+    const result = querySelectorAll(scene, 'Mesh');
     expect(result.length).toEqual(16);
     expect(result[0]).toEqual(scene.children[0].children[0]);
     expect(result[1]).toEqual(scene.children[0].children[1]);
@@ -163,7 +161,7 @@ describe('Query standard cases', () => {
   });
 
   it('querySelectorAll: matching tags', () => {
-    const result = scene.querySelectorAll('.first');
+    const result = querySelectorAll(scene, '.first');
     expect(result.length).toEqual(5);
     expect(result[0]).toEqual(scene.children[0]);
     expect(result[1]).toEqual(scene.children[0].children[0]);
@@ -173,7 +171,7 @@ describe('Query standard cases', () => {
   });
 
   it('querySelectorAll: matching multiple tags', () => {
-    const result = scene.querySelectorAll('.last.odd');
+    const result = querySelectorAll(scene, '.last.odd');
     expect(result.length).toEqual(4);
     expect(result[0]).toEqual(scene.children[0].children[3]);
     expect(result[1]).toEqual(scene.children[1].children[3]);
@@ -182,13 +180,13 @@ describe('Query standard cases', () => {
   });
 
   it('querySelectorAll: matching type and tags', () => {
-    const result = scene.querySelectorAll('Mesh.last[name*=_2]');
+    const result = querySelectorAll(scene, 'Mesh.last[name*=_2]');
     expect(result.length).toEqual(1);
     expect(result[0]).toEqual(scene.children[2].children[3]);
   });
 
   it('querySelectorAll: matching type, name and tags', () => {
-    const result = scene.querySelectorAll('Mesh.odd[name*=_3]');
+    const result = querySelectorAll(scene, 'Mesh.odd[name*=_3]');
     expect(result.length).toEqual(5);
     expect(result[0]).toEqual(scene.children[0].children[3]);
     expect(result[1]).toEqual(scene.children[1].children[3]);
@@ -198,7 +196,7 @@ describe('Query standard cases', () => {
   });
 
   it('querySelectorAll: matching type parent and recursive type children', () => {
-    const result = scene.querySelectorAll('Scene Mesh.even');
+    const result = querySelectorAll(scene, 'Scene Mesh.even');
     expect(result.length).toEqual(8);
     expect(result[0]).toEqual(scene.children[0].children[0]);
     expect(result[1]).toEqual(scene.children[0].children[2]);
@@ -211,12 +209,12 @@ describe('Query standard cases', () => {
   });
 
   it('querySelectorAll: no matching type parent and type children', () => {
-    const result = scene.querySelectorAll('Scene > Mesh');
+    const result = querySelectorAll(scene, 'Scene > Mesh');
     expect(result.length).toBe(0);
   });
 
   it('querySelectorAll: matching type parent and type children', () => {
-    const result = scene.querySelectorAll('Group > Mesh.odd');
+    const result = querySelectorAll(scene, 'Group > Mesh.odd');
     expect(result.length).toEqual(8);
     expect(result[0]).toEqual(scene.children[0].children[1]);
     expect(result[1]).toEqual(scene.children[0].children[3]);
@@ -229,7 +227,7 @@ describe('Query standard cases', () => {
   });
 
   it('querySelectorAll: matching type 1 or type 2', () => {
-    const result = scene.querySelectorAll('Mesh, Group');
+    const result = querySelectorAll(scene, 'Mesh, Group');
     expect(result.length).toEqual(20);
     expect(result[0]).toEqual(scene.children[0]);
     expect(result[1]).toEqual(scene.children[0].children[0]);
@@ -276,12 +274,12 @@ describe('Query special cases', () => {
   });
 
   it('querySelector: special case', () => {
-    const result = scene.querySelector('.x > .y > .z');
+    const result = querySelector(scene, '.x > .y > .z');
     expect(result).toEqual(mesh);
   });
 
   it('querySelectorAll: special case', () => {
-    const result = scene.querySelectorAll('.x > .y > .z, Group > Group');
+    const result = querySelectorAll(scene, '.x > .y > .z, Group > Group');
     expect(result.length).toEqual(2);
     expect(result[0]).toEqual(group2);
     expect(result[1]).toEqual(mesh);
