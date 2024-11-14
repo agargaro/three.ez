@@ -46,7 +46,6 @@ export interface ResourceConfig {
   onLoad: (result: unknown) => void;
 }
 
-
 /**
  * The Asset class is a manager for loading and handling resources in a scene.
  */
@@ -78,7 +77,7 @@ export class Asset {
    */
   public static get<T>(...path: string[]): T[];
   public static get<T>(args: string | string[]): T | T[] {
-    if (typeof args === "string") return this._results[args];
+    if (typeof args === 'string') return this._results[args];
 
     const ret = [];
     for (const path of args) {

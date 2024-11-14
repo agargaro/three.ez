@@ -1,6 +1,6 @@
-import { Camera, Color, ColorRepresentation, Scene, Vector2, WebGLRenderer } from "three";
-import { EffectComposer } from "three/examples/jsm/postprocessing/EffectComposer.js";
-import { RenderView, ViewParameters } from "./RenderView.js";
+import { Camera, Color, ColorRepresentation, Scene, Vector2, WebGLRenderer } from 'three';
+import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer.js';
+import { RenderView, ViewParameters } from './RenderView.js';
 
 /** @internal */
 export class RenderManager {
@@ -16,22 +16,22 @@ export class RenderManager {
   private _resized = false;
   private readonly _resizeObserver = new ResizeObserver(() => this._resized = true);
 
-  public get activeScene(): Scene { return this.activeView?.scene }
-  public get hoveredScene(): Scene { return this.hoveredView?.scene }
+  public get activeScene(): Scene { return this.activeView?.scene; }
+  public get hoveredScene(): Scene { return this.hoveredView?.scene; }
 
-  public get fullscreen(): boolean { return this._fullscreen }
+  public get fullscreen(): boolean { return this._fullscreen; }
   public set fullscreen(value: boolean) {
     this._fullscreen = value;
     this.updateRenderSize();
   }
 
-  public get backgroundColor(): Color { return this._backgroundColor }
+  public get backgroundColor(): Color { return this._backgroundColor; }
   public set backgroundColor(value: ColorRepresentation) {
     this._backgroundColor = new Color(value);
     this.renderer.setClearColor(this._backgroundColor, this._backgroundAlpha);
   }
 
-  public get backgroundAlpha(): number { return this._backgroundAlpha }
+  public get backgroundAlpha(): number { return this._backgroundAlpha; }
   public set backgroundAlpha(value: number) {
     this._backgroundAlpha = value;
     this.renderer.setClearColor(this._backgroundColor, this._backgroundAlpha);
@@ -44,7 +44,7 @@ export class RenderManager {
     this._fullscreen = fullscreen;
     this._backgroundAlpha = backgroundAlpha;
     this._backgroundColor = new Color(backgroundColor);
-    window.addEventListener("resize", () => this._resized = true);
+    window.addEventListener('resize', () => this._resized = true);
     this._resizeObserver.observe(this.renderer.domElement);
     this.updateRenderSize();
     renderer.setClearColor(this._backgroundColor, this._backgroundAlpha);

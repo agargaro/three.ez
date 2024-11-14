@@ -250,8 +250,6 @@ describe('Query standard cases', () => {
     expect(result[18]).toEqual(scene.children[3].children[2]);
     expect(result[19]).toEqual(scene.children[3].children[3]);
   });
-
-
 });
 
 describe('Query special cases', () => {
@@ -262,15 +260,15 @@ describe('Query special cases', () => {
 
   beforeAll(() => {
     scene = new Scene();
-    scene.tags.add("x");
+    scene.tags.add('x');
     group = new Group();
-    group.tags.add("x").add("y");
+    group.tags.add('x').add('y');
     group2 = new Group();
-    group2.tags.add("y");
+    group2.tags.add('y');
     mesh = new Mesh();
-    mesh.tags.add("z");
+    mesh.tags.add('z');
 
-    scene.add(group.add(group2.add(mesh)))
+    scene.add(group.add(group2.add(mesh)));
   });
 
   it('querySelector: special case', () => {
@@ -284,5 +282,4 @@ describe('Query special cases', () => {
     expect(result[0]).toEqual(group2);
     expect(result[1]).toEqual(mesh);
   });
-
 });

@@ -9,13 +9,11 @@ export default [
     jsx: false,
     semi: true,
     commaDangle: 'never',
-    arrowParens: true
+    arrowParens: true,
+    braceStyle: '1tbs'
   }),
   {
-    files: ['**/*.{js,ts}']
-  },
-  {
-    ignores: ['dist', 'vite.config.js', 'examples', 'docs', 'packages']
+    ignores: ['dist', 'docs', 'packages']
   },
   {
     rules: {
