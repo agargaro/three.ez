@@ -11,13 +11,13 @@ Represents the prototype for extended Material functionality.
 
 ### tween()
 
-> **tween**\<`T`\>(`id`?): [`Tween`](/api/classes/tween/)\<`T`\>
+> **tween**\<`T`\>(`id`?): [`Tween`](/three.ez/api/classes/tween/)\<`T`\>
 
 Initiates a Tween animation for the material.
 
 #### Type Parameters
 
-• **T** *extends* [`MaterialExtPrototype`](/api/interfaces/materialextprototype/)
+• **T** *extends* [`MaterialExtPrototype`](/three.ez/api/interfaces/materialextprototype/)
 
 The type of the target.
 
@@ -29,10 +29,10 @@ Unique identifier. If you start a new tween, the old one with the same id (if sp
 
 #### Returns
 
-[`Tween`](/api/classes/tween/)\<`T`\>
+[`Tween`](/three.ez/api/classes/tween/)\<`T`\>
 
 A Tween instance for further configuration.
 
 #### Defined in
 
-[src/patch/Material.ts:14](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/patch/Material.ts#L14)
+[src/patch/Material.ts:14](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/patch/Material.ts#L14)

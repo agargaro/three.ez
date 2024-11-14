@@ -17,7 +17,7 @@ The type of the target object.
 
 ### new Tween()
 
-> **new Tween**\<`T`\>(`target`): [`Tween`](/api/classes/tween/)\<`T`\>
+> **new Tween**\<`T`\>(`target`): [`Tween`](/three.ez/api/classes/tween/)\<`T`\>
 
 #### Parameters
 
@@ -27,11 +27,11 @@ The object to apply the tween to.
 
 #### Returns
 
-[`Tween`](/api/classes/tween/)\<`T`\>
+[`Tween`](/three.ez/api/classes/tween/)\<`T`\>
 
 #### Defined in
 
-[src/tweening/Tween.ts:23](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/tweening/Tween.ts#L23)
+[src/tweening/Tween.ts:23](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/tweening/Tween.ts#L23)
 
 ## Properties
 
@@ -43,7 +43,7 @@ Unique identifier. If specified, the old tween with the same id will be stopped.
 
 #### Defined in
 
-[src/tweening/Tween.ts:18](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/tweening/Tween.ts#L18)
+[src/tweening/Tween.ts:18](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/tweening/Tween.ts#L18)
 
 ***
 
@@ -55,7 +55,7 @@ Tags used for filtering and management.
 
 #### Defined in
 
-[src/tweening/Tween.ts:16](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/tweening/Tween.ts#L16)
+[src/tweening/Tween.ts:16](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/tweening/Tween.ts#L16)
 
 ***
 
@@ -67,7 +67,7 @@ The object to apply the tween to.
 
 #### Defined in
 
-[src/tweening/Tween.ts:14](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/tweening/Tween.ts#L14)
+[src/tweening/Tween.ts:14](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/tweening/Tween.ts#L14)
 
 ## Methods
 
@@ -83,11 +83,11 @@ Define a relative motion from the current state.
 
 The duration of the motion in milliseconds.
 
-• **action**: [`Motion`](/api/type-aliases/motion/)\<`T`\>
+• **action**: [`Motion`](/three.ez/api/type-aliases/motion/)\<`T`\>
 
 The motion configuration.
 
-• **config?**: [`MotionConfig`](/api/interfaces/motionconfig/)\<`T`\>
+• **config?**: [`MotionConfig`](/three.ez/api/interfaces/motionconfig/)\<`T`\>
 
 Additional motion configuration options.
 
@@ -99,7 +99,7 @@ The updated Tween instance.
 
 #### Defined in
 
-[src/tweening/Tween.ts:76](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/tweening/Tween.ts#L76)
+[src/tweening/Tween.ts:76](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/tweening/Tween.ts#L76)
 
 ***
 
@@ -123,7 +123,7 @@ The updated Tween instance.
 
 #### Defined in
 
-[src/tweening/Tween.ts:96](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/tweening/Tween.ts#L96)
+[src/tweening/Tween.ts:96](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/tweening/Tween.ts#L96)
 
 ***
 
@@ -135,7 +135,7 @@ Chain actions from another Tween to this Tween.
 
 #### Parameters
 
-• **tween**: [`Tween`](/api/classes/tween/)\<`T`\>
+• **tween**: [`Tween`](/three.ez/api/classes/tween/)\<`T`\>
 
 The Tween containing actions to chain.
 
@@ -147,25 +147,25 @@ The updated Tween instance.
 
 #### Defined in
 
-[src/tweening/Tween.ts:202](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/tweening/Tween.ts#L202)
+[src/tweening/Tween.ts:202](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/tweening/Tween.ts#L202)
 
 ***
 
 ### clone()
 
-> **clone**(): [`Tween`](/api/classes/tween/)\<`T`\>
+> **clone**(): [`Tween`](/three.ez/api/classes/tween/)\<`T`\>
 
 Clone the Tween instance.
 
 #### Returns
 
-[`Tween`](/api/classes/tween/)\<`T`\>
+[`Tween`](/three.ez/api/classes/tween/)\<`T`\>
 
 A new Tween instance with the same configuration.
 
 #### Defined in
 
-[src/tweening/Tween.ts:212](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/tweening/Tween.ts#L212)
+[src/tweening/Tween.ts:212](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/tweening/Tween.ts#L212)
 
 ***
 
@@ -189,7 +189,7 @@ The updated Tween instance.
 
 #### Defined in
 
-[src/tweening/Tween.ts:106](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/tweening/Tween.ts#L106)
+[src/tweening/Tween.ts:106](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/tweening/Tween.ts#L106)
 
 ***
 
@@ -201,7 +201,7 @@ Run multiple Tweens in parallel.
 
 #### Parameters
 
-• ...**tweens**: [`Tween`](/api/classes/tween/)\<`T`\>[]
+• ...**tweens**: [`Tween`](/three.ez/api/classes/tween/)\<`T`\>[]
 
 The Tweens to run in parallel.
 
@@ -213,7 +213,7 @@ The updated Tween instance.
 
 #### Defined in
 
-[src/tweening/Tween.ts:178](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/tweening/Tween.ts#L178)
+[src/tweening/Tween.ts:178](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/tweening/Tween.ts#L178)
 
 ***
 
@@ -237,7 +237,7 @@ The updated Tween instance.
 
 #### Defined in
 
-[src/tweening/Tween.ts:116](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/tweening/Tween.ts#L116)
+[src/tweening/Tween.ts:116](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/tweening/Tween.ts#L116)
 
 ***
 
@@ -255,7 +255,7 @@ The updated Tween instance.
 
 #### Defined in
 
-[src/tweening/Tween.ts:133](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/tweening/Tween.ts#L133)
+[src/tweening/Tween.ts:133](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/tweening/Tween.ts#L133)
 
 ***
 
@@ -267,7 +267,7 @@ Run multiple Tweens in sequence.
 
 #### Parameters
 
-• ...**tweens**: [`Tween`](/api/classes/tween/)\<`T`\>[]
+• ...**tweens**: [`Tween`](/three.ez/api/classes/tween/)\<`T`\>[]
 
 The Tweens to run in sequence.
 
@@ -279,7 +279,7 @@ The updated Tween instance.
 
 #### Defined in
 
-[src/tweening/Tween.ts:189](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/tweening/Tween.ts#L189)
+[src/tweening/Tween.ts:189](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/tweening/Tween.ts#L189)
 
 ***
 
@@ -291,7 +291,7 @@ Define a movement from the current state to a new state instantaneously.
 
 #### Parameters
 
-• **action**: [`SetMotion`](/api/type-aliases/setmotion/)\<`T`\>
+• **action**: [`SetMotion`](/three.ez/api/type-aliases/setmotion/)\<`T`\>
 
 The motion configuration.
 
@@ -303,7 +303,7 @@ The updated Tween instance.
 
 #### Defined in
 
-[src/tweening/Tween.ts:86](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/tweening/Tween.ts#L86)
+[src/tweening/Tween.ts:86](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/tweening/Tween.ts#L86)
 
 ***
 
@@ -327,7 +327,7 @@ The updated Tween instance.
 
 #### Defined in
 
-[src/tweening/Tween.ts:32](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/tweening/Tween.ts#L32)
+[src/tweening/Tween.ts:32](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/tweening/Tween.ts#L32)
 
 ***
 
@@ -351,7 +351,7 @@ The updated Tween instance.
 
 #### Defined in
 
-[src/tweening/Tween.ts:42](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/tweening/Tween.ts#L42)
+[src/tweening/Tween.ts:42](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/tweening/Tween.ts#L42)
 
 ***
 
@@ -375,25 +375,25 @@ The updated Tween instance.
 
 #### Defined in
 
-[src/tweening/Tween.ts:52](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/tweening/Tween.ts#L52)
+[src/tweening/Tween.ts:52](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/tweening/Tween.ts#L52)
 
 ***
 
 ### start()
 
-> **start**(): [`RunningTween`](/api/classes/runningtween/)\<`T`\>
+> **start**(): [`RunningTween`](/three.ez/api/classes/runningtween/)\<`T`\>
 
 Start the Tween and create a RunningTween instance.
 
 #### Returns
 
-[`RunningTween`](/api/classes/runningtween/)\<`T`\>
+[`RunningTween`](/three.ez/api/classes/runningtween/)\<`T`\>
 
 A RunningTween instance that controls the execution of the Tween.
 
 #### Defined in
 
-[src/tweening/Tween.ts:224](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/tweening/Tween.ts#L224)
+[src/tweening/Tween.ts:224](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/tweening/Tween.ts#L224)
 
 ***
 
@@ -405,7 +405,7 @@ Chain another Tween to execute after this Tween.
 
 #### Parameters
 
-• **tween**: [`Tween`](/api/classes/tween/)\<`T`\>
+• **tween**: [`Tween`](/three.ez/api/classes/tween/)\<`T`\>
 
 The Tween to chain.
 
@@ -417,7 +417,7 @@ The updated Tween instance.
 
 #### Defined in
 
-[src/tweening/Tween.ts:167](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/tweening/Tween.ts#L167)
+[src/tweening/Tween.ts:167](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/tweening/Tween.ts#L167)
 
 ***
 
@@ -433,11 +433,11 @@ Define a motion from the current state to a new state over a specified time.
 
 The duration of the motion in milliseconds.
 
-• **action**: [`Motion`](/api/type-aliases/motion/)\<`T`\>
+• **action**: [`Motion`](/three.ez/api/type-aliases/motion/)\<`T`\>
 
 The motion configuration.
 
-• **config?**: [`MotionConfig`](/api/interfaces/motionconfig/)\<`T`\>
+• **config?**: [`MotionConfig`](/three.ez/api/interfaces/motionconfig/)\<`T`\>
 
 Additional motion configuration options.
 
@@ -449,7 +449,7 @@ The updated Tween instance.
 
 #### Defined in
 
-[src/tweening/Tween.ts:64](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/tweening/Tween.ts#L64)
+[src/tweening/Tween.ts:64](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/tweening/Tween.ts#L64)
 
 ***
 
@@ -473,7 +473,7 @@ The updated Tween instance.
 
 #### Defined in
 
-[src/tweening/Tween.ts:142](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/tweening/Tween.ts#L142)
+[src/tweening/Tween.ts:142](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/tweening/Tween.ts#L142)
 
 ***
 
@@ -491,4 +491,4 @@ The updated Tween instance.
 
 #### Defined in
 
-[src/tweening/Tween.ts:158](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/tweening/Tween.ts#L158)
+[src/tweening/Tween.ts:158](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/tweening/Tween.ts#L158)

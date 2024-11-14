@@ -13,6 +13,20 @@ Represents an extended intersection between a ray and 3D objects in a scene.
 
 ## Properties
 
+### barycoord?
+
+> `optional` **barycoord**: `Vector3`
+
+#### Inherited from
+
+`Intersection.barycoord`
+
+#### Defined in
+
+node\_modules/@types/three/src/core/Raycaster.d.ts:28
+
+***
+
 ### batchId?
 
 > `optional` **batchId**: `number`
@@ -23,7 +37,7 @@ Represents an extended intersection between a ray and 3D objects in a scene.
 
 #### Defined in
 
-node\_modules/@types/three/src/core/Raycaster.d.ts:36
+node\_modules/@types/three/src/core/Raycaster.d.ts:37
 
 ***
 
@@ -91,13 +105,13 @@ node\_modules/@types/three/src/core/Raycaster.d.ts:27
 
 ### hitbox
 
-> **hitbox**: [`Hitbox`](/api/classes/hitbox/)
+> **hitbox**: [`Hitbox`](/three.ez/api/classes/hitbox/)
 
 The hitbox hit by the raycaster.
 
 #### Defined in
 
-[src/events/Events.ts:106](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/events/Events.ts#L106)
+[src/events/Events.ts:106](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/events/Events.ts#L106)
 
 ***
 
@@ -127,7 +141,7 @@ The index number of the instance where the ray intersects the THREE.InstancedMes
 
 #### Defined in
 
-node\_modules/@types/three/src/core/Raycaster.d.ts:34
+node\_modules/@types/three/src/core/Raycaster.d.ts:35
 
 ***
 
@@ -141,7 +155,7 @@ node\_modules/@types/three/src/core/Raycaster.d.ts:34
 
 #### Defined in
 
-node\_modules/@types/three/src/core/Raycaster.d.ts:32
+node\_modules/@types/three/src/core/Raycaster.d.ts:33
 
 ***
 
@@ -157,7 +171,7 @@ The intersected object
 
 #### Defined in
 
-[src/events/Events.ts:104](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/events/Events.ts#L104)
+[src/events/Events.ts:104](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/events/Events.ts#L104)
 
 ***
 
@@ -187,7 +201,7 @@ node\_modules/@types/three/src/core/Raycaster.d.ts:22
 
 #### Defined in
 
-node\_modules/@types/three/src/core/Raycaster.d.ts:35
+node\_modules/@types/three/src/core/Raycaster.d.ts:36
 
 ***
 
@@ -201,7 +215,7 @@ node\_modules/@types/three/src/core/Raycaster.d.ts:35
 
 #### Defined in
 
-node\_modules/@types/three/src/core/Raycaster.d.ts:30
+node\_modules/@types/three/src/core/Raycaster.d.ts:31
 
 ***
 
@@ -215,4 +229,4 @@ node\_modules/@types/three/src/core/Raycaster.d.ts:30
 
 #### Defined in
 
-node\_modules/@types/three/src/core/Raycaster.d.ts:31
+node\_modules/@types/three/src/core/Raycaster.d.ts:32

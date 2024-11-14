@@ -11,11 +11,11 @@ This class defines default settings for newly created Object3D instances.
 
 ### new Default()
 
-> **new Default**(): [`Default`](/api/classes/default/)
+> **new Default**(): [`Default`](/three.ez/api/classes/default/)
 
 #### Returns
 
-[`Default`](/api/classes/default/)
+[`Default`](/three.ez/api/classes/default/)
 
 ## Properties
 
@@ -27,7 +27,7 @@ The default setting for 'draggable' for newly created Object3Ds.
 
 #### Defined in
 
-[src/events/Default.ts:8](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/events/Default.ts#L8)
+[src/events/Default.ts:8](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/events/Default.ts#L8)
 
 ***
 
@@ -39,7 +39,7 @@ The default setting for 'focusable' for newly created Object3Ds.
 
 #### Defined in
 
-[src/events/Default.ts:6](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/events/Default.ts#L6)
+[src/events/Default.ts:6](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/events/Default.ts#L6)
 
 ***
 
@@ -51,4 +51,4 @@ The default setting for 'interceptByRaycaster' for newly created Object3Ds.
 
 #### Defined in
 
-[src/events/Default.ts:10](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/events/Default.ts#L10)
+[src/events/Default.ts:10](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/events/Default.ts#L10)

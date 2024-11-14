@@ -15,4 +15,4 @@ A type definition representing a collection of 3D nodes where each node is ident
 
 ## Defined in
 
-[src/utils/Utils.ts:6](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/utils/Utils.ts#L6)
+[src/utils/Utils.ts:6](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/utils/Utils.ts#L6)

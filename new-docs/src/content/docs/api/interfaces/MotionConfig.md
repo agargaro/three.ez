@@ -18,13 +18,13 @@ The type of the target object being tweened.
 
 ### easing?
 
-> `optional` **easing**: [`Easing`](/api/type-aliases/easing/)
+> `optional` **easing**: [`Easing`](/three.ez/api/type-aliases/easing/)
 
 The easing function to control the animation's progression.
 
 #### Defined in
 
-[src/tweening/Actions.ts:24](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/tweening/Actions.ts#L24)
+[src/tweening/Actions.ts:24](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/tweening/Actions.ts#L24)
 
 ***
 
@@ -46,7 +46,7 @@ The target object that was tweened.
 
 #### Defined in
 
-[src/tweening/Actions.ts:29](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/tweening/Actions.ts#L29)
+[src/tweening/Actions.ts:29](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/tweening/Actions.ts#L29)
 
 ***
 
@@ -66,11 +66,11 @@ The target object that is being tweened.
 
 The key or property being animated.
 
-• **start**: [`AllowedTypes`](/api/type-aliases/allowedtypes/)
+• **start**: [`AllowedTypes`](/three.ez/api/type-aliases/allowedtypes/)
 
 The initial value of the animated property.
 
-• **end**: [`AllowedTypes`](/api/type-aliases/allowedtypes/)
+• **end**: [`AllowedTypes`](/three.ez/api/type-aliases/allowedtypes/)
 
 The final value of the animated property.
 
@@ -86,7 +86,7 @@ If `false`, will not assign a new value to the property.
 
 #### Defined in
 
-[src/tweening/Actions.ts:49](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/tweening/Actions.ts#L49)
+[src/tweening/Actions.ts:49](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/tweening/Actions.ts#L49)
 
 ***
 
@@ -108,7 +108,7 @@ The target object that is being tweened.
 
 #### Defined in
 
-[src/tweening/Actions.ts:34](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/tweening/Actions.ts#L34)
+[src/tweening/Actions.ts:34](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/tweening/Actions.ts#L34)
 
 ***
 
@@ -130,4 +130,4 @@ The target object that is being tweened.
 
 #### Defined in
 
-[src/tweening/Actions.ts:39](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/tweening/Actions.ts#L39)
+[src/tweening/Actions.ts:39](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/tweening/Actions.ts#L39)

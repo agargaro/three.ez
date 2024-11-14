@@ -11,11 +11,11 @@ A custom sorting comparison function used for ordering intersections during rayc
 
 ## Parameters
 
-• **a**: [`IntersectionExt`](/api/interfaces/intersectionext/)
+• **a**: [`IntersectionExt`](/three.ez/api/interfaces/intersectionext/)
 
 The first intersection to compare.
 
-• **b**: [`IntersectionExt`](/api/interfaces/intersectionext/)
+• **b**: [`IntersectionExt`](/three.ez/api/interfaces/intersectionext/)
 
 The second intersection to compare.
 
@@ -27,4 +27,4 @@ A negative value if `a` should precede `b`, a positive value if `b` should prece
 
 ## Defined in
 
-[src/events/RaycasterManager.ts:12](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/events/RaycasterManager.ts#L12)
+[src/events/RaycasterManager.ts:12](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/events/RaycasterManager.ts#L12)

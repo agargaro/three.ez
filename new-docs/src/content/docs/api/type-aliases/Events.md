@@ -5,8 +5,8 @@ prev: false
 title: "Events"
 ---
 
-> **Events**: [`InteractionEvents`](/api/interfaces/interactionevents/) & [`MiscUpdateEvents`](/api/type-aliases/miscupdateevents/)
+> **Events**: [`InteractionEvents`](/three.ez/api/interfaces/interactionevents/) & [`MiscUpdateEvents`](/three.ez/api/type-aliases/miscupdateevents/)
 
 ## Defined in
 
-[src/events/Events.ts:6](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/events/Events.ts#L6)
+[src/events/Events.ts:6](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/events/Events.ts#L6)

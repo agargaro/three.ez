@@ -9,11 +9,11 @@ title: "VectorUtils"
 
 ### new VectorUtils()
 
-> **new VectorUtils**(): [`VectorUtils`](/api/classes/vectorutils/)
+> **new VectorUtils**(): [`VectorUtils`](/three.ez/api/classes/vectorutils/)
 
 #### Returns
 
-[`VectorUtils`](/api/classes/vectorutils/)
+[`VectorUtils`](/three.ez/api/classes/vectorutils/)
 
 ## Properties
 
@@ -23,7 +23,7 @@ title: "VectorUtils"
 
 #### Defined in
 
-[src/utils/VectorUtils.ts:9](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/utils/VectorUtils.ts#L9)
+[src/utils/VectorUtils.ts:9](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/utils/VectorUtils.ts#L9)
 
 ## Methods
 
@@ -33,11 +33,11 @@ title: "VectorUtils"
 
 #### Parameters
 
-• **p1**: [`ObjVec3`](/api/type-aliases/objvec3/)
+• **p1**: [`ObjVec3`](/three.ez/api/type-aliases/objvec3/)
 
-• **p2**: [`ObjVec3`](/api/type-aliases/objvec3/)
+• **p2**: [`ObjVec3`](/three.ez/api/type-aliases/objvec3/)
 
-• **center**: [`ObjVec3`](/api/type-aliases/objvec3/)
+• **center**: [`ObjVec3`](/three.ez/api/type-aliases/objvec3/)
 
 • **normal**: `Vector3` = `...`
 
@@ -47,7 +47,7 @@ title: "VectorUtils"
 
 #### Defined in
 
-[src/utils/VectorUtils.ts:90](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/utils/VectorUtils.ts#L90)
+[src/utils/VectorUtils.ts:90](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/utils/VectorUtils.ts#L90)
 
 ***
 
@@ -69,7 +69,7 @@ title: "VectorUtils"
 
 #### Defined in
 
-[src/utils/VectorUtils.ts:86](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/utils/VectorUtils.ts#L86)
+[src/utils/VectorUtils.ts:86](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/utils/VectorUtils.ts#L86)
 
 ***
 
@@ -79,11 +79,11 @@ title: "VectorUtils"
 
 #### Parameters
 
-• **origin**: [`ObjVec3`](/api/type-aliases/objvec3/)
+• **origin**: [`ObjVec3`](/three.ez/api/type-aliases/objvec3/)
 
 • **dir**: `Vector3`
 
-• **points**: [`ObjVec3`](/api/type-aliases/objvec3/)[]
+• **points**: [`ObjVec3`](/three.ez/api/type-aliases/objvec3/)[]
 
 #### Returns
 
@@ -91,7 +91,7 @@ title: "VectorUtils"
 
 #### Defined in
 
-[src/utils/VectorUtils.ts:66](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/utils/VectorUtils.ts#L66)
+[src/utils/VectorUtils.ts:66](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/utils/VectorUtils.ts#L66)
 
 ***
 
@@ -101,11 +101,11 @@ title: "VectorUtils"
 
 #### Parameters
 
-• **p1**: [`ObjVec3`](/api/type-aliases/objvec3/)
+• **p1**: [`ObjVec3`](/three.ez/api/type-aliases/objvec3/)
 
-• **p2**: [`ObjVec3`](/api/type-aliases/objvec3/)
+• **p2**: [`ObjVec3`](/three.ez/api/type-aliases/objvec3/)
 
-• **points**: [`ObjVec3`](/api/type-aliases/objvec3/)[]
+• **points**: [`ObjVec3`](/three.ez/api/type-aliases/objvec3/)[]
 
 • **normal**: `Vector3` = `...`
 
@@ -115,7 +115,7 @@ title: "VectorUtils"
 
 #### Defined in
 
-[src/utils/VectorUtils.ts:75](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/utils/VectorUtils.ts#L75)
+[src/utils/VectorUtils.ts:75](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/utils/VectorUtils.ts#L75)
 
 ***
 
@@ -137,7 +137,7 @@ title: "VectorUtils"
 
 #### Defined in
 
-[src/utils/VectorUtils.ts:55](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/utils/VectorUtils.ts#L55)
+[src/utils/VectorUtils.ts:55](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/utils/VectorUtils.ts#L55)
 
 ***
 
@@ -147,11 +147,11 @@ title: "VectorUtils"
 
 #### Parameters
 
-• **p1**: [`ObjVec3`](/api/type-aliases/objvec3/)
+• **p1**: [`ObjVec3`](/three.ez/api/type-aliases/objvec3/)
 
-• **p2**: [`ObjVec3`](/api/type-aliases/objvec3/)
+• **p2**: [`ObjVec3`](/three.ez/api/type-aliases/objvec3/)
 
-• **center**: [`ObjVec3`](/api/type-aliases/objvec3/)
+• **center**: [`ObjVec3`](/three.ez/api/type-aliases/objvec3/)
 
 • **target**: `Vector3` = `...`
 
@@ -161,7 +161,7 @@ title: "VectorUtils"
 
 #### Defined in
 
-[src/utils/VectorUtils.ts:61](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/utils/VectorUtils.ts#L61)
+[src/utils/VectorUtils.ts:61](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/utils/VectorUtils.ts#L61)
 
 ***
 
@@ -183,7 +183,7 @@ title: "VectorUtils"
 
 #### Defined in
 
-[src/utils/VectorUtils.ts:23](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/utils/VectorUtils.ts#L23)
+[src/utils/VectorUtils.ts:23](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/utils/VectorUtils.ts#L23)
 
 ***
 
@@ -193,7 +193,7 @@ title: "VectorUtils"
 
 #### Parameters
 
-• **item**: [`VectorObject3D`](/api/type-aliases/vectorobject3d/)
+• **item**: [`VectorObject3D`](/three.ez/api/type-aliases/vectorobject3d/)
 
 #### Returns
 
@@ -201,7 +201,7 @@ title: "VectorUtils"
 
 #### Defined in
 
-[src/utils/VectorUtils.ts:11](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/utils/VectorUtils.ts#L11)
+[src/utils/VectorUtils.ts:11](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/utils/VectorUtils.ts#L11)
 
 ***
 
@@ -211,7 +211,7 @@ title: "VectorUtils"
 
 #### Parameters
 
-• **items**: [`VectorObject3D`](/api/type-aliases/vectorobject3d/)[]
+• **items**: [`VectorObject3D`](/three.ez/api/type-aliases/vectorobject3d/)[]
 
 #### Returns
 
@@ -219,7 +219,7 @@ title: "VectorUtils"
 
 #### Defined in
 
-[src/utils/VectorUtils.ts:15](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/utils/VectorUtils.ts#L15)
+[src/utils/VectorUtils.ts:15](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/utils/VectorUtils.ts#L15)
 
 ***
 
@@ -241,7 +241,7 @@ title: "VectorUtils"
 
 #### Defined in
 
-[src/utils/VectorUtils.ts:31](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/utils/VectorUtils.ts#L31)
+[src/utils/VectorUtils.ts:31](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/utils/VectorUtils.ts#L31)
 
 ***
 
@@ -263,7 +263,7 @@ title: "VectorUtils"
 
 #### Defined in
 
-[src/utils/VectorUtils.ts:27](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/utils/VectorUtils.ts#L27)
+[src/utils/VectorUtils.ts:27](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/utils/VectorUtils.ts#L27)
 
 ***
 
@@ -285,7 +285,7 @@ title: "VectorUtils"
 
 #### Defined in
 
-[src/utils/VectorUtils.ts:35](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/utils/VectorUtils.ts#L35)
+[src/utils/VectorUtils.ts:35](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/utils/VectorUtils.ts#L35)
 
 ***
 
@@ -295,9 +295,9 @@ title: "VectorUtils"
 
 #### Parameters
 
-• **p1**: [`ObjVec3`](/api/type-aliases/objvec3/)
+• **p1**: [`ObjVec3`](/three.ez/api/type-aliases/objvec3/)
 
-• **p2**: [`ObjVec3`](/api/type-aliases/objvec3/)
+• **p2**: [`ObjVec3`](/three.ez/api/type-aliases/objvec3/)
 
 • **target**: `Vector3` = `...`
 
@@ -309,7 +309,7 @@ title: "VectorUtils"
 
 #### Defined in
 
-[src/utils/VectorUtils.ts:44](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/utils/VectorUtils.ts#L44)
+[src/utils/VectorUtils.ts:44](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/utils/VectorUtils.ts#L44)
 
 ***
 
@@ -333,7 +333,7 @@ title: "VectorUtils"
 
 #### Defined in
 
-[src/utils/VectorUtils.ts:39](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/utils/VectorUtils.ts#L39)
+[src/utils/VectorUtils.ts:39](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/utils/VectorUtils.ts#L39)
 
 ***
 
@@ -343,11 +343,11 @@ title: "VectorUtils"
 
 #### Parameters
 
-• **p1**: [`ObjVec3`](/api/type-aliases/objvec3/)
+• **p1**: [`ObjVec3`](/three.ez/api/type-aliases/objvec3/)
 
-• **p2**: [`ObjVec3`](/api/type-aliases/objvec3/)
+• **p2**: [`ObjVec3`](/three.ez/api/type-aliases/objvec3/)
 
-• **refPoint**: [`ObjVec3`](/api/type-aliases/objvec3/)
+• **refPoint**: [`ObjVec3`](/three.ez/api/type-aliases/objvec3/)
 
 • **target**: `Vector3` = `...`
 
@@ -359,7 +359,7 @@ title: "VectorUtils"
 
 #### Defined in
 
-[src/utils/VectorUtils.ts:49](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/utils/VectorUtils.ts#L49)
+[src/utils/VectorUtils.ts:49](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/utils/VectorUtils.ts#L49)
 
 ***
 
@@ -369,11 +369,11 @@ title: "VectorUtils"
 
 #### Parameters
 
-• **point**: [`ObjVec3`](/api/type-aliases/objvec3/)
+• **point**: [`ObjVec3`](/three.ez/api/type-aliases/objvec3/)
 
-• **l1**: [`ObjVec3`](/api/type-aliases/objvec3/)
+• **l1**: [`ObjVec3`](/three.ez/api/type-aliases/objvec3/)
 
-• **l2**: [`ObjVec3`](/api/type-aliases/objvec3/)
+• **l2**: [`ObjVec3`](/three.ez/api/type-aliases/objvec3/)
 
 • **target**: `Vector3` = `...`
 
@@ -383,4 +383,4 @@ title: "VectorUtils"
 
 #### Defined in
 
-[src/utils/VectorUtils.ts:97](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/utils/VectorUtils.ts#L97)
+[src/utils/VectorUtils.ts:97](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/utils/VectorUtils.ts#L97)

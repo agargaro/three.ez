@@ -11,11 +11,11 @@ This class is responsible for managing and controlling running tweens.
 
 ### new TweenManager()
 
-> **new TweenManager**(): [`TweenManager`](/api/classes/tweenmanager/)
+> **new TweenManager**(): [`TweenManager`](/three.ez/api/classes/tweenmanager/)
 
 #### Returns
 
-[`TweenManager`](/api/classes/tweenmanager/)
+[`TweenManager`](/three.ez/api/classes/tweenmanager/)
 
 ## Methods
 
@@ -31,7 +31,7 @@ Complete all running tweens.
 
 #### Defined in
 
-[src/tweening/TweenManager.ts:123](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/tweening/TweenManager.ts#L123)
+[src/tweening/TweenManager.ts:123](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/tweening/TweenManager.ts#L123)
 
 ***
 
@@ -53,7 +53,7 @@ The tag to filter running tweens.
 
 #### Defined in
 
-[src/tweening/TweenManager.ts:133](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/tweening/TweenManager.ts#L133)
+[src/tweening/TweenManager.ts:133](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/tweening/TweenManager.ts#L133)
 
 ***
 
@@ -69,7 +69,7 @@ Stop all running tweens.
 
 #### Defined in
 
-[src/tweening/TweenManager.ts:102](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/tweening/TweenManager.ts#L102)
+[src/tweening/TweenManager.ts:102](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/tweening/TweenManager.ts#L102)
 
 ***
 
@@ -91,7 +91,7 @@ The tag to filter running tweens.
 
 #### Defined in
 
-[src/tweening/TweenManager.ts:112](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/tweening/TweenManager.ts#L112)
+[src/tweening/TweenManager.ts:112](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/tweening/TweenManager.ts#L112)
 
 ***
 
@@ -113,4 +113,4 @@ Tween identifier.
 
 #### Defined in
 
-[src/tweening/TweenManager.ts:90](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/tweening/TweenManager.ts#L90)
+[src/tweening/TweenManager.ts:90](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/tweening/TweenManager.ts#L90)

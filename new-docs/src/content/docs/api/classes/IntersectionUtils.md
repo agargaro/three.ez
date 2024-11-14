@@ -11,11 +11,11 @@ Class that provides a set of utilities for calculating intersections between 2D 
 
 ### new IntersectionUtils()
 
-> **new IntersectionUtils**(): [`IntersectionUtils`](/api/classes/intersectionutils/)
+> **new IntersectionUtils**(): [`IntersectionUtils`](/three.ez/api/classes/intersectionutils/)
 
 #### Returns
 
-[`IntersectionUtils`](/api/classes/intersectionutils/)
+[`IntersectionUtils`](/three.ez/api/classes/intersectionutils/)
 
 ## Methods
 
@@ -47,7 +47,7 @@ The AABB to check for intersection with.
 
 #### Defined in
 
-[src/utils/IntersectionUtils.ts:103](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/utils/IntersectionUtils.ts#L103)
+[src/utils/IntersectionUtils.ts:103](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/utils/IntersectionUtils.ts#L103)
 
 ***
 
@@ -59,19 +59,19 @@ Computes the intersection between two 2D lines defined by points `a1` and `a2`, 
 
 #### Parameters
 
-• **a1**: [`VectorObject3D`](/api/type-aliases/vectorobject3d/)
+• **a1**: [`VectorObject3D`](/three.ez/api/type-aliases/vectorobject3d/)
 
 The first point of the first line.
 
-• **a2**: [`VectorObject3D`](/api/type-aliases/vectorobject3d/)
+• **a2**: [`VectorObject3D`](/three.ez/api/type-aliases/vectorobject3d/)
 
 The second point of the first line.
 
-• **b1**: [`VectorObject3D`](/api/type-aliases/vectorobject3d/)
+• **b1**: [`VectorObject3D`](/three.ez/api/type-aliases/vectorobject3d/)
 
 The first point of the second line.
 
-• **b2**: [`VectorObject3D`](/api/type-aliases/vectorobject3d/)
+• **b2**: [`VectorObject3D`](/three.ez/api/type-aliases/vectorobject3d/)
 
 The second point of the second line.
 
@@ -91,7 +91,7 @@ The intersection point of the two lines or `undefined` if the lines are parallel
 
 #### Defined in
 
-[src/utils/IntersectionUtils.ts:22](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/utils/IntersectionUtils.ts#L22)
+[src/utils/IntersectionUtils.ts:22](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/utils/IntersectionUtils.ts#L22)
 
 ***
 
@@ -103,19 +103,19 @@ Computes the intersection between two 3D lines defined by points `a1` and `a2`, 
 
 #### Parameters
 
-• **a1**: [`ObjVec3`](/api/type-aliases/objvec3/)
+• **a1**: [`ObjVec3`](/three.ez/api/type-aliases/objvec3/)
 
 The first point of the first line.
 
-• **a2**: [`ObjVec3`](/api/type-aliases/objvec3/)
+• **a2**: [`ObjVec3`](/three.ez/api/type-aliases/objvec3/)
 
 The second point of the first line.
 
-• **b1**: [`ObjVec3`](/api/type-aliases/objvec3/)
+• **b1**: [`ObjVec3`](/three.ez/api/type-aliases/objvec3/)
 
 The first point of the second line.
 
-• **b2**: [`ObjVec3`](/api/type-aliases/objvec3/)
+• **b2**: [`ObjVec3`](/three.ez/api/type-aliases/objvec3/)
 
 The second point of the second line.
 
@@ -139,7 +139,7 @@ The intersection point of the two lines or `undefined` if the lines are parallel
 
 #### Defined in
 
-[src/utils/IntersectionUtils.ts:65](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/utils/IntersectionUtils.ts#L65)
+[src/utils/IntersectionUtils.ts:65](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/utils/IntersectionUtils.ts#L65)
 
 ***
 
@@ -171,7 +171,7 @@ The AABB to check for intersection with.
 
 #### Defined in
 
-[src/utils/IntersectionUtils.ts:160](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/utils/IntersectionUtils.ts#L160)
+[src/utils/IntersectionUtils.ts:160](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/utils/IntersectionUtils.ts#L160)
 
 ***
 
@@ -183,19 +183,19 @@ Computes the intersection between two 2D line segments defined by points `a1` an
 
 #### Parameters
 
-• **a1**: [`VectorObject3D`](/api/type-aliases/vectorobject3d/)
+• **a1**: [`VectorObject3D`](/three.ez/api/type-aliases/vectorobject3d/)
 
 The first point of the first segment.
 
-• **a2**: [`VectorObject3D`](/api/type-aliases/vectorobject3d/)
+• **a2**: [`VectorObject3D`](/three.ez/api/type-aliases/vectorobject3d/)
 
 The second point of the first segment.
 
-• **b1**: [`VectorObject3D`](/api/type-aliases/vectorobject3d/)
+• **b1**: [`VectorObject3D`](/three.ez/api/type-aliases/vectorobject3d/)
 
 The first point of the second segment.
 
-• **b2**: [`VectorObject3D`](/api/type-aliases/vectorobject3d/)
+• **b2**: [`VectorObject3D`](/three.ez/api/type-aliases/vectorobject3d/)
 
 The second point of the second segment.
 
@@ -215,4 +215,4 @@ The intersection point of the two segments or `undefined` if the segments do not
 
 #### Defined in
 
-[src/utils/IntersectionUtils.ts:42](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/utils/IntersectionUtils.ts#L42)
+[src/utils/IntersectionUtils.ts:42](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/utils/IntersectionUtils.ts#L42)

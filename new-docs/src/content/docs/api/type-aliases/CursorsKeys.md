@@ -11,4 +11,4 @@ Valid cursor values based on the CSS cursor property.
 
 ## Defined in
 
-[src/events/CursorManager.ts:5](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/events/CursorManager.ts#L5)
+[src/events/CursorManager.ts:5](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/events/CursorManager.ts#L5)

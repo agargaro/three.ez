@@ -5,8 +5,8 @@ prev: false
 title: "InstancedInteractionEvents"
 ---
 
-> **InstancedInteractionEvents**: `Omit`\<[`InteractionEvents`](/api/interfaces/interactionevents/)\<[`InstancedMeshEntity`](/api/classes/instancedmeshentity/), [`InstancedMeshEntity`](/api/classes/instancedmeshentity/)\>, `"focusout"` \| `"focusin"` \| `"pointerleave"` \| `"pointerenter"` \| `"dragenter"` \| `"dragover"` \| `"dragleave"` \| `"drop"`\>
+> **InstancedInteractionEvents**: `Omit`\<[`InteractionEvents`](/three.ez/api/interfaces/interactionevents/)\<[`InstancedMeshEntity`](/three.ez/api/classes/instancedmeshentity/), [`InstancedMeshEntity`](/three.ez/api/classes/instancedmeshentity/)\>, `"focusout"` \| `"focusin"` \| `"pointerleave"` \| `"pointerenter"` \| `"dragenter"` \| `"dragover"` \| `"dragleave"` \| `"drop"`\>
 
 ## Defined in
 
-[src/instancedMesh/EventsDispatcherInstanced.ts:5](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/instancedMesh/EventsDispatcherInstanced.ts#L5)
+[src/instancedMesh/EventsDispatcherInstanced.ts:5](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/instancedMesh/EventsDispatcherInstanced.ts#L5)

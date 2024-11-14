@@ -9,7 +9,7 @@ Represents a custom extended focus event.
 
 ## Extends
 
-- [`EventExt`](/api/classes/eventext/)\<`T`\>
+- [`EventExt`](/three.ez/api/classes/eventext/)\<`T`\>
 
 ## Type Parameters
 
@@ -25,7 +25,7 @@ The type of the related target for the event (default is `Object3D`).
 
 ### new FocusEventExt()
 
-> **new FocusEventExt**\<`T`, `R`\>(`relatedTarget`): [`FocusEventExt`](/api/classes/focuseventext/)\<`T`, `R`\>
+> **new FocusEventExt**\<`T`, `R`\>(`relatedTarget`): [`FocusEventExt`](/three.ez/api/classes/focuseventext/)\<`T`, `R`\>
 
 #### Parameters
 
@@ -35,15 +35,15 @@ The secondary target for the event.
 
 #### Returns
 
-[`FocusEventExt`](/api/classes/focuseventext/)\<`T`, `R`\>
+[`FocusEventExt`](/three.ez/api/classes/focuseventext/)\<`T`, `R`\>
 
 #### Overrides
 
-[`EventExt`](/api/classes/eventext/).[`constructor`](/api/classes/eventext/#constructors)
+[`EventExt`](/three.ez/api/classes/eventext/).[`constructor`](/three.ez/api/classes/eventext/#constructors)
 
 #### Defined in
 
-[src/events/Events.ts:361](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/events/Events.ts#L361)
+[src/events/Events.ts:361](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/events/Events.ts#L361)
 
 ## Properties
 
@@ -55,11 +55,11 @@ A boolean value indicating whether the event is cancelable.
 
 #### Inherited from
 
-[`EventExt`](/api/classes/eventext/).[`cancelable`](/api/classes/eventext/#cancelable)
+[`EventExt`](/three.ez/api/classes/eventext/).[`cancelable`](/three.ez/api/classes/eventext/#cancelable)
 
 #### Defined in
 
-[src/events/Events.ts:116](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/events/Events.ts#L116)
+[src/events/Events.ts:116](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/events/Events.ts#L116)
 
 ***
 
@@ -71,11 +71,11 @@ A reference to the currently registered target for the event. This is the object
 
 #### Inherited from
 
-[`EventExt`](/api/classes/eventext/).[`currentTarget`](/api/classes/eventext/#currenttarget)
+[`EventExt`](/three.ez/api/classes/eventext/).[`currentTarget`](/three.ez/api/classes/eventext/#currenttarget)
 
 #### Defined in
 
-[src/events/Events.ts:118](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/events/Events.ts#L118)
+[src/events/Events.ts:118](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/events/Events.ts#L118)
 
 ***
 
@@ -87,7 +87,7 @@ The secondary target for the event.
 
 #### Defined in
 
-[src/events/Events.ts:356](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/events/Events.ts#L356)
+[src/events/Events.ts:356](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/events/Events.ts#L356)
 
 ***
 
@@ -99,11 +99,11 @@ The time at which the event was created (in milliseconds). By specification, thi
 
 #### Inherited from
 
-[`EventExt`](/api/classes/eventext/).[`timeStamp`](/api/classes/eventext/#timestamp)
+[`EventExt`](/three.ez/api/classes/eventext/).[`timeStamp`](/three.ez/api/classes/eventext/#timestamp)
 
 #### Defined in
 
-[src/events/Events.ts:124](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/events/Events.ts#L124)
+[src/events/Events.ts:124](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/events/Events.ts#L124)
 
 ## Accessors
 
@@ -121,11 +121,11 @@ A boolean value indicating whether or not the event bubbles up through the DOM.
 
 #### Inherited from
 
-[`EventExt`](/api/classes/eventext/).[`bubbles`](/api/classes/eventext/#bubbles)
+[`EventExt`](/three.ez/api/classes/eventext/).[`bubbles`](/three.ez/api/classes/eventext/#bubbles)
 
 #### Defined in
 
-[src/events/Events.ts:114](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/events/Events.ts#L114)
+[src/events/Events.ts:114](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/events/Events.ts#L114)
 
 ***
 
@@ -143,11 +143,11 @@ Indicates whether or not the call to event.preventDefault() canceled the event.
 
 #### Inherited from
 
-[`EventExt`](/api/classes/eventext/).[`defaultPrevented`](/api/classes/eventext/#defaultprevented)
+[`EventExt`](/three.ez/api/classes/eventext/).[`defaultPrevented`](/three.ez/api/classes/eventext/#defaultprevented)
 
 #### Defined in
 
-[src/events/Events.ts:120](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/events/Events.ts#L120)
+[src/events/Events.ts:120](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/events/Events.ts#L120)
 
 ***
 
@@ -165,11 +165,11 @@ A reference to the object to which the event was originally dispatched.
 
 #### Inherited from
 
-[`EventExt`](/api/classes/eventext/).[`target`](/api/classes/eventext/#target)
+[`EventExt`](/three.ez/api/classes/eventext/).[`target`](/three.ez/api/classes/eventext/#target)
 
 #### Defined in
 
-[src/events/Events.ts:122](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/events/Events.ts#L122)
+[src/events/Events.ts:122](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/events/Events.ts#L122)
 
 ***
 
@@ -187,11 +187,11 @@ keyof MiscEvents \| keyof InteractionEvents\<Object3D\<Object3DEventMap\>, Objec
 
 #### Inherited from
 
-[`EventExt`](/api/classes/eventext/).[`type`](/api/classes/eventext/#type)
+[`EventExt`](/three.ez/api/classes/eventext/).[`type`](/three.ez/api/classes/eventext/#type)
 
 #### Defined in
 
-[src/events/Events.ts:126](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/events/Events.ts#L126)
+[src/events/Events.ts:126](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/events/Events.ts#L126)
 
 ## Methods
 
@@ -207,11 +207,11 @@ Cancels the event.
 
 #### Inherited from
 
-[`EventExt`](/api/classes/eventext/).[`preventDefault`](/api/classes/eventext/#preventdefault)
+[`EventExt`](/three.ez/api/classes/eventext/).[`preventDefault`](/three.ez/api/classes/eventext/#preventdefault)
 
 #### Defined in
 
-[src/events/Events.ts:142](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/events/Events.ts#L142)
+[src/events/Events.ts:142](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/events/Events.ts#L142)
 
 ***
 
@@ -227,11 +227,11 @@ For this particular event, prevent all other listeners from being called. This i
 
 #### Inherited from
 
-[`EventExt`](/api/classes/eventext/).[`stopImmediatePropagation`](/api/classes/eventext/#stopimmediatepropagation)
+[`EventExt`](/three.ez/api/classes/eventext/).[`stopImmediatePropagation`](/three.ez/api/classes/eventext/#stopimmediatepropagation)
 
 #### Defined in
 
-[src/events/Events.ts:147](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/events/Events.ts#L147)
+[src/events/Events.ts:147](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/events/Events.ts#L147)
 
 ***
 
@@ -247,8 +247,8 @@ Stops the propagation of events further along in the Object3D hierarchy.
 
 #### Inherited from
 
-[`EventExt`](/api/classes/eventext/).[`stopPropagation`](/api/classes/eventext/#stoppropagation)
+[`EventExt`](/three.ez/api/classes/eventext/).[`stopPropagation`](/three.ez/api/classes/eventext/#stoppropagation)
 
 #### Defined in
 
-[src/events/Events.ts:152](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/events/Events.ts#L152)
+[src/events/Events.ts:152](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/events/Events.ts#L152)

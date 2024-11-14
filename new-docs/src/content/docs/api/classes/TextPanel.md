@@ -9,7 +9,7 @@ title: "TextPanel"
 
 ### new TextPanel()
 
-> **new TextPanel**(`name`, `properties`, `fg`, `bg`, `updateTime`): [`TextPanel`](/api/classes/textpanel/)
+> **new TextPanel**(`name`, `properties`, `fg`, `bg`, `updateTime`): [`TextPanel`](/three.ez/api/classes/textpanel/)
 
 #### Parameters
 
@@ -25,11 +25,11 @@ title: "TextPanel"
 
 #### Returns
 
-[`TextPanel`](/api/classes/textpanel/)
+[`TextPanel`](/three.ez/api/classes/textpanel/)
 
 #### Defined in
 
-[src/utils/Stats.ts:232](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/utils/Stats.ts#L232)
+[src/utils/Stats.ts:232](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/utils/Stats.ts#L232)
 
 ## Properties
 
@@ -39,7 +39,7 @@ title: "TextPanel"
 
 #### Defined in
 
-[src/utils/Stats.ts:211](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/utils/Stats.ts#L211)
+[src/utils/Stats.ts:211](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/utils/Stats.ts#L211)
 
 ## Methods
 
@@ -59,4 +59,4 @@ title: "TextPanel"
 
 #### Defined in
 
-[src/utils/Stats.ts:254](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/utils/Stats.ts#L254)
+[src/utils/Stats.ts:254](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/utils/Stats.ts#L254)

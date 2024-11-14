@@ -11,11 +11,11 @@ A utility class providing helper methods for various operations.
 
 ### new Utils()
 
-> **new Utils**(): [`Utils`](/api/classes/utils/)
+> **new Utils**(): [`Utils`](/three.ez/api/classes/utils/)
 
 #### Returns
 
-[`Utils`](/api/classes/utils/)
+[`Utils`](/three.ez/api/classes/utils/)
 
 ## Methods
 
@@ -37,13 +37,13 @@ The root Object3D from which to start computing bounding spheres for children.
 
 #### Defined in
 
-[src/utils/Utils.ts:45](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/utils/Utils.ts#L45)
+[src/utils/Utils.ts:45](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/utils/Utils.ts#L45)
 
 ***
 
 ### getNodes()
 
-> `static` **getNodes**(`target`): [`Nodes`](/api/type-aliases/nodes/)
+> `static` **getNodes**(`target`): [`Nodes`](/three.ez/api/type-aliases/nodes/)
 
 Retrieves a map of objects in the scene graph (Object3D) starting from a root object.
 Each object is mapped using its unique name as the key in the resulting object.
@@ -56,13 +56,13 @@ The root object to begin generating the object map from.
 
 #### Returns
 
-[`Nodes`](/api/type-aliases/nodes/)
+[`Nodes`](/three.ez/api/type-aliases/nodes/)
 
 An object containing objects mapped by their names.
 
 #### Defined in
 
-[src/utils/Utils.ts:60](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/utils/Utils.ts#L60)
+[src/utils/Utils.ts:60](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/utils/Utils.ts#L60)
 
 ***
 
@@ -94,7 +94,7 @@ The intersection point as Vector3.
 
 #### Defined in
 
-[src/utils/Utils.ts:23](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/utils/Utils.ts#L23)
+[src/utils/Utils.ts:23](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/utils/Utils.ts#L23)
 
 ***
 
@@ -121,4 +121,4 @@ The Object3D that will act as the drag target for the children.
 
 #### Defined in
 
-[src/utils/Utils.ts:34](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/utils/Utils.ts#L34)
+[src/utils/Utils.ts:34](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/utils/Utils.ts#L34)

@@ -11,11 +11,11 @@ The Asset class is a manager for loading and handling resources in a scene.
 
 ### new Asset()
 
-> **new Asset**(): [`Asset`](/api/classes/asset/)
+> **new Asset**(): [`Asset`](/three.ez/api/classes/asset/)
 
 #### Returns
 
-[`Asset`](/api/classes/asset/)
+[`Asset`](/three.ez/api/classes/asset/)
 
 ## Properties
 
@@ -36,7 +36,7 @@ This function is called with an `error` object in case of loading errors.
 
 #### Defined in
 
-[src/utils/Asset.ts:63](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/utils/Asset.ts#L63)
+[src/utils/Asset.ts:63](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/utils/Asset.ts#L63)
 
 ***
 
@@ -57,7 +57,7 @@ This function is called with a ratio (0 to 1) to indicate the loading progress.
 
 #### Defined in
 
-[src/utils/Asset.ts:58](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/utils/Asset.ts#L58)
+[src/utils/Asset.ts:58](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/utils/Asset.ts#L58)
 
 ## Methods
 
@@ -87,7 +87,7 @@ A previously loaded result object.
 
 ##### Defined in
 
-[src/utils/Asset.ts:73](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/utils/Asset.ts#L73)
+[src/utils/Asset.ts:73](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/utils/Asset.ts#L73)
 
 #### get(path)
 
@@ -113,7 +113,7 @@ An array of previously loaded result objects.
 
 ##### Defined in
 
-[src/utils/Asset.ts:79](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/utils/Asset.ts#L79)
+[src/utils/Asset.ts:79](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/utils/Asset.ts#L79)
 
 ***
 
@@ -141,7 +141,7 @@ The loader associated with the resource type.
 
 #### Defined in
 
-[src/utils/Asset.ts:95](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/utils/Asset.ts#L95)
+[src/utils/Asset.ts:95](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/utils/Asset.ts#L95)
 
 ***
 
@@ -179,7 +179,7 @@ A Promise that resolves with the loaded resource when loading is complete.
 
 #### Defined in
 
-[src/utils/Asset.ts:109](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/utils/Asset.ts#L109)
+[src/utils/Asset.ts:109](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/utils/Asset.ts#L109)
 
 ***
 
@@ -191,11 +191,11 @@ Load all specified resources and return a promise that resolves when all resourc
 
 #### Parameters
 
-• **config**: [`LoadingConfig`](/api/interfaces/loadingconfig/) = `{}`
+• **config**: [`LoadingConfig`](/three.ez/api/interfaces/loadingconfig/) = `{}`
 
 Configuration for the loading process.
 
-• ...**resources**: [`Resource`](/api/interfaces/resource/)[]
+• ...**resources**: [`Resource`](/three.ez/api/interfaces/resource/)[]
 
 An array of resource objects to load.
 
@@ -207,7 +207,7 @@ A promise that resolves when all resources are loaded.
 
 #### Defined in
 
-[src/utils/Asset.ts:149](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/utils/Asset.ts#L149)
+[src/utils/Asset.ts:149](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/utils/Asset.ts#L149)
 
 ***
 
@@ -223,7 +223,7 @@ Preload resources for future use.
 
 The loader type to be used for preloading.
 
-• ...**paths**: (`string` \| [`ResourceConfig`](/api/interfaces/resourceconfig/))[]
+• ...**paths**: (`string` \| [`ResourceConfig`](/three.ez/api/interfaces/resourceconfig/))[]
 
 An array of resource paths or configurations to preload.
 
@@ -233,7 +233,7 @@ An array of resource paths or configurations to preload.
 
 #### Defined in
 
-[src/utils/Asset.ts:128](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/utils/Asset.ts#L128)
+[src/utils/Asset.ts:128](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/utils/Asset.ts#L128)
 
 ***
 
@@ -245,7 +245,7 @@ Preload all pending resources and return a promise that resolves when all resour
 
 #### Parameters
 
-• **config**: [`LoadingConfig`](/api/interfaces/loadingconfig/) = `{}`
+• **config**: [`LoadingConfig`](/three.ez/api/interfaces/loadingconfig/) = `{}`
 
 Optional configuration for the loading process.
 
@@ -257,4 +257,4 @@ A promise that resolves when all pending resources are loaded.
 
 #### Defined in
 
-[src/utils/Asset.ts:137](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/utils/Asset.ts#L137)
+[src/utils/Asset.ts:137](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/utils/Asset.ts#L137)

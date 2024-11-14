@@ -19,4 +19,4 @@ Type representing an easing function that takes a single numeric parameter and r
 
 ## Defined in
 
-[src/tweening/Easings.ts:2](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/tweening/Easings.ts#L2)
+[src/tweening/Easings.ts:2](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/tweening/Easings.ts#L2)

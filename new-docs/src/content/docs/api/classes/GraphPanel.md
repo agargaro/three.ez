@@ -9,7 +9,7 @@ title: "GraphPanel"
 
 ### new GraphPanel()
 
-> **new GraphPanel**(`name`, `fg`, `bg`, `updateTime`, `getAverage`): [`GraphPanel`](/api/classes/graphpanel/)
+> **new GraphPanel**(`name`, `fg`, `bg`, `updateTime`, `getAverage`): [`GraphPanel`](/three.ez/api/classes/graphpanel/)
 
 #### Parameters
 
@@ -25,11 +25,11 @@ title: "GraphPanel"
 
 #### Returns
 
-[`GraphPanel`](/api/classes/graphpanel/)
+[`GraphPanel`](/three.ez/api/classes/graphpanel/)
 
 #### Defined in
 
-[src/utils/Stats.ts:156](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/utils/Stats.ts#L156)
+[src/utils/Stats.ts:156](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/utils/Stats.ts#L156)
 
 ## Properties
 
@@ -39,7 +39,7 @@ title: "GraphPanel"
 
 #### Defined in
 
-[src/utils/Stats.ts:141](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/utils/Stats.ts#L141)
+[src/utils/Stats.ts:141](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/utils/Stats.ts#L141)
 
 ## Methods
 
@@ -63,4 +63,4 @@ title: "GraphPanel"
 
 #### Defined in
 
-[src/utils/Stats.ts:178](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/utils/Stats.ts#L178)
+[src/utils/Stats.ts:178](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/utils/Stats.ts#L178)

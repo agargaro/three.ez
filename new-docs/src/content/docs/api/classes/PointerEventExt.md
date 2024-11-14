@@ -9,11 +9,11 @@ Represents a custom extended pointer event.
 
 ## Extends
 
-- [`MouseEventExt`](/api/classes/mouseeventext/)\<`T`, `R`\>
+- [`MouseEventExt`](/three.ez/api/classes/mouseeventext/)\<`T`, `R`\>
 
 ## Extended by
 
-- [`DragEventExt`](/api/classes/drageventext/)
+- [`DragEventExt`](/three.ez/api/classes/drageventext/)
 
 ## Type Parameters
 
@@ -29,7 +29,7 @@ The type of the related target for the event (default is `Object3D`).
 
 ### new PointerEventExt()
 
-> **new PointerEventExt**\<`T`, `R`\>(`event`, `intersection`, `relatedTarget`?, `cancelable`?): [`PointerEventExt`](/api/classes/pointereventext/)\<`T`, `R`\>
+> **new PointerEventExt**\<`T`, `R`\>(`event`, `intersection`, `relatedTarget`?, `cancelable`?): [`PointerEventExt`](/three.ez/api/classes/pointereventext/)\<`T`, `R`\>
 
 #### Parameters
 
@@ -37,7 +37,7 @@ The type of the related target for the event (default is `Object3D`).
 
 Original dom event.
 
-• **intersection**: [`IntersectionExt`](/api/interfaces/intersectionext/)
+• **intersection**: [`IntersectionExt`](/three.ez/api/interfaces/intersectionext/)
 
 The intersection information between the mouse event and 3D objects in the scene.
 
@@ -51,15 +51,15 @@ A boolean value indicating whether the event is cancelable.
 
 #### Returns
 
-[`PointerEventExt`](/api/classes/pointereventext/)\<`T`, `R`\>
+[`PointerEventExt`](/three.ez/api/classes/pointereventext/)\<`T`, `R`\>
 
 #### Inherited from
 
-[`MouseEventExt`](/api/classes/mouseeventext/).[`constructor`](/api/classes/mouseeventext/#constructors)
+[`MouseEventExt`](/three.ez/api/classes/mouseeventext/).[`constructor`](/three.ez/api/classes/mouseeventext/#constructors)
 
 #### Defined in
 
-[src/events/Events.ts:208](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/events/Events.ts#L208)
+[src/events/Events.ts:208](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/events/Events.ts#L208)
 
 ## Properties
 
@@ -71,11 +71,11 @@ A boolean value indicating whether the event is cancelable.
 
 #### Inherited from
 
-[`MouseEventExt`](/api/classes/mouseeventext/).[`cancelable`](/api/classes/mouseeventext/#cancelable)
+[`MouseEventExt`](/three.ez/api/classes/mouseeventext/).[`cancelable`](/three.ez/api/classes/mouseeventext/#cancelable)
 
 #### Defined in
 
-[src/events/Events.ts:116](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/events/Events.ts#L116)
+[src/events/Events.ts:116](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/events/Events.ts#L116)
 
 ***
 
@@ -87,11 +87,11 @@ A reference to the currently registered target for the event. This is the object
 
 #### Inherited from
 
-[`MouseEventExt`](/api/classes/mouseeventext/).[`currentTarget`](/api/classes/mouseeventext/#currenttarget)
+[`MouseEventExt`](/three.ez/api/classes/mouseeventext/).[`currentTarget`](/three.ez/api/classes/mouseeventext/#currenttarget)
 
 #### Defined in
 
-[src/events/Events.ts:118](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/events/Events.ts#L118)
+[src/events/Events.ts:118](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/events/Events.ts#L118)
 
 ***
 
@@ -103,27 +103,27 @@ Original dom event.
 
 #### Overrides
 
-[`MouseEventExt`](/api/classes/mouseeventext/).[`domEvent`](/api/classes/mouseeventext/#domevent)
+[`MouseEventExt`](/three.ez/api/classes/mouseeventext/).[`domEvent`](/three.ez/api/classes/mouseeventext/#domevent)
 
 #### Defined in
 
-[src/events/Events.ts:227](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/events/Events.ts#L227)
+[src/events/Events.ts:227](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/events/Events.ts#L227)
 
 ***
 
 ### intersection
 
-> `readonly` **intersection**: [`IntersectionExt`](/api/interfaces/intersectionext/)
+> `readonly` **intersection**: [`IntersectionExt`](/three.ez/api/interfaces/intersectionext/)
 
 Returns the intersection information between the mouse event and 3D objects in the scene.
 
 #### Inherited from
 
-[`MouseEventExt`](/api/classes/mouseeventext/).[`intersection`](/api/classes/mouseeventext/#intersection)
+[`MouseEventExt`](/three.ez/api/classes/mouseeventext/).[`intersection`](/three.ez/api/classes/mouseeventext/#intersection)
 
 #### Defined in
 
-[src/events/Events.ts:200](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/events/Events.ts#L200)
+[src/events/Events.ts:200](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/events/Events.ts#L200)
 
 ***
 
@@ -135,11 +135,11 @@ The secondary target for the event, if there is one.
 
 #### Inherited from
 
-[`MouseEventExt`](/api/classes/mouseeventext/).[`relatedTarget`](/api/classes/mouseeventext/#relatedtarget)
+[`MouseEventExt`](/three.ez/api/classes/mouseeventext/).[`relatedTarget`](/three.ez/api/classes/mouseeventext/#relatedtarget)
 
 #### Defined in
 
-[src/events/Events.ts:192](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/events/Events.ts#L192)
+[src/events/Events.ts:192](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/events/Events.ts#L192)
 
 ***
 
@@ -151,11 +151,11 @@ The time at which the event was created (in milliseconds). By specification, thi
 
 #### Inherited from
 
-[`MouseEventExt`](/api/classes/mouseeventext/).[`timeStamp`](/api/classes/mouseeventext/#timestamp)
+[`MouseEventExt`](/three.ez/api/classes/mouseeventext/).[`timeStamp`](/three.ez/api/classes/mouseeventext/#timestamp)
 
 #### Defined in
 
-[src/events/Events.ts:124](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/events/Events.ts#L124)
+[src/events/Events.ts:124](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/events/Events.ts#L124)
 
 ## Accessors
 
@@ -173,11 +173,11 @@ Returns true if the alt key was down when the mouse event was fired.
 
 #### Inherited from
 
-[`MouseEventExt`](/api/classes/mouseeventext/).[`altKey`](/api/classes/mouseeventext/#altkey)
+[`MouseEventExt`](/three.ez/api/classes/mouseeventext/).[`altKey`](/three.ez/api/classes/mouseeventext/#altkey)
 
 #### Defined in
 
-[src/events/Events.ts:166](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/events/Events.ts#L166)
+[src/events/Events.ts:166](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/events/Events.ts#L166)
 
 ***
 
@@ -195,11 +195,11 @@ A boolean value indicating whether or not the event bubbles up through the DOM.
 
 #### Inherited from
 
-[`MouseEventExt`](/api/classes/mouseeventext/).[`bubbles`](/api/classes/mouseeventext/#bubbles)
+[`MouseEventExt`](/three.ez/api/classes/mouseeventext/).[`bubbles`](/three.ez/api/classes/mouseeventext/#bubbles)
 
 #### Defined in
 
-[src/events/Events.ts:114](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/events/Events.ts#L114)
+[src/events/Events.ts:114](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/events/Events.ts#L114)
 
 ***
 
@@ -217,11 +217,11 @@ The button number that was pressed (if applicable) when the mouse event was fire
 
 #### Inherited from
 
-[`MouseEventExt`](/api/classes/mouseeventext/).[`button`](/api/classes/mouseeventext/#button)
+[`MouseEventExt`](/three.ez/api/classes/mouseeventext/).[`button`](/three.ez/api/classes/mouseeventext/#button)
 
 #### Defined in
 
-[src/events/Events.ts:168](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/events/Events.ts#L168)
+[src/events/Events.ts:168](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/events/Events.ts#L168)
 
 ***
 
@@ -239,11 +239,11 @@ The buttons being pressed (if any) when the mouse event was fired.
 
 #### Inherited from
 
-[`MouseEventExt`](/api/classes/mouseeventext/).[`buttons`](/api/classes/mouseeventext/#buttons)
+[`MouseEventExt`](/three.ez/api/classes/mouseeventext/).[`buttons`](/three.ez/api/classes/mouseeventext/#buttons)
 
 #### Defined in
 
-[src/events/Events.ts:170](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/events/Events.ts#L170)
+[src/events/Events.ts:170](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/events/Events.ts#L170)
 
 ***
 
@@ -261,11 +261,11 @@ The X coordinate of the mouse pointer in local (DOM content) coordinates.
 
 #### Inherited from
 
-[`MouseEventExt`](/api/classes/mouseeventext/).[`clientX`](/api/classes/mouseeventext/#clientx)
+[`MouseEventExt`](/three.ez/api/classes/mouseeventext/).[`clientX`](/three.ez/api/classes/mouseeventext/#clientx)
 
 #### Defined in
 
-[src/events/Events.ts:172](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/events/Events.ts#L172)
+[src/events/Events.ts:172](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/events/Events.ts#L172)
 
 ***
 
@@ -283,11 +283,11 @@ The Y coordinate of the mouse pointer in local (DOM content) coordinates.
 
 #### Inherited from
 
-[`MouseEventExt`](/api/classes/mouseeventext/).[`clientY`](/api/classes/mouseeventext/#clienty)
+[`MouseEventExt`](/three.ez/api/classes/mouseeventext/).[`clientY`](/three.ez/api/classes/mouseeventext/#clienty)
 
 #### Defined in
 
-[src/events/Events.ts:174](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/events/Events.ts#L174)
+[src/events/Events.ts:174](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/events/Events.ts#L174)
 
 ***
 
@@ -305,11 +305,11 @@ Returns true if the control key was down when the mouse event was fired.
 
 #### Inherited from
 
-[`MouseEventExt`](/api/classes/mouseeventext/).[`ctrlKey`](/api/classes/mouseeventext/#ctrlkey)
+[`MouseEventExt`](/three.ez/api/classes/mouseeventext/).[`ctrlKey`](/three.ez/api/classes/mouseeventext/#ctrlkey)
 
 #### Defined in
 
-[src/events/Events.ts:176](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/events/Events.ts#L176)
+[src/events/Events.ts:176](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/events/Events.ts#L176)
 
 ***
 
@@ -327,11 +327,11 @@ Indicates whether or not the call to event.preventDefault() canceled the event.
 
 #### Inherited from
 
-[`MouseEventExt`](/api/classes/mouseeventext/).[`defaultPrevented`](/api/classes/mouseeventext/#defaultprevented)
+[`MouseEventExt`](/three.ez/api/classes/mouseeventext/).[`defaultPrevented`](/three.ez/api/classes/mouseeventext/#defaultprevented)
 
 #### Defined in
 
-[src/events/Events.ts:120](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/events/Events.ts#L120)
+[src/events/Events.ts:120](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/events/Events.ts#L120)
 
 ***
 
@@ -349,7 +349,7 @@ The height (magnitude on the Y axis), in CSS pixels, of the contact geometry of 
 
 #### Defined in
 
-[src/events/Events.ts:233](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/events/Events.ts#L233)
+[src/events/Events.ts:233](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/events/Events.ts#L233)
 
 ***
 
@@ -367,7 +367,7 @@ Indicates if the pointer represents the primary pointer of this pointer type.
 
 #### Defined in
 
-[src/events/Events.ts:247](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/events/Events.ts#L247)
+[src/events/Events.ts:247](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/events/Events.ts#L247)
 
 ***
 
@@ -385,11 +385,11 @@ Returns true if the meta key was down when the mouse event was fired.
 
 #### Inherited from
 
-[`MouseEventExt`](/api/classes/mouseeventext/).[`metaKey`](/api/classes/mouseeventext/#metakey)
+[`MouseEventExt`](/three.ez/api/classes/mouseeventext/).[`metaKey`](/three.ez/api/classes/mouseeventext/#metakey)
 
 #### Defined in
 
-[src/events/Events.ts:178](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/events/Events.ts#L178)
+[src/events/Events.ts:178](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/events/Events.ts#L178)
 
 ***
 
@@ -407,11 +407,11 @@ The X coordinate of the pointer relative to the position of the last event.
 
 #### Inherited from
 
-[`MouseEventExt`](/api/classes/mouseeventext/).[`movementX`](/api/classes/mouseeventext/#movementx)
+[`MouseEventExt`](/three.ez/api/classes/mouseeventext/).[`movementX`](/three.ez/api/classes/mouseeventext/#movementx)
 
 #### Defined in
 
-[src/events/Events.ts:180](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/events/Events.ts#L180)
+[src/events/Events.ts:180](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/events/Events.ts#L180)
 
 ***
 
@@ -429,11 +429,11 @@ The Y coordinate of the pointer relative to the position of the last event.
 
 #### Inherited from
 
-[`MouseEventExt`](/api/classes/mouseeventext/).[`movementY`](/api/classes/mouseeventext/#movementy)
+[`MouseEventExt`](/three.ez/api/classes/mouseeventext/).[`movementY`](/three.ez/api/classes/mouseeventext/#movementy)
 
 #### Defined in
 
-[src/events/Events.ts:182](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/events/Events.ts#L182)
+[src/events/Events.ts:182](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/events/Events.ts#L182)
 
 ***
 
@@ -451,11 +451,11 @@ The X coordinate of the mouse pointer relative to the position of the padding ed
 
 #### Inherited from
 
-[`MouseEventExt`](/api/classes/mouseeventext/).[`offsetX`](/api/classes/mouseeventext/#offsetx)
+[`MouseEventExt`](/three.ez/api/classes/mouseeventext/).[`offsetX`](/three.ez/api/classes/mouseeventext/#offsetx)
 
 #### Defined in
 
-[src/events/Events.ts:184](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/events/Events.ts#L184)
+[src/events/Events.ts:184](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/events/Events.ts#L184)
 
 ***
 
@@ -473,11 +473,11 @@ The Y coordinate of the mouse pointer relative to the position of the padding ed
 
 #### Inherited from
 
-[`MouseEventExt`](/api/classes/mouseeventext/).[`offsetY`](/api/classes/mouseeventext/#offsety)
+[`MouseEventExt`](/three.ez/api/classes/mouseeventext/).[`offsetY`](/three.ez/api/classes/mouseeventext/#offsety)
 
 #### Defined in
 
-[src/events/Events.ts:186](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/events/Events.ts#L186)
+[src/events/Events.ts:186](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/events/Events.ts#L186)
 
 ***
 
@@ -495,11 +495,11 @@ The X coordinate of the mouse pointer relative to the whole document.
 
 #### Inherited from
 
-[`MouseEventExt`](/api/classes/mouseeventext/).[`pageX`](/api/classes/mouseeventext/#pagex)
+[`MouseEventExt`](/three.ez/api/classes/mouseeventext/).[`pageX`](/three.ez/api/classes/mouseeventext/#pagex)
 
 #### Defined in
 
-[src/events/Events.ts:188](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/events/Events.ts#L188)
+[src/events/Events.ts:188](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/events/Events.ts#L188)
 
 ***
 
@@ -517,11 +517,11 @@ The Y coordinate of the mouse pointer relative to the whole document.
 
 #### Inherited from
 
-[`MouseEventExt`](/api/classes/mouseeventext/).[`pageY`](/api/classes/mouseeventext/#pagey)
+[`MouseEventExt`](/three.ez/api/classes/mouseeventext/).[`pageY`](/three.ez/api/classes/mouseeventext/#pagey)
 
 #### Defined in
 
-[src/events/Events.ts:190](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/events/Events.ts#L190)
+[src/events/Events.ts:190](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/events/Events.ts#L190)
 
 ***
 
@@ -539,7 +539,7 @@ A unique identifier for the pointer causing the event.
 
 #### Defined in
 
-[src/events/Events.ts:229](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/events/Events.ts#L229)
+[src/events/Events.ts:229](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/events/Events.ts#L229)
 
 ***
 
@@ -557,7 +557,7 @@ Indicates the device type that caused the event (mouse, pen, touch, etc.).
 
 #### Defined in
 
-[src/events/Events.ts:245](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/events/Events.ts#L245)
+[src/events/Events.ts:245](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/events/Events.ts#L245)
 
 ***
 
@@ -575,7 +575,7 @@ The normalized pressure of the pointer input in the range 0 to 1, where 0 and 1 
 
 #### Defined in
 
-[src/events/Events.ts:235](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/events/Events.ts#L235)
+[src/events/Events.ts:235](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/events/Events.ts#L235)
 
 ***
 
@@ -593,11 +593,11 @@ The X coordinate of the mouse pointer in global (screen) coordinates.
 
 #### Inherited from
 
-[`MouseEventExt`](/api/classes/mouseeventext/).[`screenX`](/api/classes/mouseeventext/#screenx)
+[`MouseEventExt`](/three.ez/api/classes/mouseeventext/).[`screenX`](/three.ez/api/classes/mouseeventext/#screenx)
 
 #### Defined in
 
-[src/events/Events.ts:194](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/events/Events.ts#L194)
+[src/events/Events.ts:194](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/events/Events.ts#L194)
 
 ***
 
@@ -615,11 +615,11 @@ The Y coordinate of the mouse pointer in global (screen) coordinates.
 
 #### Inherited from
 
-[`MouseEventExt`](/api/classes/mouseeventext/).[`screenY`](/api/classes/mouseeventext/#screeny)
+[`MouseEventExt`](/three.ez/api/classes/mouseeventext/).[`screenY`](/three.ez/api/classes/mouseeventext/#screeny)
 
 #### Defined in
 
-[src/events/Events.ts:196](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/events/Events.ts#L196)
+[src/events/Events.ts:196](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/events/Events.ts#L196)
 
 ***
 
@@ -637,11 +637,11 @@ Returns true if the shift key was down when the mouse event was fired.
 
 #### Inherited from
 
-[`MouseEventExt`](/api/classes/mouseeventext/).[`shiftKey`](/api/classes/mouseeventext/#shiftkey)
+[`MouseEventExt`](/three.ez/api/classes/mouseeventext/).[`shiftKey`](/three.ez/api/classes/mouseeventext/#shiftkey)
 
 #### Defined in
 
-[src/events/Events.ts:198](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/events/Events.ts#L198)
+[src/events/Events.ts:198](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/events/Events.ts#L198)
 
 ***
 
@@ -659,7 +659,7 @@ The normalized tangential pressure of the pointer input (also known as barrel pr
 
 #### Defined in
 
-[src/events/Events.ts:237](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/events/Events.ts#L237)
+[src/events/Events.ts:237](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/events/Events.ts#L237)
 
 ***
 
@@ -677,11 +677,11 @@ A reference to the object to which the event was originally dispatched.
 
 #### Inherited from
 
-[`MouseEventExt`](/api/classes/mouseeventext/).[`target`](/api/classes/mouseeventext/#target)
+[`MouseEventExt`](/three.ez/api/classes/mouseeventext/).[`target`](/three.ez/api/classes/mouseeventext/#target)
 
 #### Defined in
 
-[src/events/Events.ts:122](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/events/Events.ts#L122)
+[src/events/Events.ts:122](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/events/Events.ts#L122)
 
 ***
 
@@ -699,7 +699,7 @@ The plane angle (in degrees, in the range of -90 to 90) between the Y–Z plane 
 
 #### Defined in
 
-[src/events/Events.ts:239](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/events/Events.ts#L239)
+[src/events/Events.ts:239](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/events/Events.ts#L239)
 
 ***
 
@@ -717,7 +717,7 @@ The plane angle (in degrees, in the range of -90 to 90) between the X–Z plane 
 
 #### Defined in
 
-[src/events/Events.ts:241](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/events/Events.ts#L241)
+[src/events/Events.ts:241](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/events/Events.ts#L241)
 
 ***
 
@@ -735,7 +735,7 @@ The clockwise rotation of the pointer (e.g. pen stylus) around its major axis in
 
 #### Defined in
 
-[src/events/Events.ts:243](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/events/Events.ts#L243)
+[src/events/Events.ts:243](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/events/Events.ts#L243)
 
 ***
 
@@ -753,11 +753,11 @@ keyof MiscEvents \| keyof InteractionEvents\<Object3D\<Object3DEventMap\>, Objec
 
 #### Inherited from
 
-[`MouseEventExt`](/api/classes/mouseeventext/).[`type`](/api/classes/mouseeventext/#type)
+[`MouseEventExt`](/three.ez/api/classes/mouseeventext/).[`type`](/three.ez/api/classes/mouseeventext/#type)
 
 #### Defined in
 
-[src/events/Events.ts:126](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/events/Events.ts#L126)
+[src/events/Events.ts:126](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/events/Events.ts#L126)
 
 ***
 
@@ -775,7 +775,7 @@ The width (magnitude on the X axis), in CSS pixels, of the contact geometry of t
 
 #### Defined in
 
-[src/events/Events.ts:231](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/events/Events.ts#L231)
+[src/events/Events.ts:231](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/events/Events.ts#L231)
 
 ## Methods
 
@@ -795,11 +795,11 @@ Returns the current state of the specified modifier key. See KeyboardEvent.getMo
 
 #### Inherited from
 
-[`MouseEventExt`](/api/classes/mouseeventext/).[`getModifierState`](/api/classes/mouseeventext/#getmodifierstate)
+[`MouseEventExt`](/three.ez/api/classes/mouseeventext/).[`getModifierState`](/three.ez/api/classes/mouseeventext/#getmodifierstate)
 
 #### Defined in
 
-[src/events/Events.ts:216](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/events/Events.ts#L216)
+[src/events/Events.ts:216](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/events/Events.ts#L216)
 
 ***
 
@@ -815,11 +815,11 @@ Cancels the event.
 
 #### Inherited from
 
-[`MouseEventExt`](/api/classes/mouseeventext/).[`preventDefault`](/api/classes/mouseeventext/#preventdefault)
+[`MouseEventExt`](/three.ez/api/classes/mouseeventext/).[`preventDefault`](/three.ez/api/classes/mouseeventext/#preventdefault)
 
 #### Defined in
 
-[src/events/Events.ts:142](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/events/Events.ts#L142)
+[src/events/Events.ts:142](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/events/Events.ts#L142)
 
 ***
 
@@ -835,11 +835,11 @@ For this particular event, prevent all other listeners from being called. This i
 
 #### Inherited from
 
-[`MouseEventExt`](/api/classes/mouseeventext/).[`stopImmediatePropagation`](/api/classes/mouseeventext/#stopimmediatepropagation)
+[`MouseEventExt`](/three.ez/api/classes/mouseeventext/).[`stopImmediatePropagation`](/three.ez/api/classes/mouseeventext/#stopimmediatepropagation)
 
 #### Defined in
 
-[src/events/Events.ts:147](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/events/Events.ts#L147)
+[src/events/Events.ts:147](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/events/Events.ts#L147)
 
 ***
 
@@ -855,8 +855,8 @@ Stops the propagation of events further along in the Object3D hierarchy.
 
 #### Inherited from
 
-[`MouseEventExt`](/api/classes/mouseeventext/).[`stopPropagation`](/api/classes/mouseeventext/#stoppropagation)
+[`MouseEventExt`](/three.ez/api/classes/mouseeventext/).[`stopPropagation`](/three.ez/api/classes/mouseeventext/#stoppropagation)
 
 #### Defined in
 
-[src/events/Events.ts:152](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/events/Events.ts#L152)
+[src/events/Events.ts:152](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/events/Events.ts#L152)

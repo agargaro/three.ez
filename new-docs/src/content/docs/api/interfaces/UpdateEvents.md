@@ -11,13 +11,13 @@ Represents events related to updates. These events do not propagate to parents.
 
 ### enabledchange
 
-> **enabledchange**: [`PropertyChangeEvent`](/api/interfaces/propertychangeevent/)\<`boolean`\>
+> **enabledchange**: [`PropertyChangeEvent`](/three.ez/api/interfaces/propertychangeevent/)\<`boolean`\>
 
 Event triggered when the enabledState of the object changes (either its own or the parent's `enabled` property).
 
 #### Defined in
 
-[src/events/Events.ts:19](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/events/Events.ts#L19)
+[src/events/Events.ts:19](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/events/Events.ts#L19)
 
 ***
 
@@ -29,7 +29,7 @@ Event triggered when the position of the object changes.
 
 #### Defined in
 
-[src/events/Events.ts:13](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/events/Events.ts#L13)
+[src/events/Events.ts:13](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/events/Events.ts#L13)
 
 ***
 
@@ -41,7 +41,7 @@ Event triggered when the rotation of the object changes.
 
 #### Defined in
 
-[src/events/Events.ts:17](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/events/Events.ts#L17)
+[src/events/Events.ts:17](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/events/Events.ts#L17)
 
 ***
 
@@ -53,16 +53,16 @@ Event triggered when the scale of the object changes.
 
 #### Defined in
 
-[src/events/Events.ts:15](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/events/Events.ts#L15)
+[src/events/Events.ts:15](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/events/Events.ts#L15)
 
 ***
 
 ### visiblechange
 
-> **visiblechange**: [`PropertyChangeEvent`](/api/interfaces/propertychangeevent/)\<`boolean`\>
+> **visiblechange**: [`PropertyChangeEvent`](/three.ez/api/interfaces/propertychangeevent/)\<`boolean`\>
 
 Event triggered when the visibilityState of the object changes (either its own or the parent's `visible` property).
 
 #### Defined in
 
-[src/events/Events.ts:21](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/events/Events.ts#L21)
+[src/events/Events.ts:21](https://github.com/agargaro/three.ez/blob/6a659b7871154988e88d8973e76bf92863e7cc6e/src/events/Events.ts#L21)
