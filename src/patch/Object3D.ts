@@ -214,10 +214,13 @@ Object.defineProperty(Object3D.prototype, "firstFocusable", {
 
 Object.defineProperty(Object3D.prototype, "enabledState", {
   get: function (this: Object3D) {
-    let obj = this;
+    if (!this.__enabled) return false;
+
+    let obj = this.parent;
     do {
-      if (!obj.enabled) return false;
-    } while (obj = obj.parent);
+      if (!obj.__enabled) return false;
+    } while ((obj = obj.parent));
+    
     return true;
   }
 });
