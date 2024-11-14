@@ -1,16 +1,17 @@
 ---
-title: Example Reference
-description: A reference page in my new Starlight docs site.
+sidebar:
+  order: 0
+title: Introduction
+description: An introduction to this library.
 ---
-
-# Introduction
 
 `three.ez` is a `TypeScript` library designed to streamline and enhance the development of `three.js` applications. <br />
 It provides a comprehensive suite of user-friendly tools and high-performance features, making it accessible even to beginners. <br />
 With `three.ez`, you'll discover an efficient and robust toolkit for your 3D projects.
 
-> ℹ️ **Note** <br />
-> This library has only one dependency: `three.js r151+`.
+:::note
+This library has only one dependency: `three.js r151+`.
+:::
 
 ## Key Features
 

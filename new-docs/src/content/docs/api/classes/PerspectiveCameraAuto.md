@@ -41,7 +41,7 @@ Camera frustum far plane distance. Default `2000`.
 
 #### Defined in
 
-[src/cameras/PerspectiveCameraAuto.ts:13](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/cameras/PerspectiveCameraAuto.ts#L13)
+[src/cameras/PerspectiveCameraAuto.ts:13](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/cameras/PerspectiveCameraAuto.ts#L13)
 
 ## Properties
 
@@ -159,7 +159,7 @@ Cursor style when interacting with the object.
 
 #### Defined in
 
-[src/patch/Object3D.ts:59](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/patch/Object3D.ts#L59)
+[src/patch/Object3D.ts:59](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/patch/Object3D.ts#L59)
 
 ***
 
@@ -175,7 +175,7 @@ Cursor style when dragging the object.
 
 #### Defined in
 
-[src/patch/Object3D.ts:61](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/patch/Object3D.ts#L61)
+[src/patch/Object3D.ts:61](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/patch/Object3D.ts#L61)
 
 ***
 
@@ -191,7 +191,7 @@ Cursor style when dropping an object onto this one.
 
 #### Defined in
 
-[src/patch/Object3D.ts:63](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/patch/Object3D.ts#L63)
+[src/patch/Object3D.ts:63](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/patch/Object3D.ts#L63)
 
 ***
 
@@ -225,7 +225,7 @@ node\_modules/@types/three/src/core/Object3D.d.ts:282
 
 > `optional` **customDistanceMaterial**: `Material`
 
-Same as [customDepthMaterial](../../../../api/classes/orthographiccameraauto/#customdepthmaterial), but used with THREE.Object3DPointLight | PointLight.
+Same as [customDepthMaterial](../../../../../api/classes/orthographiccameraauto/#customdepthmaterial), but used with THREE.Object3DPointLight | PointLight.
 
 #### Default Value
 
@@ -253,7 +253,7 @@ Indicates whether the object is draggable. Default is DEFAULT_DRAGGABLE (`false`
 
 #### Defined in
 
-[src/patch/Object3D.ts:53](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/patch/Object3D.ts#L53)
+[src/patch/Object3D.ts:53](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/patch/Object3D.ts#L53)
 
 ***
 
@@ -269,7 +269,7 @@ Indicates which object will be dragged instead of this one.
 
 #### Defined in
 
-[src/patch/Object3D.ts:49](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/patch/Object3D.ts#L49)
+[src/patch/Object3D.ts:49](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/patch/Object3D.ts#L49)
 
 ***
 
@@ -286,7 +286,7 @@ If set to true, it allows triggering all InteractionEvents; otherwise, events ar
 
 #### Defined in
 
-[src/patch/Object3D.ts:40](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/patch/Object3D.ts#L40)
+[src/patch/Object3D.ts:40](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/patch/Object3D.ts#L40)
 
 ***
 
@@ -298,7 +298,7 @@ Camera frustum far plane.
 
 #### Remarks
 
-Must be greater than the current value of [.near](../../../../api/classes/perspectivecameraauto/#near) plane.
+Must be greater than the current value of [.near](../../../../../api/classes/perspectivecameraauto/#near) plane.
 
 #### Default Value
 
@@ -319,7 +319,7 @@ node\_modules/@types/three/src/cameras/PerspectiveCamera.d.ts:110
 > **filmGauge**: `number`
 
 Film size used for the larger axis.
-This parameter does not influence the projection matrix unless [.filmOffset](../../../../api/classes/perspectivecameraauto/#filmoffset) is set to a nonzero value.
+This parameter does not influence the projection matrix unless [.filmOffset](../../../../../api/classes/perspectivecameraauto/#filmoffset) is set to a nonzero value.
 
 #### Remarks
 
@@ -343,7 +343,7 @@ node\_modules/@types/three/src/cameras/PerspectiveCamera.d.ts:141
 
 > **filmOffset**: `number`
 
-Horizontal off-center offset in the same unit as [.filmGauge](../../../../api/classes/perspectivecameraauto/#filmgauge).
+Horizontal off-center offset in the same unit as [.filmGauge](../../../../../api/classes/perspectivecameraauto/#filmgauge).
 
 #### Remarks
 
@@ -375,7 +375,7 @@ Determines when the object is dragged, whether it will have to search for any dr
 
 #### Defined in
 
-[src/patch/Object3D.ts:55](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/patch/Object3D.ts#L55)
+[src/patch/Object3D.ts:55](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/patch/Object3D.ts#L55)
 
 ***
 
@@ -415,7 +415,7 @@ Indicates whether the object can receive focus. Default is DEFAULT_FOCUSABLE (`t
 
 #### Defined in
 
-[src/patch/Object3D.ts:51](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/patch/Object3D.ts#L51)
+[src/patch/Object3D.ts:51](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/patch/Object3D.ts#L51)
 
 ***
 
@@ -476,7 +476,7 @@ Array of hitboxes for collision detection.
 
 #### Defined in
 
-[src/patch/Object3D.ts:47](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/patch/Object3D.ts#L47)
+[src/patch/Object3D.ts:47](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/patch/Object3D.ts#L47)
 
 ***
 
@@ -519,7 +519,7 @@ DEFAULT_INTERCEPT_BY_RAYCASTER (true).
 
 #### Defined in
 
-[src/patch/Object3D.ts:45](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/patch/Object3D.ts#L45)
+[src/patch/Object3D.ts:45](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/patch/Object3D.ts#L45)
 
 ***
 
@@ -648,7 +648,7 @@ scale every frame and also recalculates the matrixWorld property.
 
 #### Default Value
 
-[DEFAULT_MATRIX_AUTO_UPDATE](../../../../api/classes/orthographiccameraauto/#default_matrix_auto_update) - that is `(true)`.
+[DEFAULT_MATRIX_AUTO_UPDATE](../../../../../api/classes/orthographiccameraauto/#default_matrix_auto_update) - that is `(true)`.
 
 #### Inherited from
 
@@ -693,7 +693,7 @@ When it isn't, then you have to maintain all matrices in the object and its chil
 
 #### Default Value
 
-[DEFAULT_MATRIX_WORLD_AUTO_UPDATE](../../../../api/classes/orthographiccameraauto/#default_matrix_world_auto_update) - that is `(true)`.
+[DEFAULT_MATRIX_WORLD_AUTO_UPDATE](../../../../../api/classes/orthographiccameraauto/#default_matrix_world_auto_update) - that is `(true)`.
 
 #### Inherited from
 
@@ -799,7 +799,7 @@ Camera frustum near plane.
 
 #### Remarks
 
-The valid range is greater than `0` and less than the current value of the [.far](../../../../api/classes/perspectivecameraauto/#far) plane.
+The valid range is greater than `0` and less than the current value of the [.far](../../../../../api/classes/perspectivecameraauto/#far) plane.
 
 #### Default Value
 
@@ -827,7 +827,7 @@ Indicates whether the scene needs rendering.
 
 #### Defined in
 
-[src/patch/Object3D.ts:65](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/patch/Object3D.ts#L65)
+[src/patch/Object3D.ts:65](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/patch/Object3D.ts#L65)
 
 ***
 
@@ -1051,7 +1051,7 @@ Reference to the scene the object belongs to.
 
 #### Defined in
 
-[src/patch/Object3D.ts:57](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/patch/Object3D.ts#L57)
+[src/patch/Object3D.ts:57](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/patch/Object3D.ts#L57)
 
 ***
 
@@ -1067,7 +1067,7 @@ Indicates the tags to be searched using the querySelector and `querySelectorAll`
 
 #### Defined in
 
-[src/patch/Object3D.ts:67](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/patch/Object3D.ts#L67)
+[src/patch/Object3D.ts:67](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/patch/Object3D.ts#L67)
 
 ***
 
@@ -1093,11 +1093,11 @@ node\_modules/@types/three/src/cameras/PerspectiveCamera.d.ts:73
 
 > **up**: `Vector3`
 
-This is used by the [lookAt](../../../../api/classes/perspectivecameraauto/#lookat) method, for example, to determine the orientation of the result.
+This is used by the [lookAt](../../../../../api/classes/perspectivecameraauto/#lookat) method, for example, to determine the orientation of the result.
 
 #### Default Value
 
-[Object3D.DEFAULT_UP](../../../../api/classes/orthographiccameraauto/#default_up) - that is `(0, 1, 0)`.
+[Object3D.DEFAULT_UP](../../../../../api/classes/orthographiccameraauto/#default_up) - that is `(0, 1, 0)`.
 
 #### Inherited from
 
@@ -1158,7 +1158,7 @@ node\_modules/@types/three/src/core/Object3D.d.ts:115
 > **view**: `object`
 
 Frustum window specification or null.
-This is set using the [.setViewOffset](../../../../api/classes/perspectivecameraauto/#setviewoffset) method and cleared using [.clearViewOffset](../../../../api/classes/perspectivecameraauto/#clearviewoffset).
+This is set using the [.setViewOffset](../../../../../api/classes/perspectivecameraauto/#setviewoffset) method and cleared using [.clearViewOffset](../../../../../api/classes/perspectivecameraauto/#clearviewoffset).
 
 #### enabled
 
@@ -1260,7 +1260,7 @@ node\_modules/@types/three/src/cameras/PerspectiveCamera.d.ts:79
 
 > `static` **DEFAULT\_MATRIX\_AUTO\_UPDATE**: `boolean`
 
-The default setting for [matrixAutoUpdate](../../../../api/classes/orthographiccameraauto/#matrixautoupdate) for newly created Object3Ds.
+The default setting for [matrixAutoUpdate](../../../../../api/classes/orthographiccameraauto/#matrixautoupdate) for newly created Object3Ds.
 
 #### Default Value
 
@@ -1280,7 +1280,7 @@ node\_modules/@types/three/src/core/Object3D.d.ts:373
 
 > `static` **DEFAULT\_MATRIX\_WORLD\_AUTO\_UPDATE**: `boolean`
 
-The default setting for [matrixWorldAutoUpdate](../../../../api/classes/orthographiccameraauto/#matrixworldautoupdate) for newly created Object3Ds.
+The default setting for [matrixWorldAutoUpdate](../../../../../api/classes/orthographiccameraauto/#matrixworldautoupdate) for newly created Object3Ds.
 
 #### Default Value
 
@@ -1300,7 +1300,7 @@ node\_modules/@types/three/src/core/Object3D.d.ts:379
 
 > `static` **DEFAULT\_UP**: `Vector3`
 
-The default [up](../../../../api/classes/orthographiccameraauto/#up) direction for objects, also used as the default position for THREE.DirectionalLight | DirectionalLight,
+The default [up](../../../../../api/classes/orthographiccameraauto/#up) direction for objects, also used as the default position for THREE.DirectionalLight | DirectionalLight,
 THREE.HemisphereLight | HemisphereLight and THREE.Spotlight | Spotlight (which creates lights shining from the top down).
 
 #### Default Value
@@ -1335,7 +1335,7 @@ Indicates if the object is currently being clicked.
 
 #### Defined in
 
-[src/patch/Object3D.ts:73](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/patch/Object3D.ts#L73)
+[src/patch/Object3D.ts:73](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/patch/Object3D.ts#L73)
 
 ***
 
@@ -1357,7 +1357,7 @@ Retrieves the combined enabled state considering parent objects.
 
 #### Defined in
 
-[src/patch/Object3D.ts:77](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/patch/Object3D.ts#L77)
+[src/patch/Object3D.ts:77](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/patch/Object3D.ts#L77)
 
 ***
 
@@ -1379,7 +1379,7 @@ Retrieves the first possible focusable object.
 
 #### Defined in
 
-[src/patch/Object3D.ts:81](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/patch/Object3D.ts#L81)
+[src/patch/Object3D.ts:81](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/patch/Object3D.ts#L81)
 
 ***
 
@@ -1401,7 +1401,7 @@ Indicates if the object is currently focused.
 
 #### Defined in
 
-[src/patch/Object3D.ts:71](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/patch/Object3D.ts#L71)
+[src/patch/Object3D.ts:71](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/patch/Object3D.ts#L71)
 
 ***
 
@@ -1423,7 +1423,7 @@ Indicates if the primary pointer is over this object.
 
 #### Defined in
 
-[src/patch/Object3D.ts:69](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/patch/Object3D.ts#L69)
+[src/patch/Object3D.ts:69](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/patch/Object3D.ts#L69)
 
 ***
 
@@ -1445,7 +1445,7 @@ Indicates if the object is currently being dragged.
 
 #### Defined in
 
-[src/patch/Object3D.ts:75](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/patch/Object3D.ts#L75)
+[src/patch/Object3D.ts:75](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/patch/Object3D.ts#L75)
 
 ***
 
@@ -1467,7 +1467,7 @@ Retrieves the combined visibility state considering parent objects.
 
 #### Defined in
 
-[src/patch/Object3D.ts:79](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/patch/Object3D.ts#L79)
+[src/patch/Object3D.ts:79](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/patch/Object3D.ts#L79)
 
 ## Methods
 
@@ -1492,7 +1492,7 @@ Any current parent on an object passed in here will be removed, since an Object3
 
 #### See
 
- - [attach](../../../../api/classes/perspectivecameraauto/#attach)
+ - [attach](../../../../../api/classes/perspectivecameraauto/#attach)
  - THREE.Group | Group for info on manually grouping objects.
 
 #### Inherited from
@@ -1555,7 +1555,7 @@ Applies blur (removes focus) from the object.
 
 #### Defined in
 
-[src/patch/Object3D.ts:89](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/patch/Object3D.ts#L89)
+[src/patch/Object3D.ts:89](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/patch/Object3D.ts#L89)
 
 ***
 
@@ -1575,7 +1575,7 @@ Applies focus to the object.
 
 #### Defined in
 
-[src/patch/Object3D.ts:85](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/patch/Object3D.ts#L85)
+[src/patch/Object3D.ts:85](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/patch/Object3D.ts#L85)
 
 ***
 
@@ -1647,7 +1647,7 @@ Note: This method does not support scene graphs having non-uniformly-scaled node
 
 #### See
 
-[add](../../../../api/classes/perspectivecameraauto/#add)
+[add](../../../../../api/classes/perspectivecameraauto/#add)
 
 #### Inherited from
 
@@ -1695,7 +1695,7 @@ The instance of the object with the binding applied.
 
 #### Defined in
 
-[src/patch/Object3D.ts:141](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/patch/Object3D.ts#L141)
+[src/patch/Object3D.ts:141](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/patch/Object3D.ts#L141)
 
 ***
 
@@ -1723,7 +1723,7 @@ node\_modules/@types/three/src/core/Object3D.d.ts:533
 
 > **clearViewOffset**(): `void`
 
-Removes any offset set by the [.setViewOffset](../../../../api/classes/perspectivecameraauto/#setviewoffset) method.
+Removes any offset set by the [.setViewOffset](../../../../../api/classes/perspectivecameraauto/#setviewoffset) method.
 
 #### Returns
 
@@ -1821,7 +1821,7 @@ If true, calculate bindings for children as well (optional, default: `false`).
 
 #### Defined in
 
-[src/patch/Object3D.ts:133](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/patch/Object3D.ts#L133)
+[src/patch/Object3D.ts:133](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/patch/Object3D.ts#L133)
 
 ***
 
@@ -1859,7 +1859,7 @@ node\_modules/@types/three/src/core/EventDispatcher.d.ts:81
 
 > **getEffectiveFOV**(): `number`
 
-Returns the current vertical field of view angle in degrees considering [.zoom](../../../../api/classes/perspectivecameraauto/#zoom).
+Returns the current vertical field of view angle in degrees considering [.zoom](../../../../../api/classes/perspectivecameraauto/#zoom).
 
 #### Returns
 
@@ -1887,7 +1887,7 @@ Returns the height of the image on the film
 
 #### Remarks
 
-If [.aspect](../../../../api/classes/perspectivecameraauto/#aspect). is less than or equal to one (portrait format), the result equals [.filmGauge](../../../../api/classes/perspectivecameraauto/#filmgauge).
+If [.aspect](../../../../../api/classes/perspectivecameraauto/#aspect). is less than or equal to one (portrait format), the result equals [.filmGauge](../../../../../api/classes/perspectivecameraauto/#filmgauge).
 
 #### Inherited from
 
@@ -1911,7 +1911,7 @@ Returns the width of the image on the film
 
 #### Remarks
 
-If [.aspect](../../../../api/classes/perspectivecameraauto/#aspect). is greater than or equal to one (landscape format), the result equals [.filmGauge](../../../../api/classes/perspectivecameraauto/#filmgauge).
+If [.aspect](../../../../../api/classes/perspectivecameraauto/#aspect). is greater than or equal to one (landscape format), the result equals [.filmGauge](../../../../../api/classes/perspectivecameraauto/#filmgauge).
 
 #### Inherited from
 
@@ -1927,7 +1927,7 @@ node\_modules/@types/three/src/cameras/PerspectiveCamera.d.ts:172
 
 > **getFocalLength**(): `number`
 
-Returns the focal length of the current .fov | fov in respect to [.filmGauge](../../../../api/classes/perspectivecameraauto/#filmgauge).
+Returns the focal length of the current .fov | fov in respect to [.filmGauge](../../../../../api/classes/perspectivecameraauto/#filmgauge).
 
 #### Returns
 
@@ -2271,7 +2271,7 @@ The callback function to check.
 
 #### Defined in
 
-[src/patch/Object3D.ts:103](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/patch/Object3D.ts#L103)
+[src/patch/Object3D.ts:103](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/patch/Object3D.ts#L103)
 
 ***
 
@@ -2433,7 +2433,7 @@ The callback function to remove.
 
 #### Defined in
 
-[src/patch/Object3D.ts:109](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/patch/Object3D.ts#L109)
+[src/patch/Object3D.ts:109](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/patch/Object3D.ts#L109)
 
 ***
 
@@ -2477,7 +2477,7 @@ A function to remove the event listener.
 
 #### Defined in
 
-[src/patch/Object3D.ts:96](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/patch/Object3D.ts#L96)
+[src/patch/Object3D.ts:96](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/patch/Object3D.ts#L96)
 
 ***
 
@@ -2680,7 +2680,7 @@ The first Object3D element that matches the query, or undefined if no match is f
 
 #### Defined in
 
-[src/patch/Object3D.ts:161](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/patch/Object3D.ts#L161)
+[src/patch/Object3D.ts:161](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/patch/Object3D.ts#L161)
 
 ***
 
@@ -2709,7 +2709,7 @@ An array of Object3D elements that match the query.
 
 #### Defined in
 
-[src/patch/Object3D.ts:168](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/patch/Object3D.ts#L168)
+[src/patch/Object3D.ts:168](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/patch/Object3D.ts#L168)
 
 ***
 
@@ -2982,7 +2982,7 @@ node\_modules/@types/three/src/core/Object3D.d.ts:452
 
 > **setFocalLength**(`focalLength`): `void`
 
-Sets the FOV by focal length in respect to the current [.filmGauge](../../../../api/classes/perspectivecameraauto/#filmgauge).
+Sets the FOV by focal length in respect to the current [.filmGauge](../../../../../api/classes/perspectivecameraauto/#filmgauge).
 
 #### Parameters
 
@@ -3054,7 +3054,7 @@ Instead, they must be manually computed using the 'detectChanges' function.
 
 #### Defined in
 
-[src/patch/Object3D.ts:127](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/patch/Object3D.ts#L127)
+[src/patch/Object3D.ts:127](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/patch/Object3D.ts#L127)
 
 ***
 
@@ -3062,7 +3062,7 @@ Instead, they must be manually computed using the 'detectChanges' function.
 
 > **setRotationFromAxisAngle**(`axis`, `angle`): `void`
 
-Calls THREE.Quaternion.setFromAxisAngle | setFromAxisAngle(axis, angle) on the [.quaternion](../../../../api/classes/orthographiccameraauto/#quaternion).
+Calls THREE.Quaternion.setFromAxisAngle | setFromAxisAngle(axis, angle) on the [.quaternion](../../../../../api/classes/orthographiccameraauto/#quaternion).
 
 #### Parameters
 
@@ -3092,7 +3092,7 @@ node\_modules/@types/three/src/core/Object3D.d.ts:398
 
 > **setRotationFromEuler**(`euler`): `void`
 
-Calls THREE.Quaternion.setFromEuler | setFromEuler(euler) on the [.quaternion](../../../../api/classes/orthographiccameraauto/#quaternion).
+Calls THREE.Quaternion.setFromEuler | setFromEuler(euler) on the [.quaternion](../../../../../api/classes/orthographiccameraauto/#quaternion).
 
 #### Parameters
 
@@ -3118,7 +3118,7 @@ node\_modules/@types/three/src/core/Object3D.d.ts:404
 
 > **setRotationFromMatrix**(`m`): `void`
 
-Calls THREE.Quaternion.setFromRotationMatrix | setFromRotationMatrix(m) on the [.quaternion](../../../../api/classes/orthographiccameraauto/#quaternion).
+Calls THREE.Quaternion.setFromRotationMatrix | setFromRotationMatrix(m) on the [.quaternion](../../../../../api/classes/orthographiccameraauto/#quaternion).
 
 #### Parameters
 
@@ -3148,7 +3148,7 @@ node\_modules/@types/three/src/core/Object3D.d.ts:411
 
 > **setRotationFromQuaternion**(`q`): `void`
 
-Copy the given THREE.Quaternion | Quaternion into [.quaternion](../../../../api/classes/orthographiccameraauto/#quaternion).
+Copy the given THREE.Quaternion | Quaternion into [.quaternion](../../../../../api/classes/orthographiccameraauto/#quaternion).
 
 #### Parameters
 
@@ -3510,7 +3510,7 @@ Optional event data to pass to the listeners.
 
 #### Defined in
 
-[src/patch/Object3D.ts:115](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/patch/Object3D.ts#L115)
+[src/patch/Object3D.ts:115](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/patch/Object3D.ts#L115)
 
 ***
 
@@ -3544,7 +3544,7 @@ Optional event data to pass to the listeners.
 
 #### Defined in
 
-[src/patch/Object3D.ts:121](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/patch/Object3D.ts#L121)
+[src/patch/Object3D.ts:121](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/patch/Object3D.ts#L121)
 
 ***
 
@@ -3578,7 +3578,7 @@ A Tween instance for further configuration.
 
 #### Defined in
 
-[src/patch/Object3D.ts:154](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/patch/Object3D.ts#L154)
+[src/patch/Object3D.ts:154](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/patch/Object3D.ts#L154)
 
 ***
 
@@ -3610,7 +3610,7 @@ The instance of the object with the binding removed.
 
 #### Defined in
 
-[src/patch/Object3D.ts:147](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/patch/Object3D.ts#L147)
+[src/patch/Object3D.ts:147](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/patch/Object3D.ts#L147)
 
 ***
 
@@ -3639,14 +3639,14 @@ node\_modules/@types/three/src/core/Object3D.d.ts:637
 > **updateMatrixWorld**(`force`?): `void`
 
 Updates the global transform of the object.
-And will update the object descendants if [.matrixWorldNeedsUpdate](../../../../api/classes/orthographiccameraauto/#matrixworldneedsupdate) is set to true or if the force parameter is set to `true`.
+And will update the object descendants if [.matrixWorldNeedsUpdate](../../../../../api/classes/orthographiccameraauto/#matrixworldneedsupdate) is set to true or if the force parameter is set to `true`.
 
 #### Parameters
 
 • **force?**: `boolean`
 
-A boolean that can be used to bypass [.matrixWorldAutoUpdate](../../../../api/classes/orthographiccameraauto/#matrixworldautoupdate), to recalculate the world matrix of the object and descendants on the current frame.
-Useful if you cannot wait for the renderer to update it on the next frame, assuming [.matrixWorldAutoUpdate](../../../../api/classes/orthographiccameraauto/#matrixworldautoupdate) set to `true`.
+A boolean that can be used to bypass [.matrixWorldAutoUpdate](../../../../../api/classes/orthographiccameraauto/#matrixworldautoupdate), to recalculate the world matrix of the object and descendants on the current frame.
+Useful if you cannot wait for the renderer to update it on the next frame, assuming [.matrixWorldAutoUpdate](../../../../../api/classes/orthographiccameraauto/#matrixworldautoupdate) set to `true`.
 
 #### Returns
 

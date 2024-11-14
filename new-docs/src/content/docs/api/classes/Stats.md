@@ -21,7 +21,7 @@ title: "Stats"
 
 #### Defined in
 
-[src/utils/Stats.ts:27](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/utils/Stats.ts#L27)
+[src/utils/Stats.ts:27](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/utils/Stats.ts#L27)
 
 ## Properties
 
@@ -31,7 +31,7 @@ title: "Stats"
 
 #### Defined in
 
-[src/utils/Stats.ts:4](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/utils/Stats.ts#L4)
+[src/utils/Stats.ts:4](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/utils/Stats.ts#L4)
 
 ## Accessors
 
@@ -59,7 +59,7 @@ title: "Stats"
 
 #### Defined in
 
-[src/utils/Stats.ts:24](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/utils/Stats.ts#L24)
+[src/utils/Stats.ts:24](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/utils/Stats.ts#L24)
 
 ## Methods
 
@@ -81,7 +81,7 @@ title: "Stats"
 
 #### Defined in
 
-[src/utils/Stats.ts:67](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/utils/Stats.ts#L67)
+[src/utils/Stats.ts:67](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/utils/Stats.ts#L67)
 
 ***
 
@@ -95,7 +95,7 @@ title: "Stats"
 
 #### Defined in
 
-[src/utils/Stats.ts:86](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/utils/Stats.ts#L86)
+[src/utils/Stats.ts:86](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/utils/Stats.ts#L86)
 
 ***
 
@@ -109,7 +109,7 @@ title: "Stats"
 
 #### Defined in
 
-[src/utils/Stats.ts:90](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/utils/Stats.ts#L90)
+[src/utils/Stats.ts:90](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/utils/Stats.ts#L90)
 
 ***
 
@@ -123,7 +123,7 @@ title: "Stats"
 
 #### Defined in
 
-[src/utils/Stats.ts:97](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/utils/Stats.ts#L97)
+[src/utils/Stats.ts:97](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/utils/Stats.ts#L97)
 
 ***
 
@@ -137,7 +137,7 @@ title: "Stats"
 
 #### Defined in
 
-[src/utils/Stats.ts:101](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/utils/Stats.ts#L101)
+[src/utils/Stats.ts:101](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/utils/Stats.ts#L101)
 
 ***
 
@@ -151,7 +151,7 @@ title: "Stats"
 
 #### Defined in
 
-[src/utils/Stats.ts:109](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/utils/Stats.ts#L109)
+[src/utils/Stats.ts:109](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/utils/Stats.ts#L109)
 
 ***
 
@@ -165,7 +165,7 @@ title: "Stats"
 
 #### Defined in
 
-[src/utils/Stats.ts:80](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/utils/Stats.ts#L80)
+[src/utils/Stats.ts:80](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/utils/Stats.ts#L80)
 
 ***
 
@@ -183,7 +183,7 @@ title: "Stats"
 
 #### Defined in
 
-[src/utils/Stats.ts:72](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/utils/Stats.ts#L72)
+[src/utils/Stats.ts:72](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/utils/Stats.ts#L72)
 
 ***
 
@@ -201,7 +201,7 @@ title: "Stats"
 
 #### Defined in
 
-[src/utils/Stats.ts:51](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/utils/Stats.ts#L51)
+[src/utils/Stats.ts:51](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/utils/Stats.ts#L51)
 
 ***
 
@@ -215,4 +215,4 @@ title: "Stats"
 
 #### Defined in
 
-[src/utils/Stats.ts:131](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/utils/Stats.ts#L131)
+[src/utils/Stats.ts:131](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/utils/Stats.ts#L131)

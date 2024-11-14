@@ -24,7 +24,7 @@ The easing function to control the animation's progression.
 
 #### Defined in
 
-[src/tweening/Actions.ts:24](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/tweening/Actions.ts#L24)
+[src/tweening/Actions.ts:24](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/tweening/Actions.ts#L24)
 
 ***
 
@@ -46,7 +46,7 @@ The target object that was tweened.
 
 #### Defined in
 
-[src/tweening/Actions.ts:29](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/tweening/Actions.ts#L29)
+[src/tweening/Actions.ts:29](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/tweening/Actions.ts#L29)
 
 ***
 
@@ -86,7 +86,7 @@ If `false`, will not assign a new value to the property.
 
 #### Defined in
 
-[src/tweening/Actions.ts:49](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/tweening/Actions.ts#L49)
+[src/tweening/Actions.ts:49](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/tweening/Actions.ts#L49)
 
 ***
 
@@ -108,7 +108,7 @@ The target object that is being tweened.
 
 #### Defined in
 
-[src/tweening/Actions.ts:34](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/tweening/Actions.ts#L34)
+[src/tweening/Actions.ts:34](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/tweening/Actions.ts#L34)
 
 ***
 
@@ -130,4 +130,4 @@ The target object that is being tweened.
 
 #### Defined in
 
-[src/tweening/Actions.ts:39](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/tweening/Actions.ts#L39)
+[src/tweening/Actions.ts:39](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/tweening/Actions.ts#L39)

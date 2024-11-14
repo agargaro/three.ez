@@ -1,7 +1,6 @@
 ---
 sidebar_position: 14
+title: Migration
 ---
-
-# Migration
 
 Work in progress..

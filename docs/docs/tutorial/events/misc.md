@@ -1,8 +1,7 @@
 ---
 sidebar_position: 1
+title: Miscellaneous
 ---
-
-# Miscellaneous
 
 This category encompasses animation and resize events. <br />
 It's important to note that unlike `interaction events`, misc events do not follow a propagation system.

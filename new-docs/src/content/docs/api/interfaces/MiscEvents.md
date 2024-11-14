@@ -17,7 +17,7 @@ Event triggered every frame, after 'animate'. Usually used if you want to operat
 
 #### Defined in
 
-[src/events/Events.ts:35](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/events/Events.ts#L35)
+[src/events/Events.ts:35](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/events/Events.ts#L35)
 
 ***
 
@@ -29,7 +29,7 @@ Event triggered every frame. Used to animate objects.
 
 #### Defined in
 
-[src/events/Events.ts:33](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/events/Events.ts#L33)
+[src/events/Events.ts:33](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/events/Events.ts#L33)
 
 ***
 
@@ -41,7 +41,7 @@ Event triggered every frame, before 'animate'. Usually used to prepare object an
 
 #### Defined in
 
-[src/events/Events.ts:31](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/events/Events.ts#L31)
+[src/events/Events.ts:31](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/events/Events.ts#L31)
 
 ***
 
@@ -53,4 +53,4 @@ Event triggered on first render and every time an object is rendered with a diff
 
 #### Defined in
 
-[src/events/Events.ts:29](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/events/Events.ts#L29)
+[src/events/Events.ts:29](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/events/Events.ts#L29)

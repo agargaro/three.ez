@@ -1,7 +1,6 @@
 ---
 sidebar_position: 1
+title: TODO
 ---
-
-# TODO
 
 Work in progress... 

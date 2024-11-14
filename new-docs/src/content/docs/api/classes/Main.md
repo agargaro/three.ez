@@ -26,7 +26,7 @@ Configuration parameters for initializing the Main class.
 
 #### Defined in
 
-[src/core/Main.ts:160](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/core/Main.ts#L160)
+[src/core/Main.ts:160](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/core/Main.ts#L160)
 
 ## Properties
 
@@ -38,7 +38,7 @@ A static counter representing the number of animation frames elapsed.
 
 #### Defined in
 
-[src/core/Main.ts:50](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/core/Main.ts#L50)
+[src/core/Main.ts:50](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/core/Main.ts#L50)
 
 ## Accessors
 
@@ -56,7 +56,7 @@ The Camera associated with the currently active RenderView.
 
 #### Defined in
 
-[src/core/Main.ts:82](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/core/Main.ts#L82)
+[src/core/Main.ts:82](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/core/Main.ts#L82)
 
 ***
 
@@ -74,7 +74,7 @@ The EffectComposer (used for post-processing) associated with the currently acti
 
 #### Defined in
 
-[src/core/Main.ts:87](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/core/Main.ts#L87)
+[src/core/Main.ts:87](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/core/Main.ts#L87)
 
 ***
 
@@ -92,7 +92,7 @@ The Scene associated with the currently active RenderView.
 
 #### Defined in
 
-[src/core/Main.ts:77](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/core/Main.ts#L77)
+[src/core/Main.ts:77](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/core/Main.ts#L77)
 
 ***
 
@@ -110,7 +110,7 @@ The currently active RenderView (activated by mouse position).
 
 #### Defined in
 
-[src/core/Main.ts:72](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/core/Main.ts#L72)
+[src/core/Main.ts:72](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/core/Main.ts#L72)
 
 ***
 
@@ -140,7 +140,7 @@ The default alpha (transparency) value for the background.
 
 #### Defined in
 
-[src/core/Main.ts:143](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/core/Main.ts#L143)
+[src/core/Main.ts:143](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/core/Main.ts#L143)
 
 ***
 
@@ -170,7 +170,7 @@ The default background color used in the application.
 
 #### Defined in
 
-[src/core/Main.ts:137](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/core/Main.ts#L137)
+[src/core/Main.ts:137](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/core/Main.ts#L137)
 
 ***
 
@@ -201,7 +201,7 @@ Specify the button values as an array of PointerEvent button values.
 
 #### Defined in
 
-[src/core/Main.ts:114](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/core/Main.ts#L114)
+[src/core/Main.ts:114](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/core/Main.ts#L114)
 
 ***
 
@@ -231,7 +231,7 @@ Indicates whether to enable cursor handling in the application.
 
 #### Defined in
 
-[src/core/Main.ts:120](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/core/Main.ts#L120)
+[src/core/Main.ts:120](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/core/Main.ts#L120)
 
 ***
 
@@ -250,7 +250,7 @@ Provides the x and y coordinates of the mouse pointer within the application.
 
 #### Defined in
 
-[src/core/Main.ts:150](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/core/Main.ts#L150)
+[src/core/Main.ts:150](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/core/Main.ts#L150)
 
 ***
 
@@ -280,7 +280,7 @@ Indicates whether to enable multitouch interactions.
 
 #### Defined in
 
-[src/core/Main.ts:107](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/core/Main.ts#L107)
+[src/core/Main.ts:107](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/core/Main.ts#L107)
 
 ***
 
@@ -298,7 +298,7 @@ Indicates if the pointer is over the canvas.
 
 #### Defined in
 
-[src/core/Main.ts:155](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/core/Main.ts#L155)
+[src/core/Main.ts:155](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/core/Main.ts#L155)
 
 ***
 
@@ -316,7 +316,7 @@ A Raycaster instance responsible for handling raycasting operations in the appli
 
 #### Defined in
 
-[src/core/Main.ts:132](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/core/Main.ts#L132)
+[src/core/Main.ts:132](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/core/Main.ts#L132)
 
 ***
 
@@ -346,7 +346,7 @@ A custom sorting comparer function used to order intersections when performing r
 
 #### Defined in
 
-[src/core/Main.ts:126](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/core/Main.ts#L126)
+[src/core/Main.ts:126](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/core/Main.ts#L126)
 
 ***
 
@@ -364,7 +364,7 @@ The WebGLRenderer instance used for rendering the 3D scene.
 
 #### Defined in
 
-[src/core/Main.ts:61](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/core/Main.ts#L61)
+[src/core/Main.ts:61](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/core/Main.ts#L61)
 
 ***
 
@@ -395,7 +395,7 @@ If set to true, statistics will be shown; otherwise, they will be hidden.
 
 #### Defined in
 
-[src/core/Main.ts:93](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/core/Main.ts#L93)
+[src/core/Main.ts:93](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/core/Main.ts#L93)
 
 ***
 
@@ -414,7 +414,7 @@ Lists all views created and managed by the application, each representing a sepa
 
 #### Defined in
 
-[src/core/Main.ts:67](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/core/Main.ts#L67)
+[src/core/Main.ts:67](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/core/Main.ts#L67)
 
 ## Methods
 
@@ -436,7 +436,7 @@ The RenderView instance to add.
 
 #### Defined in
 
-[src/core/Main.ts:249](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/core/Main.ts#L249)
+[src/core/Main.ts:249](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/core/Main.ts#L249)
 
 ***
 
@@ -456,7 +456,7 @@ The RenderView instance to add.
 
 #### Defined in
 
-[src/core/Main.ts:229](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/core/Main.ts#L229)
+[src/core/Main.ts:229](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/core/Main.ts#L229)
 
 ***
 
@@ -472,7 +472,7 @@ Clears all RenderViews from the RenderManager.
 
 #### Defined in
 
-[src/core/Main.ts:275](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/core/Main.ts#L275)
+[src/core/Main.ts:275](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/core/Main.ts#L275)
 
 ***
 
@@ -496,7 +496,7 @@ The created RenderView instance.
 
 #### Defined in
 
-[src/core/Main.ts:240](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/core/Main.ts#L240)
+[src/core/Main.ts:240](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/core/Main.ts#L240)
 
 ***
 
@@ -518,7 +518,7 @@ The mouse position as a Vector2.
 
 #### Defined in
 
-[src/core/Main.ts:293](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/core/Main.ts#L293)
+[src/core/Main.ts:293](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/core/Main.ts#L293)
 
 ***
 
@@ -542,7 +542,7 @@ The RenderView with the specified tag, if found, otherwise, undefined.
 
 #### Defined in
 
-[src/core/Main.ts:285](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/core/Main.ts#L285)
+[src/core/Main.ts:285](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/core/Main.ts#L285)
 
 ***
 
@@ -564,7 +564,7 @@ The RenderView instance to remove.
 
 #### Defined in
 
-[src/core/Main.ts:258](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/core/Main.ts#L258)
+[src/core/Main.ts:258](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/core/Main.ts#L258)
 
 ***
 
@@ -586,7 +586,7 @@ The tag of the RenderView to remove.
 
 #### Defined in
 
-[src/core/Main.ts:267](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/core/Main.ts#L267)
+[src/core/Main.ts:267](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/core/Main.ts#L267)
 
 ***
 
@@ -608,4 +608,4 @@ The tag of the RenderViews to set as active.
 
 #### Defined in
 
-[src/core/Main.ts:301](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/core/Main.ts#L301)
+[src/core/Main.ts:301](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/core/Main.ts#L301)

@@ -1,8 +1,7 @@
 ---
 sidebar_position: 0
+title: Installation
 ---
-
-# Installation
 
 1. Begin by creating a `three.js` project, which can be done by following the [official guide (option 1)](https://threejs.org/docs/#manual/en/introduction/Installation).
 > ⚠️ **Warning** <br />

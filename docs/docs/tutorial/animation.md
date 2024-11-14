@@ -1,8 +1,7 @@
 ---
 sidebar_position: 5
+title: Animation
 ---
-
-# Animation
 
 The most effective way to handle animations for various `Object3D` instances is by binding the `animate` event to each of them.
 

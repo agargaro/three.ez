@@ -23,7 +23,7 @@ title: "VectorUtils"
 
 #### Defined in
 
-[src/utils/VectorUtils.ts:9](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/utils/VectorUtils.ts#L9)
+[src/utils/VectorUtils.ts:9](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/utils/VectorUtils.ts#L9)
 
 ## Methods
 
@@ -47,7 +47,7 @@ title: "VectorUtils"
 
 #### Defined in
 
-[src/utils/VectorUtils.ts:90](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/utils/VectorUtils.ts#L90)
+[src/utils/VectorUtils.ts:90](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/utils/VectorUtils.ts#L90)
 
 ***
 
@@ -69,7 +69,7 @@ title: "VectorUtils"
 
 #### Defined in
 
-[src/utils/VectorUtils.ts:86](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/utils/VectorUtils.ts#L86)
+[src/utils/VectorUtils.ts:86](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/utils/VectorUtils.ts#L86)
 
 ***
 
@@ -91,7 +91,7 @@ title: "VectorUtils"
 
 #### Defined in
 
-[src/utils/VectorUtils.ts:66](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/utils/VectorUtils.ts#L66)
+[src/utils/VectorUtils.ts:66](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/utils/VectorUtils.ts#L66)
 
 ***
 
@@ -115,7 +115,7 @@ title: "VectorUtils"
 
 #### Defined in
 
-[src/utils/VectorUtils.ts:75](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/utils/VectorUtils.ts#L75)
+[src/utils/VectorUtils.ts:75](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/utils/VectorUtils.ts#L75)
 
 ***
 
@@ -137,7 +137,7 @@ title: "VectorUtils"
 
 #### Defined in
 
-[src/utils/VectorUtils.ts:55](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/utils/VectorUtils.ts#L55)
+[src/utils/VectorUtils.ts:55](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/utils/VectorUtils.ts#L55)
 
 ***
 
@@ -161,7 +161,7 @@ title: "VectorUtils"
 
 #### Defined in
 
-[src/utils/VectorUtils.ts:61](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/utils/VectorUtils.ts#L61)
+[src/utils/VectorUtils.ts:61](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/utils/VectorUtils.ts#L61)
 
 ***
 
@@ -183,7 +183,7 @@ title: "VectorUtils"
 
 #### Defined in
 
-[src/utils/VectorUtils.ts:23](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/utils/VectorUtils.ts#L23)
+[src/utils/VectorUtils.ts:23](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/utils/VectorUtils.ts#L23)
 
 ***
 
@@ -201,7 +201,7 @@ title: "VectorUtils"
 
 #### Defined in
 
-[src/utils/VectorUtils.ts:11](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/utils/VectorUtils.ts#L11)
+[src/utils/VectorUtils.ts:11](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/utils/VectorUtils.ts#L11)
 
 ***
 
@@ -219,7 +219,7 @@ title: "VectorUtils"
 
 #### Defined in
 
-[src/utils/VectorUtils.ts:15](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/utils/VectorUtils.ts#L15)
+[src/utils/VectorUtils.ts:15](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/utils/VectorUtils.ts#L15)
 
 ***
 
@@ -241,7 +241,7 @@ title: "VectorUtils"
 
 #### Defined in
 
-[src/utils/VectorUtils.ts:31](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/utils/VectorUtils.ts#L31)
+[src/utils/VectorUtils.ts:31](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/utils/VectorUtils.ts#L31)
 
 ***
 
@@ -263,7 +263,7 @@ title: "VectorUtils"
 
 #### Defined in
 
-[src/utils/VectorUtils.ts:27](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/utils/VectorUtils.ts#L27)
+[src/utils/VectorUtils.ts:27](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/utils/VectorUtils.ts#L27)
 
 ***
 
@@ -285,7 +285,7 @@ title: "VectorUtils"
 
 #### Defined in
 
-[src/utils/VectorUtils.ts:35](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/utils/VectorUtils.ts#L35)
+[src/utils/VectorUtils.ts:35](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/utils/VectorUtils.ts#L35)
 
 ***
 
@@ -309,7 +309,7 @@ title: "VectorUtils"
 
 #### Defined in
 
-[src/utils/VectorUtils.ts:44](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/utils/VectorUtils.ts#L44)
+[src/utils/VectorUtils.ts:44](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/utils/VectorUtils.ts#L44)
 
 ***
 
@@ -333,7 +333,7 @@ title: "VectorUtils"
 
 #### Defined in
 
-[src/utils/VectorUtils.ts:39](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/utils/VectorUtils.ts#L39)
+[src/utils/VectorUtils.ts:39](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/utils/VectorUtils.ts#L39)
 
 ***
 
@@ -359,7 +359,7 @@ title: "VectorUtils"
 
 #### Defined in
 
-[src/utils/VectorUtils.ts:49](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/utils/VectorUtils.ts#L49)
+[src/utils/VectorUtils.ts:49](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/utils/VectorUtils.ts#L49)
 
 ***
 
@@ -383,4 +383,4 @@ title: "VectorUtils"
 
 #### Defined in
 
-[src/utils/VectorUtils.ts:97](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/utils/VectorUtils.ts#L97)
+[src/utils/VectorUtils.ts:97](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/utils/VectorUtils.ts#L97)

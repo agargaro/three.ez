@@ -36,7 +36,7 @@ This function is called with an `error` object in case of loading errors.
 
 #### Defined in
 
-[src/utils/Asset.ts:63](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/utils/Asset.ts#L63)
+[src/utils/Asset.ts:63](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/utils/Asset.ts#L63)
 
 ***
 
@@ -57,7 +57,7 @@ This function is called with a ratio (0 to 1) to indicate the loading progress.
 
 #### Defined in
 
-[src/utils/Asset.ts:58](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/utils/Asset.ts#L58)
+[src/utils/Asset.ts:58](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/utils/Asset.ts#L58)
 
 ## Methods
 
@@ -87,7 +87,7 @@ A previously loaded result object.
 
 ##### Defined in
 
-[src/utils/Asset.ts:73](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/utils/Asset.ts#L73)
+[src/utils/Asset.ts:73](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/utils/Asset.ts#L73)
 
 #### get(path)
 
@@ -113,7 +113,7 @@ An array of previously loaded result objects.
 
 ##### Defined in
 
-[src/utils/Asset.ts:79](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/utils/Asset.ts#L79)
+[src/utils/Asset.ts:79](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/utils/Asset.ts#L79)
 
 ***
 
@@ -141,7 +141,7 @@ The loader associated with the resource type.
 
 #### Defined in
 
-[src/utils/Asset.ts:95](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/utils/Asset.ts#L95)
+[src/utils/Asset.ts:95](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/utils/Asset.ts#L95)
 
 ***
 
@@ -179,7 +179,7 @@ A Promise that resolves with the loaded resource when loading is complete.
 
 #### Defined in
 
-[src/utils/Asset.ts:109](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/utils/Asset.ts#L109)
+[src/utils/Asset.ts:109](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/utils/Asset.ts#L109)
 
 ***
 
@@ -207,7 +207,7 @@ A promise that resolves when all resources are loaded.
 
 #### Defined in
 
-[src/utils/Asset.ts:149](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/utils/Asset.ts#L149)
+[src/utils/Asset.ts:149](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/utils/Asset.ts#L149)
 
 ***
 
@@ -233,7 +233,7 @@ An array of resource paths or configurations to preload.
 
 #### Defined in
 
-[src/utils/Asset.ts:128](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/utils/Asset.ts#L128)
+[src/utils/Asset.ts:128](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/utils/Asset.ts#L128)
 
 ***
 
@@ -257,4 +257,4 @@ A promise that resolves when all pending resources are loaded.
 
 #### Defined in
 
-[src/utils/Asset.ts:137](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/utils/Asset.ts#L137)
+[src/utils/Asset.ts:137](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/utils/Asset.ts#L137)

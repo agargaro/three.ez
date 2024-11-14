@@ -28,7 +28,7 @@ The default easing function used when no easing is specified.
 
 #### Defined in
 
-[src/tweening/Easings.ts:12](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/tweening/Easings.ts#L12)
+[src/tweening/Easings.ts:12](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/tweening/Easings.ts#L12)
 
 ## Methods
 
@@ -46,7 +46,7 @@ The default easing function used when no easing is specified.
 
 #### Defined in
 
-[src/tweening/Easings.ts:102](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/tweening/Easings.ts#L102)
+[src/tweening/Easings.ts:102](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/tweening/Easings.ts#L102)
 
 ***
 
@@ -64,7 +64,7 @@ The default easing function used when no easing is specified.
 
 #### Defined in
 
-[src/tweening/Easings.ts:128](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/tweening/Easings.ts#L128)
+[src/tweening/Easings.ts:128](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/tweening/Easings.ts#L128)
 
 ***
 
@@ -82,7 +82,7 @@ The default easing function used when no easing is specified.
 
 #### Defined in
 
-[src/tweening/Easings.ts:90](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/tweening/Easings.ts#L90)
+[src/tweening/Easings.ts:90](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/tweening/Easings.ts#L90)
 
 ***
 
@@ -100,7 +100,7 @@ The default easing function used when no easing is specified.
 
 #### Defined in
 
-[src/tweening/Easings.ts:42](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/tweening/Easings.ts#L42)
+[src/tweening/Easings.ts:42](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/tweening/Easings.ts#L42)
 
 ***
 
@@ -118,7 +118,7 @@ The default easing function used when no easing is specified.
 
 #### Defined in
 
-[src/tweening/Easings.ts:115](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/tweening/Easings.ts#L115)
+[src/tweening/Easings.ts:115](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/tweening/Easings.ts#L115)
 
 ***
 
@@ -136,7 +136,7 @@ The default easing function used when no easing is specified.
 
 #### Defined in
 
-[src/tweening/Easings.ts:78](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/tweening/Easings.ts#L78)
+[src/tweening/Easings.ts:78](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/tweening/Easings.ts#L78)
 
 ***
 
@@ -154,7 +154,7 @@ The default easing function used when no easing is specified.
 
 #### Defined in
 
-[src/tweening/Easings.ts:110](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/tweening/Easings.ts#L110)
+[src/tweening/Easings.ts:110](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/tweening/Easings.ts#L110)
 
 ***
 
@@ -172,7 +172,7 @@ The default easing function used when no easing is specified.
 
 #### Defined in
 
-[src/tweening/Easings.ts:144](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/tweening/Easings.ts#L144)
+[src/tweening/Easings.ts:144](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/tweening/Easings.ts#L144)
 
 ***
 
@@ -190,7 +190,7 @@ The default easing function used when no easing is specified.
 
 #### Defined in
 
-[src/tweening/Easings.ts:98](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/tweening/Easings.ts#L98)
+[src/tweening/Easings.ts:98](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/tweening/Easings.ts#L98)
 
 ***
 
@@ -208,7 +208,7 @@ The default easing function used when no easing is specified.
 
 #### Defined in
 
-[src/tweening/Easings.ts:50](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/tweening/Easings.ts#L50)
+[src/tweening/Easings.ts:50](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/tweening/Easings.ts#L50)
 
 ***
 
@@ -226,7 +226,7 @@ The default easing function used when no easing is specified.
 
 #### Defined in
 
-[src/tweening/Easings.ts:123](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/tweening/Easings.ts#L123)
+[src/tweening/Easings.ts:123](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/tweening/Easings.ts#L123)
 
 ***
 
@@ -244,7 +244,7 @@ The default easing function used when no easing is specified.
 
 #### Defined in
 
-[src/tweening/Easings.ts:86](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/tweening/Easings.ts#L86)
+[src/tweening/Easings.ts:86](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/tweening/Easings.ts#L86)
 
 ***
 
@@ -262,7 +262,7 @@ The default easing function used when no easing is specified.
 
 #### Defined in
 
-[src/tweening/Easings.ts:38](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/tweening/Easings.ts#L38)
+[src/tweening/Easings.ts:38](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/tweening/Easings.ts#L38)
 
 ***
 
@@ -280,7 +280,7 @@ The default easing function used when no easing is specified.
 
 #### Defined in
 
-[src/tweening/Easings.ts:62](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/tweening/Easings.ts#L62)
+[src/tweening/Easings.ts:62](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/tweening/Easings.ts#L62)
 
 ***
 
@@ -298,7 +298,7 @@ The default easing function used when no easing is specified.
 
 #### Defined in
 
-[src/tweening/Easings.ts:74](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/tweening/Easings.ts#L74)
+[src/tweening/Easings.ts:74](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/tweening/Easings.ts#L74)
 
 ***
 
@@ -316,7 +316,7 @@ The default easing function used when no easing is specified.
 
 #### Defined in
 
-[src/tweening/Easings.ts:26](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/tweening/Easings.ts#L26)
+[src/tweening/Easings.ts:26](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/tweening/Easings.ts#L26)
 
 ***
 
@@ -334,7 +334,7 @@ The default easing function used when no easing is specified.
 
 #### Defined in
 
-[src/tweening/Easings.ts:30](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/tweening/Easings.ts#L30)
+[src/tweening/Easings.ts:30](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/tweening/Easings.ts#L30)
 
 ***
 
@@ -352,7 +352,7 @@ The default easing function used when no easing is specified.
 
 #### Defined in
 
-[src/tweening/Easings.ts:54](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/tweening/Easings.ts#L54)
+[src/tweening/Easings.ts:54](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/tweening/Easings.ts#L54)
 
 ***
 
@@ -370,7 +370,7 @@ The default easing function used when no easing is specified.
 
 #### Defined in
 
-[src/tweening/Easings.ts:66](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/tweening/Easings.ts#L66)
+[src/tweening/Easings.ts:66](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/tweening/Easings.ts#L66)
 
 ***
 
@@ -388,7 +388,7 @@ The default easing function used when no easing is specified.
 
 #### Defined in
 
-[src/tweening/Easings.ts:18](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/tweening/Easings.ts#L18)
+[src/tweening/Easings.ts:18](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/tweening/Easings.ts#L18)
 
 ***
 
@@ -406,7 +406,7 @@ The default easing function used when no easing is specified.
 
 #### Defined in
 
-[src/tweening/Easings.ts:106](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/tweening/Easings.ts#L106)
+[src/tweening/Easings.ts:106](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/tweening/Easings.ts#L106)
 
 ***
 
@@ -424,7 +424,7 @@ The default easing function used when no easing is specified.
 
 #### Defined in
 
-[src/tweening/Easings.ts:132](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/tweening/Easings.ts#L132)
+[src/tweening/Easings.ts:132](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/tweening/Easings.ts#L132)
 
 ***
 
@@ -442,7 +442,7 @@ The default easing function used when no easing is specified.
 
 #### Defined in
 
-[src/tweening/Easings.ts:94](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/tweening/Easings.ts#L94)
+[src/tweening/Easings.ts:94](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/tweening/Easings.ts#L94)
 
 ***
 
@@ -460,7 +460,7 @@ The default easing function used when no easing is specified.
 
 #### Defined in
 
-[src/tweening/Easings.ts:46](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/tweening/Easings.ts#L46)
+[src/tweening/Easings.ts:46](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/tweening/Easings.ts#L46)
 
 ***
 
@@ -478,7 +478,7 @@ The default easing function used when no easing is specified.
 
 #### Defined in
 
-[src/tweening/Easings.ts:119](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/tweening/Easings.ts#L119)
+[src/tweening/Easings.ts:119](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/tweening/Easings.ts#L119)
 
 ***
 
@@ -496,7 +496,7 @@ The default easing function used when no easing is specified.
 
 #### Defined in
 
-[src/tweening/Easings.ts:82](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/tweening/Easings.ts#L82)
+[src/tweening/Easings.ts:82](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/tweening/Easings.ts#L82)
 
 ***
 
@@ -514,7 +514,7 @@ The default easing function used when no easing is specified.
 
 #### Defined in
 
-[src/tweening/Easings.ts:34](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/tweening/Easings.ts#L34)
+[src/tweening/Easings.ts:34](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/tweening/Easings.ts#L34)
 
 ***
 
@@ -532,7 +532,7 @@ The default easing function used when no easing is specified.
 
 #### Defined in
 
-[src/tweening/Easings.ts:58](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/tweening/Easings.ts#L58)
+[src/tweening/Easings.ts:58](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/tweening/Easings.ts#L58)
 
 ***
 
@@ -550,7 +550,7 @@ The default easing function used when no easing is specified.
 
 #### Defined in
 
-[src/tweening/Easings.ts:70](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/tweening/Easings.ts#L70)
+[src/tweening/Easings.ts:70](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/tweening/Easings.ts#L70)
 
 ***
 
@@ -568,7 +568,7 @@ The default easing function used when no easing is specified.
 
 #### Defined in
 
-[src/tweening/Easings.ts:22](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/tweening/Easings.ts#L22)
+[src/tweening/Easings.ts:22](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/tweening/Easings.ts#L22)
 
 ***
 
@@ -586,4 +586,4 @@ The default easing function used when no easing is specified.
 
 #### Defined in
 
-[src/tweening/Easings.ts:14](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/tweening/Easings.ts#L14)
+[src/tweening/Easings.ts:14](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/tweening/Easings.ts#L14)

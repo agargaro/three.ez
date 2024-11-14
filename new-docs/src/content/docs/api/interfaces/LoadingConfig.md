@@ -26,7 +26,7 @@ This function is called with an `error` object in case of loading errors.
 
 #### Defined in
 
-[src/utils/Asset.ts:16](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/utils/Asset.ts#L16)
+[src/utils/Asset.ts:16](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/utils/Asset.ts#L16)
 
 ***
 
@@ -47,4 +47,4 @@ This function is called with a ratio (0 to 1) to indicate the loading progress.
 
 #### Defined in
 
-[src/utils/Asset.ts:11](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/utils/Asset.ts#L11)
+[src/utils/Asset.ts:11](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/utils/Asset.ts#L11)

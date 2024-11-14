@@ -1,7 +1,6 @@
 ---
 sidebar_position: 3
+title: Resizing
 ---
-
-# Resizing
 
 Work in progress..

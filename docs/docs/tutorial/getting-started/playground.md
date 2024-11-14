@@ -1,8 +1,7 @@
 ---
 sidebar_position: 2
+title: Playground
 ---
-
-# Playground
 
 Playgrounds let you experience `three.ez` right in your browser, with no need for installation!
 

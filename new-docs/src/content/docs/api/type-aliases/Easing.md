@@ -11,4 +11,4 @@ Type representing an easing type, which can be either a predefined easing functi
 
 ## Defined in
 
-[src/tweening/Easings.ts:4](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/tweening/Easings.ts#L4)
+[src/tweening/Easings.ts:4](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/tweening/Easings.ts#L4)

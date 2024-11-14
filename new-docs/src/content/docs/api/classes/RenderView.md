@@ -32,7 +32,7 @@ Don't instantiate this manually.
 
 #### Defined in
 
-[src/rendering/RenderView.ts:76](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/rendering/RenderView.ts#L76)
+[src/rendering/RenderView.ts:76](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/rendering/RenderView.ts#L76)
 
 ## Properties
 
@@ -48,7 +48,7 @@ Background alpha value of the view (optional, default: 1).
 
 #### Defined in
 
-[src/rendering/RenderView.ts:59](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/rendering/RenderView.ts#L59)
+[src/rendering/RenderView.ts:59](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/rendering/RenderView.ts#L59)
 
 ***
 
@@ -64,7 +64,7 @@ Background color of the view (optional, default: 'black').
 
 #### Defined in
 
-[src/rendering/RenderView.ts:58](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/rendering/RenderView.ts#L58)
+[src/rendering/RenderView.ts:58](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/rendering/RenderView.ts#L58)
 
 ***
 
@@ -80,7 +80,7 @@ Camera used to view the scene (avoid using the same camera for different scenes)
 
 #### Defined in
 
-[src/rendering/RenderView.ts:52](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/rendering/RenderView.ts#L52)
+[src/rendering/RenderView.ts:52](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/rendering/RenderView.ts#L52)
 
 ***
 
@@ -96,7 +96,7 @@ Effect composer used for post-processing (optional).
 
 #### Defined in
 
-[src/rendering/RenderView.ts:60](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/rendering/RenderView.ts#L60)
+[src/rendering/RenderView.ts:60](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/rendering/RenderView.ts#L60)
 
 ***
 
@@ -128,7 +128,7 @@ The viewport defining the dimensions and position of the view.
 
 #### Defined in
 
-[src/rendering/RenderView.ts:55](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/rendering/RenderView.ts#L55)
+[src/rendering/RenderView.ts:55](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/rendering/RenderView.ts#L55)
 
 ***
 
@@ -144,7 +144,7 @@ Determines whether InteractionEvents will be triggered for the view (optional, d
 
 #### Defined in
 
-[src/rendering/RenderView.ts:57](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/rendering/RenderView.ts#L57)
+[src/rendering/RenderView.ts:57](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/rendering/RenderView.ts#L57)
 
 ***
 
@@ -160,7 +160,7 @@ Scene rendered in the view.
 
 #### Defined in
 
-[src/rendering/RenderView.ts:51](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/rendering/RenderView.ts#L51)
+[src/rendering/RenderView.ts:51](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/rendering/RenderView.ts#L51)
 
 ***
 
@@ -176,7 +176,7 @@ Tags of the view (optional).
 
 #### Defined in
 
-[src/rendering/RenderView.ts:56](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/rendering/RenderView.ts#L56)
+[src/rendering/RenderView.ts:56](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/rendering/RenderView.ts#L56)
 
 ***
 
@@ -192,7 +192,7 @@ Normalized viewport defining dimensions and position of the view (optional). Val
 
 #### Defined in
 
-[src/rendering/RenderView.ts:53](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/rendering/RenderView.ts#L53)
+[src/rendering/RenderView.ts:53](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/rendering/RenderView.ts#L53)
 
 ## Accessors
 
@@ -230,7 +230,7 @@ Determines if the view is visible (optional, default: true).
 
 #### Defined in
 
-[src/rendering/RenderView.ts:66](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/rendering/RenderView.ts#L66)
+[src/rendering/RenderView.ts:66](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/rendering/RenderView.ts#L66)
 
 ## Methods
 
@@ -250,7 +250,7 @@ Function called after rendering the view (optional).
 
 #### Defined in
 
-[src/rendering/RenderView.ts:116](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/rendering/RenderView.ts#L116)
+[src/rendering/RenderView.ts:116](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/rendering/RenderView.ts#L116)
 
 ***
 
@@ -270,7 +270,7 @@ Function called before rendering the view (optional).
 
 #### Defined in
 
-[src/rendering/RenderView.ts:112](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/rendering/RenderView.ts#L112)
+[src/rendering/RenderView.ts:112](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/rendering/RenderView.ts#L112)
 
 ***
 
@@ -286,4 +286,4 @@ Updates the dimensions of the viewport based on the renderer size.
 
 #### Defined in
 
-[src/rendering/RenderView.ts:97](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/rendering/RenderView.ts#L97)
+[src/rendering/RenderView.ts:97](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/rendering/RenderView.ts#L97)

@@ -41,7 +41,7 @@ The initial color representation for this instance (optional).
 
 #### Defined in
 
-[src/instancedMesh/InstancedMeshEntity.ts:74](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/instancedMesh/InstancedMeshEntity.ts#L74)
+[src/instancedMesh/InstancedMeshEntity.ts:74](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/instancedMesh/InstancedMeshEntity.ts#L74)
 
 ## Properties
 
@@ -53,7 +53,7 @@ Cursor style when interacting with the object.
 
 #### Defined in
 
-[src/instancedMesh/InstancedMeshEntity.ts:37](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/instancedMesh/InstancedMeshEntity.ts#L37)
+[src/instancedMesh/InstancedMeshEntity.ts:37](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/instancedMesh/InstancedMeshEntity.ts#L37)
 
 ***
 
@@ -65,7 +65,7 @@ Cursor style when dragging the object.
 
 #### Defined in
 
-[src/instancedMesh/InstancedMeshEntity.ts:39](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/instancedMesh/InstancedMeshEntity.ts#L39)
+[src/instancedMesh/InstancedMeshEntity.ts:39](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/instancedMesh/InstancedMeshEntity.ts#L39)
 
 ***
 
@@ -77,7 +77,7 @@ Cursor style when dropping an object onto this one.
 
 #### Defined in
 
-[src/instancedMesh/InstancedMeshEntity.ts:41](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/instancedMesh/InstancedMeshEntity.ts#L41)
+[src/instancedMesh/InstancedMeshEntity.ts:41](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/instancedMesh/InstancedMeshEntity.ts#L41)
 
 ***
 
@@ -89,7 +89,7 @@ Indicates whether the object is draggable (default: false).
 
 #### Defined in
 
-[src/instancedMesh/InstancedMeshEntity.ts:33](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/instancedMesh/InstancedMeshEntity.ts#L33)
+[src/instancedMesh/InstancedMeshEntity.ts:33](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/instancedMesh/InstancedMeshEntity.ts#L33)
 
 ***
 
@@ -102,7 +102,7 @@ If set to true, it allows triggering all InteractionEvents; otherwise, events ar
 
 #### Defined in
 
-[src/instancedMesh/InstancedMeshEntity.ts:29](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/instancedMesh/InstancedMeshEntity.ts#L29)
+[src/instancedMesh/InstancedMeshEntity.ts:29](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/instancedMesh/InstancedMeshEntity.ts#L29)
 
 ***
 
@@ -114,7 +114,7 @@ Determines when the object is dragged, whether it will have to search for any dr
 
 #### Defined in
 
-[src/instancedMesh/InstancedMeshEntity.ts:35](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/instancedMesh/InstancedMeshEntity.ts#L35)
+[src/instancedMesh/InstancedMeshEntity.ts:35](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/instancedMesh/InstancedMeshEntity.ts#L35)
 
 ***
 
@@ -126,7 +126,7 @@ Indicates whether the object can receive focus (default: true).
 
 #### Defined in
 
-[src/instancedMesh/InstancedMeshEntity.ts:31](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/instancedMesh/InstancedMeshEntity.ts#L31)
+[src/instancedMesh/InstancedMeshEntity.ts:31](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/instancedMesh/InstancedMeshEntity.ts#L31)
 
 ***
 
@@ -138,7 +138,7 @@ An identifier for this individual instance within an InstancedMesh2.
 
 #### Defined in
 
-[src/instancedMesh/InstancedMeshEntity.ts:18](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/instancedMesh/InstancedMeshEntity.ts#L18)
+[src/instancedMesh/InstancedMeshEntity.ts:18](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/instancedMesh/InstancedMeshEntity.ts#L18)
 
 ***
 
@@ -150,7 +150,7 @@ A flag indicating that this is an instance of InstancedMeshEntity.
 
 #### Defined in
 
-[src/instancedMesh/InstancedMeshEntity.ts:14](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/instancedMesh/InstancedMeshEntity.ts#L14)
+[src/instancedMesh/InstancedMeshEntity.ts:14](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/instancedMesh/InstancedMeshEntity.ts#L14)
 
 ***
 
@@ -162,7 +162,7 @@ The parent InstancedMesh2 that contains this instance.
 
 #### Defined in
 
-[src/instancedMesh/InstancedMeshEntity.ts:16](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/instancedMesh/InstancedMeshEntity.ts#L16)
+[src/instancedMesh/InstancedMeshEntity.ts:16](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/instancedMesh/InstancedMeshEntity.ts#L16)
 
 ***
 
@@ -174,7 +174,7 @@ A Vector3 representing the object's local position. Default is (0, 0, 0).
 
 #### Defined in
 
-[src/instancedMesh/InstancedMeshEntity.ts:20](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/instancedMesh/InstancedMeshEntity.ts#L20)
+[src/instancedMesh/InstancedMeshEntity.ts:20](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/instancedMesh/InstancedMeshEntity.ts#L20)
 
 ***
 
@@ -186,7 +186,7 @@ Object's local rotation as a Quaternion.
 
 #### Defined in
 
-[src/instancedMesh/InstancedMeshEntity.ts:24](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/instancedMesh/InstancedMeshEntity.ts#L24)
+[src/instancedMesh/InstancedMeshEntity.ts:24](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/instancedMesh/InstancedMeshEntity.ts#L24)
 
 ***
 
@@ -198,7 +198,7 @@ The object's local scale. Default is Vector3(1, 1, 1).
 
 #### Defined in
 
-[src/instancedMesh/InstancedMeshEntity.ts:22](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/instancedMesh/InstancedMeshEntity.ts#L22)
+[src/instancedMesh/InstancedMeshEntity.ts:22](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/instancedMesh/InstancedMeshEntity.ts#L22)
 
 ## Accessors
 
@@ -216,7 +216,7 @@ Indicates if the object is currently being clicked.
 
 #### Defined in
 
-[src/instancedMesh/InstancedMeshEntity.ts:53](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/instancedMesh/InstancedMeshEntity.ts#L53)
+[src/instancedMesh/InstancedMeshEntity.ts:53](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/instancedMesh/InstancedMeshEntity.ts#L53)
 
 ***
 
@@ -234,7 +234,7 @@ Indicates if the object is currently being dragged.
 
 #### Defined in
 
-[src/instancedMesh/InstancedMeshEntity.ts:55](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/instancedMesh/InstancedMeshEntity.ts#L55)
+[src/instancedMesh/InstancedMeshEntity.ts:55](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/instancedMesh/InstancedMeshEntity.ts#L55)
 
 ***
 
@@ -252,7 +252,7 @@ Retrieves the combined enabled state considering parent objects.
 
 #### Defined in
 
-[src/instancedMesh/InstancedMeshEntity.ts:57](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/instancedMesh/InstancedMeshEntity.ts#L57)
+[src/instancedMesh/InstancedMeshEntity.ts:57](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/instancedMesh/InstancedMeshEntity.ts#L57)
 
 ***
 
@@ -270,7 +270,7 @@ Indicates if the object is currently focused.
 
 #### Defined in
 
-[src/instancedMesh/InstancedMeshEntity.ts:51](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/instancedMesh/InstancedMeshEntity.ts#L51)
+[src/instancedMesh/InstancedMeshEntity.ts:51](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/instancedMesh/InstancedMeshEntity.ts#L51)
 
 ***
 
@@ -288,7 +288,7 @@ Indicates if the primary pointer is over this object.
 
 #### Defined in
 
-[src/instancedMesh/InstancedMeshEntity.ts:49](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/instancedMesh/InstancedMeshEntity.ts#L49)
+[src/instancedMesh/InstancedMeshEntity.ts:49](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/instancedMesh/InstancedMeshEntity.ts#L49)
 
 ***
 
@@ -306,7 +306,7 @@ The global transform of the object.
 
 #### Defined in
 
-[src/instancedMesh/InstancedMeshEntity.ts:62](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/instancedMesh/InstancedMeshEntity.ts#L62)
+[src/instancedMesh/InstancedMeshEntity.ts:62](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/instancedMesh/InstancedMeshEntity.ts#L62)
 
 ## Methods
 
@@ -356,7 +356,7 @@ Applies blur (removes focus) from the object.
 
 #### Defined in
 
-[src/instancedMesh/InstancedMeshEntity.ts:175](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/instancedMesh/InstancedMeshEntity.ts#L175)
+[src/instancedMesh/InstancedMeshEntity.ts:175](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/instancedMesh/InstancedMeshEntity.ts#L175)
 
 ***
 
@@ -372,7 +372,7 @@ Applies focus to the object.
 
 #### Defined in
 
-[src/instancedMesh/InstancedMeshEntity.ts:168](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/instancedMesh/InstancedMeshEntity.ts#L168)
+[src/instancedMesh/InstancedMeshEntity.ts:168](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/instancedMesh/InstancedMeshEntity.ts#L168)
 
 ***
 
@@ -396,7 +396,7 @@ The instance of the object.
 
 #### Defined in
 
-[src/instancedMesh/InstancedMeshEntity.ts:120](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/instancedMesh/InstancedMeshEntity.ts#L120)
+[src/instancedMesh/InstancedMeshEntity.ts:120](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/instancedMesh/InstancedMeshEntity.ts#L120)
 
 ***
 
@@ -420,7 +420,7 @@ The instance of the object.
 
 #### Defined in
 
-[src/instancedMesh/InstancedMeshEntity.ts:136](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/instancedMesh/InstancedMeshEntity.ts#L136)
+[src/instancedMesh/InstancedMeshEntity.ts:136](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/instancedMesh/InstancedMeshEntity.ts#L136)
 
 ***
 
@@ -474,7 +474,7 @@ The color representation of this instance.
 
 #### Defined in
 
-[src/instancedMesh/InstancedMeshEntity.ts:99](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/instancedMesh/InstancedMeshEntity.ts#L99)
+[src/instancedMesh/InstancedMeshEntity.ts:99](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/instancedMesh/InstancedMeshEntity.ts#L99)
 
 ***
 
@@ -506,7 +506,7 @@ The callback function to check.
 
 #### Defined in
 
-[src/instancedMesh/InstancedMeshEntity.ts:203](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/instancedMesh/InstancedMeshEntity.ts#L203)
+[src/instancedMesh/InstancedMeshEntity.ts:203](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/instancedMesh/InstancedMeshEntity.ts#L203)
 
 ***
 
@@ -570,7 +570,7 @@ The callback function to remove.
 
 #### Defined in
 
-[src/instancedMesh/InstancedMeshEntity.ts:212](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/instancedMesh/InstancedMeshEntity.ts#L212)
+[src/instancedMesh/InstancedMeshEntity.ts:212](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/instancedMesh/InstancedMeshEntity.ts#L212)
 
 ***
 
@@ -608,7 +608,7 @@ A function to remove the event listener.
 
 #### Defined in
 
-[src/instancedMesh/InstancedMeshEntity.ts:187](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/instancedMesh/InstancedMeshEntity.ts#L187)
+[src/instancedMesh/InstancedMeshEntity.ts:187](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/instancedMesh/InstancedMeshEntity.ts#L187)
 
 ***
 
@@ -670,7 +670,7 @@ The instance of the object.
 
 #### Defined in
 
-[src/instancedMesh/InstancedMeshEntity.ts:147](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/instancedMesh/InstancedMeshEntity.ts#L147)
+[src/instancedMesh/InstancedMeshEntity.ts:147](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/instancedMesh/InstancedMeshEntity.ts#L147)
 
 ***
 
@@ -698,7 +698,7 @@ The instance of the object.
 
 #### Defined in
 
-[src/instancedMesh/InstancedMeshEntity.ts:159](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/instancedMesh/InstancedMeshEntity.ts#L159)
+[src/instancedMesh/InstancedMeshEntity.ts:159](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/instancedMesh/InstancedMeshEntity.ts#L159)
 
 ***
 
@@ -720,7 +720,7 @@ The color representation to set.
 
 #### Defined in
 
-[src/instancedMesh/InstancedMeshEntity.ts:88](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/instancedMesh/InstancedMeshEntity.ts#L88)
+[src/instancedMesh/InstancedMeshEntity.ts:88](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/instancedMesh/InstancedMeshEntity.ts#L88)
 
 ***
 
@@ -750,7 +750,7 @@ Optional event data to pass to the listeners.
 
 #### Defined in
 
-[src/instancedMesh/InstancedMeshEntity.ts:221](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/instancedMesh/InstancedMeshEntity.ts#L221)
+[src/instancedMesh/InstancedMeshEntity.ts:221](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/instancedMesh/InstancedMeshEntity.ts#L221)
 
 ***
 
@@ -768,7 +768,7 @@ A Tween instance for further configuration.
 
 #### Defined in
 
-[src/instancedMesh/InstancedMeshEntity.ts:229](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/instancedMesh/InstancedMeshEntity.ts#L229)
+[src/instancedMesh/InstancedMeshEntity.ts:229](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/instancedMesh/InstancedMeshEntity.ts#L229)
 
 ***
 
@@ -784,4 +784,4 @@ Updates the local transform.
 
 #### Defined in
 
-[src/instancedMesh/InstancedMeshEntity.ts:107](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/instancedMesh/InstancedMeshEntity.ts#L107)
+[src/instancedMesh/InstancedMeshEntity.ts:107](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/instancedMesh/InstancedMeshEntity.ts#L107)

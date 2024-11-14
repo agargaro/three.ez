@@ -47,7 +47,7 @@ The AABB to check for intersection with.
 
 #### Defined in
 
-[src/utils/IntersectionUtils.ts:103](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/utils/IntersectionUtils.ts#L103)
+[src/utils/IntersectionUtils.ts:103](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/utils/IntersectionUtils.ts#L103)
 
 ***
 
@@ -91,7 +91,7 @@ The intersection point of the two lines or `undefined` if the lines are parallel
 
 #### Defined in
 
-[src/utils/IntersectionUtils.ts:22](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/utils/IntersectionUtils.ts#L22)
+[src/utils/IntersectionUtils.ts:22](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/utils/IntersectionUtils.ts#L22)
 
 ***
 
@@ -139,7 +139,7 @@ The intersection point of the two lines or `undefined` if the lines are parallel
 
 #### Defined in
 
-[src/utils/IntersectionUtils.ts:65](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/utils/IntersectionUtils.ts#L65)
+[src/utils/IntersectionUtils.ts:65](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/utils/IntersectionUtils.ts#L65)
 
 ***
 
@@ -171,7 +171,7 @@ The AABB to check for intersection with.
 
 #### Defined in
 
-[src/utils/IntersectionUtils.ts:160](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/utils/IntersectionUtils.ts#L160)
+[src/utils/IntersectionUtils.ts:160](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/utils/IntersectionUtils.ts#L160)
 
 ***
 
@@ -215,4 +215,4 @@ The intersection point of the two segments or `undefined` if the segments do not
 
 #### Defined in
 
-[src/utils/IntersectionUtils.ts:42](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/utils/IntersectionUtils.ts#L42)
+[src/utils/IntersectionUtils.ts:42](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/utils/IntersectionUtils.ts#L42)

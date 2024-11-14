@@ -1,8 +1,7 @@
 ---
 sidebar_position: 4
+title: Asset Management
 ---
-
-# Asset Management
 
 The `Asset` class provides an efficient solution for loading and managing various resources, including 3D models, textures, and other assets in your applications.
 

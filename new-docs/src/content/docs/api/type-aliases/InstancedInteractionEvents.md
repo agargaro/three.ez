@@ -9,4 +9,4 @@ title: "InstancedInteractionEvents"
 
 ## Defined in
 
-[src/instancedMesh/EventsDispatcherInstanced.ts:5](https://github.com/agargaro/three.ez/blob/b06e30e89a1cb80df2de9df7c48590de59a134ce/src/instancedMesh/EventsDispatcherInstanced.ts#L5)
+[src/instancedMesh/EventsDispatcherInstanced.ts:5](https://github.com/agargaro/three.ez/blob/3fdd7e09783eb2a959141bd465ac646bca571e93/src/instancedMesh/EventsDispatcherInstanced.ts#L5)
