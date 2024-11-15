@@ -1,5 +1,5 @@
 import { Object3D, Scene } from 'three';
-import { Binding, BindingCallback } from '../binding/Binding.js';
+import { BindingCallback, bindProperty, detectChanges, setManualDetectionMode, unbindProperty } from '../binding/Binding.js';
 import { Cursor } from '../events/CursorManager.js';
 import { Default } from '../events/Default.js';
 import { Events, InteractionEvents } from '../events/Events.js';
@@ -214,13 +214,10 @@ Object.defineProperty(Object3D.prototype, 'firstFocusable', {
 
 Object.defineProperty(Object3D.prototype, 'enabledState', {
   get: function (this: Object3D) {
-    if (!this.__enabled) return false;
-
-    let obj = this.parent;
+    let obj = this;
     do {
       if (!obj.__enabled) return false;
     } while ((obj = obj.parent));
-
     return true;
   }
 });
@@ -229,8 +226,8 @@ Object.defineProperty(Object3D.prototype, 'visibilityState', {
   get: function (this: Object3D) {
     let obj = this;
     do {
-      if (!obj.visible) return false;
-    } while (obj = obj.parent);
+      if (!obj.__visible) return false;
+    } while ((obj = obj.parent));
     return true;
   }
 });
@@ -322,20 +319,20 @@ Object3D.prototype.applyBlur = function () {
 };
 
 Object3D.prototype.setManualDetectionMode = function () {
-  Binding.setManualDetectionMode(this);
+  setManualDetectionMode(this);
 };
 
 Object3D.prototype.detectChanges = function (recursive = false) {
-  Binding.detectChanges(this, recursive);
+  detectChanges(this, recursive);
 };
 
 Object3D.prototype.bindProperty = function (property, getValue, renderOnChange) {
-  Binding.bindProperty(property, this, getValue, renderOnChange);
+  bindProperty(property, this, getValue, renderOnChange);
   return this;
 };
 
 Object3D.prototype.unbindProperty = function (property) {
-  Binding.unbindProperty(this, property);
+  unbindProperty(this, property);
   return this;
 };
 

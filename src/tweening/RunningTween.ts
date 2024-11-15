@@ -1,7 +1,7 @@
 import { ActionTween, MotionConfig } from './Actions.js';
 import { EasingFunction } from './Easings.js';
 import { Tween } from './Tween.js';
-import { TweenManager } from './TweenManager.js';
+import { addChildren, complete, createChildren, stop } from './TweenManager.js';
 
 type UpdateCallback<T> = (start?: T, end?: T, alpha?: number) => void;
 
@@ -88,29 +88,29 @@ export class RunningTween<T = any> {
   }
 
   /**
-     * Resume the execution of the running tween if it was paused.
-     */
+   * Resume the execution of the running tween if it was paused.
+   */
   public resume(): void {
     this.paused = false;
   }
 
   /**
-     * Stop the running tween, causing it to finish immediately.
-     */
+   * Stop the running tween, causing it to finish immediately.
+   */
   public stop(): void {
-    TweenManager.stop(this);
+    stop(this);
   }
 
   /**
     * Complete the running tween, causing it to finish immediately.
     */
   public complete(): void {
-    TweenManager.complete(this);
+    complete(this);
   }
 
   /**
-     * Revert the running tween to its initial state (Not implemented yet).
-     */
+   * Revert the running tween to its initial state (Not implemented yet).
+   */
   public revert(): void {
     console.error('Revert method not implemented yet.'); // handle (!blockHistory)
   }
@@ -306,10 +306,10 @@ export class RunningTween<T = any> {
 
   /** @internal */
   private executeTween(block: RunningBlock, delta: number, tween: Tween<T>): void {
-    const runningTween = TweenManager.createChildren(this.target, tween, this.root ?? this);
+    const runningTween = createChildren(this.target, tween, this.root ?? this);
     block.runningTweens.push(runningTween);
     if (runningTween.execute(delta)) {
-      TweenManager.addChildren(runningTween);
+      addChildren(runningTween);
     }
   }
 
@@ -320,7 +320,7 @@ export class RunningTween<T = any> {
     this.actionIndex = this.reversed ? this.history.length : -1;
     this.getBlock();
     if (this.execute(delta)) {
-      TweenManager.addChildren(this);
+      addChildren(this);
     }
   }
 

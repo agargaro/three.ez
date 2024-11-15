@@ -1,14 +1,14 @@
 import { Camera, Clock, ColorRepresentation, Raycaster, Scene, Vector2, WebGLRenderer, WebGLRendererParameters } from 'three';
 import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer.js';
-import { Binding } from '../binding/Binding.js';
 import { InteractionManager } from '../events/InteractionManager.js';
 import { EventsCache } from '../events/MiscEventsManager.js';
 import { RenderManager } from '../rendering/RenderManager.js';
 import { RenderView, ViewParameters } from '../rendering/RenderView.js';
-import { TweenManager } from '../tweening/TweenManager.js';
 import { Stats } from '../utils/Stats.js';
 import { RaycasterSortComparer } from '../events/RaycasterManager.js';
 import { applyWebGLRendererPatch } from '../patch/WebGLRenderer.js';
+import { update } from '../tweening/TweenManager.js';
+import { compute } from '../binding/Binding.js';
 
 /**
  * Configuration parameters for initializing the Main class.
@@ -43,12 +43,12 @@ export interface MainParameters {
 export class Main {
   /** A static counter representing the number of animation frames elapsed. */
   public ticks = 0;
-  private _renderManager: RenderManager;
-  private _interactionManager: InteractionManager;
+  private readonly _renderManager: RenderManager;
+  private readonly _interactionManager: InteractionManager;
   /** @internal **/ public _stats: Stats;
   /** @internal **/ public _showStats: boolean;
-  private _animate: (delta: number, total: number) => void;
-  private _clock = new Clock();
+  private readonly _animate: (delta: number, total: number) => void; // todo improve this.. readonly not worth
+  private readonly _clock = new Clock();
 
   /**
      * The WebGLRenderer instance used for rendering the 3D scene.
@@ -187,7 +187,7 @@ export class Main {
       const currentDelta = this._clock.getDelta();
 
       this._interactionManager.update();
-      TweenManager.update(currentDelta * 1000);
+      update(currentDelta * 1000);
 
       this.animate(currentDelta, this._clock.elapsedTime);
 
@@ -200,7 +200,7 @@ export class Main {
           EventsCache.dispatchEvent(scene, 'beforeanimate', { delta, total });
           EventsCache.dispatchEvent(scene, 'animate', { delta, total });
           EventsCache.dispatchEvent(scene, 'afteranimate', { delta, total });
-          Binding.compute(scene);
+          compute(scene);
         }
 
         this._renderManager.render();
