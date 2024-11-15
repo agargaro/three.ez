@@ -10,14 +10,18 @@ export default [
     semi: true,
     commaDangle: 'never',
     arrowParens: true,
-    braceStyle: '1tbs'
+    braceStyle: '1tbs',
+    blockSpacing: true,
+    indent: 2,
+    quoteProps: 'as-needed',
+    quotes: 'single'
   }),
   {
     ignores: ['dist', 'docs', 'packages']
   },
   {
     rules: {
-      'camelcase': 'warn',
+      camelcase: 'warn',
       'no-unused-vars': 'off',
       'no-undef': 'off',
       '@typescript-eslint/no-explicit-any': 'off',
@@ -25,6 +29,7 @@ export default [
       '@typescript-eslint/no-empty-object-type': 'off',
       '@typescript-eslint/no-wrapper-object-types': 'off',
       '@typescript-eslint/no-dynamic-delete': 'off'
+      // "@typescript-eslint/explicit-function-return-type": "error",
     }
   }
 ];

@@ -61,7 +61,7 @@ export class IntersectionUtils {
      *
      * @see {@link https://paulbourke.net/geometry/pointlineplane/}
      */
-  public static line_line_3D(a1: ObjVec3, a2: ObjVec3, b1: ObjVec3, b2: ObjVec3, target = new Vector3(), tolerance = 10 ** -6): Vector3 {
+  public static line_line_3D(a1: ObjVec3, a2: ObjVec3, b1: ObjVec3, b2: ObjVec3, target = new Vector3(), tolerance = 1e-6): Vector3 {
     const [p1c, p2c, p3c, p4c] = VectorUtils.getPositionsFromObject3D([a1, a2, b1, b2]);
 
     const p13 = TEMP[0].subVectors(p1c, p3c);

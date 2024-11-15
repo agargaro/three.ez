@@ -275,7 +275,7 @@ export class RunningTween<T = any> {
   private executeActions(block: RunningBlock): void {
     if (block.actions) {
       for (const action of block.actions) {
-        const elapsedTime = Math.min(1, block.elapsedTime / (action.time + 10 ** -12));
+        const elapsedTime = Math.min(1, block.elapsedTime / (action.time + 1e-12));
         const alpha = block.reversed ? 1 - elapsedTime : elapsedTime;
         const easedAlpha = action.easing?.call(this, alpha) ?? alpha;
         const applyValue = block.config?.onProgress?.call(this.target, this.target, action.key, action.start, action.end, easedAlpha);

@@ -104,9 +104,15 @@ class Vector3Ext {
 
   setComponent(index: number, value: number) {
     switch (index) {
-      case 0: this._x = value; break;
-      case 1: this._y = value; break;
-      case 2: this._z = value; break;
+      case 0:
+        this._x = value;
+        break;
+      case 1:
+        this._y = value;
+        break;
+      case 2:
+        this._z = value;
+        break;
       default: throw new Error('index is out of range: ' + index);
     }
     this._onChangeCallback();
