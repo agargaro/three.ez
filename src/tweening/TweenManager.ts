@@ -5,7 +5,7 @@ const _running: RunningTween[] = [];
 const _runningChildren: RunningTween[] = [];
 
 /** @internal */
-export function create<T>(target: T, tween: Tween<T>): RunningTween<T> {
+export function createTween<T>(target: T, tween: Tween<T>): RunningTween<T> {
   const runningTween = new RunningTween(target, tween);
   runningTween.getBlock();
   _running.push(runningTween);
@@ -13,7 +13,7 @@ export function create<T>(target: T, tween: Tween<T>): RunningTween<T> {
 }
 
 /** @internal */
-export function createChildren<T>(target: T, tween: Tween<T>, root: RunningTween<T>): RunningTween<T> {
+export function createTweenChildren<T>(target: T, tween: Tween<T>, root: RunningTween<T>): RunningTween<T> {
   const runningTween = new RunningTween(target, tween);
   runningTween.root = root;
   runningTween.getBlock();
@@ -21,12 +21,12 @@ export function createChildren<T>(target: T, tween: Tween<T>, root: RunningTween
 }
 
 /** @internal */
-export function addChildren<T>(runningTween: RunningTween<T>): void {
+export function addTweenChildren<T>(runningTween: RunningTween<T>): void {
   _runningChildren.push(runningTween);
 }
 
 /** @internal */
-export function update(delta: number): void {
+export function updateTweens(delta: number): void {
   const runningChildren = _runningChildren;
   for (let i = runningChildren.length - 1; i >= 0; i--) {
     const rc = runningChildren[i];
@@ -45,7 +45,7 @@ export function update(delta: number): void {
 }
 
 /** @internal */
-export function stop<T>(runningTween: RunningTween<T>): void {
+export function stopTween<T>(runningTween: RunningTween<T>): void {
   const index = _running.indexOf(runningTween);
   if (index < 0) return;
   _running.splice(index, 1);
@@ -61,7 +61,7 @@ export function stop<T>(runningTween: RunningTween<T>): void {
 }
 
 /** @internal */
-export function complete<T>(runningTween: RunningTween<T>): void {
+export function completeTween<T>(runningTween: RunningTween<T>): void {
   const index = _running.indexOf(runningTween);
   if (index < 0) return;
   runningTween.paused = false;
@@ -83,7 +83,7 @@ export function complete<T>(runningTween: RunningTween<T>): void {
    * Stop the running tween with a specific id.
    * @param id Tween identifier.
    */
-export function stopById(id: string): void {
+export function stopTweenById(id: string): void {
   for (let i = _running.length - 1; i >= 0; i--) {
     if (_running[i].tween.id === id) {
       _running[i].stop();
@@ -95,7 +95,7 @@ export function stopById(id: string): void {
 /**
    * Stop all running tweens.
    */
-export function stopAll(): void {
+export function stopAllTweens(): void {
   for (let i = _running.length - 1; i >= 0; i--) {
     _running[i].stop();
   }
@@ -105,7 +105,7 @@ export function stopAll(): void {
    * Stop all running tweens with a specific tag.
    * @param tag - The tag to filter running tweens.
    */
-export function stopAllByTag(tag: string): void {
+export function stopAllTweensByTag(tag: string): void {
   for (let i = _running.length - 1; i >= 0; i--) {
     if (_running[i].tween.tags.indexOf(tag) > -1) {
       _running[i].stop();
@@ -116,7 +116,7 @@ export function stopAllByTag(tag: string): void {
 /**
    * Complete all running tweens.
    */
-export function completeAll(): void {
+export function completeAllTweens(): void {
   for (let i = _running.length - 1; i >= 0; i--) {
     _running[i].complete();
   }
@@ -126,7 +126,7 @@ export function completeAll(): void {
    * Complete all running tweens with a specific tag.
    * @param tag - The tag to filter running tweens.
    */
-export function completeAllByTag(tag: string): void {
+export function completeAllTweensByTag(tag: string): void {
   for (let i = _running.length - 1; i >= 0; i--) {
     if (_running[i].tween.tags.indexOf(tag) > -1) {
       _running[i].complete();

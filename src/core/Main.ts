@@ -7,8 +7,8 @@ import { RenderView, ViewParameters } from '../rendering/RenderView.js';
 import { Stats } from '../utils/Stats.js';
 import { RaycasterSortComparer } from '../events/RaycasterManager.js';
 import { applyWebGLRendererPatch } from '../patch/WebGLRenderer.js';
-import { update } from '../tweening/TweenManager.js';
-import { compute } from '../binding/Binding.js';
+import { updateTweens } from '../tweening/TweenManager.js';
+import { computeBinding } from '../binding/Binding.js';
 
 /**
  * Configuration parameters for initializing the Main class.
@@ -187,7 +187,7 @@ export class Main {
       const currentDelta = this._clock.getDelta();
 
       this._interactionManager.update();
-      update(currentDelta * 1000);
+      updateTweens(currentDelta * 1000);
 
       this.animate(currentDelta, this._clock.elapsedTime);
 
@@ -200,7 +200,7 @@ export class Main {
           EventsCache.dispatchEvent(scene, 'beforeanimate', { delta, total });
           EventsCache.dispatchEvent(scene, 'animate', { delta, total });
           EventsCache.dispatchEvent(scene, 'afteranimate', { delta, total });
-          compute(scene);
+          computeBinding(scene);
         }
 
         this._renderManager.render();

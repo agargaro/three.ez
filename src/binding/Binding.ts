@@ -99,7 +99,7 @@ function executeAllCallbacks(target: Object3D): void {
   }
 }
 
-export function compute(scene: Scene): void {
+export function computeBinding(scene: Scene): void {
   const boundObjs = scene.__boundObjects;
   for (const target of boundObjs) {
     executeAllCallbacks(target);

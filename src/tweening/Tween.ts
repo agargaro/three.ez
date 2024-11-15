@@ -1,6 +1,6 @@
 import { ActionCallback, ActionDelay, ActionMotion, ActionRepeat, ActionTween, ActionYoyo, IAction, Motion, MotionConfig, SetMotion } from './Actions.js';
 import { RunningTween } from './RunningTween.js';
-import { create, stopById } from './TweenManager.js';
+import { createTween, stopTweenById } from './TweenManager.js';
 
 /**
  * A Tween represents a series of actions that can be applied to a target object to create animations or sequences of events.
@@ -223,8 +223,8 @@ export class Tween<T = any> {
      */
   public start(): RunningTween<T> {
     if (this.id !== undefined) {
-      stopById(this.id);
+      stopTweenById(this.id);
     }
-    return create(this.target, this);
+    return createTween(this.target, this);
   }
 }

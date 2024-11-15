@@ -65,14 +65,14 @@ const _pending: Resource[] = [];
  * @param path The path of the resource.
  * @returns A previously loaded result object.
  */
-export function get<T>(path: string): T;
+export function getAsset<T>(path: string): T;
 /**
  * Get a list of previously loaded result objects for a series of specific paths.
  * @param path An array of resource paths.
  * @returns An array of previously loaded result objects.
  */
-export function get<T>(...path: string[]): T[];
-export function get<T>(args: string | string[]): T | T[] {
+export function getAsset<T>(...path: string[]): T[];
+export function getAsset<T>(args: string | string[]): T | T[] {
   if (typeof args === 'string') return _results[args];
 
   const ret = [];
@@ -101,7 +101,7 @@ export function getLoader<T extends Loader>(loaderType: new () => T): T {
  * @param onProgress (optional) A callback function to report loading progress with a ProgressEvent.
  * @returns A Promise that resolves with the loaded resource when loading is complete.
  */
-export function load<T>(loaderType: typeof Loader<any>, path: string, onProgress?: (event: ProgressEvent) => void, onError?: (error: unknown) => void): Promise<T> {
+export function loadAsset<T>(loaderType: typeof Loader<any>, path: string, onProgress?: (event: ProgressEvent) => void, onError?: (error: unknown) => void): Promise<T> {
   return new Promise<T>((resolve) => {
     if (_results[path]) return resolve(_results[path]);
     const loader = getLoader(loaderType);
@@ -120,7 +120,7 @@ export function load<T>(loaderType: typeof Loader<any>, path: string, onProgress
  * @param loader The loader type to be used for preloading.
  * @param paths An array of resource paths or configurations to preload.
  */
-export function preload(loader: typeof Loader<any>, ...paths: (string | ResourceConfig)[]): void {
+export function preloadAsset(loader: typeof Loader<any>, ...paths: (string | ResourceConfig)[]): void {
   _pending.push({ loader, paths });
 }
 
@@ -129,8 +129,8 @@ export function preload(loader: typeof Loader<any>, ...paths: (string | Resource
  * @param config Optional configuration for the loading process.
  * @returns A promise that resolves when all pending resources are loaded.
  */
-export function preloadAllPending(config: LoadingConfig = {}): Promise<void[]> {
-  const promise = loadAll(config, ..._pending);
+export function preloadAllPendingAsset(config: LoadingConfig = {}): Promise<void[]> {
+  const promise = loadAllAsset(config, ..._pending);
   _pending.length = 0;
   return promise;
 }
@@ -141,7 +141,7 @@ export function preloadAllPending(config: LoadingConfig = {}): Promise<void[]> {
  * @param resources An array of resource objects to load.
  * @returns A promise that resolves when all resources are loaded.
  */
-export function loadAll(config: LoadingConfig = {}, ...resources: Resource[]): Promise<void[]> {
+export function loadAllAsset(config: LoadingConfig = {}, ...resources: Resource[]): Promise<void[]> {
   const promises: Promise<void>[] = [];
   config.onProgress ??= _onProgress;
   config.onError ??= _onError;

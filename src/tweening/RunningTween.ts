@@ -1,7 +1,7 @@
 import { ActionTween, MotionConfig } from './Actions.js';
 import { EasingFunction } from './Easings.js';
 import { Tween } from './Tween.js';
-import { addChildren, complete, createChildren, stop } from './TweenManager.js';
+import { addTweenChildren, completeTween, createTweenChildren, stopTween } from './TweenManager.js';
 
 type UpdateCallback<T> = (start?: T, end?: T, alpha?: number) => void;
 
@@ -98,14 +98,14 @@ export class RunningTween<T = any> {
    * Stop the running tween, causing it to finish immediately.
    */
   public stop(): void {
-    stop(this);
+    stopTween(this);
   }
 
   /**
     * Complete the running tween, causing it to finish immediately.
     */
   public complete(): void {
-    complete(this);
+    completeTween(this);
   }
 
   /**
@@ -306,10 +306,10 @@ export class RunningTween<T = any> {
 
   /** @internal */
   private executeTween(block: RunningBlock, delta: number, tween: Tween<T>): void {
-    const runningTween = createChildren(this.target, tween, this.root ?? this);
+    const runningTween = createTweenChildren(this.target, tween, this.root ?? this);
     block.runningTweens.push(runningTween);
     if (runningTween.execute(delta)) {
-      addChildren(runningTween);
+      addTweenChildren(runningTween);
     }
   }
 
@@ -320,7 +320,7 @@ export class RunningTween<T = any> {
     this.actionIndex = this.reversed ? this.history.length : -1;
     this.getBlock();
     if (this.execute(delta)) {
-      addChildren(this);
+      addTweenChildren(this);
     }
   }
 
