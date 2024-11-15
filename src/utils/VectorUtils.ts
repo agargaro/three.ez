@@ -9,16 +9,16 @@ export function computeSign(point: Vector3, origin: Vector3, normal: Vector3): n
   return Math.sign(_v1.dot(normal));
 }
 
-export function haveSameDirection(v1: Vector3, v2: Vector3, tolerance = 1e-2): boolean {
+export function haveSameDirection(v1: Vector3, v2: Vector3, EPS = 1e-2): boolean {
   _v1.copy(v1).normalize();
   _v2.copy(v2).normalize();
-  return _v1.dot(_v2) > 1 - tolerance;
+  return _v1.dot(_v2) > 1 - EPS;
 }
 
-export function haveOppositeDirection(v1: Vector3, v2: Vector3, tolerance = 1e-2): boolean {
+export function haveOppositeDirection(v1: Vector3, v2: Vector3, EPS = 1e-2): boolean {
   _v1.copy(v1).normalize();
   _v2.copy(v2).normalize();
-  return _v1.dot(_v2) < tolerance - 1;
+  return _v1.dot(_v2) < EPS - 1;
 }
 
 export function perpendicular(dir: Vector3, normal: Vector3, target = new Vector3()) {
