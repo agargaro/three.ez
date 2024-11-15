@@ -1,11 +1,11 @@
 import { Object3D, Scene } from 'three';
 import { EventsCache } from '../events/MiscEventsManager.js';
 import { activeSmartRendering, applySmartRenderingPatch, removeSmartRenderingPatch } from './SmartRendering.js';
-import { Binding } from '../binding/Binding.js';
 import { FocusEventExt, IntersectionExt } from '../events/Events.js';
 import { addBase, removeBase } from './Object3D.js';
 import { EventsDispatcher } from '../events/EventsDispatcher.js';
 import { Default } from '../events/Default.js';
+import { bindToScene, unbindFromScene } from '../binding/Binding.js';
 
 /**
  * Represents the prototype for extending Scene functionality.
@@ -131,7 +131,7 @@ export function setSceneReference(target: Object3D, scene: Scene) {
   target.scene = scene;
   EventsCache.update(target);
   applySmartRenderingPatch(target);
-  Binding.bindToScene(target);
+  bindToScene(target);
 
   for (const object of target.children) {
     setSceneReference(object, scene);
@@ -142,7 +142,7 @@ export function setSceneReference(target: Object3D, scene: Scene) {
 export function removeSceneReference(target: Object3D) {
   EventsCache.removeAll(target);
   removeSmartRenderingPatch(target);
-  Binding.unbindFromScene(target);
+  unbindFromScene(target);
   target.scene = undefined;
 
   for (const object of target.children) {

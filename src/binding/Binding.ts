@@ -7,104 +7,101 @@ export interface BindingCallback<T = any> {
   key: string;
 }
 
-/** @internal */
-export class Binding {
-  public static detectChanges(target: Object3D, resursive: boolean): void {
-    this.executeAllCallbacks(target);
-    if (resursive) {
-      for (const child of target.children) {
-        this.detectChanges(child, true);
-      }
+export function detectChanges(target: Object3D, resursive: boolean): void {
+  executeAllCallbacks(target);
+  if (resursive) {
+    for (const child of target.children) {
+      detectChanges(child, true);
     }
   }
+}
 
-  public static bindProperty<T>(key: string, target: Object3D, getValue: () => T, renderOnChange?: boolean): void {
-    if (this.getIndexByKey(target, key) > -1) {
-      console.error('Cannot override property already bound.');
-      return;
-    }
-
-    this.addToBoundCallbacks(key, target, getValue.bind(target), renderOnChange);
-    if (target.scene) {
-      this.bindToScene(target);
-    }
+export function bindProperty<T>(key: string, target: Object3D, getValue: () => T, renderOnChange?: boolean): void {
+  if (getIndexByKey(target, key) > -1) {
+    console.error('Cannot override property already bound.');
+    return;
   }
 
-  private static addToBoundCallbacks<T>(key: string, target: Object3D, getValue: () => T, renderOnChange: boolean): void {
-    const setValue = this.createSetValue(key, target, renderOnChange);
-    const bindingCallback: BindingCallback = { key, getValue, setValue };
-    target.__boundCallbacks.push(bindingCallback);
-    this.executeCallback(bindingCallback);
+  addToBoundCallbacks(key, target, getValue.bind(target), renderOnChange);
+  if (target.scene) {
+    bindToScene(target);
   }
+}
 
-  private static createSetValue<T>(key: string, target: Object3D, renderOnChange: boolean): (value: T) => void {
-    if (renderOnChange) {
-      return (value) => {
-        if (value !== target[key]) {
-          target[key] = value;
-          target.needsRender = true;
-        }
-      };
-    }
+function addToBoundCallbacks<T>(key: string, target: Object3D, getValue: () => T, renderOnChange: boolean): void {
+  const setValue = createSetValue(key, target, renderOnChange);
+  const bindingCallback: BindingCallback = { key, getValue, setValue };
+  target.__boundCallbacks.push(bindingCallback);
+  executeCallback(bindingCallback);
+}
+
+function createSetValue<T>(key: string, target: Object3D, renderOnChange: boolean): (value: T) => void {
+  if (renderOnChange) {
     return (value) => {
       if (value !== target[key]) {
         target[key] = value;
+        target.needsRender = true;
       }
     };
   }
-
-  private static getIndexByKey(target: Object3D, key: string): number {
-    const boundCallbacks = target.__boundCallbacks;
-    for (let i = 0; i < boundCallbacks.length; i++) {
-      if (boundCallbacks[i].key === key) return i;
+  return (value) => {
+    if (value !== target[key]) {
+      target[key] = value;
     }
-    return -1;
-  }
+  };
+}
 
-  public static setManualDetectionMode(target: Object3D): void {
-    if (target.__manualDetection) return;
-    if (target.__boundCallbacks.length > 0) {
-      console.error('Cannot change detectChangesMode if a binding is already created.');
-    } else {
-      target.__manualDetection = true;
-    }
+function getIndexByKey(target: Object3D, key: string): number {
+  const boundCallbacks = target.__boundCallbacks;
+  for (let i = 0; i < boundCallbacks.length; i++) {
+    if (boundCallbacks[i].key === key) return i;
   }
+  return -1;
+}
 
-  public static bindToScene(target: Object3D): void {
-    if (target.__boundCallbacks.length > 0) {
-      target.scene.__boundObjects.add(target);
-    }
+export function setManualDetectionMode(target: Object3D): void {
+  if (target.__manualDetection) return;
+  if (target.__boundCallbacks.length > 0) {
+    console.error('Cannot change detectChangesMode if a binding is already created.');
+  } else {
+    target.__manualDetection = true;
   }
+}
 
-  public static unbindFromScene(target: Object3D): void {
-    target.scene.__boundObjects.delete(target);
+export function bindToScene(target: Object3D): void {
+  if (target.__boundCallbacks.length > 0) {
+    target.scene.__boundObjects.add(target);
   }
+}
 
-  public static unbindProperty(target: Object3D, key: string): void {
-    const index = this.getIndexByKey(target, key);
-    if (index > -1) {
-      target.__boundCallbacks.splice(index, 1);
-      if (target.scene) {
-        this.unbindFromScene(target);
-      }
-    }
-  }
+export function unbindFromScene(target: Object3D): void {
+  target.scene.__boundObjects.delete(target);
+}
 
-  private static executeCallback(bindingCallback: BindingCallback): void {
-    bindingCallback.setValue(bindingCallback.getValue());
-  }
-
-  private static executeAllCallbacks(target: Object3D): void {
-    const callbacks = target.__boundCallbacks;
-    for (const callback of callbacks) {
-      this.executeCallback(callback);
+export function unbindProperty(target: Object3D, key: string): void {
+  const index = getIndexByKey(target, key);
+  if (index > -1) {
+    target.__boundCallbacks.splice(index, 1);
+    if (target.scene) {
+      unbindFromScene(target);
     }
   }
+}
 
-  public static compute(scene: Scene): void {
-    const boundObjs = scene.__boundObjects;
-    for (const target of boundObjs) {
-      this.executeAllCallbacks(target);
-    }
+function executeCallback(bindingCallback: BindingCallback): void {
+  bindingCallback.setValue(bindingCallback.getValue());
+}
+
+function executeAllCallbacks(target: Object3D): void {
+  const callbacks = target.__boundCallbacks;
+  for (const callback of callbacks) {
+    executeCallback(callback);
+  }
+}
+
+export function compute(scene: Scene): void {
+  const boundObjs = scene.__boundObjects;
+  for (const target of boundObjs) {
+    executeAllCallbacks(target);
   }
 }
