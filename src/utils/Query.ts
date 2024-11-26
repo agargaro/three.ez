@@ -1,4 +1,4 @@
-import { Object3D } from "three";
+import { Object3D } from 'three';
 
 interface Attribute {
   key: string;
@@ -88,7 +88,7 @@ function searchAll(target: Object3D, blocks: QueryBlock[][], result: Object3D[])
   }
 
   for (const child of target.children) {
-    searchAll(child, newBlocks, result)
+    searchAll(child, newBlocks, result);
   }
 }
 
@@ -157,7 +157,6 @@ function parse(query: string): QueryBlock[] {
 
     const result = getBlock(query, i);
     if (result) {
-
       if (result.char === ',') {
         currentBlock = { attributes: [], tags: [] };
         blocks.push(currentBlock);
@@ -226,7 +225,7 @@ function addType(query: string, start: number, end: number, block: QueryBlock): 
 
 function addAttribute(query: string, start: number, end: number, block: QueryBlock): void {
   const sub = query.substring(start + 1, end - 1);
-  const split = sub.split("=");
+  const split = sub.split('=');
   const lastChar = split[0][split[0].length - 1];
   if (lastChar === '*' || lastChar === '$' || lastChar === '^') {
     block.attributes.push({ key: split[0].slice(0, -1), value: split[1], operator: lastChar });

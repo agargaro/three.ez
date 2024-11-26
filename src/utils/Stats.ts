@@ -1,4 +1,4 @@
-import { WebGLRenderer } from "three";
+import { WebGLRenderer } from 'three';
 
 export class Stats {
   public dom = document.createElement('div');
@@ -21,8 +21,8 @@ export class Stats {
     this.showPanel(++this.mode % this.dom.children.length);
   };
 
-  public get minimal() { return this._minimal }
-  public set minimal(value: boolean) { this.switchMinimal(value) }
+  public get minimal() { return this._minimal; }
+  public set minimal(value: boolean) { this.switchMinimal(value); }
 
   constructor(renderer: WebGLRenderer) {
     this.renderer = renderer;
@@ -275,7 +275,7 @@ export class TextPanel {
       `Calls ${this._formatNumber(calls)}`,
       `Tris ${this._formatNumber(triangles)}`,
       `Lines ${this._formatNumber(lines)}`,
-      `Points ${this._formatNumber(points)}`,
+      `Points ${this._formatNumber(points)}`
     ];
 
     let maxRowLenght = 0;
@@ -292,9 +292,9 @@ export class TextPanel {
     this.dom.style.cssText = `width:${this.WIDTH / this.PR}px;height:${
       this.HEIGHT / this.PR
     }px`;
-    
-    this.context.font = "bold " + 10 * this.PR + "px monospace";
-    this.context.textBaseline = "top";
+
+    this.context.font = 'bold ' + 10 * this.PR + 'px monospace';
+    this.context.textBaseline = 'top';
 
     this.context.fillStyle = this.bg;
     this.context.globalAlpha = 1;
@@ -331,11 +331,11 @@ export class TextPanel {
    */
   private _formatNumber(input: number): string {
     if (input >= 1e9) {
-      return (input / 1e9).toFixed(2) + "ʙ";
+      return (input / 1e9).toFixed(2) + 'ʙ';
     } else if (input >= 1e6) {
-      return (input / 1e6).toFixed(2) + "ᴍ";
+      return (input / 1e6).toFixed(2) + 'ᴍ';
     } else if (input >= 1e3) {
-      return (input / 1e3).toFixed(2) + "ᴋ";
+      return (input / 1e3).toFixed(2) + 'ᴋ';
     } else {
       return input.toString();
     }

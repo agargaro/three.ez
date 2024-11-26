@@ -55,7 +55,8 @@
     "vite-plugin-dts": "^4.3.0",
     "vite-plugin-externalize-deps": "^0.8.0",
     "vite-plugin-static-copy": "^1.0.6",
-    "vitest": "^0.34.6"
+    "vitest": "^0.34.6",
+    "@stylistic/eslint-plugin": "^2.10.1"
   },
   "peerDependencies": {
     "three": ">=0.151.0"
