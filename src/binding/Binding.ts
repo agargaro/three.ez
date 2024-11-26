@@ -1,4 +1,4 @@
-import { Object3D, Scene } from "three";
+import { Object3D, Scene } from 'three';
 
 /** @internal */
 export interface BindingCallback<T = any> {
@@ -9,7 +9,6 @@ export interface BindingCallback<T = any> {
 
 /** @internal */
 export class Binding {
-
   public static detectChanges(target: Object3D, resursive: boolean): void {
     this.executeAllCallbacks(target);
     if (resursive) {
@@ -21,7 +20,7 @@ export class Binding {
 
   public static bindProperty<T>(key: string, target: Object3D, getValue: () => T, renderOnChange?: boolean): void {
     if (this.getIndexByKey(target, key) > -1) {
-      console.error("Cannot override property already bound.");
+      console.error('Cannot override property already bound.');
       return;
     }
 
@@ -65,7 +64,7 @@ export class Binding {
   public static setManualDetectionMode(target: Object3D): void {
     if (target.__manualDetection) return;
     if (target.__boundCallbacks.length > 0) {
-      console.error("Cannot change detectChangesMode if a binding is already created.");
+      console.error('Cannot change detectChangesMode if a binding is already created.');
     } else {
       target.__manualDetection = true;
     }
@@ -108,5 +107,4 @@ export class Binding {
       this.executeAllCallbacks(target);
     }
   }
-
 }

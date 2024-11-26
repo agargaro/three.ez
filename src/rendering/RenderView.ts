@@ -1,5 +1,5 @@
-import { Camera, Color, ColorRepresentation, Scene, Vector2 } from "three";
-import { EffectComposer } from "three/examples/jsm/postprocessing/EffectComposer.js";
+import { Camera, Color, ColorRepresentation, Scene, Vector2 } from 'three';
+import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer.js';
 
 /**
  * Represents an object defining the dimensions and position of a viewport.
@@ -44,7 +44,7 @@ export interface ViewParameters {
 }
 
 /**
- * Represents a render view with specific parameters. 
+ * Represents a render view with specific parameters.
  * Don't instantiate this manually.
  */
 export class RenderView implements ViewParameters {
@@ -58,12 +58,12 @@ export class RenderView implements ViewParameters {
   public backgroundColor: Color;
   public backgroundAlpha: number;
   public composer: EffectComposer;
-  private _rendererSize: Vector2;
+  private readonly _rendererSize: Vector2;
   private _visible: boolean;
-  private _onBeforeRender: () => void;
-  private _onAfterRender: () => void;
+  private readonly _onBeforeRender: () => void;
+  private readonly _onAfterRender: () => void;
 
-  public get visible(): boolean { return this._visible }
+  public get visible(): boolean { return this._visible; }
   public set visible(value: boolean) {
     if (this._visible === value) return;
     this._visible = value;
@@ -110,7 +110,7 @@ export class RenderView implements ViewParameters {
   }
 
   public onBeforeRender(): void {
-    this._onBeforeRender?.apply(this);
+    this._onBeforeRender?.apply(this); // todo use call or apply, check performance
   }
 
   public onAfterRender(): void {

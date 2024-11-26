@@ -1,38 +1,38 @@
-import { Object3D, Scene } from "three";
-import { Binding, BindingCallback } from "../binding/Binding.js";
-import { Cursor } from "../events/CursorManager.js";
-import { Default } from "../events/Default.js";
-import { Events, InteractionEvents } from "../events/Events.js";
-import { EventsDispatcher } from "../events/EventsDispatcher.js";
-import { Hitbox } from "../events/Hitbox.js";
-import { Tween } from "../tweening/Tween.js";
-import { querySelector, querySelectorAll } from "../utils/Query.js";
-import { applyEulerPatch } from "./Euler.js";
-import { applyMatrix4Patch } from "./Matrix4.js";
-import { applyQuaternionPatch } from "./Quaternion.js";
-import { removeSceneReference, setSceneReference } from "./Scene.js";
-import { applyVec3Patch } from "./Vector3.js";
+import { Object3D, Scene } from 'three';
+import { Binding, BindingCallback } from '../binding/Binding.js';
+import { Cursor } from '../events/CursorManager.js';
+import { Default } from '../events/Default.js';
+import { Events, InteractionEvents } from '../events/Events.js';
+import { EventsDispatcher } from '../events/EventsDispatcher.js';
+import { Hitbox } from '../events/Hitbox.js';
+import { Tween } from '../tweening/Tween.js';
+import { querySelector, querySelectorAll } from '../utils/Query.js';
+import { applyEulerPatch } from './Euler.js';
+import { applyMatrix4Patch } from './Matrix4.js';
+import { applyQuaternionPatch } from './Quaternion.js';
+import { removeSceneReference, setSceneReference } from './Scene.js';
+import { applyVec3Patch } from './Vector3.js';
 
 /**
  * Represents the prototype for extended Object3D functionality.
  */
 export interface Object3DExtPrototype {
-    /** @internal */ __boundCallbacks: BindingCallback[];
-    /** @internal */ __manualDetection: boolean;
-    /** @internal */ __eventsDispatcher: EventsDispatcher;
-    /** @internal */ __vec3Patched: boolean;
-    /** @internal */ __rotationPatched: boolean;
-    /** @internal */ __smartRenderingPatched: boolean;
-    /** @internal */ __enabled: boolean;
-    /** @internal */ __visible: boolean;
-    /** @internal */ __hovered: boolean;
-    /** @internal */ __focused: boolean;
-    /** @internal */ __clicking: boolean;
-    /** @internal */ __dragging: boolean;
-    /** @internal */ __isDropTarget: boolean;
-    /** @internal */ __baseVisibleDescriptor: PropertyDescriptor;
-    /** @internal */ __onChangeBaseEuler: () => void;
-    /** @internal */ __onChangeBaseQuat: () => void;
+  /** @internal */ __boundCallbacks: BindingCallback[];
+  /** @internal */ __manualDetection: boolean;
+  /** @internal */ __eventsDispatcher: EventsDispatcher;
+  /** @internal */ __vec3Patched: boolean;
+  /** @internal */ __rotationPatched: boolean;
+  /** @internal */ __smartRenderingPatched: boolean;
+  /** @internal */ __enabled: boolean;
+  /** @internal */ __visible: boolean;
+  /** @internal */ __hovered: boolean;
+  /** @internal */ __focused: boolean;
+  /** @internal */ __clicking: boolean;
+  /** @internal */ __dragging: boolean;
+  /** @internal */ __isDropTarget: boolean;
+  /** @internal */ __baseVisibleDescriptor: PropertyDescriptor;
+  /** @internal */ __onChangeBaseEuler: () => void;
+  /** @internal */ __onChangeBaseQuat: () => void;
   /**
    * Determines if the object is enabled. Default is `true`.
    * If set to true, it allows triggering all InteractionEvents; otherwise, events are disabled.
@@ -176,33 +176,33 @@ Object3D.prototype.__dragging = false;
 Object3D.prototype.__hovered = false;
 
 Object3D.prototype.__visible = true;
-Object.defineProperty(Object3D.prototype, "visible", {
-  get: function (this: Object3D) { return this.__visible },
+Object.defineProperty(Object3D.prototype, 'visible', {
+  get: function (this: Object3D) { return this.__visible; },
   set: function (this: Object3D, value: boolean) {
     if (this.__visible !== value) {
       this.__visible = value;
-      this.__eventsDispatcher.dispatchDescendant("visiblechange", { value, target: this });
+      this.__eventsDispatcher.dispatchDescendant('visiblechange', { value, target: this });
     }
   },
   configurable: true
 });
 
 Object3D.prototype.__enabled = true;
-Object.defineProperty(Object3D.prototype, "enabled", {
-  get: function (this: Object3D) { return this.__enabled },
+Object.defineProperty(Object3D.prototype, 'enabled', {
+  get: function (this: Object3D) { return this.__enabled; },
   set: function (this: Object3D, value: boolean) {
     if (this.__enabled !== value) {
       if (!value) {
         this.applyBlur();
       }
       this.__enabled = value;
-      this.__eventsDispatcher.dispatchDescendant("enabledchange", { value, target: this });
+      this.__eventsDispatcher.dispatchDescendant('enabledchange', { value, target: this });
     }
   },
   configurable: true
 });
 
-Object.defineProperty(Object3D.prototype, "firstFocusable", {
+Object.defineProperty(Object3D.prototype, 'firstFocusable', {
   get: function (this: Object3D) {
     let obj = this;
     while (obj?.focusable === false) {
@@ -212,7 +212,7 @@ Object.defineProperty(Object3D.prototype, "firstFocusable", {
   }
 });
 
-Object.defineProperty(Object3D.prototype, "enabledState", {
+Object.defineProperty(Object3D.prototype, 'enabledState', {
   get: function (this: Object3D) {
     let obj = this;
     do {
@@ -222,7 +222,7 @@ Object.defineProperty(Object3D.prototype, "enabledState", {
   }
 });
 
-Object.defineProperty(Object3D.prototype, "visibilityState", {
+Object.defineProperty(Object3D.prototype, 'visibilityState', {
   get: function (this: Object3D) {
     let obj = this;
     do {
@@ -232,7 +232,7 @@ Object.defineProperty(Object3D.prototype, "visibilityState", {
   }
 });
 
-Object.defineProperty(Object3D.prototype, "needsRender", {
+Object.defineProperty(Object3D.prototype, 'needsRender', {
   get: function (this: Object3D) {
     return this.scene?.needsRender;
   },
@@ -242,32 +242,32 @@ Object.defineProperty(Object3D.prototype, "needsRender", {
   }
 });
 
-Object.defineProperty(Object3D.prototype, "hovered", {
+Object.defineProperty(Object3D.prototype, 'hovered', {
   get: function (this: Object3D) {
     return this.__hovered;
   }
 });
 
-Object.defineProperty(Object3D.prototype, "focused", {
+Object.defineProperty(Object3D.prototype, 'focused', {
   get: function (this: Object3D) {
     return this.__focused;
   }
 });
 
-Object.defineProperty(Object3D.prototype, "clicking", {
+Object.defineProperty(Object3D.prototype, 'clicking', {
   get: function (this: Object3D) {
     return this.__clicking;
   }
 });
 
-Object.defineProperty(Object3D.prototype, "isDragging", {
+Object.defineProperty(Object3D.prototype, 'isDragging', {
   get: function (this: Object3D) {
     return this.__dragging;
   }
 });
 
 Object3D.prototype.on = function <K extends keyof Events>(this: Object3D, types: K | K[], listener: (event: Events[K]) => void): (event: Events[K]) => void {
-  if (typeof types === "string") {
+  if (typeof types === 'string') {
     return this.__eventsDispatcher.add(types, listener);
   }
   for (const type of types) {
@@ -278,21 +278,21 @@ Object3D.prototype.on = function <K extends keyof Events>(this: Object3D, types:
 
 Object3D.prototype.hasEvent = function <K extends keyof Events>(type: K, listener: (event: Events[K]) => void): boolean {
   return this.__eventsDispatcher.has(type, listener);
-}
+};
 
 Object3D.prototype.off = function <K extends keyof Events>(type: K, listener: (event: Events[K]) => void): void {
   this.__eventsDispatcher.remove(type, listener);
-}
+};
 
 Object3D.prototype.trigger = function <T extends keyof Events>(type: T, event?: Events[T]): void {
   this.__eventsDispatcher.dispatchManual(type, event);
-}
+};
 
 Object3D.prototype.triggerAncestor = function <T extends keyof Events>(type: T, event?: Events[T]): void {
   this.__eventsDispatcher.dispatchAncestorManual(type, event);
-}
+};
 
-Object.defineProperty(Object3D.prototype, "userData", { // needed to inject code in constructor
+Object.defineProperty(Object3D.prototype, 'userData', { // needed to inject code in constructor
   set: function (this: Object3D, value) {
     this.focusable = Default.focusable;
     this.draggable = Default.draggable;
@@ -301,7 +301,7 @@ Object.defineProperty(Object3D.prototype, "userData", { // needed to inject code
     this.__boundCallbacks = [];
     this.__eventsDispatcher = new EventsDispatcher(this);
 
-    Object.defineProperty(this, "userData", {
+    Object.defineProperty(this, 'userData', {
       value, writable: true, configurable: true
     });
   },
