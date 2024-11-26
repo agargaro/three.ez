@@ -5,15 +5,21 @@
   "author": "Andrea Gargaro <devgargaro@gmail.com>",
   "license": "MIT",
   "type": "module",
-  "module": "index.js",
-  "main": "index.cjs",
-  "types": "index.d.ts",
+  "module": "build/index.js",
+  "main": "build/index.cjs",
+  "types": "src/index.d.ts",
   "homepage": "https://agargaro.github.io/three.ez",
   "repository": "https://github.com/agargaro/three.ez",
   "exports": {
     ".": {
-      "import": "./index.js",
-      "require": "./index.cjs"
+      "import": {
+        "types": "./src/index.d.ts",
+        "default": "./build/index.js"
+      },
+      "require": {
+        "types": "./src/index.d.ts",
+        "default": "./build/index.cjs"
+      }
     }
   },
   "keywords": [
