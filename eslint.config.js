@@ -31,8 +31,8 @@ export default [
       '@typescript-eslint/no-wrapper-object-types': 'off',
       '@typescript-eslint/no-dynamic-delete': 'off',
       '@typescript-eslint/no-invalid-void-type': 'off',
-      '@typescript-eslint/no-this-alias': 'off'
-      // "@typescript-eslint/explicit-function-return-type": "error",
+      '@typescript-eslint/no-this-alias': 'off',
+      '@typescript-eslint/explicit-function-return-type': 'error'
     }
   }
 ];
