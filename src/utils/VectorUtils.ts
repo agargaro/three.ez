@@ -32,33 +32,33 @@ export class VectorUtils {
     return TEMP[0].copy(v1).normalize().dot(TEMP[1].copy(v2).normalize()) < tolerance - 1;
   }
 
-  public static perpendicular(dir: Vector3, target = new Vector3(), normal = this.DEFAULT_NORMAL) {
+  public static perpendicular(dir: Vector3, target = new Vector3(), normal = this.DEFAULT_NORMAL): Vector3 {
     return target.crossVectors(dir, normal);
   }
 
-  public static perpendicularSigned(dir: Vector3, referencePoint: Vector3, target = new Vector3(), normal = this.DEFAULT_NORMAL) {
+  public static perpendicularSigned(dir: Vector3, referencePoint: Vector3, target = new Vector3(), normal = this.DEFAULT_NORMAL): Vector3 {
     target.crossVectors(dir, normal);
     return this.computeSign(referencePoint, ORIGIN, target) !== 1 ? target : target.multiplyScalar(-1);
   }
 
-  public static perpendicularByPoints(p1: ObjVec3, p2: ObjVec3, target = new Vector3(), normal = this.DEFAULT_NORMAL) {
+  public static perpendicularByPoints(p1: ObjVec3, p2: ObjVec3, target = new Vector3(), normal = this.DEFAULT_NORMAL): Vector3 {
     const [p1c, p2c] = this.getPositionsFromObject3D([p1, p2]);
     return target.crossVectors(TEMP[0].subVectors(p1c, p2c), normal);
   }
 
-  public static perpendicularSignedByPoints(p1: ObjVec3, p2: ObjVec3, refPoint: ObjVec3, target = new Vector3(), normal = this.DEFAULT_NORMAL) {
+  public static perpendicularSignedByPoints(p1: ObjVec3, p2: ObjVec3, refPoint: ObjVec3, target = new Vector3(), normal = this.DEFAULT_NORMAL): Vector3 {
     const [p1c, p2c, r] = this.getPositionsFromObject3D([p1, p2, refPoint]);
     target.crossVectors(TEMP[0].subVectors(p1c, p2c), normal);
     return this.computeSign(r, p1c, target) !== 1 ? target : target.multiplyScalar(-1);
   }
 
-  public static bisector(v1: Vector3, v2: Vector3, target = new Vector3()) {
+  public static bisector(v1: Vector3, v2: Vector3, target = new Vector3()): Vector3 {
     TEMP[0].copy(v1).normalize();
     TEMP[1].copy(v2).normalize();
     return target.addVectors(TEMP[0], TEMP[1]).normalize();
   }
 
-  public static bisectorByPoints(p1: ObjVec3, p2: ObjVec3, center: ObjVec3, target = new Vector3()) {
+  public static bisectorByPoints(p1: ObjVec3, p2: ObjVec3, center: ObjVec3, target = new Vector3()): Vector3 {
     const [p1c, p2c, c] = this.getPositionsFromObject3D([p1, p2, center]);
     return this.bisector(TEMP[2].subVectors(p1c, c), TEMP[3].subVectors(p2c, c), target);
   }

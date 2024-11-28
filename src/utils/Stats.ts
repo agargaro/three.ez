@@ -16,7 +16,7 @@ export class Stats {
   private readonly gpuPanel: GraphPanel;
   private readonly infoPanel: TextPanel;
 
-  private readonly clickPanelCallback = (event) => {
+  private readonly clickPanelCallback = (event): void => {
     event.preventDefault();
     this.showPanel(++this.mode % this.dom.children.length);
   };
@@ -128,7 +128,7 @@ export class Stats {
     return time;
   }
 
-  public update() {
+  public update(): void {
     const time = this.endTime;
     this.cpuPanel.update(time, time - this.beginTime, 33, 2); // we can pass these two params in the constructor
     this.fpsPanel.update(time, 1, 144, 0);
@@ -139,21 +139,21 @@ export class Stats {
 
 export class GraphPanel {
   public dom: HTMLCanvasElement;
-  private context: CanvasRenderingContext2D;
+  private readonly context: CanvasRenderingContext2D;
   private prevTime: number = null;
   private sum = 0;
   private count = 0;
-  private PR = Math.round(window.devicePixelRatio || 1);
-  private WIDTH = 90 * this.PR;
-  private HEIGHT = 48 * this.PR;
-  private TEXT_X = 3 * this.PR;
-  private TEXT_Y = 2 * this.PR;
-  private GRAPH_X = 3 * this.PR;
-  private GRAPH_Y = 15 * this.PR;
-  private GRAPH_WIDTH = 84 * this.PR;
-  private GRAPH_HEIGHT = 30 * this.PR;
+  private readonly PR = Math.round(window.devicePixelRatio || 1);
+  private readonly WIDTH = 90 * this.PR;
+  private readonly HEIGHT = 48 * this.PR;
+  private readonly TEXT_X = 3 * this.PR;
+  private readonly TEXT_Y = 2 * this.PR;
+  private readonly GRAPH_X = 3 * this.PR;
+  private readonly GRAPH_Y = 15 * this.PR;
+  private readonly GRAPH_WIDTH = 84 * this.PR;
+  private readonly GRAPH_HEIGHT = 30 * this.PR;
 
-  constructor(private name: string, private fg: string, private bg: string, private updateTime: number, private getAverage) {
+  constructor(private readonly name: string, private readonly fg: string, private readonly bg: string, private readonly updateTime: number, private readonly getAverage) {
     this.dom = document.createElement('canvas');
     this.dom.width = this.WIDTH;
     this.dom.height = this.HEIGHT;
@@ -209,27 +209,27 @@ export class GraphPanel {
 
 export class TextPanel {
   public dom: HTMLCanvasElement;
-  private context: CanvasRenderingContext2D;
+  private readonly context: CanvasRenderingContext2D;
   private prevTime: number = null;
   private sumTriangles = 0;
   private sumCalls = 0;
   private count = 0;
-  private PR = Math.round(window.devicePixelRatio || 1);
+  private readonly PR = Math.round(window.devicePixelRatio || 1);
   private WIDTH = 126 * this.PR;
-  private HEIGHT = 48 * this.PR;
-  private TEXT_X = 3 * this.PR;
-  private TEXT_Y = 2 * this.PR;
-  private GRAPH_X = 3 * this.PR;
-  private GRAPH_Y = 15 * this.PR;
+  private readonly HEIGHT = 48 * this.PR;
+  private readonly TEXT_X = 3 * this.PR;
+  private readonly TEXT_Y = 2 * this.PR;
+  private readonly GRAPH_X = 3 * this.PR;
+  private readonly GRAPH_Y = 15 * this.PR;
   private GRAPH_WIDTH = this.WIDTH - 6 * this.PR;
-  private GRAPH_HEIGHT = 30 * this.PR;
-  private PADDING_V = 4.3 * this.PR;
-  private PADDING_H = 1 * this.PR;
-  private TEXT_SPACE = 14 * this.PR;
+  private readonly GRAPH_HEIGHT = 30 * this.PR;
+  private readonly PADDING_V = 4.3 * this.PR;
+  private readonly PADDING_H = 1 * this.PR;
+  private readonly TEXT_SPACE = 14 * this.PR;
   private COLUMN_SPACE = this.GRAPH_WIDTH / 2;
 
   // TODO: need to generalize call and triangles in props
-  constructor(private name: string, private properties: string[], private fg: string, private bg: string, private updateTime: number) {
+  constructor(private readonly name: string, private readonly properties: string[], private readonly fg: string, private readonly bg: string, private readonly updateTime: number) {
     this.dom = document.createElement('canvas');
     this.dom.width = this.WIDTH;
     this.dom.height = this.HEIGHT;
@@ -290,7 +290,7 @@ export class TextPanel {
     this.dom.width = this.WIDTH;
     this.dom.height = this.HEIGHT;
     this.dom.style.cssText = `width:${this.WIDTH / this.PR}px;height:${this.HEIGHT / this.PR
-      }px`;
+    }px`;
 
     this.context.font = 'bold ' + 10 * this.PR + 'px monospace';
     this.context.textBaseline = 'top';
