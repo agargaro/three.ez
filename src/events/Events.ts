@@ -111,19 +111,19 @@ export interface IntersectionExt extends Intersection {
  */
 export class EventExt<T = Object3D> {
   /** A boolean value indicating whether or not the event bubbles up through the DOM. */
-  public get bubbles() { return this._bubbles; }
+  public get bubbles(): boolean { return this._bubbles; }
   /** A boolean value indicating whether the event is cancelable. */
-  public readonly cancelable;
+  public readonly cancelable: boolean;
   /** A reference to the currently registered target for the event. This is the object to which the event is currently slated to be sent. It's possible this has been changed along the way through retargeting. */
   public currentTarget: T;
   /** Indicates whether or not the call to event.preventDefault() canceled the event. */
-  public get defaultPrevented() { return this._defaultPrevented; }
+  public get defaultPrevented(): boolean { return this._defaultPrevented; }
   /** A reference to the object to which the event was originally dispatched. */
-  public get target() { return this._target; }
+  public get target(): T { return this._target; }
   /** The time at which the event was created (in milliseconds). By specification, this value is time since epoch—but in reality, browsers' definitions vary. In addition, work is underway to change this to be a DOMHighResTimeStamp instead. */
   public readonly timeStamp = performance.now();
   /** The case-insensitive name identifying the type of the event. */
-  public get type() { return this._type; }
+  public get type(): keyof Events { return this._type; }
 
   /** @internal */ public _defaultPrevented: boolean;
   /** @internal */ public _stoppedImmediatePropagation: boolean;
@@ -163,39 +163,39 @@ export class MouseEventExt<T = Object3D, R = Object3D> extends EventExt<T> {
   /** Original dom event. */
   public readonly domEvent: MouseEvent;
   /** Returns true if the alt key was down when the mouse event was fired. */
-  public get altKey() { return this.domEvent.altKey; }
+  public get altKey(): boolean { return this.domEvent.altKey; }
   /** The button number that was pressed (if applicable) when the mouse event was fired. */
-  public get button() { return this.domEvent.button; }
+  public get button(): number { return this.domEvent.button; }
   /** The buttons being pressed (if any) when the mouse event was fired. */
-  public get buttons() { return this.domEvent.buttons; }
+  public get buttons(): number { return this.domEvent.buttons; }
   /** The X coordinate of the mouse pointer in local (DOM content) coordinates. */
-  public get clientX() { return this.domEvent.clientX; }
+  public get clientX(): number { return this.domEvent.clientX; }
   /** The Y coordinate of the mouse pointer in local (DOM content) coordinates. */
-  public get clientY() { return this.domEvent.clientY; }
+  public get clientY(): number { return this.domEvent.clientY; }
   /** Returns true if the control key was down when the mouse event was fired. */
-  public get ctrlKey() { return this.domEvent.ctrlKey; }
+  public get ctrlKey(): boolean { return this.domEvent.ctrlKey; }
   /** Returns true if the meta key was down when the mouse event was fired. */
-  public get metaKey() { return this.domEvent.metaKey; }
+  public get metaKey(): boolean { return this.domEvent.metaKey; }
   /** The X coordinate of the pointer relative to the position of the last event. */
-  public get movementX() { return this.domEvent.movementX; }
+  public get movementX(): number { return this.domEvent.movementX; }
   /** The Y coordinate of the pointer relative to the position of the last event. */
-  public get movementY() { return this.domEvent.movementY; }
+  public get movementY(): number { return this.domEvent.movementY; }
   /** The X coordinate of the mouse pointer relative to the position of the padding edge of the target node. */
-  public get offsetX() { return this.domEvent.offsetX; }
+  public get offsetX(): number { return this.domEvent.offsetX; }
   /** The Y coordinate of the mouse pointer relative to the position of the padding edge of the target node. */
-  public get offsetY() { return this.domEvent.offsetY; }
+  public get offsetY(): number { return this.domEvent.offsetY; }
   /** The X coordinate of the mouse pointer relative to the whole document. */
-  public get pageX() { return this.domEvent.pageX; }
+  public get pageX(): number { return this.domEvent.pageX; }
   /** The Y coordinate of the mouse pointer relative to the whole document. */
-  public get pageY() { return this.domEvent.pageY; }
+  public get pageY(): number { return this.domEvent.pageY; }
   /** The secondary target for the event, if there is one. */
   public readonly relatedTarget: R;
   /** The X coordinate of the mouse pointer in global (screen) coordinates. */
-  public get screenX() { return this.domEvent.screenX; }
+  public get screenX(): number { return this.domEvent.screenX; }
   /** The Y coordinate of the mouse pointer in global (screen) coordinates. */
-  public get screenY() { return this.domEvent.screenY; }
+  public get screenY(): number { return this.domEvent.screenY; }
   /** Returns true if the shift key was down when the mouse event was fired. */
-  public get shiftKey() { return this.domEvent.shiftKey; }
+  public get shiftKey(): boolean { return this.domEvent.shiftKey; }
   /** Returns the intersection information between the mouse event and 3D objects in the scene. */
   public readonly intersection: IntersectionExt;
 
@@ -226,25 +226,25 @@ export class MouseEventExt<T = Object3D, R = Object3D> extends EventExt<T> {
 export class PointerEventExt<T = Object3D, R = Object3D> extends MouseEventExt<T, R> {
   declare public readonly domEvent: PointerEvent;
   /** A unique identifier for the pointer causing the event. */
-  public get pointerId() { return this.domEvent.pointerId; }
+  public get pointerId(): number { return this.domEvent.pointerId; }
   /** The width (magnitude on the X axis), in CSS pixels, of the contact geometry of the pointer. */
-  public get width() { return this.domEvent.width; }
+  public get width(): number { return this.domEvent.width; }
   /** The height (magnitude on the Y axis), in CSS pixels, of the contact geometry of the pointer. */
-  public get height() { return this.domEvent.height; }
+  public get height(): number { return this.domEvent.height; }
   /** The normalized pressure of the pointer input in the range 0 to 1, where 0 and 1 represent the minimum and maximum pressure the hardware is capable of detecting, respectively. */
-  public get pressure() { return this.domEvent.pressure; }
+  public get pressure(): number { return this.domEvent.pressure; }
   /** The normalized tangential pressure of the pointer input (also known as barrel pressure or cylinder stress) in the range -1 to 1, where 0 is the neutral position of the control. */
-  public get tangentialPressure() { return this.domEvent.tangentialPressure; }
+  public get tangentialPressure(): number { return this.domEvent.tangentialPressure; }
   /** The plane angle (in degrees, in the range of -90 to 90) between the Y–Z plane and the plane containing both the pointer (e.g. pen stylus) axis and the Y axis. */
-  public get tiltX() { return this.domEvent.tiltX; }
+  public get tiltX(): number { return this.domEvent.tiltX; }
   /** The plane angle (in degrees, in the range of -90 to 90) between the X–Z plane and the plane containing both the pointer (e.g. pen stylus) axis and the X axis. */
-  public get tiltY() { return this.domEvent.tiltY; }
+  public get tiltY(): number { return this.domEvent.tiltY; }
   /** The clockwise rotation of the pointer (e.g. pen stylus) around its major axis in degrees, with a value in the range 0 to 359. */
-  public get twist() { return this.domEvent.twist; }
+  public get twist(): number { return this.domEvent.twist; }
   /** Indicates the device type that caused the event (mouse, pen, touch, etc.). */
-  public get pointerType() { return this.domEvent.pointerType; }
+  public get pointerType(): string { return this.domEvent.pointerType; }
   /** Indicates if the pointer represents the primary pointer of this pointer type. */
-  public get isPrimary() { return this.domEvent.isPrimary; }
+  public get isPrimary(): boolean { return this.domEvent.isPrimary; }
 }
 
 /**
@@ -281,13 +281,13 @@ export class DragEventExt<T = Object3D, R = Object3D | InstancedMeshEntity> exte
 export class WheelEventExt<T = Object3D, R = Object3D> extends MouseEventExt<T, R> {
   declare public readonly domEvent: WheelEvent;
   /*  Returns an unsigned long representing the unit of the delta* values' scroll amount. Permitted values are: 0 = pixels, 1 = lines, 2 = pages. */
-  public get deltaMode() { return this.domEvent.deltaMode; }
+  public get deltaMode(): number { return this.domEvent.deltaMode; }
   /** Returns a double representing the horizontal scroll amount. */
-  public get deltaX() { return this.domEvent.deltaX; }
+  public get deltaX(): number { return this.domEvent.deltaX; }
   /** Returns a double representing the vertical scroll amount. */
-  public get deltaY() { return this.domEvent.deltaY; }
+  public get deltaY(): number { return this.domEvent.deltaY; }
   /** Returns a double representing the scroll amount for the z-axis. */
-  public get deltaZ() { return this.domEvent.deltaZ; }
+  public get deltaZ(): number { return this.domEvent.deltaZ; }
 }
 
 /**
@@ -315,21 +315,21 @@ export class KeyboardEventExt<T = Object3D> extends EventExt<T> {
   /** Original dom event. */
   public readonly domEvent: KeyboardEvent;
   /** Returns a boolean value that is true if the Alt (Option or ⌥ on macOS) key was active when the key event was generated. */
-  public get altKey() { return this.domEvent.altKey; }
+  public get altKey(): boolean { return this.domEvent.altKey; }
   /** Returns a string with the code value of the physical key represented by the event. */
-  public get code() { return this.domEvent.code; }
+  public get code(): string { return this.domEvent.code; }
   /** Returns a boolean value that is true if the Ctrl key was active when the key event was generated. */
-  public get ctrlKey() { return this.domEvent.ctrlKey; }
+  public get ctrlKey(): boolean { return this.domEvent.ctrlKey; }
   /** Returns a string representing the key value of the key represented by the event. */
-  public get key() { return this.domEvent.key; }
+  public get key(): string { return this.domEvent.key; }
   /** Returns a number representing the location of the key on the keyboard or other input device. Visit https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/location for more info. */
-  public get location() { return this.domEvent.location; }
+  public get location(): number { return this.domEvent.location; }
   /** Returns a boolean value that is true if the Meta key (on Mac keyboards, the ⌘ Command key; on Windows keyboards, the Windows key (⊞)) was active when the key event was generated. */
-  public get metaKey() { return this.domEvent.metaKey; }
+  public get metaKey(): boolean { return this.domEvent.metaKey; }
   /** Returns a boolean value that is true if the key is being held down such that it is automatically repeating. */
-  public get repeat() { return this.domEvent.repeat; }
+  public get repeat(): boolean { return this.domEvent.repeat; }
   /** Returns a boolean value that is true if the Shift key was active when the key event was generated. */
-  public get shiftKey() { return this.domEvent.shiftKey; }
+  public get shiftKey(): boolean { return this.domEvent.shiftKey; }
 
   /**
    * @param event Original dom event.

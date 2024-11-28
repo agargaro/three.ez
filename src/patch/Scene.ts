@@ -127,7 +127,7 @@ Object.defineProperty(Scene.prototype, 'userData', { // needed to inject code in
 });
 
 /** @internal */
-export function setSceneReference(target: Object3D, scene: Scene) {
+export function setSceneReference(target: Object3D, scene: Scene): void {
   target.scene = scene;
   EventsCache.update(target);
   applySmartRenderingPatch(target);
@@ -139,7 +139,7 @@ export function setSceneReference(target: Object3D, scene: Scene) {
 }
 
 /** @internal */
-export function removeSceneReference(target: Object3D) {
+export function removeSceneReference(target: Object3D): void {
   EventsCache.removeAll(target);
   removeSmartRenderingPatch(target);
   Binding.unbindFromScene(target);
