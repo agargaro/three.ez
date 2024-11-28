@@ -52,7 +52,6 @@
   "devDependencies": {
     "@eslint/js": "^9.10.0",
     "@stylistic/eslint-plugin": "^2.10.1",
-    "@three.ez/main": "^0.5.8",
     "@types/three": "^0.170.0",
     "eslint": "^9.14.0",
     "typescript": "^5.6.3",
