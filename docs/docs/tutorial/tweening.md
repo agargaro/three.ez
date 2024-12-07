@@ -1,7 +1,6 @@
 ---
 sidebar_position: 11
+title: Tweening
 ---
-
-# Tweening
 
 Work in progress..

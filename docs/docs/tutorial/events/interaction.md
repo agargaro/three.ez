@@ -1,7 +1,6 @@
 ---
 sidebar_position: 0
+title: Interaction
 ---
-
-# Interaction
 
 Work in progress... 

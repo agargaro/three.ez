@@ -1,8 +1,7 @@
 ---
 sidebar_position: 0
+title: How It Works
 ---
-
-# How It Works
 
 Rendering is managed through a collection of `RenderView` instances, which are internally handled within the `Main` class.
 

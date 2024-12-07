@@ -1,8 +1,7 @@
 ---
 sidebar_position: 0
+title: Introduction
 ---
-
-# Introduction
 
 `three.ez` is a `TypeScript` library designed to streamline and enhance the development of `three.js` applications. <br />
 It provides a comprehensive suite of user-friendly tools and high-performance features, making it accessible even to beginners. <br />

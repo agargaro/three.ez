@@ -1,8 +1,7 @@
 ---
 sidebar_position: 10
+title: Binding
 ---
-
-# Binding
 
 You can establish property bindings for an `Object3D` in two distinct manners:
 - **Automatic Recalculation:** property values are automatically updated at the conclusion of each animate cycle

@@ -1,8 +1,7 @@
 ---
 sidebar_position: 2
+title: Smart Rendering
 ---
-
-# Smart Rendering
 
 Smart rendering allows frames to be rendered only when necessary, making it especially valuable for mostly static scenes. <br />
 This optimization enhances performance and minimizes unnecessary computational overhead.

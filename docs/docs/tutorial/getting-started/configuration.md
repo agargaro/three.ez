@@ -1,8 +1,7 @@
 ---
 sidebar_position: 1
+title: Configuration
 ---
-
-# Configuration
 
 When transitioning from a traditional `three.js` application to `three.ez`, you'll immediately notice the central role played by the `Main` class.
 

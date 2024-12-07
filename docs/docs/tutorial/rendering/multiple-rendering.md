@@ -1,8 +1,7 @@
 ---
 sidebar_position: 1
+title: Multiple Rendering
 ---
-
-# Multiple Rendering
 
 In order to render multiple distinct views, you'll need to create multiple instances of `RenderView`.
 
