@@ -17,7 +17,7 @@ export default [
     quotes: 'single'
   }),
   {
-    ignores: ['dist', 'docs', 'packages']
+    ignores: ['dist', 'docs']
   },
   {
     rules: {
