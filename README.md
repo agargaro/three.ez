@@ -4,19 +4,22 @@
     <em>Simplify your <b>three.js</b> application development with <b>three.ez</b>!</em>
   </p>
 
-  <!-- <img src="public/banner.jpg" alt="three-ez-banner" /> <br> -->
+  <div align="left">
+    
+  - <b><a href="https://github.com/agargaro/instanced-mesh">three.ez/instanced-mesh</a></b> - Enhanced <code>InstancedMesh</code> with features for performance and usability
+  - <b><a href="https://github.com/agargaro/batched-mesh-extensions">three.ez/batched-mesh-extensions</a></b> - <code>BatchedMesh</code> extension methods and enhancements for better performance and usability
+    
+  </div>
 
+  <br>
+  
+  <!-- <img src="public/banner.jpg" alt="three-ez-banner" /> <br> -->
   [![Discord](https://img.shields.io/badge/chat-discord-blue?style=flat&logo=discord)](https://discord.gg/MVTwrdX3JM)
   [![npm](https://img.shields.io/npm/v/@three.ez/main)](https://www.npmjs.com/package/@three.ez/main)
   [![Stars](https://badgen.net/github/stars/agargaro/three.ez)](https://github.com/agargaro/three.ez)
   [![BundlePhobia](https://badgen.net/bundlephobia/min/@three.ez/main)](https://bundlephobia.com/package/@three.ez/main)
   [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=agargaro_three.ez&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=agargaro_three.ez)
   [![DeepScan grade](https://deepscan.io/api/teams/21196/projects/25445/branches/796375/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=21196&pid=25445&bid=796375)
-
-  <p>
-    <em>See also:</em> <br>
-    <b><a href="https://github.com/agargaro/instanced-mesh">three.ez/instanced-mesh</a></b> - alternative <code>InstancedMesh</code> with enhanced features for performance and usability
-  </p>
 </div>
 
 Simplifies the most common operations of `three.js` applications, extends the functionalities of `Object3D` and `Scene` classes, making their usage more straightforward, and introduce utility classes.
