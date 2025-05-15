@@ -43,8 +43,11 @@ export * from './utils/Utils.js';
 export * from './utils/VectorUtils.js';
 
 declare module 'three' {
-  export interface Object3D extends Object3DExtPrototype { }
   export interface Material extends MaterialExtPrototype { }
+}
+
+declare module 'three/src/core/Object3D.js' {
+  export interface Object3D extends Object3DExtPrototype { }
 }
 
 declare module 'three/src/scenes/Scene.js' {

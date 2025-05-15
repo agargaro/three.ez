@@ -39,7 +39,7 @@ export class RenderManager {
 
   constructor(renderer: WebGLRenderer, appendCanvas: boolean, fullscreen = true, backgroundColor: ColorRepresentation = 0x000000, backgroundAlpha = 1) {
     this.renderer = renderer;
-    renderer.setPixelRatio(window.devicePixelRatio);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2)); // TODO add parameter config?
     this.appendCanvas(appendCanvas);
     this._fullscreen = fullscreen;
     this._backgroundAlpha = backgroundAlpha;
