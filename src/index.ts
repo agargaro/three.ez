@@ -2,6 +2,8 @@ import { MaterialExtPrototype } from './patch/Material.js';
 import { Object3DExtPrototype } from './patch/Object3D.js';
 import { SceneExtPrototype } from './patch/Scene.js';
 
+export * from '@three.ez/asset-manager';
+
 export * from './binding/Binding.js';
 export * from './cameras/OrthographicCameraAuto.js';
 export * from './cameras/PerspectiveCameraAuto.js';
@@ -35,7 +37,6 @@ export * from './tweening/Easings.js';
 export * from './tweening/Tween.js';
 export * from './tweening/TweenManager.js';
 export * from './tweening/RunningTween.js';
-export * from './utils/Asset.js';
 export * from './utils/IntersectionUtils.js';
 export * from './utils/Query.js';
 export * from './utils/Stats.js';
