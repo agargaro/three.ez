@@ -63,5 +63,8 @@
   },
   "peerDependencies": {
     "three": ">=0.151.0"
+  },
+  "dependencies": {
+    "@three.ez/asset-manager": "^0.0.1"
   }
 }
