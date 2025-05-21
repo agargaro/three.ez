@@ -1,7 +1,7 @@
 import { Object3D } from 'three';
 
 interface Attribute {
-  key: string;
+  key: keyof Object3D;
   value: string;
   operator?: string;
 }
@@ -17,11 +17,11 @@ interface QueryBlock {
 
 interface NewBlockData {
   char: string;
-  end?: number;
+  end: number;
 }
 
 /** @internal */
-export function querySelector(target: Object3D, query: string): Object3D {
+export function querySelector(target: Object3D, query: string): Object3D | null {
   const queryBlocks = parse(query);
   const blocks: QueryBlock[][] = [];
 
@@ -46,7 +46,7 @@ export function querySelectorAll(target: Object3D, query: string): Object3D[] {
   return result;
 }
 
-function search(target: Object3D, blocks: QueryBlock[][]): Object3D {
+function search(target: Object3D, blocks: QueryBlock[][]): Object3D | null {
   const newBlocks: QueryBlock[][] = [];
 
   for (const blockList of blocks) {
@@ -65,6 +65,8 @@ function search(target: Object3D, blocks: QueryBlock[][]): Object3D {
     const obj = search(child, newBlocks);
     if (obj) return obj;
   }
+
+  return null;
 }
 
 function searchAll(target: Object3D, blocks: QueryBlock[][], result: Object3D[]): void {
@@ -107,7 +109,7 @@ function areValidConditions(target: Object3D, block: QueryBlock): boolean {
   return checkType(target, block.type) && checkTags(target, block.tags) && checkAttributes(target, block.attributes);
 }
 
-function checkType(target: Object3D, type: string): boolean {
+function checkType(target: Object3D, type: string | undefined): boolean {
   return !type || target.type === type;
 }
 
@@ -125,20 +127,20 @@ function checkAttributes(target: Object3D, attributes: Attribute[]): boolean {
         if (getValue(target, attribute.key) !== attribute.value) return false;
         break;
       case '*':
-        if (!getValue(target, attribute.key).includes(attribute.value)) return false;
+        if (!getValue(target, attribute.key)?.includes(attribute.value)) return false;
         break;
       case '$':
-        if (!getValue(target, attribute.key).endsWith(attribute.value)) return false;
+        if (!getValue(target, attribute.key)?.endsWith(attribute.value)) return false;
         break;
       case '^':
-        if (!getValue(target, attribute.key).startsWith(attribute.value)) return false;
+        if (!getValue(target, attribute.key)?.startsWith(attribute.value)) return false;
         break;
     }
   }
   return true;
 }
 
-function getValue(target: Object3D, key: string): string {
+function getValue(target: Object3D, key: keyof Object3D): string | undefined {
   const value = target[key];
   return typeof value === 'string' ? value : value?.toString();
 }
@@ -182,14 +184,14 @@ function parse(query: string): QueryBlock[] {
   return blocks;
 }
 
-function getBlock(query: string, index: number): NewBlockData {
-  let ret: NewBlockData;
+function getBlock(query: string, index: number): NewBlockData | null {
+  let ret: NewBlockData | null = null;
 
   for (; index < query.length; index++) {
     const char = query[index];
     if (char !== ' ' && char !== '>' && char !== ',') break;
     if (!ret) {
-      ret = { char };
+      ret = { char, end: -1 };
     } else if (char !== ' ') {
       ret.char = char;
     }
@@ -199,12 +201,15 @@ function getBlock(query: string, index: number): NewBlockData {
   return ret;
 }
 
-function getPrev(newBlock: QueryBlock, oldBlock: QueryBlock): QueryBlock {
+function getPrev(newBlock: QueryBlock, oldBlock: QueryBlock): QueryBlock | undefined {
   if (newBlock.recursive) return newBlock;
+
+  let block: QueryBlock | undefined;
   while (oldBlock !== oldBlock.prev) {
-    oldBlock = oldBlock.prev;
+    block = oldBlock.prev;
   }
-  return oldBlock;
+
+  return block;
 }
 
 function getNextIndex(query: string, index: number): number {
@@ -228,8 +233,8 @@ function addAttribute(query: string, start: number, end: number, block: QueryBlo
   const split = sub.split('=');
   const lastChar = split[0][split[0].length - 1];
   if (lastChar === '*' || lastChar === '$' || lastChar === '^') {
-    block.attributes.push({ key: split[0].slice(0, -1), value: split[1], operator: lastChar });
+    block.attributes.push({ key: split[0].slice(0, -1) as keyof Object3D, value: split[1], operator: lastChar });
   } else {
-    block.attributes.push({ key: split[0], value: split[1] });
+    block.attributes.push({ key: split[0] as keyof Object3D, value: split[1] });
   }
 }

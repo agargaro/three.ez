@@ -9,7 +9,7 @@ export class PerspectiveCameraAuto extends PerspectiveCamera {
      * @param near Camera frustum near plane distance. Default `0.1`.
      * @param far Camera frustum far plane distance. Default `2000`.
      */
-  constructor(fov?: number, near?: number, far?: number) {
+  constructor(fov = 50, near = 0.1, far = 2000) {
     super(fov, undefined, near, far);
 
     this.on('viewportresize', (e) => {
