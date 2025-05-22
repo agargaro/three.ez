@@ -1,18 +1,25 @@
 {
-	"compilerOptions": {
-		"target": "ES2020",
-		"module": "NodeNext",
-		"moduleResolution": "NodeNext",
-		"strict": true,
-		"declaration": true,
-		"sourceMap": true,
-		"declarationMap": true,
-		"noImplicitOverride": true,
-		"strictNullChecks": false,
-		"stripInternal": true,
-		"outDir": "dist/src",
-		"esModuleInterop": true,
-		"noImplicitAny": false,
-		"skipLibCheck": true
-	}
+  "compilerOptions": {
+    "declaration": true,
+    "declarationMap": true,
+    "esModuleInterop": true,
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "noErrorTruncation": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitAny": true,
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+    "outDir": "dist/src",
+    "paths": {
+      "@three.ez/main": [
+        "./src/index.js"
+      ]
+    },
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "strict": true,
+    "stripInternal": true,
+    "target": "ES2020"
+  }
 }

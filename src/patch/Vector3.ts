@@ -1,4 +1,9 @@
-import { BufferAttribute, Camera, Color, Cylindrical, Euler, MathUtils, Matrix3, Matrix4, Object3D, Quaternion, Spherical, Vector3, Vector3Tuple } from 'three';
+import { BufferAttribute, Camera, Color, Cylindrical, Euler, MathUtils, Matrix3, Matrix4, Object3D, Quaternion, Spherical, Vector3 } from 'three';
+
+// TODO: create unpatch method?
+// TODO: make a separate file for patch
+
+const clamp = MathUtils.clamp;
 
 /** @internal */
 export function applyVec3Patch(target: Object3D): void {
@@ -33,18 +38,26 @@ function patchVector(vec3: Vector3): void {
   (vec3 as Vector3Ext)._x = vec3.x;
   (vec3 as Vector3Ext)._y = vec3.y;
   (vec3 as Vector3Ext)._z = vec3.z;
+  /** @ts-expect-error The operand of a 'delete' operator must be optional */
   delete vec3.x;
+  /** @ts-expect-error The operand of a 'delete' operator must be optional */
   delete vec3.y;
+  /** @ts-expect-error The operand of a 'delete' operator must be optional */
   delete vec3.z;
   Object.setPrototypeOf(vec3, Vector3Ext.prototype);
 }
 
-/** @LASTREV 162 Vector3 */
-class Vector3Ext {
+/** @lastCommit #30603 */
+abstract class Vector3Ext implements Vector3 {
+  /** @ts-expect-error Property '_x' has no initializer and is not definitely assigned in the constructor */
   public _x: number;
+  /** @ts-expect-error Property '_y' has no initializer and is not definitely assigned in the constructor */
   public _y: number;
+  /** @ts-expect-error Property '_z' has no initializer and is not definitely assigned in the constructor */
   public _z: number;
+  /** @ts-expect-error Property '_onChangeCallback' has no initializer and is not definitely assigned in the constructor */
   public _onChangeCallback: () => void;
+  /** @ts-expect-error Property 'isVector3' has no initializer and is not definitely assigned in the constructor */
   public isVector3: true;
 
   public get x(): number { return this._x; }
@@ -66,7 +79,7 @@ class Vector3Ext {
   }
 
   public set(x: number, y: number, z: number): this {
-    if (z === undefined) z = this._z;
+    z ??= this._z;
     this._x = x;
     this._y = y;
     this._z = z;
@@ -127,8 +140,8 @@ class Vector3Ext {
     }
   }
 
-  public clone(): Vector3 {
-    return new (Vector3.prototype as any).constructor(this._x, this._y, this._z);
+  public clone(): this {
+    return new Vector3(this._x, this._y, this._z) as this;
   }
 
   public copy(v: Vector3, update?: boolean): this {
@@ -311,24 +324,24 @@ class Vector3Ext {
   }
 
   public clamp(min: Vector3, max: Vector3): this {
-    this._x = Math.max(min.x, Math.min(max.x, this._x));
-    this._y = Math.max(min.y, Math.min(max.y, this._y));
-    this._z = Math.max(min.z, Math.min(max.z, this._z));
+    this._x = clamp(this._x, min.x, max.x);
+    this._y = clamp(this._y, min.y, max.y);
+    this._z = clamp(this._z, min.z, max.z);
     this._onChangeCallback();
     return this;
   }
 
   public clampScalar(minVal: number, maxVal: number): this {
-    this._x = Math.max(minVal, Math.min(maxVal, this._x));
-    this._y = Math.max(minVal, Math.min(maxVal, this._y));
-    this._z = Math.max(minVal, Math.min(maxVal, this._z));
+    this._x = clamp(this._x, minVal, maxVal);
+    this._y = clamp(this._y, minVal, maxVal);
+    this._z = clamp(this._z, minVal, maxVal);
     this._onChangeCallback();
     return this;
   }
 
   public clampLength(min: number, max: number): this {
     const length = this.length();
-    return this.divideScalar(length || 1, false).multiplyScalar(Math.max(min, Math.min(max, length)));
+    return this.divideScalar(length || 1, false).multiplyScalar(clamp(length, min, max));
   }
 
   public floor(): this {
@@ -412,7 +425,7 @@ class Vector3Ext {
   }
 
   public cross(v: Vector3): this {
-    return this.crossVectors(this as Vector3, v);
+    return this.crossVectors(this, v);
   }
 
   public crossVectors(a: Vector3, b: Vector3): this {
@@ -445,7 +458,7 @@ class Vector3Ext {
     const denominator = Math.sqrt(this.lengthSq() * v.lengthSq());
     if (denominator === 0) return Math.PI / 2;
     const theta = this.dot(v) / denominator;
-    return Math.acos(MathUtils.clamp(theta, -1, 1));
+    return Math.acos(clamp(theta, -1, 1));
   }
 
   public distanceTo(v: Vector3): number {
@@ -542,8 +555,7 @@ class Vector3Ext {
     return this;
   }
 
-  public toArray(array?: Vector3Tuple, offset?: 0): Vector3Tuple;
-  public toArray(array: number[] = [], offset = 0): number[] {
+  public toArray(array: any = [], offset = 0): any {
     array[offset] = this._x;
     array[offset + 1] = this._y;
     array[offset + 2] = this._z;
@@ -570,14 +582,14 @@ class Vector3Ext {
     const theta = Math.random() * Math.PI * 2;
     const u = Math.random() * 2 - 1;
     const c = Math.sqrt(1 - u * u);
-    this.x = c * Math.cos(theta);
-    this.y = u;
-    this.z = c * Math.sin(theta);
+    this._x = c * Math.cos(theta);
+    this._y = u;
+    this._z = c * Math.sin(theta);
     this._onChangeCallback();
     return this;
   }
 
-  *[Symbol.iterator](): Generator<unknown, any, number> {
+  * [Symbol.iterator](): Iterator<number> {
     yield this._x;
     yield this._y;
     yield this._z;

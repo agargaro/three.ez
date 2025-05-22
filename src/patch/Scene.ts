@@ -5,7 +5,7 @@ import { Binding } from '../binding/Binding.js';
 import { FocusEventExt, IntersectionExt } from '../events/Events.js';
 import { addBase, removeBase } from './Object3D.js';
 import { EventsDispatcher } from '../events/EventsDispatcher.js';
-import { Default } from '../events/Default.js';
+import { INTERACTION_DEFAULT } from '../events/InteractionDefault.js';
 
 /**
  * Represents the prototype for extending Scene functionality.
@@ -108,8 +108,8 @@ Scene.prototype.remove = function (object: Object3D) {
 Object.defineProperty(Scene.prototype, 'userData', { // needed to inject code in constructor
   set: function (this: Scene, value) {
     this.focusable = false;
-    this.draggable = Default.draggable;
-    this.interceptByRaycaster = Default.interceptByRaycaster;
+    this.draggable = INTERACTION_DEFAULT.draggable;
+    this.interceptByRaycaster = INTERACTION_DEFAULT.interceptByRaycaster;
     this.tags = new Set();
     this.__boundCallbacks = [];
     this.__eventsDispatcher = new EventsDispatcher(this);
