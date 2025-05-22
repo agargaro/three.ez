@@ -1,23 +1,24 @@
 import { Object3D, Scene } from 'three';
 import { Binding, BindingCallback } from '../binding/Binding.js';
 import { Cursor } from '../events/CursorManager.js';
-import { Default } from '../events/Default.js';
+import { INTERACTION_DEFAULT } from '../events/InteractionDefault.js';
 import { Events, InteractionEvents } from '../events/Events.js';
 import { EventsDispatcher } from '../events/EventsDispatcher.js';
 import { Hitbox } from '../events/Hitbox.js';
 import { Tween } from '../tweening/Tween.js';
 import { querySelector, querySelectorAll } from '../utils/Query.js';
 import { applyEulerPatch } from './Euler.js';
-import { applyMatrix4Patch } from './Matrix4.js';
 import { applyQuaternionPatch } from './Quaternion.js';
 import { removeSceneReference, setSceneReference } from './Scene.js';
 import { applyVec3Patch } from './Vector3.js';
+
+// TODO: override matrix4 prototype to use new props like _x instead of x?
 
 /**
  * Represents the prototype for extended Object3D functionality.
  */
 export interface Object3DExtPrototype {
-  /** @internal */ __boundCallbacks: BindingCallback[];
+  /** @internal */ __boundCallbacks: BindingCallback[] | undefined;
   /** @internal */ __manualDetection: boolean;
   /** @internal */ __eventsDispatcher: EventsDispatcher;
   /** @internal */ __vec3Patched: boolean;
@@ -30,7 +31,7 @@ export interface Object3DExtPrototype {
   /** @internal */ __clicking: boolean;
   /** @internal */ __dragging: boolean;
   /** @internal */ __isDropTarget: boolean;
-  /** @internal */ __baseVisibleDescriptor: PropertyDescriptor;
+  /** @internal */ __baseVisibleDescriptor: PropertyDescriptor | undefined;
   /** @internal */ __onChangeBaseEuler: () => void;
   /** @internal */ __onChangeBaseQuat: () => void;
   /**
@@ -40,31 +41,37 @@ export interface Object3DExtPrototype {
   enabled: boolean;
   /**
    * Determines if the **object** and **all of its children** can be intercepted by the main raycaster.
-   * @default DEFAULT_INTERCEPT_BY_RAYCASTER (true).
+   * @default INTERACTION_DEFAULT.interceptByRaycaster (true).
    */
   interceptByRaycaster: boolean;
   /** Array of hitboxes for collision detection. */
-  hitboxes: Hitbox[];
+  hitboxes: Hitbox[] | undefined;
   /** Indicates which object will be dragged instead of this one. */
-  dragTarget: Object3D;
-  /** Indicates whether the object can receive focus. Default is DEFAULT_FOCUSABLE (`true`). */
+  dragTarget: Object3D | undefined;
+  /**
+   * Indicates whether the object can receive focus.
+   * @default INTERACTION_DEFAULT.focusable (true).
+   */
   focusable: boolean;
-  /** Indicates whether the object is draggable. Default is DEFAULT_DRAGGABLE (`false`). */
+  /**
+   * Indicates whether the object is draggable.
+   * @default INTERACTION_DEFAULT.draggable (false).
+   */
   draggable: boolean;
   /** Determines when the object is dragged, whether it will have to search for any drop targets. Default is `false`. */
   findDropTarget: boolean;
   /** Reference to the scene the object belongs to. */
   scene: Scene;
   /** Cursor style when interacting with the object. */
-  cursor: Cursor;
+  cursor: Cursor | undefined;
   /** Cursor style when dragging the object. */
-  cursorDrag: Cursor;
+  cursorDrag: Cursor | undefined;
   /** Cursor style when dropping an object onto this one. */
-  cursorDrop: Cursor;
+  cursorDrop: Cursor | undefined;
   /** Indicates whether the scene needs rendering. */
   needsRender: boolean;
   /** Indicates the tags to be searched using the querySelector and `querySelectorAll` methods. */
-  tags: Set<string>;
+  tags: Set<string> | undefined;
   /** Indicates if the primary pointer is over this object. */
   get hovered(): boolean;
   /** Indicates if the object is currently focused. */
@@ -78,7 +85,7 @@ export interface Object3DExtPrototype {
   /** Retrieves the combined visibility state considering parent objects. */
   get visibilityState(): boolean;
   /** Retrieves the first possible focusable object. */
-  get firstFocusable(): Object3D;
+  get firstFocusable(): Object3D | null;
   /**
    * Applies focus to the object.
    */
@@ -158,7 +165,7 @@ export interface Object3DExtPrototype {
    * @param query - The query string to match against the Object3D elements.
    * @returns The first Object3D element that matches the query, or undefined if no match is found.
    */
-  querySelector(query: string): Object3D;
+  querySelector(query: string): Object3D | null;
   /**
    * Finds and returns a list of Object3D elements that match the specified query string.
    * This method follows a similar syntax to CSS selectors.
@@ -168,14 +175,6 @@ export interface Object3DExtPrototype {
   querySelectorAll(query: string): Object3D[];
 }
 
-Object3D.prototype.findDropTarget = false;
-Object3D.prototype.__manualDetection = false;
-Object3D.prototype.__focused = false;
-Object3D.prototype.__clicking = false;
-Object3D.prototype.__dragging = false;
-Object3D.prototype.__hovered = false;
-
-Object3D.prototype.__visible = true;
 Object.defineProperty(Object3D.prototype, 'visible', {
   get: function (this: Object3D) { return this.__visible; },
   set: function (this: Object3D, value: boolean) {
@@ -187,7 +186,6 @@ Object.defineProperty(Object3D.prototype, 'visible', {
   configurable: true
 });
 
-Object3D.prototype.__enabled = true;
 Object.defineProperty(Object3D.prototype, 'enabled', {
   get: function (this: Object3D) { return this.__enabled; },
   set: function (this: Object3D, value: boolean) {
@@ -204,7 +202,7 @@ Object.defineProperty(Object3D.prototype, 'enabled', {
 
 Object.defineProperty(Object3D.prototype, 'firstFocusable', {
   get: function (this: Object3D) {
-    let obj = this;
+    let obj: Object3D | null = this;
     while (obj?.focusable === false) {
       obj = obj.parent;
     }
@@ -214,20 +212,20 @@ Object.defineProperty(Object3D.prototype, 'firstFocusable', {
 
 Object.defineProperty(Object3D.prototype, 'enabledState', {
   get: function (this: Object3D) {
-    let obj = this;
+    let obj: Object3D | null = this;
     do {
       if (!obj.enabled) return false;
-    } while (obj = obj.parent);
+    } while ((obj = obj.parent));
     return true;
   }
 });
 
 Object.defineProperty(Object3D.prototype, 'visibilityState', {
   get: function (this: Object3D) {
-    let obj = this;
+    let obj: Object3D | null = this;
     do {
       if (!obj.visible) return false;
-    } while (obj = obj.parent);
+    } while ((obj = obj.parent));
     return true;
   }
 });
@@ -294,11 +292,17 @@ Object3D.prototype.triggerAncestor = function <T extends keyof Events>(type: T, 
 
 Object.defineProperty(Object3D.prototype, 'userData', { // needed to inject code in constructor
   set: function (this: Object3D, value) {
-    this.focusable = Default.focusable;
-    this.draggable = Default.draggable;
-    this.interceptByRaycaster = Default.interceptByRaycaster;
-    this.tags = new Set();
-    this.__boundCallbacks = [];
+    this.focusable = INTERACTION_DEFAULT.focusable;
+    this.draggable = INTERACTION_DEFAULT.draggable;
+    this.interceptByRaycaster = INTERACTION_DEFAULT.interceptByRaycaster;
+    this.findDropTarget = false;
+    this.__manualDetection = false;
+    this.__focused = false;
+    this.__clicking = false;
+    this.__dragging = false;
+    this.__hovered = false;
+    this.__visible = true;
+    this.__enabled = true;
     this.__eventsDispatcher = new EventsDispatcher(this);
 
     Object.defineProperty(this, 'userData', {
@@ -376,7 +380,7 @@ Object3D.prototype.remove = function (object: Object3D) {
 export function applyObject3DVector3Patch(target: Object3D): void {
   if (!target.__vec3Patched) {
     applyVec3Patch(target);
-    applyMatrix4Patch(target);
+    // TODO: we can patch matrix4 too?
     target.__vec3Patched = true;
   }
 }
