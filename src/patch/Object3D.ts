@@ -7,8 +7,8 @@ import { EventsDispatcher } from '../events/EventsDispatcher.js';
 import { Hitbox } from '../events/Hitbox.js';
 import { Tween } from '../tweening/Tween.js';
 import { querySelector, querySelectorAll } from '../utils/Query.js';
-import { applyEulerPatch } from './Euler.js';
-import { applyQuaternionPatch } from './Quaternion.js';
+import { patchEuler } from './Euler.js';
+import { patchQuaternion } from './Quaternion.js';
 import { removeSceneReference, setSceneReference } from './Scene.js';
 import { applyVec3Patch } from './Vector3.js';
 
@@ -22,7 +22,6 @@ export interface Object3DExtPrototype {
   /** @internal */ __manualDetection: boolean;
   /** @internal */ __eventsDispatcher: EventsDispatcher;
   /** @internal */ __vec3Patched: boolean;
-  /** @internal */ __rotationPatched: boolean;
   /** @internal */ __smartRenderingPatched: boolean;
   /** @internal */ __enabled: boolean;
   /** @internal */ __visible: boolean;
@@ -32,8 +31,8 @@ export interface Object3DExtPrototype {
   /** @internal */ __dragging: boolean;
   /** @internal */ __isDropTarget: boolean;
   /** @internal */ __baseVisibleDescriptor: PropertyDescriptor | undefined;
-  /** @internal */ __onChangeBaseEuler: () => void;
-  /** @internal */ __onChangeBaseQuat: () => void;
+  /** @internal */ __onChangeEulerBase: (() => void) | null;
+  /** @internal */ __onChangeQuaternionBase: (() => void) | null;
   /**
    * Determines if the object is enabled. Default is `true`.
    * If set to true, it allows triggering all InteractionEvents; otherwise, events are disabled.
@@ -235,8 +234,9 @@ Object.defineProperty(Object3D.prototype, 'needsRender', {
     return this.scene?.needsRender;
   },
   set: function (this: Object3D, value: boolean) {
-    if (!this.scene) return;
-    this.scene.needsRender = value;
+    if (this.scene) {
+      this.scene.needsRender = value;
+    }
   }
 });
 
@@ -378,18 +378,12 @@ Object3D.prototype.remove = function (object: Object3D) {
 
 /** @internal */
 export function applyObject3DVector3Patch(target: Object3D): void {
-  if (!target.__vec3Patched) {
-    applyVec3Patch(target);
-    // TODO: we can patch matrix4 too?
-    target.__vec3Patched = true;
-  }
+  applyVec3Patch(target);
+  // TODO: we can patch matrix4 too?
 }
 
 /** @internal */
 export function applyObject3DRotationPatch(target: Object3D): void {
-  if (!target.__rotationPatched) {
-    applyQuaternionPatch(target);
-    applyEulerPatch(target);
-    target.__rotationPatched = true;
-  }
+  patchQuaternion(target);
+  patchEuler(target);
 }
