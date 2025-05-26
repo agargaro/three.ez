@@ -2,7 +2,7 @@ import { Object3D, WebGLRenderer } from 'three';
 import { RenderManager } from '../rendering/RenderManager.js';
 import { CursorHandler } from './CursorManager.js';
 import { DragAndDropManager } from './DragAndDropManager.js';
-import { InteractionEvents, IntersectionExt, KeyboardEventExt, PointerEventExt, PointerIntersectionEvent, WheelEventExt } from './Events.js';
+import { EzInteractionEvents, EzIntersection, EzKeyboardEvent, EzPointerEvent, EzPointerIntersection, EzWheelEvent } from './Events.js';
 import { InteractionEventsQueue } from './InteractionEventsQueue.js';
 import { RaycasterManager } from './RaycasterManager.js';
 
@@ -12,8 +12,8 @@ export class InteractionManager {
   public cursorManager: CursorHandler;
   public dragManager: DragAndDropManager;
   public queue = new InteractionEventsQueue();
-  private _intersection: { [x: string]: IntersectionExt } = {};
-  private _intersectionDropTarget: IntersectionExt;
+  private _intersection: { [x: string]: EzIntersection } = {};
+  private _intersectionDropTarget: EzIntersection;
   private _renderManager: RenderManager;
   private _primaryIdentifier: number;
   private _pointerDownTarget: { [x: string]: Object3D } = {};
@@ -98,34 +98,34 @@ export class InteractionManager {
     }
   }
 
-  private triggerPointer(type: keyof InteractionEvents, event: PointerEvent, target: Object3D, relatedTarget?: Object3D): void {
+  private triggerPointer(type: keyof EzInteractionEvents, event: PointerEvent, target: Object3D, relatedTarget?: Object3D): void {
     if (target?.enabledState) {
-      const pointerEvent = new PointerEventExt(event, this._intersection[event.pointerId], relatedTarget);
+      const pointerEvent = new EzPointerEvent(event, this._intersection[event.pointerId], relatedTarget);
       target.__eventsDispatcher.dispatchDOM(type, pointerEvent);
     }
   }
 
-  private triggerAncestorPointer(type: keyof InteractionEvents, event: PointerEvent, target: Object3D, relatedTarget?: Object3D, cancelable?: boolean): PointerEventExt {
+  private triggerAncestorPointer(type: keyof EzInteractionEvents, event: PointerEvent, target: Object3D, relatedTarget?: Object3D, cancelable?: boolean): EzPointerEvent {
     if (target?.enabledState) {
-      const pointerEvent = new PointerEventExt(event, this._intersection[event.pointerId], relatedTarget, cancelable);
+      const pointerEvent = new EzPointerEvent(event, this._intersection[event.pointerId], relatedTarget, cancelable);
       target.__eventsDispatcher.dispatchDOMAncestor(type, pointerEvent);
       return pointerEvent;
     }
   }
 
-  private triggerAncestorWheel(event: WheelEvent, intersection: IntersectionExt): void {
+  private triggerAncestorWheel(event: WheelEvent, intersection: EzIntersection): void {
     const target = intersection?.object ?? this._renderManager.activeScene;
     if (target?.enabledState) {
-      const wheelEvent = new WheelEventExt(event, intersection);
+      const wheelEvent = new EzWheelEvent(event, intersection);
       target.__eventsDispatcher.dispatchDOMAncestor('wheel', wheelEvent);
     }
   }
 
-  private triggerAncestorKeyboard(type: keyof InteractionEvents, event: KeyboardEvent, cancelable: boolean): KeyboardEventExt {
+  private triggerAncestorKeyboard(type: keyof EzInteractionEvents, event: KeyboardEvent, cancelable: boolean): EzKeyboardEvent {
     const scene = this._renderManager.activeScene;
     const target = scene.focusedObject ?? scene;
     if (target.enabledState) {
-      const keyboardEvent = new KeyboardEventExt(event, cancelable);
+      const keyboardEvent = new EzKeyboardEvent(event, cancelable);
       target.__eventsDispatcher.dispatchDOMAncestor(type, keyboardEvent);
       return keyboardEvent;
     }
@@ -217,7 +217,7 @@ export class InteractionManager {
       const intersection = this._intersection[this._primaryIdentifier];
       const target = intersection?.object ?? this._renderManager.hoveredScene;
       if (target?.enabledState) {
-        target.__eventsDispatcher.dispatchDOMAncestor('pointerintersection', new PointerIntersectionEvent(intersection));
+        target.__eventsDispatcher.dispatchDOMAncestor('pointerintersection', new EzPointerIntersection(intersection));
       }
     }
   }
@@ -313,7 +313,7 @@ export class InteractionManager {
     this.triggerAncestorKeyboard('keyup', event, false);
   }
 
-  private setDropTarget(intersections: IntersectionExt[]): void {
+  private setDropTarget(intersections: EzIntersection[]): void {
     const int = intersections[0];
     this._intersectionDropTarget = (int?.object.__isDropTarget && int.object.enabledState) ? int : undefined;
     const scene = this._renderManager.activeScene;

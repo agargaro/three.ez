@@ -1,5 +1,5 @@
 import { Plane, Matrix4, Vector3, Raycaster, Camera, Object3D } from 'three';
-import { DragEventExt, InteractionEvents, IntersectionExt } from './Events.js';
+import { EzDragEvent, EzInteractionEvents, EzIntersection } from './Events.js';
 import { InstancedMesh2 } from '../instancedMesh/InstancedMesh2.js';
 import { InstancedMeshEntity } from '../instancedMesh/InstancedMeshEntity.js';
 
@@ -20,7 +20,7 @@ export class DragAndDropManager {
   private _dataTransfer: { [x: string]: any };
   private _lastDropTarget: Object3D;
   private _raycaster: Raycaster;
-  private _startIntersection: IntersectionExt;
+  private _startIntersection: EzIntersection;
 
   public get target(): Object3D { return this._target; }
   public get findDropTarget(): boolean { return this._target.findDropTarget; }
@@ -38,7 +38,7 @@ export class DragAndDropManager {
     return false;
   }
 
-  public performDrag(event: PointerEvent, camera: Camera, dropTargetIntersection: IntersectionExt): void {
+  public performDrag(event: PointerEvent, camera: Camera, dropTargetIntersection: EzIntersection): void {
     if (!event.isPrimary) return;
 
     this._plane.setFromNormalAndCoplanarPoint(camera.getWorldDirection(this._plane.normal), this._worldPosition.setFromMatrixPosition(this._targetMatrixWorld));
@@ -62,7 +62,7 @@ export class DragAndDropManager {
     this.dropTargetEvent(event, dropTargetIntersection);
   }
 
-  public initDrag(event: PointerEvent, target: Object3D, instanceId: number, intersection: IntersectionExt): void {
+  public initDrag(event: PointerEvent, target: Object3D, instanceId: number, intersection: EzIntersection): void {
     if (this.isDragButton(event) && target?.draggable) {
       if (instanceId >= 0) {
         if ((target as InstancedMesh2).isInstancedMesh2 && (target as InstancedMesh2).__enabledStateHovered) {
@@ -146,15 +146,15 @@ export class DragAndDropManager {
     this._lastDropTarget = undefined;
   }
 
-  private trigger(type: keyof InteractionEvents, event: PointerEvent, target: Object3D, cancelable: boolean, position?: Vector3, relatedTarget?: Object3D, intersection?: IntersectionExt): DragEventExt {
+  private trigger(type: keyof EzInteractionEvents, event: PointerEvent, target: Object3D, cancelable: boolean, position?: Vector3, relatedTarget?: Object3D, intersection?: EzIntersection): EzDragEvent {
     if (target) {
-      const dragEvent = new DragEventExt(event, cancelable, this._dataTransfer, position, relatedTarget, intersection);
+      const dragEvent = new EzDragEvent(event, cancelable, this._dataTransfer, position, relatedTarget, intersection);
       target.__eventsDispatcher.dispatchDOMAncestor(type, dragEvent);
       return dragEvent;
     }
   }
 
-  public dropTargetEvent(event: PointerEvent, dropTargetIntersection: IntersectionExt): void {
+  public dropTargetEvent(event: PointerEvent, dropTargetIntersection: EzIntersection): void {
     if (this.findDropTarget) {
       const dropTarget = dropTargetIntersection?.object;
       const lastDropTarget = this._lastDropTarget;

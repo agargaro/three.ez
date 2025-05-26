@@ -3,7 +3,7 @@
  * Syncronize DOM events with the frame generation, discarding ripetitive pointermove event.
  */
 export class InteractionEventsQueue {
-  public multitouch: boolean;
+  public multitouch = false;
   private _items: Event[] = [];
 
   public enqueue(event: Event): void {

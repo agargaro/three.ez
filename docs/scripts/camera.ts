@@ -1,2 +1,2 @@
-export * from '../../src/cameras/OrthographicCameraAuto';
-export * from '../../src/cameras/PerspectiveCameraAuto';
+export * from '../../src/camera/OrthographicCameraAuto';
+export * from '../../src/camera/PerspectiveCameraAuto';

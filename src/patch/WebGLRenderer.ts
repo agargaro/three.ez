@@ -1,6 +1,6 @@
 import { Camera, Scene, Vector4, WebGLRenderer } from 'three';
 import { Main } from '../core/Main.js';
-import { ViewportResizeEvent } from '../events/Events.js';
+import { EzViewportResizeEvent } from '../events/Events.js';
 import { EventsCache } from '../events/MiscEventsManager.js';
 
 const viewportSize = new Vector4();
@@ -22,7 +22,7 @@ export function applyWebGLRendererPatch(main: Main): void {
 }
 
 function handleViewportResize(renderer: WebGLRenderer, scene: Scene, camera: Camera): void {
-  let event: ViewportResizeEvent;
+  let event: EzViewportResizeEvent;
 
   if (!lastViewportSizes[scene.id]) {
     lastViewportSizes[scene.id] = new Vector4(-1);
