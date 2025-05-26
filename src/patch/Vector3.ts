@@ -4,14 +4,19 @@ import { Vector3Ext } from './prototype/Vector3Ext.js';
 // TODO: create unpatch method?
 
 /** @internal */
-export function patchVector3(target: Object3D): void {
+export function patchPosition(target: Object3D): void {
   if (!(target.position as Vector3Ext).isVector3Ext) {
     patchVector3Prototype(target.position);
-    patchVector3Prototype(target.scale);
-
-    (target.position as Vector3Ext)._onChangeCallback = onChangePosition;
-    (target.scale as Vector3Ext)._onChangeCallback = onChangeScale;
   }
+  (target.position as Vector3Ext)._onChangeCallback = onChangePosition;
+}
+
+/** @internal */
+export function patchScale(target: Object3D): void {
+  if (!(target.scale as Vector3Ext).isVector3Ext) {
+    patchVector3Prototype(target.scale);
+  }
+  (target.scale as Vector3Ext)._onChangeCallback = onChangeScale;
 }
 
 function onChangePosition(this: Object3D): void {

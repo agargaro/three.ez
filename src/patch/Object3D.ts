@@ -1,16 +1,13 @@
 import { Object3D, Scene } from 'three';
-import { Binding, BindingCallback } from '../binding/Binding.js';
 import { Cursor } from '../events/CursorManager.js';
 import { INTERACTION_DEFAULT } from '../events/InteractionDefault.js';
 import { EzEvents, EzInteractionEvents } from '../events/Events.js';
 import { EventsDispatcher } from '../events/EventsDispatcher.js';
 import { Hitbox } from '../events/Hitbox.js';
-import { Tween } from '../tweening/Tween.js';
-import { querySelector, querySelectorAll } from '../utils/Query.js';
-import { patchEuler } from './Euler.js';
+import { patchRotation } from './Euler.js';
 import { patchQuaternion } from './Quaternion.js';
 import { removeSceneReference, setSceneReference } from './Scene.js';
-import { applyVec3Patch } from './Vector3.js';
+import { patchPosition, patchScale } from './Vector3.js';
 
 // TODO: override matrix4 prototype to use new props like _x instead of x?
 
@@ -18,8 +15,6 @@ import { applyVec3Patch } from './Vector3.js';
  * Represents the prototype for extended Object3D functionality.
  */
 export interface Object3DExtPrototype {
-  /** @internal */ __boundCallbacks: BindingCallback[] | undefined;
-  /** @internal */ __manualDetection: boolean;
   /** @internal */ __eventsDispatcher: EventsDispatcher;
   /** @internal */ __enabled: boolean;
   /** @internal */ __visible: boolean;
@@ -376,12 +371,13 @@ Object3D.prototype.remove = function (object: Object3D) {
 
 /** @internal */
 export function applyObject3DVector3Patch(target: Object3D): void {
-  applyVec3Patch(target);
+  patchPosition(target);
+  patchScale(target);
   // TODO: we can patch matrix4 too?
 }
 
 /** @internal */
 export function applyObject3DRotationPatch(target: Object3D): void {
   patchQuaternion(target);
-  patchEuler(target);
+  patchRotation(target);
 }

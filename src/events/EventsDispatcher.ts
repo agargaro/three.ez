@@ -1,7 +1,8 @@
 import { InstancedMesh, Object3D } from 'three';
 import { applyObject3DRotationPatch, applyObject3DVector3Patch } from '../patch/Object3D.js';
 import { EzEvent, EzEvents, EzInteractionEvents, EzMiscUpdateEvents, EzUpdateEvents } from './Events.js';
-import { EventsCache } from './MiscEventsManager.js';
+import { EventsCache, register } from './MiscEventsManager.js';
+import { patchPosition, patchScale } from '../patch/Vector3.js';
 
 export type EventCallback<K extends keyof EzEvents> = (event?: EzEvents[K]) => void;
 
@@ -17,18 +18,32 @@ export class EventsDispatcher {
   public add<K extends keyof EzEvents>(type: K, event: EventCallback<K>): EventCallback<K> {
     if (!this.listeners[type]) {
       this.listeners[type] = [];
-      if (type === 'positionchange' || type === 'scalechange') {
-        applyObject3DVector3Patch(this.parent);
-      } else if (type === 'rotationchange') {
-        applyObject3DRotationPatch(this.parent);
-      } else if (type === 'drop' || type === 'dragenter' || type === 'dragleave' || type === 'dragover') {
-        this.parent.__isDropTarget = true;
+
+      switch (type) {
+        case 'positionchange':
+          patchPosition(this.parent);
+          break;
+        case 'scalechange':
+          patchScale(this.parent);
+          break;
+        case 'rotationchange':
+          applyObject3DRotationPatch(this.parent);
+          break;
+        case 'drop':
+        case 'dragenter':
+        case 'dragleave':
+        case 'dragover':
+          this.parent.__isDropTarget = true;
+          break;
       }
     }
-    if (this.listeners[type].indexOf(event) < 0) {
+
+    if (this.listeners[type].indexOf(event) === -1) {
       this.listeners[type].push(event);
     }
-    EventsCache.push(type, this.parent);
+
+    register(type, this.parent);
+
     return event;
   }
 

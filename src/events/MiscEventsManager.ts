@@ -7,16 +7,16 @@ const miscEvents: (keyof EzMiscEvents)[] = ['viewportresize', 'beforeanimate', '
 const allowedEventsSet = new Set<keyof EzEvents>(miscEvents);
 
 /** @internal */
-export function push(type: keyof EzEvents, target: Object3D): void {
+export function register(type: keyof EzEvents, target: Object3D): void {
   const scene = target.scene;
 
   if (scene && allowedEventsSet.has(type)) {
-    pushScene(scene, type, target);
+    registerToScene(scene, type, target);
   }
 }
 
 /** @internal */
-export function update(target: Object3D): void {
+export function registerAll(target: Object3D): void {
   const listeners = target.__eventsDispatcher.listeners;
   const scene = target.scene;
 
@@ -24,12 +24,12 @@ export function update(target: Object3D): void {
     const eventsCount = listeners[type]?.length ?? 0;
 
     if (eventsCount > 0) {
-      pushScene(scene, type, target);
+      registerToScene(scene, type, target);
     }
   }
 }
 
-function pushScene(scene: Scene, type: keyof EzEvents, target: Object3D): void {
+function registerToScene(scene: Scene, type: keyof EzEvents, target: Object3D): void {
   scene.__registeredEventsObjects ??= {};
   const registeredEventsObjects = scene.__registeredEventsObjects;
   registeredEventsObjects[type] ??= new Set();
@@ -37,7 +37,7 @@ function pushScene(scene: Scene, type: keyof EzEvents, target: Object3D): void {
 }
 
 /** @internal */
-export function removeAll(target: Object3D): void {
+export function unregisterAll(target: Object3D): void {
   const registeredEventsObjects = target.scene?.__registeredEventsObjects;
 
   if (registeredEventsObjects) {
@@ -48,7 +48,7 @@ export function removeAll(target: Object3D): void {
 }
 
 /** @internal */
-export function remove(type: keyof EzEvents, target: Object3D): void {
+export function unregister(type: keyof EzEvents, target: Object3D): void {
   const registeredEventsObjects = target.scene?.__registeredEventsObjects;
 
   if (registeredEventsObjects) {
@@ -57,7 +57,7 @@ export function remove(type: keyof EzEvents, target: Object3D): void {
 }
 
 /** @internal */
-export function dispatchEvent<K extends keyof EzMiscEvents>(scene: Scene, type: K, event?: EzEvents[K]): void {
+export function dispatchMiscEvent<K extends keyof EzMiscEvents>(scene: Scene, type: K, event?: EzEvents[K]): void {
   const registeredEventsObjects = scene.__registeredEventsObjects;
 
   if (registeredEventsObjects?.[type]) {
@@ -68,7 +68,7 @@ export function dispatchEvent<K extends keyof EzMiscEvents>(scene: Scene, type: 
 }
 
 /** @internal */
-export function dispatchEventExcludeCameras<K extends keyof EzMiscEvents>(scene: Scene, type: K, event?: EzEvents[K]): void {
+export function dispatchMiscEventExcludeCameras<K extends keyof EzMiscEvents>(scene: Scene, type: K, event?: EzEvents[K]): void {
   const registeredEventsObjects = scene.__registeredEventsObjects;
 
   if (registeredEventsObjects?.[type]) {
