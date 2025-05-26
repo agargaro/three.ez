@@ -1,6 +1,6 @@
 import { Object3D, PerspectiveCamera, Raycaster, Vector2 } from 'three';
 import { RenderManager } from '../rendering/RenderManager.js';
-import { IntersectionExt } from './Events.js';
+import { EzIntersection } from './Events.js';
 import { Hitbox } from './Hitbox.js';
 
 /**
@@ -9,12 +9,12 @@ import { Hitbox } from './Hitbox.js';
  * @param b - The second intersection to compare.
  * @returns A negative value if `a` should precede `b`, a positive value if `b` should precede `a`, or zero if their order is indeterminate.
  */
-export type RaycasterSortComparer = (a: IntersectionExt, b: IntersectionExt) => number;
+export type RaycasterSortComparer = (a: EzIntersection, b: EzIntersection) => number;
 
 /** @internal */
 export class RaycasterManager {
   public raycaster = new Raycaster();
-  public raycasterSortComparer: RaycasterSortComparer = (a: IntersectionExt, b: IntersectionExt) => a.distance - b.distance;
+  public raycasterSortComparer: RaycasterSortComparer = (a: EzIntersection, b: EzIntersection) => a.distance - b.distance;
   public pointer = new Vector2();
   public pointerOnCanvas = false;
   private _computedPointer = new Vector2();
@@ -24,8 +24,8 @@ export class RaycasterManager {
     this._renderManager = renderManager;
   }
 
-  public getIntersections(event: PointerEvent, isDragging: boolean, excluded?: Object3D): IntersectionExt[] {
-    const intersections: IntersectionExt[] = [];
+  public getIntersections(event: PointerEvent, isDragging: boolean, excluded?: Object3D): EzIntersection[] {
+    const intersections: EzIntersection[] = [];
     const canvasBounds = this._renderManager.renderer.domElement.getBoundingClientRect();
     this.pointer.set(event.clientX - canvasBounds.left, event.clientY - canvasBounds.top);
     if (this.getComputedMousePosition(this.pointer, this._computedPointer, isDragging, event.isPrimary)) {
@@ -52,7 +52,7 @@ export class RaycasterManager {
     return true;
   }
 
-  private raycastObjects(object: Object3D, target: IntersectionExt[], excluded?: Object3D): IntersectionExt[] {
+  private raycastObjects(object: Object3D, target: EzIntersection[], excluded?: Object3D): EzIntersection[] {
     if (object === excluded) return;
 
     if (object.interceptByRaycaster && object.visible) {

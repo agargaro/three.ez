@@ -1,8 +1,7 @@
 import { Object3D, Scene } from 'three';
 import { EventsCache } from '../events/MiscEventsManager.js';
 import { activeSmartRendering, applySmartRenderingPatch, removeSmartRenderingPatch } from './SmartRendering.js';
-import { Binding } from '../binding/Binding.js';
-import { FocusEventExt, IntersectionExt } from '../events/Events.js';
+import { EzFocusEvent, EzIntersection } from '../events/Events.js';
 import { addBase, removeBase } from './Object3D.js';
 import { EventsDispatcher } from '../events/EventsDispatcher.js';
 import { INTERACTION_DEFAULT } from '../events/InteractionDefault.js';
@@ -11,8 +10,9 @@ import { INTERACTION_DEFAULT } from '../events/InteractionDefault.js';
  * Represents the prototype for extending Scene functionality.
  */
 export interface SceneExtPrototype {
-  /** @internal */ __boundObjects: Set<Object3D>;
-  /** @internal */ __smartRendering: boolean;
+  /** @internal */ __registeredEventsObjects: { [x: string]: Set<Object3D> } | undefined;
+  /** @internal */ __boundObjects: Set<Object3D> | undefined;
+  /** @internal */ __smartRendering: boolean | undefined;
   /**
      * A flag indicating whether continuous raycasting is enabled (default: false).
      * When set to true, main raycasting occurs every frame, while false triggers raycasting only upon mouse movement.
@@ -26,9 +26,9 @@ export interface SceneExtPrototype {
      */
   continuousRaycastingDropTarget: boolean;
   /** An array of intersections computed from the pointer (primary pointer only). */
-  intersections: IntersectionExt[];
+  intersections: EzIntersection[];
   /** An array of intersections computed from the pointer if an object is dragged and has 'findDropTarget' set to true (primary pointer only). */
-  intersectionsDropTarget: IntersectionExt[];
+  intersectionsDropTarget: EzIntersection[];
   /** A reference to the currently focused Object3D within the scene. */
   focusedObject: Object3D;
   /**
@@ -73,14 +73,14 @@ Scene.prototype.focus = function (target?: Object3D): void {
 
     if (oldFocusedObj?.enabledState) {
       oldFocusedObj.__focused = false;
-      oldFocusedObj.__eventsDispatcher.dispatchDOMAncestor('blur', new FocusEventExt(focusableObj));
-      oldFocusedObj.__eventsDispatcher.dispatchDOM('focusout', new FocusEventExt(focusableObj));
+      oldFocusedObj.__eventsDispatcher.dispatchDOMAncestor('blur', new EzFocusEvent(focusableObj));
+      oldFocusedObj.__eventsDispatcher.dispatchDOM('focusout', new EzFocusEvent(focusableObj));
     }
 
     if (focusableObj) {
       focusableObj.__focused = true;
-      focusableObj.__eventsDispatcher.dispatchDOMAncestor('focus', new FocusEventExt(oldFocusedObj));
-      focusableObj.__eventsDispatcher.dispatchDOM('focusin', new FocusEventExt(oldFocusedObj));
+      focusableObj.__eventsDispatcher.dispatchDOMAncestor('focus', new EzFocusEvent(oldFocusedObj));
+      focusableObj.__eventsDispatcher.dispatchDOM('focusin', new EzFocusEvent(oldFocusedObj));
     }
 
     this.needsRender = true;

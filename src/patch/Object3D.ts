@@ -2,7 +2,7 @@ import { Object3D, Scene } from 'three';
 import { Binding, BindingCallback } from '../binding/Binding.js';
 import { Cursor } from '../events/CursorManager.js';
 import { INTERACTION_DEFAULT } from '../events/InteractionDefault.js';
-import { Events, InteractionEvents } from '../events/Events.js';
+import { EzEvents, EzInteractionEvents } from '../events/Events.js';
 import { EventsDispatcher } from '../events/EventsDispatcher.js';
 import { Hitbox } from '../events/Hitbox.js';
 import { Tween } from '../tweening/Tween.js';
@@ -21,8 +21,6 @@ export interface Object3DExtPrototype {
   /** @internal */ __boundCallbacks: BindingCallback[] | undefined;
   /** @internal */ __manualDetection: boolean;
   /** @internal */ __eventsDispatcher: EventsDispatcher;
-  /** @internal */ __vec3Patched: boolean;
-  /** @internal */ __smartRenderingPatched: boolean;
   /** @internal */ __enabled: boolean;
   /** @internal */ __visible: boolean;
   /** @internal */ __hovered: boolean;
@@ -99,32 +97,32 @@ export interface Object3DExtPrototype {
    * @param listener - The callback function to execute when the event occurs.
    * @returns A function to remove the event listener.
    */
-  on<K extends keyof Events>(type: K | K[], listener: (this: this, event?: Events[K]) => void): (event?: Events[K]) => void;
+  on<K extends keyof EzEvents>(type: K | K[], listener: (this: this, event?: EzEvents[K]) => void): (event?: EzEvents[K]) => void;
   /**
    * Checks if the object has a specific event listener.
    * @param type - The type of event to check for.
    * @param listener - The callback function to check.
    * @returns `true` if the event listener is attached; otherwise, `false`.
    */
-  hasEvent<K extends keyof Events>(type: K, listener: (event?: Events[K]) => void): boolean;
+  hasEvent<K extends keyof EzEvents>(type: K, listener: (event?: EzEvents[K]) => void): boolean;
   /**
    * Removes an event listener from the object.
    * @param type - The type of event to remove the listener from.
    * @param listener - The callback function to remove.
    */
-  off<K extends keyof Events>(type: K, listener: (event?: Events[K]) => void): void;
+  off<K extends keyof EzEvents>(type: K, listener: (event?: EzEvents[K]) => void): void;
   /**
    * Triggers a specific event on the object.
    * @param type - The type of event to trigger.
    * @param event - Optional event data to pass to the listeners.
    */
-  trigger<K extends keyof Events>(type: K, event?: Events[K]): void;
+  trigger<K extends keyof EzEvents>(type: K, event?: EzEvents[K]): void;
   /**
    * Triggers a specific event on the object and all its ancestors.
    * @param type - The type of event to trigger.
    * @param event - Optional event data to pass to the listeners.
    */
-  triggerAncestor<K extends keyof InteractionEvents>(type: K, event?: InteractionEvents[K]): void;
+  triggerAncestor<K extends keyof EzInteractionEvents>(type: K, event?: EzInteractionEvents[K]): void;
   /**
    * Activates manual detection mode for bindings.
    * When this method is used, all bindings will no longer be calculated automatically.
@@ -264,7 +262,7 @@ Object.defineProperty(Object3D.prototype, 'isDragging', {
   }
 });
 
-Object3D.prototype.on = function <K extends keyof Events>(this: Object3D, types: K | K[], listener: (event: Events[K]) => void): (event: Events[K]) => void {
+Object3D.prototype.on = function <K extends keyof EzEvents>(this: Object3D, types: K | K[], listener: (event: EzEvents[K]) => void): (event: EzEvents[K]) => void {
   if (typeof types === 'string') {
     return this.__eventsDispatcher.add(types, listener);
   }
@@ -274,19 +272,19 @@ Object3D.prototype.on = function <K extends keyof Events>(this: Object3D, types:
   return listener;
 };
 
-Object3D.prototype.hasEvent = function <K extends keyof Events>(type: K, listener: (event: Events[K]) => void): boolean {
+Object3D.prototype.hasEvent = function <K extends keyof EzEvents>(type: K, listener: (event: EzEvents[K]) => void): boolean {
   return this.__eventsDispatcher.has(type, listener);
 };
 
-Object3D.prototype.off = function <K extends keyof Events>(type: K, listener: (event: Events[K]) => void): void {
+Object3D.prototype.off = function <K extends keyof EzEvents>(type: K, listener: (event: EzEvents[K]) => void): void {
   this.__eventsDispatcher.remove(type, listener);
 };
 
-Object3D.prototype.trigger = function <T extends keyof Events>(type: T, event?: Events[T]): void {
+Object3D.prototype.trigger = function <T extends keyof EzEvents>(type: T, event?: EzEvents[T]): void {
   this.__eventsDispatcher.dispatchManual(type, event);
 };
 
-Object3D.prototype.triggerAncestor = function <T extends keyof Events>(type: T, event?: Events[T]): void {
+Object3D.prototype.triggerAncestor = function <T extends keyof EzEvents>(type: T, event?: EzEvents[T]): void {
   this.__eventsDispatcher.dispatchAncestorManual(type, event);
 };
 

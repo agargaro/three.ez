@@ -2,7 +2,7 @@ import { Object3D, Scene } from 'three';
 import { applyObject3DRotationPatch, applyObject3DVector3Patch } from './Object3D.js';
 import { setVec3ChangeCallback, setVec3ChangeCallbackSR } from './Vector3.js';
 import { setQuatChangeCallback, setQuatChangeCallbackSR } from './Quaternion.js';
-import { onChangeEuler, setEulerChangeCallbackSR } from './Euler.js';
+import { setEulerChangeCallback, setEulerChangeCallbackSR } from './Euler.js';
 
 /** @internal */
 export function applySmartRenderingPatch(target: Object3D): void {
@@ -16,7 +16,7 @@ export function removeSmartRenderingPatch(target: Object3D): void {
   if (target.__smartRenderingPatched) {
     setVec3ChangeCallback(target);
     setQuatChangeCallback(target);
-    onChangeEuler(target);
+    setEulerChangeCallback(target);
     restoreVisible(target);
     target.__smartRenderingPatched = false;
   }
