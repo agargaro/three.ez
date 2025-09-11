@@ -1,72 +1,80 @@
 import { Camera, Object3D, Scene } from 'three';
-import { Events, MiscEvents } from './Events.js';
+import { EzEvents, EzMiscEvents } from './Events.js';
 
-type SceneEventsCache = { [x: string]: Set<Object3D> };
+// TODO: we can use a distincArray instead of Set
+
+const miscEvents: (keyof EzMiscEvents)[] = ['viewportresize', 'beforeanimate', 'animate', 'afteranimate'];
+const allowedEventsSet = new Set<keyof EzEvents>(miscEvents);
 
 /** @internal */
-export class EventsCache {
-  private static readonly _allowedEventsSet = new Set<keyof Events>(['viewportresize', 'beforeanimate', 'animate', 'afteranimate'] as (keyof MiscEvents)[]);
-  private static _events: { [x: number]: SceneEventsCache } = {};
+export function register(type: keyof EzEvents, target: Object3D): void {
+  const scene = target.scene;
 
-  public static push(type: keyof Events, target: Object3D): void {
-    const scene = target.scene;
-    if (scene && this._allowedEventsSet.has(type)) {
-      this.pushScene(scene, type, target);
+  if (scene && allowedEventsSet.has(type)) {
+    registerToScene(scene, type, target);
+  }
+}
+
+/** @internal */
+export function registerAll(target: Object3D): void {
+  const listeners = target.__eventsDispatcher.listeners;
+  const scene = target.scene;
+
+  for (const type of miscEvents) {
+    const eventsCount = listeners[type]?.length ?? 0;
+
+    if (eventsCount > 0) {
+      registerToScene(scene, type, target);
     }
   }
+}
 
-  public static update(target: Object3D): void {
-    this.updateEvent(target, 'viewportresize');
-    this.updateEvent(target, 'beforeanimate');
-    this.updateEvent(target, 'animate');
-    this.updateEvent(target, 'afteranimate');
-  }
+function registerToScene(scene: Scene, type: keyof EzEvents, target: Object3D): void {
+  scene.__registeredEventsObjects ??= {};
+  const registeredEventsObjects = scene.__registeredEventsObjects;
+  registeredEventsObjects[type] ??= new Set();
+  registeredEventsObjects[type].add(target);
+}
 
-  private static updateEvent(target: Object3D, name: keyof Events): void {
-    if (target.__eventsDispatcher.listeners[name]?.length > 0) {
-      this.pushScene(target.scene, name, target);
+/** @internal */
+export function unregisterAll(target: Object3D): void {
+  const registeredEventsObjects = target.scene?.__registeredEventsObjects;
+
+  if (registeredEventsObjects) {
+    for (const type in registeredEventsObjects) {
+      registeredEventsObjects[type].delete(target);
     }
   }
+}
 
-  private static pushScene(scene: Scene, type: keyof Events, target: Object3D): void {
-    const sceneCache = this._events[scene.id] ?? (this._events[scene.id] = {});
-    const eventCache = sceneCache[type] ?? (sceneCache[type] = new Set());
-    eventCache.add(target);
+/** @internal */
+export function unregister(type: keyof EzEvents, target: Object3D): void {
+  const registeredEventsObjects = target.scene?.__registeredEventsObjects;
+
+  if (registeredEventsObjects) {
+    registeredEventsObjects[type]?.delete(target);
   }
+}
 
-  public static removeAll(target: Object3D): void {
-    const sceneCache = this._events[target.scene?.id];
-    if (sceneCache) {
-      for (const key in sceneCache) {
-        const eventCache = sceneCache[key];
-        eventCache.delete(target);
-      }
+/** @internal */
+export function dispatchMiscEvent<K extends keyof EzMiscEvents>(scene: Scene, type: K, event?: EzEvents[K]): void {
+  const registeredEventsObjects = scene.__registeredEventsObjects;
+
+  if (registeredEventsObjects?.[type]) {
+    for (const target of registeredEventsObjects[type]) {
+      target.__eventsDispatcher.dispatch(type, event);
     }
   }
+}
 
-  public static remove(type: keyof Events, target: Object3D): void {
-    const sceneCache = this._events[target.scene?.id];
-    if (sceneCache) {
-      sceneCache[type]?.delete(target);
-    }
-  }
+/** @internal */
+export function dispatchMiscEventExcludeCameras<K extends keyof EzMiscEvents>(scene: Scene, type: K, event?: EzEvents[K]): void {
+  const registeredEventsObjects = scene.__registeredEventsObjects;
 
-  public static dispatchEvent<K extends keyof MiscEvents>(scene: Scene, type: K, event?: Events[K]): void {
-    const sceneCache = this._events[scene?.id];
-    if (sceneCache?.[type]) {
-      for (const target of sceneCache[type]) {
+  if (registeredEventsObjects?.[type]) {
+    for (const target of registeredEventsObjects[type]) {
+      if (!(target as Camera).isCamera) {
         target.__eventsDispatcher.dispatch(type, event);
-      }
-    }
-  }
-
-  public static dispatchEventExcludeCameras<K extends keyof MiscEvents>(scene: Scene, type: K, event?: Events[K]): void {
-    const sceneCache = this._events[scene?.id];
-    if (sceneCache?.[type]) {
-      for (const target of sceneCache[type]) {
-        if (!(target as Camera).isCamera) {
-          target.__eventsDispatcher.dispatch(type, event);
-        }
       }
     }
   }

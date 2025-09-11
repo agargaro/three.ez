@@ -33,7 +33,7 @@ export class OrthographicCameraAuto extends OrthographicCamera {
      * @param near Camera frustum near plane. Default `0.1`.
      * @param far Camera frustum far plane. Default `2000`.
      */
-  constructor(size = 2, fixedWidth = true, near?: number, far?: number) {
+  constructor(size = 2, fixedWidth = true, near = 0.1, far = 2000) {
     super(-1, 1, 1, -1, near, far);
     this._size = size;
     this._fixedWidth = fixedWidth;

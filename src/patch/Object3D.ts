@@ -1,28 +1,21 @@
 import { Object3D, Scene } from 'three';
-import { Binding, BindingCallback } from '../binding/Binding.js';
 import { Cursor } from '../events/CursorManager.js';
-import { Default } from '../events/Default.js';
-import { Events, InteractionEvents } from '../events/Events.js';
+import { INTERACTION_DEFAULT } from '../events/InteractionDefault.js';
+import { EzEvents, EzInteractionEvents } from '../events/Events.js';
 import { EventsDispatcher } from '../events/EventsDispatcher.js';
 import { Hitbox } from '../events/Hitbox.js';
-import { Tween } from '../tweening/Tween.js';
-import { querySelector, querySelectorAll } from '../utils/Query.js';
-import { applyEulerPatch } from './Euler.js';
-import { applyMatrix4Patch } from './Matrix4.js';
-import { applyQuaternionPatch } from './Quaternion.js';
+import { patchRotation } from './Euler.js';
+import { patchQuaternion } from './Quaternion.js';
 import { removeSceneReference, setSceneReference } from './Scene.js';
-import { applyVec3Patch } from './Vector3.js';
+import { patchPosition, patchScale } from './Vector3.js';
+
+// TODO: override matrix4 prototype to use new props like _x instead of x?
 
 /**
  * Represents the prototype for extended Object3D functionality.
  */
 export interface Object3DExtPrototype {
-  /** @internal */ __boundCallbacks: BindingCallback[];
-  /** @internal */ __manualDetection: boolean;
   /** @internal */ __eventsDispatcher: EventsDispatcher;
-  /** @internal */ __vec3Patched: boolean;
-  /** @internal */ __rotationPatched: boolean;
-  /** @internal */ __smartRenderingPatched: boolean;
   /** @internal */ __enabled: boolean;
   /** @internal */ __visible: boolean;
   /** @internal */ __hovered: boolean;
@@ -30,9 +23,9 @@ export interface Object3DExtPrototype {
   /** @internal */ __clicking: boolean;
   /** @internal */ __dragging: boolean;
   /** @internal */ __isDropTarget: boolean;
-  /** @internal */ __baseVisibleDescriptor: PropertyDescriptor;
-  /** @internal */ __onChangeBaseEuler: () => void;
-  /** @internal */ __onChangeBaseQuat: () => void;
+  /** @internal */ __baseVisibleDescriptor: PropertyDescriptor | undefined;
+  /** @internal */ __onChangeEulerBase: (() => void) | null;
+  /** @internal */ __onChangeQuaternionBase: (() => void) | null;
   /**
    * Determines if the object is enabled. Default is `true`.
    * If set to true, it allows triggering all InteractionEvents; otherwise, events are disabled.
@@ -40,31 +33,37 @@ export interface Object3DExtPrototype {
   enabled: boolean;
   /**
    * Determines if the **object** and **all of its children** can be intercepted by the main raycaster.
-   * @default DEFAULT_INTERCEPT_BY_RAYCASTER (true).
+   * @default INTERACTION_DEFAULT.interceptByRaycaster (true).
    */
   interceptByRaycaster: boolean;
   /** Array of hitboxes for collision detection. */
-  hitboxes: Hitbox[];
+  hitboxes: Hitbox[] | undefined;
   /** Indicates which object will be dragged instead of this one. */
-  dragTarget: Object3D;
-  /** Indicates whether the object can receive focus. Default is DEFAULT_FOCUSABLE (`true`). */
+  dragTarget: Object3D | undefined;
+  /**
+   * Indicates whether the object can receive focus.
+   * @default INTERACTION_DEFAULT.focusable (true).
+   */
   focusable: boolean;
-  /** Indicates whether the object is draggable. Default is DEFAULT_DRAGGABLE (`false`). */
+  /**
+   * Indicates whether the object is draggable.
+   * @default INTERACTION_DEFAULT.draggable (false).
+   */
   draggable: boolean;
   /** Determines when the object is dragged, whether it will have to search for any drop targets. Default is `false`. */
   findDropTarget: boolean;
   /** Reference to the scene the object belongs to. */
   scene: Scene;
   /** Cursor style when interacting with the object. */
-  cursor: Cursor;
+  cursor: Cursor | undefined;
   /** Cursor style when dragging the object. */
-  cursorDrag: Cursor;
+  cursorDrag: Cursor | undefined;
   /** Cursor style when dropping an object onto this one. */
-  cursorDrop: Cursor;
+  cursorDrop: Cursor | undefined;
   /** Indicates whether the scene needs rendering. */
   needsRender: boolean;
   /** Indicates the tags to be searched using the querySelector and `querySelectorAll` methods. */
-  tags: Set<string>;
+  tags: Set<string> | undefined;
   /** Indicates if the primary pointer is over this object. */
   get hovered(): boolean;
   /** Indicates if the object is currently focused. */
@@ -78,7 +77,7 @@ export interface Object3DExtPrototype {
   /** Retrieves the combined visibility state considering parent objects. */
   get visibilityState(): boolean;
   /** Retrieves the first possible focusable object. */
-  get firstFocusable(): Object3D;
+  get firstFocusable(): Object3D | null;
   /**
    * Applies focus to the object.
    */
@@ -93,32 +92,32 @@ export interface Object3DExtPrototype {
    * @param listener - The callback function to execute when the event occurs.
    * @returns A function to remove the event listener.
    */
-  on<K extends keyof Events>(type: K | K[], listener: (this: this, event?: Events[K]) => void): (event?: Events[K]) => void;
+  on<K extends keyof EzEvents>(type: K | K[], listener: (this: this, event?: EzEvents[K]) => void): (event?: EzEvents[K]) => void;
   /**
    * Checks if the object has a specific event listener.
    * @param type - The type of event to check for.
    * @param listener - The callback function to check.
    * @returns `true` if the event listener is attached; otherwise, `false`.
    */
-  hasEvent<K extends keyof Events>(type: K, listener: (event?: Events[K]) => void): boolean;
+  hasEvent<K extends keyof EzEvents>(type: K, listener: (event?: EzEvents[K]) => void): boolean;
   /**
    * Removes an event listener from the object.
    * @param type - The type of event to remove the listener from.
    * @param listener - The callback function to remove.
    */
-  off<K extends keyof Events>(type: K, listener: (event?: Events[K]) => void): void;
+  off<K extends keyof EzEvents>(type: K, listener: (event?: EzEvents[K]) => void): void;
   /**
    * Triggers a specific event on the object.
    * @param type - The type of event to trigger.
    * @param event - Optional event data to pass to the listeners.
    */
-  trigger<K extends keyof Events>(type: K, event?: Events[K]): void;
+  trigger<K extends keyof EzEvents>(type: K, event?: EzEvents[K]): void;
   /**
    * Triggers a specific event on the object and all its ancestors.
    * @param type - The type of event to trigger.
    * @param event - Optional event data to pass to the listeners.
    */
-  triggerAncestor<K extends keyof InteractionEvents>(type: K, event?: InteractionEvents[K]): void;
+  triggerAncestor<K extends keyof EzInteractionEvents>(type: K, event?: EzInteractionEvents[K]): void;
   /**
    * Activates manual detection mode for bindings.
    * When this method is used, all bindings will no longer be calculated automatically.
@@ -158,7 +157,7 @@ export interface Object3DExtPrototype {
    * @param query - The query string to match against the Object3D elements.
    * @returns The first Object3D element that matches the query, or undefined if no match is found.
    */
-  querySelector(query: string): Object3D;
+  querySelector(query: string): Object3D | null;
   /**
    * Finds and returns a list of Object3D elements that match the specified query string.
    * This method follows a similar syntax to CSS selectors.
@@ -168,14 +167,6 @@ export interface Object3DExtPrototype {
   querySelectorAll(query: string): Object3D[];
 }
 
-Object3D.prototype.findDropTarget = false;
-Object3D.prototype.__manualDetection = false;
-Object3D.prototype.__focused = false;
-Object3D.prototype.__clicking = false;
-Object3D.prototype.__dragging = false;
-Object3D.prototype.__hovered = false;
-
-Object3D.prototype.__visible = true;
 Object.defineProperty(Object3D.prototype, 'visible', {
   get: function (this: Object3D) { return this.__visible; },
   set: function (this: Object3D, value: boolean) {
@@ -187,7 +178,6 @@ Object.defineProperty(Object3D.prototype, 'visible', {
   configurable: true
 });
 
-Object3D.prototype.__enabled = true;
 Object.defineProperty(Object3D.prototype, 'enabled', {
   get: function (this: Object3D) { return this.__enabled; },
   set: function (this: Object3D, value: boolean) {
@@ -204,7 +194,7 @@ Object.defineProperty(Object3D.prototype, 'enabled', {
 
 Object.defineProperty(Object3D.prototype, 'firstFocusable', {
   get: function (this: Object3D) {
-    let obj = this;
+    let obj: Object3D | null = this;
     while (obj?.focusable === false) {
       obj = obj.parent;
     }
@@ -214,20 +204,20 @@ Object.defineProperty(Object3D.prototype, 'firstFocusable', {
 
 Object.defineProperty(Object3D.prototype, 'enabledState', {
   get: function (this: Object3D) {
-    let obj = this;
+    let obj: Object3D | null = this;
     do {
       if (!obj.enabled) return false;
-    } while (obj = obj.parent);
+    } while ((obj = obj.parent));
     return true;
   }
 });
 
 Object.defineProperty(Object3D.prototype, 'visibilityState', {
   get: function (this: Object3D) {
-    let obj = this;
+    let obj: Object3D | null = this;
     do {
       if (!obj.visible) return false;
-    } while (obj = obj.parent);
+    } while ((obj = obj.parent));
     return true;
   }
 });
@@ -237,8 +227,9 @@ Object.defineProperty(Object3D.prototype, 'needsRender', {
     return this.scene?.needsRender;
   },
   set: function (this: Object3D, value: boolean) {
-    if (!this.scene) return;
-    this.scene.needsRender = value;
+    if (this.scene) {
+      this.scene.needsRender = value;
+    }
   }
 });
 
@@ -266,7 +257,7 @@ Object.defineProperty(Object3D.prototype, 'isDragging', {
   }
 });
 
-Object3D.prototype.on = function <K extends keyof Events>(this: Object3D, types: K | K[], listener: (event: Events[K]) => void): (event: Events[K]) => void {
+Object3D.prototype.on = function <K extends keyof EzEvents>(this: Object3D, types: K | K[], listener: (event: EzEvents[K]) => void): (event: EzEvents[K]) => void {
   if (typeof types === 'string') {
     return this.__eventsDispatcher.add(types, listener);
   }
@@ -276,29 +267,35 @@ Object3D.prototype.on = function <K extends keyof Events>(this: Object3D, types:
   return listener;
 };
 
-Object3D.prototype.hasEvent = function <K extends keyof Events>(type: K, listener: (event: Events[K]) => void): boolean {
+Object3D.prototype.hasEvent = function <K extends keyof EzEvents>(type: K, listener: (event: EzEvents[K]) => void): boolean {
   return this.__eventsDispatcher.has(type, listener);
 };
 
-Object3D.prototype.off = function <K extends keyof Events>(type: K, listener: (event: Events[K]) => void): void {
+Object3D.prototype.off = function <K extends keyof EzEvents>(type: K, listener: (event: EzEvents[K]) => void): void {
   this.__eventsDispatcher.remove(type, listener);
 };
 
-Object3D.prototype.trigger = function <T extends keyof Events>(type: T, event?: Events[T]): void {
+Object3D.prototype.trigger = function <T extends keyof EzEvents>(type: T, event?: EzEvents[T]): void {
   this.__eventsDispatcher.dispatchManual(type, event);
 };
 
-Object3D.prototype.triggerAncestor = function <T extends keyof Events>(type: T, event?: Events[T]): void {
+Object3D.prototype.triggerAncestor = function <T extends keyof EzEvents>(type: T, event?: EzEvents[T]): void {
   this.__eventsDispatcher.dispatchAncestorManual(type, event);
 };
 
 Object.defineProperty(Object3D.prototype, 'userData', { // needed to inject code in constructor
   set: function (this: Object3D, value) {
-    this.focusable = Default.focusable;
-    this.draggable = Default.draggable;
-    this.interceptByRaycaster = Default.interceptByRaycaster;
-    this.tags = new Set();
-    this.__boundCallbacks = [];
+    this.focusable = INTERACTION_DEFAULT.focusable;
+    this.draggable = INTERACTION_DEFAULT.draggable;
+    this.interceptByRaycaster = INTERACTION_DEFAULT.interceptByRaycaster;
+    this.findDropTarget = false;
+    this.__manualDetection = false;
+    this.__focused = false;
+    this.__clicking = false;
+    this.__dragging = false;
+    this.__hovered = false;
+    this.__visible = true;
+    this.__enabled = true;
     this.__eventsDispatcher = new EventsDispatcher(this);
 
     Object.defineProperty(this, 'userData', {
@@ -374,18 +371,13 @@ Object3D.prototype.remove = function (object: Object3D) {
 
 /** @internal */
 export function applyObject3DVector3Patch(target: Object3D): void {
-  if (!target.__vec3Patched) {
-    applyVec3Patch(target);
-    applyMatrix4Patch(target);
-    target.__vec3Patched = true;
-  }
+  patchPosition(target);
+  patchScale(target);
+  // TODO: we can patch matrix4 too?
 }
 
 /** @internal */
 export function applyObject3DRotationPatch(target: Object3D): void {
-  if (!target.__rotationPatched) {
-    applyQuaternionPatch(target);
-    applyEulerPatch(target);
-    target.__rotationPatched = true;
-  }
+  patchQuaternion(target);
+  patchRotation(target);
 }

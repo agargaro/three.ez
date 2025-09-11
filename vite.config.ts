@@ -5,6 +5,11 @@ import { externalizeDeps } from 'vite-plugin-externalize-deps';
 
 export default defineConfig(({ command }) => ({
   publicDir: command === 'build' ? false : 'public',
+  resolve: {
+    alias: {
+      '@three.ez/main': resolve(__dirname, 'src/index.ts')
+    }
+  },
   build: {
     sourcemap: true,
     lib: {

@@ -1,44 +1,65 @@
 import { InstancedMesh, Object3D } from 'three';
 import { applyObject3DRotationPatch, applyObject3DVector3Patch } from '../patch/Object3D.js';
-import { EventExt, Events, InteractionEvents, MiscUpdateEvents, UpdateEvents } from './Events.js';
-import { EventsCache } from './MiscEventsManager.js';
+import { EzEvent, EzEvents, EzInteractionEvents, EzMiscUpdateEvents, EzUpdateEvents } from './Events.js';
+import { EventsCache, register } from './MiscEventsManager.js';
+import { patchPosition, patchScale } from '../patch/Vector3.js';
+
+export type EventCallback<K extends keyof EzEvents> = (event?: EzEvents[K]) => void;
 
 /** @internal */
 export class EventsDispatcher {
   public parent: Object3D;
-  public listeners: { [K in keyof Events]?: ((event?: Events[K]) => void)[] } = {};
+  public listeners: { [K in keyof EzEvents]?: EventCallback<K>[] } = {};
 
   constructor(parent: Object3D) {
     this.parent = parent;
   }
 
-  public add<K extends keyof Events>(type: K, listener: (event: Events[K]) => void): (event: Events[K]) => void {
+  public add<K extends keyof EzEvents>(type: K, event: EventCallback<K>): EventCallback<K> {
     if (!this.listeners[type]) {
       this.listeners[type] = [];
-      if (type === 'positionchange' || type === 'scalechange') {
-        applyObject3DVector3Patch(this.parent);
-      } else if (type === 'rotationchange') {
-        applyObject3DRotationPatch(this.parent);
-      } else if (type === 'drop' || type === 'dragenter' || type === 'dragleave' || type === 'dragover') {
-        this.parent.__isDropTarget = true;
+
+      switch (type) {
+        case 'positionchange':
+          patchPosition(this.parent);
+          break;
+        case 'scalechange':
+          patchScale(this.parent);
+          break;
+        case 'rotationchange':
+          applyObject3DRotationPatch(this.parent);
+          break;
+        case 'drop':
+        case 'dragenter':
+        case 'dragleave':
+        case 'dragover':
+          this.parent.__isDropTarget = true;
+          break;
       }
     }
-    if (this.listeners[type].indexOf(listener) < 0) {
-      this.listeners[type].push(listener);
+
+    if (this.listeners[type].indexOf(event) === -1) {
+      this.listeners[type].push(event);
     }
-    EventsCache.push(type, this.parent);
-    return listener;
+
+    register(type, this.parent);
+
+    return event;
   }
 
-  public has<K extends keyof Events>(type: K, listener: (event: Events[K]) => void): boolean {
-    return this.listeners[type]?.indexOf(listener) > -1;
+  public has<K extends keyof EzEvents>(type: K, event: EventCallback<K>): boolean {
+    const index = this.listeners[type]?.indexOf(event) ?? -1;
+    return index > -1;
   }
 
-  public remove<K extends keyof Events>(type: K, listener: (event: Events[K]) => void): void {
-    const index = this.listeners[type]?.indexOf(listener) ?? -1;
+  public remove<K extends keyof EzEvents>(type: K, event: EventCallback<K>): void {
+    const listener = this.listeners[type];
+    const index = listener?.indexOf(event) ?? -1;
+
     if (index > -1) {
-      this.listeners[type].splice(index, 1);
-      if (this.listeners[type].length === 0) {
+      listener!.splice(index, 1);
+
+      if (listener!.length === 0) {
         EventsCache.remove(type, this.parent);
         this.parent.__isDropTarget = this.isDropTarget();
       }
@@ -51,7 +72,7 @@ export class EventsDispatcher {
       && (l['drop']?.length > 0 || l['dragenter']?.length > 0 || l['dragleave']?.length > 0 || l['dragover']?.length > 0);
   }
 
-  public dispatchDOM<K extends keyof InteractionEvents>(type: K, event: InteractionEvents[K]): void {
+  public dispatchDOM<K extends keyof EzInteractionEvents>(type: K, event: EzInteractionEvents[K]): void {
     event._bubbles = false;
     event._stoppedImmediatePropagation = false;
     event._defaultPrevented = false;
@@ -60,7 +81,7 @@ export class EventsDispatcher {
     this.executeDOM(type, event);
   }
 
-  public dispatchDOMAncestor<K extends keyof InteractionEvents>(type: K, event: InteractionEvents[K]): void {
+  public dispatchDOMAncestor<K extends keyof EzInteractionEvents>(type: K, event: EzInteractionEvents[K]): void {
     let target = this.parent;
     event._bubbles = true;
     event._stoppedImmediatePropagation = false;
@@ -73,7 +94,7 @@ export class EventsDispatcher {
     }
   }
 
-  private executeDOM<K extends keyof InteractionEvents>(type: K, event: InteractionEvents[K]): void {
+  private executeDOM<K extends keyof EzInteractionEvents>(type: K, event: EzInteractionEvents[K]): void {
     if (!this.listeners[type]) return;
     const target = event.currentTarget = this.parent;
     for (const callback of this.listeners[type]) {
@@ -82,14 +103,14 @@ export class EventsDispatcher {
     }
   }
 
-  public dispatch<T extends keyof MiscUpdateEvents>(type: T, event?: MiscUpdateEvents[T]): void {
+  public dispatch<T extends keyof EzMiscUpdateEvents>(type: T, event?: EzMiscUpdateEvents[T]): void {
     if (!this.listeners[type]) return;
     for (const callback of this.listeners[type]) {
       callback.call(this.parent, event as any);
     }
   }
 
-  public dispatchDescendant<T extends keyof UpdateEvents>(type: T, event?: UpdateEvents[T]): void {
+  public dispatchDescendant<T extends keyof EzUpdateEvents>(type: T, event?: EzUpdateEvents[T]): void {
     const target = this.parent;
     target.__eventsDispatcher.dispatch(type, event as any);
     if (!target.children) return;
@@ -98,16 +119,16 @@ export class EventsDispatcher {
     }
   }
 
-  public dispatchManual<T extends keyof Events>(type: T, event?: Events[T]): void {
-    if ((event as EventExt)?.cancelable !== undefined) {
-      return this.dispatchDOM(type as keyof InteractionEvents, event as any);
+  public dispatchManual<T extends keyof EzEvents>(type: T, event?: EzEvents[T]): void {
+    if ((event as EzEvent)?.cancelable !== undefined) {
+      return this.dispatchDOM(type as keyof EzInteractionEvents, event as any);
     }
-    this.dispatch(type as keyof MiscUpdateEvents, event as any);
+    this.dispatch(type as keyof EzMiscUpdateEvents, event as any);
   }
 
-  public dispatchAncestorManual<T extends keyof Events>(type: T, event?: Events[T]): void {
-    if ((event as EventExt)?.cancelable !== undefined) {
-      this.dispatchDOMAncestor(type as keyof InteractionEvents, event as any);
+  public dispatchAncestorManual<T extends keyof EzEvents>(type: T, event?: EzEvents[T]): void {
+    if ((event as EzEvent)?.cancelable !== undefined) {
+      this.dispatchDOMAncestor(type as keyof EzInteractionEvents, event as any);
     }
   }
 }
