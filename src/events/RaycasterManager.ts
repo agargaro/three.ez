@@ -16,9 +16,9 @@ export class RaycasterManager {
   public raycaster = new Raycaster();
   public raycasterSortComparer: RaycasterSortComparer = (a: IntersectionExt, b: IntersectionExt) => a.distance - b.distance;
   public pointer = new Vector2();
-  public pointerOnCanvas = false;
-  private _computedPointer = new Vector2();
-  private _renderManager: RenderManager;
+  public pointerOnCanvas = true; // it's true because the pointerenter event is not fired if the pointer is already on canvas after refresh
+  private readonly _computedPointer = new Vector2();
+  private readonly _renderManager: RenderManager;
 
   constructor(renderManager: RenderManager) {
     this._renderManager = renderManager;
