@@ -14,7 +14,7 @@ export class InteractionManager {
   public queue = new InteractionEventsQueue();
   private _intersection: { [x: string]: IntersectionExt } = {};
   private _intersectionDropTarget: IntersectionExt;
-  private _renderManager: RenderManager;
+  private readonly _renderManager: RenderManager;
   private _primaryIdentifier: number;
   private _pointerDownTarget: { [x: string]: Object3D } = {};
   private _lastPointerDown: { [x: string]: PointerEvent } = {};
@@ -176,7 +176,7 @@ export class InteractionManager {
       }
     }
 
-    this.dragManager.initDrag(event, target, intersection?.instanceId, intersection);
+    this.dragManager.initDrag(event, target, intersection);
   }
 
   private pointerEnter(event: PointerEvent): void {

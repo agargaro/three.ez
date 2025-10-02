@@ -1,25 +1,22 @@
 import { Plane, Matrix4, Vector3, Raycaster, Camera, Object3D } from 'three';
 import { DragEventExt, InteractionEvents, IntersectionExt } from './Events.js';
-import { InstancedMesh2 } from '../instancedMesh/InstancedMesh2.js';
-import { InstancedMeshEntity } from '../instancedMesh/InstancedMeshEntity.js';
 
 /** @internal */
 export class DragAndDropManager {
   public isDragging = false;
   public dragButtons = [0];
-  private _plane = new Plane();
-  private _offset = new Vector3();
-  private _intersection = new Vector3();
-  private _worldPosition = new Vector3();
-  private _inverseMatrix = new Matrix4();
-  private _startPosition = new Vector3();
-  private _originalIntersection = new Vector3();
+  private readonly _plane = new Plane();
+  private readonly _offset = new Vector3();
+  private readonly _intersection = new Vector3();
+  private readonly _worldPosition = new Vector3();
+  private readonly _inverseMatrix = new Matrix4();
+  private readonly _startPosition = new Vector3();
+  private readonly _originalIntersection = new Vector3();
   private _target: Object3D;
-  private _targetInstanced: InstancedMeshEntity;
-  private _targetMatrixWorld = new Matrix4();
+  private readonly _targetMatrixWorld = new Matrix4();
   private _dataTransfer: { [x: string]: any };
   private _lastDropTarget: Object3D;
-  private _raycaster: Raycaster;
+  private readonly _raycaster: Raycaster;
   private _startIntersection: IntersectionExt;
 
   public get target(): Object3D { return this._target; }
@@ -48,13 +45,7 @@ export class DragAndDropManager {
 
     const dragEvent = this.trigger('drag', event, this._target, true, this._intersection, dropTargetIntersection?.object, dropTargetIntersection);
 
-    if (this._targetInstanced) {
-      if (!dragEvent._defaultPrevented && !this._targetInstanced.position.equals(this._intersection)) {
-        this._targetInstanced.position.copy(this._intersection);
-        this._targetInstanced.updateMatrix();
-        this._offset.add(this._originalIntersection.sub(this._targetInstanced.position));
-      }
-    } else if (!dragEvent._defaultPrevented && !this._target.position.equals(this._intersection)) {
+    if (!dragEvent._defaultPrevented && !this._target.position.equals(this._intersection)) {
       this._target.position.copy(this._intersection);
       this._offset.add(this._originalIntersection.sub(this._target.position));
     }
@@ -62,15 +53,9 @@ export class DragAndDropManager {
     this.dropTargetEvent(event, dropTargetIntersection);
   }
 
-  public initDrag(event: PointerEvent, target: Object3D, instanceId: number, intersection: IntersectionExt): void {
+  public initDrag(event: PointerEvent, target: Object3D, intersection: IntersectionExt): void {
     if (this.isDragButton(event) && target?.draggable) {
-      if (instanceId >= 0) {
-        if ((target as InstancedMesh2).isInstancedMesh2 && (target as InstancedMesh2).__enabledStateHovered) {
-          this._targetInstanced = (target as InstancedMesh2).instances[instanceId];
-          this._target = target;
-          this._startIntersection = intersection;
-        }
-      } else if (target.enabledState) {
+      if (target.enabledState) {
         this._target = target.dragTarget ?? target;
         this._startIntersection = intersection;
       }
@@ -78,7 +63,7 @@ export class DragAndDropManager {
   }
 
   public startDragging(event: PointerEvent, camera: Camera): void {
-    const currentTarget = this._targetInstanced ?? this._target;
+    const currentTarget = this._target;
     this._target.__dragging = true;
     this.isDragging = true;
     this._startPosition.copy(currentTarget.position);
@@ -101,12 +86,7 @@ export class DragAndDropManager {
       const cancelEvent = this.trigger('dragcancel', event, this._target, true, undefined, this._lastDropTarget);
       if (cancelEvent._defaultPrevented) return false;
 
-      if (this._targetInstanced) {
-        if (!this._targetInstanced.position.equals(this._startPosition)) {
-          this._targetInstanced.position.copy(this._startPosition);
-          this._targetInstanced.updateMatrix();
-        }
-      } else if (!this._target.position.equals(this._startPosition)) {
+      if (!this._target.position.equals(this._startPosition)) {
         this._target.position.copy(this._startPosition);
       }
 
@@ -122,7 +102,6 @@ export class DragAndDropManager {
     if (!event.isPrimary) return false;
     if (!this.isDragging) {
       this._target = undefined;
-      this._targetInstanced = undefined;
       return false;
     }
 
@@ -141,7 +120,6 @@ export class DragAndDropManager {
     this.isDragging = false;
     this._target.__dragging = false;
     this._target = undefined;
-    this._targetInstanced = undefined;
     this._dataTransfer = undefined;
     this._lastDropTarget = undefined;
   }

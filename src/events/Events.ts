@@ -1,5 +1,4 @@
 import { Camera, Intersection, Object3D, Vector3, WebGLRenderer } from 'three';
-import { InstancedMeshEntity } from '../instancedMesh/InstancedMeshEntity.js';
 import { Hitbox } from './Hitbox.js';
 
 export type MiscUpdateEvents = MiscEvents & UpdateEvents;
@@ -41,7 +40,7 @@ export interface MiscEvents {
  * @typeparam R - The related target type.
  * @typeparam RD - The related target type on drag events.
  */
-export interface InteractionEvents<T = Object3D, R = Object3D, RD = Object3D | InstancedMeshEntity> {
+export interface InteractionEvents<T = Object3D, R = Object3D, RD = Object3D> { // TODO remove generics
   /** Event triggered when a pointer enters the target. */
   pointerover: PointerEventExt<T, R>;
   /** Event triggered when a pointer enters the target (no propagation). */
@@ -250,9 +249,9 @@ export class PointerEventExt<T = Object3D, R = Object3D> extends MouseEventExt<T
 /**
  * Represents a custom extended drag event.
  * @template T - The type of the primary target for the event (default is `Object3D`).
- * @template R - The type of the related target for the event (default is `Object3D` or `InstancedMeshEntity`).
+ * @template R - The type of the related target for the event (default is `Object3D`).
  */
-export class DragEventExt<T = Object3D, R = Object3D | InstancedMeshEntity> extends PointerEventExt<T, R> {
+export class DragEventExt<T = Object3D, R = Object3D> extends PointerEventExt<T, R> { // TODO remove generic
   /** The data that is transferred during a drag and drop interaction. */
   public readonly dataTransfer: { [x: string]: any };
   /** Returns the new position of the dragged object.' */

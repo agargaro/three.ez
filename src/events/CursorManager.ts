@@ -1,5 +1,4 @@
 import { Object3D } from 'three';
-import { InstancedMesh2 } from '../instancedMesh/InstancedMesh2.js';
 
 /** Valid cursor values based on the CSS cursor property. */
 export type CursorsKeys = 'auto' | 'default' | 'none' | 'context-menu' | 'help' | 'pointer' | 'progress' | 'wait' |
@@ -44,9 +43,7 @@ export class CursorHandler {
     if (objDropTarget) return objDropTarget.cursorDrop ?? 'alias';
     if (objDragged) return objDragged.cursorDrag ?? 'grabbing';
     if (objHovered.cursor) return objHovered.cursor;
-    if ((objHovered as InstancedMesh2).isInstancedMesh2) {
-      if (!(objHovered as InstancedMesh2).__enabledStateHovered) return 'default';
-    } else if (!objHovered.enabledState) return 'default';
+    if (!objHovered.enabledState) return 'default';
     return objHovered.draggable ? 'grab' : 'pointer';
   }
 }
